@@ -1,6 +1,0 @@
-name: step_by_step
-description: Forces visible reasoning stages
-template: |
-  Think in clearly numbered steps.
-  Show intermediate reasoning.
-  Do not skip logical transitions.

@@ -1,6 +1,5 @@
 role: tutor
-patterns:
-  - socratic
-  - step_by_step
 task: explain
-temperature: 0.3
+patterns:
+  - step_by_step
+  - socratic

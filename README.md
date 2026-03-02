@@ -35,11 +35,41 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 chmod +x promptctl.py
-sudo ln -s $(pwd)/promptctl.py /usr/local/bin/promptctl
+sudo ln -s "$(pwd)/promptctl.py" /usr/local/bin/promptctl
 ```
 
 Optional (for interactive picker):
 
 ```bash
 sudo apt install fzf
+```
+
+🧪 Usage Examples
+
+List roles:
+
+```bash
+promptctl list roles
+```
+
+Build from agent:
+
+```bash
+promptctl build math_tutor --var input="Explain recursion"
+```
+
+Copy directly:
+
+```bash
+promptctl build math_tutor --var input="Explain recursion" --copy
+```
+
+Manual composition:
+
+```bash
+promptctl compose \
+  --role tutor \
+  --task explain \
+  --pattern step_by_step \
+  --var input="Boolean algebra simplification"
 ```
