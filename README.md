@@ -33,6 +33,13 @@ git clone https://github.com/estebantechdev/promptctl.git
 cd promptctl
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
+chmod +x promptctl.py
 sudo ln -s $(pwd)/promptctl.py /usr/local/bin/promptctl
+```
+
+Optional (for interactive picker):
+
+```bash
+sudo apt install fzf
 ```
