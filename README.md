@@ -44,7 +44,7 @@ Optional (for interactive picker):
 sudo apt install fzf
 ```
 
-## Usage Examples
+## 🧪 Usage Examples
 
 List roles:
 
