@@ -29,8 +29,10 @@ Designed for users who think in systems, not snippets.
 ## Installation
 
 ```bash
-git clone https://github.com/yourname/promptctl.git
+git clone https://github.com/estebantechdev/promptctl.git
 cd promptctl
-chmod +x promptctl.sh
-sudo ln -s $(pwd)/promptctl.sh /usr/local/bin/promptctl
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+sudo ln -s $(pwd)/promptctl.py /usr/local/bin/promptctl
 ```
