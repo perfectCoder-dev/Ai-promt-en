@@ -8,7 +8,7 @@
   <strong>A control plane for composable AI prompting.</strong>
 </p>
 
-## Overview
+## 📖 Overview
 
 promptctl is a modular CLI for composing, managing, and orchestrating reusable AI prompt components.
 
@@ -16,7 +16,7 @@ Instead of storing static snippets, promptctl treats prompts as structured build
 
 Designed for users who think in systems, not snippets.
 
-## Why promptctl?
+ 🧱 Why promptctl?
 
 - 🧱 Modular prompt components
 - 🧠 Role + task + pattern composition
@@ -26,16 +26,36 @@ Designed for users who think in systems, not snippets.
 - ⚡ Terminal-native workflow
 - 🗂 Version-controlled prompts
 
-## Installation
+## ⚙️ Installation
+
+```shell
+# Get the source code
+git clone https://github.com/estebantechdev/promptctl.git
+
+# Enter the project directory
+cd promptctl
+
+# Create virtual environment (optional)
+python3 -m venv .venv
+source .venv/bin/activate  # Activate it
+
+# Install dependencies
+python -m pip install -r requirements.txt
+
+# Make executable
+chmod +x promptctl.py
+
+# Install system-wide
+sudo ln -s "$(pwd)/promptctl.py" /usr/local/bin/promptctl
+```
+
+#### 🐧 Linux Prerequisite (Debian/Ubuntu)
+
+If you are using Debian-based systems (such as Ubuntu) and encounter an error when creating a virtual environment, you may need to install the `venv` package:
 
 ```bash
-git clone https://github.com/estebantechdev/promptctl.git
-cd promptctl
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-chmod +x promptctl.py
-sudo ln -s "$(pwd)/promptctl.py" /usr/local/bin/promptctl
+sudo apt update
+sudo apt install python3-venv
 ```
 
 ## 🧪 Usage Examples
@@ -80,19 +100,106 @@ promptctl compose \
   --var name="John Smith"
 ```
 
-## How To Pass `--var` Values
+## 🔧 Using `--var` Variables
 
-Ensure your template uses correct variable syntax.
+To inject dynamic values into your prompt, your template must reference them using Jinja syntax.
 
-Your task file must contain:
+Your **task file** (inside `tasks/`) must include at least one variable placeholder. For example:
 
-```markdown
-
+```css
 {{ input }}
-
 ```
 
-You can exclude the `--var` parameter to get the prompt without inputs.
+The variable name inside the template must match the key used in the command line.
+
+If you omit the `--var` parameter, the prompt will be generated without injected values. This allows you to preview, copy, or reuse the base prompt structure independently.
+
+## 🔀 Variable Sources
+
+promptctl supports three explicit variable types:
+
+### 1. Literal Variables (--var)
+
+Pass direct text values.
+
+```bash
+promptctl compose \
+  --role tutor \
+  --task explain \
+  --pattern socratic \
+  --var input="Random text"
+```
+
+### 2. Single File (--var-file)
+
+Load variable content from a file.
+
+```bash
+promptctl compose \
+  --role tutor \
+  --task explain \
+  --pattern socratic \
+  --var-file input=requirements.txt
+```
+
+The entire file content becomes the variable value.
+
+### 3. Recursive Directory (--var-dir)
+
+Load all files inside a directory (recursively).
+
+```bash
+promptctl compose \
+  --role tutor \
+  --task explain \
+  --pattern socratic \
+  --var-dir input=./docs \
+  --copy
+```
+
+All file contents are combined into a single variable.
+
+### Combining All Variable Types
+
+You can mix them in the same command:
+
+```bash
+promptctl compose \
+  --role tutor \
+  --task explain \
+  --pattern didactic \
+  --var input="Random text" \
+  --var-file input2=requirements.txt \
+  --var-dir input3=./docs \
+  --copy
+```
+
+This allows complex prompt construction from multiple sources.
+
+#### ⚠️ Variable Overwriting Behavior
+
+If the same variable name is used multiple times, the last one processed will overwrite the previous value.
+
+Processing order: --var, --var-file, --var-dir
+
+Example:
+
+```bash
+promptctl compose \
+  --role tutor \
+  --task explain \
+  --pattern didactic \
+  --var input="Random text" \
+  --var-file input=requirements.txt \
+  --var-dir input=./docs \
+  --copy
+```
+
+#### 💡 Recommended Practice
+
+✔ Use unique variable names  
+✔ Declare expected variables clearly inside your task templates  
+✔ Only reuse names intentionally when overwriting is desired
 
 ## 📘 Tutorials
 
@@ -108,7 +215,7 @@ promptctl is designed to grow through modular contributions.
 
 If you create a useful role, reusable task, or powerful reasoning pattern — consider adding it to the repository and sharing it with others.
 
-## Contributions
+## 🤝 Contributions
 
 Contributions are highly encouraged — especially new modular prompt components.
 
@@ -125,6 +232,6 @@ promptctl becomes more powerful as its library of composable parts grows.
 
 If you’ve built something reusable, open a pull request and help expand the ecosystem.
 
-## License
+## 📜 License
 
 This project is licensed under the [GPL-3.0](LICENSE) - see the [LICENSE](LICENSE) file for details.
