@@ -1,0 +1,4 @@
+- Use clear section headers
+- Use bullet points when possible
+- End with a short summary
+- Avoid unnecessary verbosity
