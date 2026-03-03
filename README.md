@@ -77,7 +77,7 @@ promptctl compose \
   --pattern socratic \
   --pattern step_by_step \
   --var input="Boolean algebra simplification" \
-  --var name="Steven Smith"
+  --var name="John Smith"
 ```
 
 ## How To Pass `--var` Values
@@ -94,9 +94,35 @@ Your task file must contain:
 
 You can exclude the `--var` parameter to get the prompt without inputs.
 
+## 📘 Tutorial
+
+Want a step-by-step guide to creating new roles, tasks, and patterns?
+
+👉 [Read the Tutorial](docs/tutorial.md)
+
+promptctl is designed to grow through modular contributions.
+
+If you create a useful role, reusable task, or powerful reasoning pattern — consider adding it to the repository and sharing it with others.
+
 ## Contributions
 
-Contributions and feedback are welcome! If you have suggestions for improvements or additional tools, feel free to open an issue or submit a pull request.
+Contributions are highly encouraged — especially new modular prompt components.
+
+You can contribute:
+
+- 🧠 New **roles** (teaching styles, expert personas, system behaviors)
+
+- 🎯 New **tasks** (analysis, critique, summarization, transformation, etc.)
+
+- 🧩 New **patterns** (reasoning frameworks, output formats, cognitive constraints)
+
+- 🤖 New **agent presets** that combine existing components
+
+- 📚 Documentation improvements and examples
+
+promptctl becomes more powerful as its library of composable parts grows.
+
+If you’ve built something reusable, open a pull request and help expand the ecosystem.
 
 ## License
 
