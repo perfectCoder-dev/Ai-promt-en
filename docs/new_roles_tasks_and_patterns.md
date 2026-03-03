@@ -8,6 +8,9 @@ We’ll assume your project prompts directory looks like this:
 prompts
 ├── agents
 │   └── math_tutor.yaml
+├── pattern_groups
+│   ├── didactic_structured.yaml
+│   └── didactic.yaml
 ├── patterns
 │   ├── socratic.md
 │   └── step_by_step.md
@@ -40,6 +43,7 @@ You can list available items:
 promptctl list roles
 promptctl list tasks
 promptctl list patterns
+promptctl list pattern_groups
 ```
 
 You should see:
@@ -49,6 +53,8 @@ tutor
 explain
 socratic
 step_by_step
+didactic_structured
+didactic
 ```
 
 ### Step 2: Creating A New Pattern

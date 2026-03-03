@@ -7,8 +7,6 @@ import argparse
 import pyperclip
 from jinja2 import Template
 
-# BASE_DIR = os.path.join(os.path.dirname(__file__), "prompts")
-
 BASE_DIR = os.path.join(
     os.path.dirname(os.path.realpath(__file__)),
     "prompts"
@@ -34,6 +32,48 @@ def load_agent(name):
         return yaml.safe_load(f)
 
 
+def load_pattern_group(name):
+    # pattern groups are stored under prompts/pattern_groups
+    path = os.path.join(
+        BASE_DIR, "pattern_groups", f"{name}.yaml"
+    )
+    if not os.path.exists(path):
+        return None
+    with open(path, "r") as f:
+        return yaml.safe_load(f)
+
+
+# -------------------------
+# Pattern Resolution
+# -------------------------
+
+def resolve_patterns(pattern_list, seen=None):
+    """
+    Expands pattern groups recursively.
+    Prevents infinite loops using `seen`.
+    """
+    if seen is None:
+        seen = set()
+
+    resolved = []
+
+    for pattern in pattern_list or []:
+
+        if pattern in seen:
+            continue
+
+        group = load_pattern_group(pattern)
+
+        if group:
+            seen.add(pattern)
+            subpatterns = group.get("patterns", [])
+            resolved.extend(resolve_patterns(subpatterns, seen))
+        else:
+            resolved.append(pattern)
+
+    return resolved
+
+
 # -------------------------
 # Composition
 # -------------------------
@@ -46,7 +86,9 @@ def compose_from_agent(agent_name):
     parts.append(load_text("roles", agent["role"]))
     parts.append(load_text("tasks", agent["task"]))
 
-    for pattern in agent.get("patterns", []):
+    resolved = resolve_patterns(agent.get("patterns", []))
+
+    for pattern in resolved:
         parts.append(load_text("patterns", pattern))
 
     return "\n\n".join(parts)
@@ -61,9 +103,10 @@ def compose_manual(role, task, patterns):
     if task:
         parts.append(load_text("tasks", task))
 
-    if patterns:
-        for pattern in patterns:
-            parts.append(load_text("patterns", pattern))
+    resolved = resolve_patterns(patterns)
+
+    for pattern in resolved:
+        parts.append(load_text("patterns", pattern))
 
     return "\n\n".join(parts)
 
@@ -82,7 +125,12 @@ def render_prompt(prompt_text, variables):
 # -------------------------
 
 def list_category(category):
-    path = os.path.join(BASE_DIR, category)
+    # support a top‑level “pattern_groups” category for listing
+    if category == "pattern_groups":
+        path = os.path.join(BASE_DIR, "pattern_groups")
+    else:
+        path = os.path.join(BASE_DIR, category)
+
     if not os.path.exists(path):
         print("Category not found.")
         return

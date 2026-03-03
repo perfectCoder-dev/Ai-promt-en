@@ -94,11 +94,15 @@ Your task file must contain:
 
 You can exclude the `--var` parameter to get the prompt without inputs.
 
-## 📘 Tutorial
+## 📘 Tutorials
 
 Want a step-by-step guide to creating new roles, tasks, and patterns?
 
-👉 [Read the Tutorial](docs/tutorial.md)
+👉 [Roles, tasks, and patterns](docs/new_roles_tasks_and_patterns.md)
+
+Complete clean tutorial on how to create and use a pattern group
+
+👉 [Pattern groups](docs/create_and_use_a_pattern_group.md)
 
 promptctl is designed to grow through modular contributions.
 
@@ -111,13 +115,10 @@ Contributions are highly encouraged — especially new modular prompt components
 You can contribute:
 
 - 🧠 New **roles** (teaching styles, expert personas, system behaviors)
-
 - 🎯 New **tasks** (analysis, critique, summarization, transformation, etc.)
-
 - 🧩 New **patterns** (reasoning frameworks, output formats, cognitive constraints)
-
+- 🗂 New **pattern groups** (reusable bundles that combine multiple patterns into higher-level behavioral modes)
 - 🤖 New **agent presets** that combine existing components
-
 - 📚 Documentation improvements and examples
 
 promptctl becomes more powerful as its library of composable parts grows.
