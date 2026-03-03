@@ -38,12 +38,6 @@ chmod +x promptctl.py
 sudo ln -s "$(pwd)/promptctl.py" /usr/local/bin/promptctl
 ```
 
-Optional (for interactive picker):
-
-```bash
-sudo apt install fzf
-```
-
 ## 🧪 Usage Examples
 
 List roles:
@@ -73,3 +67,17 @@ promptctl compose \
   --pattern step_by_step \
   --var input="Boolean algebra simplification"
 ```
+
+## How To Pass `--var` Values
+
+Ensure your template uses correct variable syntax.
+
+Your task file must contain:
+
+```markdown
+
+{{ input }}
+
+```
+
+You can exclude the `--var` parameter to get the prompt without inputs.

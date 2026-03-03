@@ -7,8 +7,12 @@ import argparse
 import pyperclip
 from jinja2 import Template
 
-BASE_DIR = os.path.join(os.path.dirname(__file__), "prompts")
+# BASE_DIR = os.path.join(os.path.dirname(__file__), "prompts")
 
+BASE_DIR = os.path.join(
+    os.path.dirname(os.path.realpath(__file__)),
+    "prompts"
+)
 
 # -------------------------
 # Loaders
