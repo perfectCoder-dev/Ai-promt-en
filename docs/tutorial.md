@@ -99,7 +99,7 @@ You are a precise and analytical technical instructor.
 
 ```
 
-### Step 5.1: Create And Build Your Agent With `build`
+### Step 4.1: Create And Build Your Agent With `build`
 
 ```bash
 touch prompts/agents/cs_instructor.yaml
@@ -124,7 +124,7 @@ promptctl build cs_instructor --var input="Hash Tables"
 
 That’s your reusable agent configuration.
 
-### Step 5.2: Compose Your Prompt With `compose`
+### Step 4.2: Compose Your Prompt With `compose`
 
 ```bash
 promptctl compose \
