@@ -45,6 +45,7 @@ Now run (using compose):
 
 ```bash
 promptctl compose --role tutor --task explain --pattern didactic --var input="Binary Search Trees"
+promptctl compose --role tutor --task explain --pattern didactic --var input="Binary Search Tree" --copy
 ```
 
 ## Result
