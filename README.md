@@ -40,13 +40,13 @@ sudo ln -s "$(pwd)/promptctl.py" /usr/local/bin/promptctl
 
 ## 🧪 Usage Examples
 
-### List roles
+### List Roles
 
 ```bash
 promptctl list roles
 ```
 
-### Build from agent
+### Build From Agent
 
 ```bash
 promptctl build math_tutor --var input="Explain recursion"
@@ -58,7 +58,7 @@ Copy directly:
 promptctl build math_tutor --var input="Explain recursion" --copy
 ```
 
-### Manual composition
+### Manual Composition
 
 ```bash
 promptctl compose \
