@@ -5,16 +5,16 @@ Here’s a practical, hands-on tutorial to create a new prompt example — both 
 We’ll assume your project prompts directory looks like this:
 
 ```bash
-└── prompts
-    ├── agents
-    │   └── math_tutor.yaml
-    ├── patterns
-    │   ├── socratic.md
-    │   └── step_by_step.md
-    ├── roles
-    │   └── tutor.md
-    └── tasks
-        └── explain.md
+prompts
+├── agents
+│   └── math_tutor.yaml
+├── patterns
+│   ├── socratic.md
+│   └── step_by_step.md
+├── roles
+│   └── tutor.md
+└── tasks
+    └── explain.md
 
 ```
 
