@@ -1,6 +1,6 @@
 # New promptctl Prompt Tutorial
 
-Here’s a practical, hands-on tutorial to create a new prompt example using your current structure — both by reusing existing .md files and by adding new ones.
+Here’s a practical, hands-on tutorial to create a new prompt example — both by reusing existing .md files and by adding new ones.
 
 We’ll assume your project prompts directory looks like this:
 
