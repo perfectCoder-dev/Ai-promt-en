@@ -361,35 +361,37 @@ def copy_to_clipboard(text):
 
 def main():
     """
-    Entry point for the `promptctl` command-line interface.
+    Entry point for the promptctl CLI application.
 
-    This function configures and parses CLI arguments using argparse,
-    and dispatches execution based on the selected subcommand.
+    This function:
+    - Defines the command-line interface using argparse.
+    - Supports the following subcommands:
+        - `list <category>`: List available prompts in a category.
+        - `build <agent>`: Build a prompt from a predefined agent configuration.
+        - `compose`: Manually compose a prompt using role, task, and patterns.
 
-    Supported commands:
+    It also supports flexible variable injection through:
+        - --var key=value
+        - --var-file key=filepath
+        - --var-dir key=directory_path (recursively reads all files)
 
-        list <category>
-            Lists available items within the specified category.
+    Variable resolution order:
+        1. Literal variables (--var)
+        2. File-based variables (--var-file)
+        3. Directory-based variables (--var-dir)
 
-        build <agent> [--var key=value] [--copy]
-            Composes a prompt from an agent configuration, optionally
-            renders it with template variables, and either prints the
-            result or copies it to the clipboard.
+    After parsing arguments:
+        - The appropriate prompt is generated.
+        - Variables are collected and merged.
+        - The final prompt is rendered.
+        - Output is either printed to stdout or copied to the clipboard
+          depending on the --copy flag.
 
-        compose [--role ROLE] [--task TASK] [--pattern PATTERN ...]
-                [--var key=value] [--copy]
-            Manually composes a prompt from the provided role, task,
-            and pattern names, optionally renders it with template
-            variables, and either prints the result or copies it to
-            the clipboard.
+    If no valid command is provided, help information is displayed.
 
-    Template variables may be provided multiple times using --var
-    in the format key=value.
-
-    If no valid subcommand is provided, the help message is displayed.
-
-    Returns:
-        None
+    Raises:
+        FileNotFoundError: If a file specified in --var-file does not exist.
+        NotADirectoryError: If a path specified in --var-dir is not a directory.
     """
     parser = argparse.ArgumentParser(prog="promptctl")
 
@@ -402,7 +404,9 @@ def main():
     # build from agent
     build_parser = subparsers.add_parser("build")
     build_parser.add_argument("agent")
-    build_parser.add_argument("--var", action="append", help="Variables (key=value)")
+    build_parser.add_argument("--var", action="append", help="Literal variables (key=value)")
+    build_parser.add_argument("--var-file", action="append", help="Variables from file (key=filepath)")
+    build_parser.add_argument("--var-dir", action="append", help="Variables from directory (key=dirpath)")
     build_parser.add_argument("--copy", action="store_true")
 
     # compose manually
@@ -410,49 +414,93 @@ def main():
     compose_parser.add_argument("--role")
     compose_parser.add_argument("--task")
     compose_parser.add_argument("--pattern", action="append")
-    compose_parser.add_argument("--var", action="append")
+    compose_parser.add_argument("--var", action="append", help="Literal variables (key=value)")
+    compose_parser.add_argument("--var-file", action="append", help="Variables from file (key=filepath)")
+    compose_parser.add_argument("--var-dir", action="append", help="Variables from directory (key=dirpath)")
     compose_parser.add_argument("--copy", action="store_true")
 
+  # ------------------------------------------------------------------
+    # Parse
+    # ------------------------------------------------------------------
     args = parser.parse_args()
 
+    # ------------------------------------------------------------------
+    # List
+    # ------------------------------------------------------------------
     if args.command == "list":
         list_category(args.category)
+        return
 
-    elif args.command == "build":
+    # ------------------------------------------------------------------
+    # Build
+    # ------------------------------------------------------------------
+    if args.command == "build":
         prompt = compose_from_agent(args.agent)
 
-        variables = {}
-        if args.var:
-            for item in args.var:
-                key, value = item.split("=", 1)
-                variables[key] = value
-
-        rendered = render_prompt(prompt, variables)
-
-        if args.copy:
-            copy_to_clipboard(rendered)
-        else:
-            print(rendered)
-
+    # ------------------------------------------------------------------
+    # Compose
+    # ------------------------------------------------------------------
     elif args.command == "compose":
         prompt = compose_manual(args.role, args.task, args.pattern)
 
-        variables = {}
-        if args.var:
-            for item in args.var:
-                key, value = item.split("=", 1)
-                variables[key] = value
-
-        rendered = render_prompt(prompt, variables)
-
-        if args.copy:
-            copy_to_clipboard(rendered)
-        else:
-            print(rendered)
-
     else:
         parser.print_help()
+        return
 
+    # ------------------------------------------------------------------
+    # Variable Processing (NEW DESIGN)
+    # ------------------------------------------------------------------
+    variables = {}
+
+    # 1️⃣ Literal variables
+    if args.var:
+        for item in args.var:
+            key, value = item.split("=", 1)
+            variables[key] = value
+
+    # 2️⃣ Single file variables
+    if args.var_file:
+        for item in args.var_file:
+            key, filepath = item.split("=", 1)
+
+            if not os.path.isfile(filepath):
+                raise FileNotFoundError(f"File not found: {filepath}")
+
+            with open(filepath, "r") as f:
+                variables[key] = f.read()
+
+    # 3️⃣ Recursive directory variables
+    if args.var_dir:
+        for item in args.var_dir:
+            key, dirpath = item.split("=", 1)
+
+            if not os.path.isdir(dirpath):
+                raise NotADirectoryError(f"Not a directory: {dirpath}")
+
+            collected = []
+
+            for root, _, files in os.walk(dirpath):
+                for file in sorted(files):
+                    file_path = os.path.join(root, file)
+
+                    if os.path.isfile(file_path):
+                        with open(file_path, "r") as f:
+                            collected.append(f.read())
+
+            variables[key] = "\n\n".join(collected)
+
+    # ------------------------------------------------------------------
+    # Render
+    # ------------------------------------------------------------------
+    rendered = render_prompt(prompt, variables)
+
+    # ------------------------------------------------------------------
+    # Output
+    # ------------------------------------------------------------------
+    if args.copy:
+        copy_to_clipboard(rendered)
+    else:
+        print(rendered)
 
 if __name__ == "__main__":
     main()
