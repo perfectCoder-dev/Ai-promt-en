@@ -81,3 +81,11 @@ Your task file must contain:
 ```
 
 You can exclude the `--var` parameter to get the prompt without inputs.
+
+## Contributions
+
+Contributions and feedback are welcome! If you have suggestions for improvements or additional tools, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [GPL-3.0](LICENSE) - see the [LICENSE](LICENSE) file for details.
