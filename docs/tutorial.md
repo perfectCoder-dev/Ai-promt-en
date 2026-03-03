@@ -30,7 +30,7 @@ Let’s say we want:
 
 - Structured output
 
-- Topic = "Boolean Algebra simplification"
+- Topic = "Hash Tables"
 
 ### Step 1: Inspect Existing Files
 
@@ -119,7 +119,7 @@ patterns:
 Now you can use:
 
 ```bash
-promptctl build cs_instructor --var topic="Hash Tables"
+promptctl build cs_instructor --var input="Hash Tables"
 ```
 
 That’s your reusable agent configuration.
@@ -132,7 +132,7 @@ promptctl compose \
   --task explain \
   --pattern step_by_step \
   --pattern structured_output \
-  --var input="Boolean Algebra simplification" \
+  --var input="Hash Tables" \
   --copy
 ```
 
