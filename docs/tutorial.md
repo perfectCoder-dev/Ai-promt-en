@@ -51,7 +51,7 @@ socratic
 step_by_step
 ```
 
-### Step 2: Creating a New Pattern
+### Step 2: Creating A New Pattern
 
 ```bash
 touch prompts/patterns/structured_output.md
@@ -67,7 +67,7 @@ Example content:
 
 ```
 
-Verify It Exists:
+Verify it exists:
 
 ```bash
 promptctl list patterns
@@ -98,7 +98,6 @@ You are a precise and analytical technical instructor.
 - Provide definitions before explanations
 
 ```
-
 
 ### Step 5.1: Create And Build Your Agent With `build`
 
