@@ -1,4 +1,38 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+################################################################################
+#                                  promptctl                                   #
+#                                                                              #
+# Composes, manages, and orchestrates reusable AI prompt components            #
+#                                                                              #
+# Change History                                                               #
+# 03/03/2026  Esteban Herrera Original code.                                   #
+#                           Add new history entries as needed.                 #
+#                                                                              #
+#                                                                              #
+################################################################################
+################################################################################
+################################################################################
+#                                                                              #
+#  Copyright (c) 2026-present Esteban Herrera C.                               #
+#  stv.herrera@gmail.com                                                       #
+#                                                                              #
+#  This program is free software; you can redistribute it and/or modify        #
+#  it under the terms of the GNU General Public License as published by        #
+#  the Free Software Foundation; either version 3 of the License, or           #
+#  (at your option) any later version.                                         #
+#                                                                              #
+#  This program is distributed in the hope that it will be useful,             #
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of              #
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               #
+#  GNU General Public License for more details.                                #
+#                                                                              #
+#  You should have received a copy of the GNU General Public License           #
+#  along with this program; if not, write to the Free Software                 #
+#  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA   #
+
+# promptctl.py
+# A modular CLI tool for composing, rendering, and managing structured prompts
+# from reusable building blocks.
 
 import os
 import sys
@@ -7,16 +41,33 @@ import argparse
 import pyperclip
 from jinja2 import Template
 
+# Builds an absolute path to a directory named prompts
 BASE_DIR = os.path.join(
     os.path.dirname(os.path.realpath(__file__)),
     "prompts"
 )
 
-# -------------------------
+# ------------------------------------------------------------------------------
 # Loaders
-# -------------------------
+# ------------------------------------------------------------------------------
 
 def load_text(category, name):
+    """
+    Load and return the contents of a Markdown file from the prompts directory.
+
+    The file is resolved using BASE_DIR, the given category subdirectory,
+    and the provided name (with a `.md` extension).
+
+    Args:
+        category (str): Subdirectory inside the prompts directory.
+        name (str): Name of the Markdown file (without extension).
+
+    Returns:
+        str: The stripped contents of the file.
+
+    Raises:
+        FileNotFoundError: If the constructed file path does not exist.
+    """
     path = os.path.join(BASE_DIR, category, f"{name}.md")
     if not os.path.exists(path):
         raise FileNotFoundError(f"{category}/{name} not found.")
@@ -25,6 +76,23 @@ def load_text(category, name):
 
 
 def load_agent(name):
+    """
+    Load and parse an agent configuration file from the agents directory.
+
+    The function builds the path using BASE_DIR, the "agents" subdirectory,
+    and the provided agent name with a `.yaml` extension. The YAML file
+    is safely parsed and returned as a Python object.
+
+    Args:
+        name (str): The agent configuration filename (without extension).
+
+    Returns:
+        dict | list | Any: The parsed YAML content as a Python data structure.
+
+    Raises:
+        FileNotFoundError: If the specified agent file does not exist.
+        yaml.YAMLError: If the YAML file cannot be parsed.
+    """
     path = os.path.join(BASE_DIR, "agents", f"{name}.yaml")
     if not os.path.exists(path):
         raise FileNotFoundError(f"Agent '{name}' not found.")
@@ -43,9 +111,9 @@ def load_pattern_group(name):
         return yaml.safe_load(f)
 
 
-# -------------------------
+# ------------------------------------------------------------------------------
 # Pattern Resolution
-# -------------------------
+# ------------------------------------------------------------------------------
 
 def resolve_patterns(pattern_list, seen=None):
     """
@@ -74,9 +142,9 @@ def resolve_patterns(pattern_list, seen=None):
     return resolved
 
 
-# -------------------------
+# ------------------------------------------------------------------------------
 # Composition
-# -------------------------
+# ------------------------------------------------------------------------------
 
 def compose_from_agent(agent_name):
     agent = load_agent(agent_name)
@@ -111,18 +179,18 @@ def compose_manual(role, task, patterns):
     return "\n\n".join(parts)
 
 
-# -------------------------
+# ------------------------------------------------------------------------------
 # Rendering
-# -------------------------
+# ------------------------------------------------------------------------------
 
 def render_prompt(prompt_text, variables):
     template = Template(prompt_text)
     return template.render(**variables)
 
 
-# -------------------------
+# ------------------------------------------------------------------------------
 # Utilities
-# -------------------------
+# ------------------------------------------------------------------------------
 
 def list_category(category):
     # support a top‑level “pattern_groups” category for listing
@@ -144,9 +212,9 @@ def copy_to_clipboard(text):
     print("Prompt copied to clipboard.")
 
 
-# -------------------------
+# ------------------------------------------------------------------------------
 # CLI
-# -------------------------
+# ------------------------------------------------------------------------------
 
 def main():
     parser = argparse.ArgumentParser(prog="promptctl")
