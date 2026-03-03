@@ -101,7 +101,23 @@ def load_agent(name):
 
 
 def load_pattern_group(name):
-    # pattern groups are stored under prompts/pattern_groups
+    """
+    Load and parse a pattern group configuration from the pattern_groups directory.
+
+    Pattern group files are expected to be stored under BASE_DIR/prompts/pattern_groups
+    with a `.yaml` extension. If the specified file does not exist, the function
+    returns None instead of raising an exception.
+
+    Args:
+        name (str): The pattern group filename (without extension).
+
+    Returns:
+        dict | list | Any | None: The parsed YAML content as a Python data
+        structure, or None if the file does not exist.
+
+    Raises:
+        yaml.YAMLError: If the YAML file exists but cannot be parsed.
+    """
     path = os.path.join(
         BASE_DIR, "pattern_groups", f"{name}.yaml"
     )
@@ -117,8 +133,25 @@ def load_pattern_group(name):
 
 def resolve_patterns(pattern_list, seen=None):
     """
-    Expands pattern groups recursively.
-    Prevents infinite loops using `seen`.
+    Recursively resolve and expand pattern groups into a flat list of patterns.
+
+    For each entry in `pattern_list`, the function checks whether it refers
+    to a pattern group (via `load_pattern_group`). If so, the group's
+    subpatterns are recursively expanded. If not, the pattern is treated
+    as a leaf and appended to the result.
+
+    A `seen` set is used to track already-visited group names in order
+    to prevent infinite recursion caused by circular references.
+
+    Args:
+        pattern_list (list[str] | None): A list of pattern names or group names
+            to resolve. If None or empty, an empty list is returned.
+        seen (set[str] | None): Internal tracking set of visited group names
+            used to prevent cyclic expansion. Intended for recursive use.
+
+    Returns:
+        list[str]: A flattened list of resolved pattern names with all
+        groups recursively expanded.
     """
     if seen is None:
         seen = set()
@@ -147,6 +180,29 @@ def resolve_patterns(pattern_list, seen=None):
 # ------------------------------------------------------------------------------
 
 def compose_from_agent(agent_name):
+    """
+    Build a composed prompt string from an agent configuration.
+
+    The function loads the specified agent YAML definition, retrieves its
+    associated role and task Markdown files, resolves any declared pattern
+    groups into a flat list of patterns, and loads each corresponding
+    pattern file. All loaded sections are concatenated into a single
+    string separated by blank lines.
+
+    Args:
+        agent_name (str): The agent configuration filename (without extension).
+
+    Returns:
+        str: A fully composed prompt string including role, task,
+        and all resolved pattern contents.
+
+    Raises:
+        FileNotFoundError: If the agent file or any referenced Markdown
+        file (role, task, or pattern) does not exist.
+        yaml.YAMLError: If the agent YAML configuration cannot be parsed.
+        KeyError: If required keys such as "role" or "task" are missing
+        from the agent configuration.
+    """
     agent = load_agent(agent_name)
 
     parts = []
@@ -163,6 +219,36 @@ def compose_from_agent(agent_name):
 
 
 def compose_manual(role, task, patterns):
+    """
+    Manually compose a prompt string from the given role, task, and patterns.
+
+    Unlike `compose_from_agent`, this function does not rely on an agent
+    configuration file. Instead, it directly receives the role name,
+    task name, and a list of pattern or pattern-group names. Pattern
+    groups are recursively resolved before loading their corresponding
+    Markdown files.
+
+    Any provided section (role or task) is included only if it is not None.
+    All loaded sections are concatenated into a single string separated
+    by blank lines.
+
+    Args:
+        role (str | None): The role filename (without extension) located
+            under the "roles" directory.
+        task (str | None): The task filename (without extension) located
+            under the "tasks" directory.
+        patterns (list[str] | None): A list of pattern or pattern-group
+            names to resolve and include.
+
+    Returns:
+        str: A composed prompt string containing the selected role,
+        task, and resolved pattern contents.
+
+    Raises:
+        FileNotFoundError: If any referenced Markdown file does not exist.
+        yaml.YAMLError: If a referenced pattern group exists but cannot
+            be parsed.
+    """
     parts = []
 
     if role:
@@ -184,6 +270,27 @@ def compose_manual(role, task, patterns):
 # ------------------------------------------------------------------------------
 
 def render_prompt(prompt_text, variables):
+    """
+    Render a prompt template using the provided variables.
+
+    The function creates a Template instance from the given prompt text
+    and renders it by injecting the supplied variables as keyword
+    arguments.
+
+    Args:
+        prompt_text (str): The raw template string containing placeholders.
+        variables (dict): A dictionary of values to substitute into the
+            template. Keys must match the placeholder names defined in
+            the template.
+
+    Returns:
+        str: The rendered prompt string with all placeholders replaced.
+
+    Raises:
+        TypeError: If `variables` is not a mapping suitable for unpacking.
+        Exception: Any rendering-related error raised by the Template
+            engine (e.g., undefined variables or syntax issues).
+    """
     template = Template(prompt_text)
     return template.render(**variables)
 
@@ -193,7 +300,24 @@ def render_prompt(prompt_text, variables):
 # ------------------------------------------------------------------------------
 
 def list_category(category):
-    # support a top‑level “pattern_groups” category for listing
+    """
+    List available items within a given content category.
+
+    The function prints the names (without file extensions) of all
+    `.md` and `.yaml` files found inside the specified category
+    directory under BASE_DIR. It also supports a top‑level “pattern_groups” 
+    category for listing top-level category "pattern_groups".
+
+    If the category directory does not exist, a message is printed
+    and the function exits without raising an exception.
+
+    Args:
+        category (str): The name of the category directory to list
+            (e.g., "roles", "tasks", "patterns", or "pattern_groups").
+
+    Returns:
+        None: Results are printed directly to standard output.
+    """
     if category == "pattern_groups":
         path = os.path.join(BASE_DIR, "pattern_groups")
     else:
@@ -208,6 +332,25 @@ def list_category(category):
 
 
 def copy_to_clipboard(text):
+    """
+    Copy the given text to the system clipboard.
+
+    This function uses the `pyperclip` library to place the provided
+    string into the clipboard, making it available for pasting in
+    other applications. A confirmation message is printed after
+    the operation completes.
+
+    Args:
+        text (str): The text content to copy to the clipboard.
+
+    Returns:
+        None: The function performs a side effect (clipboard update)
+        and prints a confirmation message.
+
+    Raises:
+        pyperclip.PyperclipException: If the clipboard operation fails
+        (e.g., missing system dependencies or unsupported platform).
+    """
     pyperclip.copy(text)
     print("Prompt copied to clipboard.")
 
@@ -217,6 +360,37 @@ def copy_to_clipboard(text):
 # ------------------------------------------------------------------------------
 
 def main():
+    """
+    Entry point for the `promptctl` command-line interface.
+
+    This function configures and parses CLI arguments using argparse,
+    and dispatches execution based on the selected subcommand.
+
+    Supported commands:
+
+        list <category>
+            Lists available items within the specified category.
+
+        build <agent> [--var key=value] [--copy]
+            Composes a prompt from an agent configuration, optionally
+            renders it with template variables, and either prints the
+            result or copies it to the clipboard.
+
+        compose [--role ROLE] [--task TASK] [--pattern PATTERN ...]
+                [--var key=value] [--copy]
+            Manually composes a prompt from the provided role, task,
+            and pattern names, optionally renders it with template
+            variables, and either prints the result or copies it to
+            the clipboard.
+
+    Template variables may be provided multiple times using --var
+    in the format key=value.
+
+    If no valid subcommand is provided, the help message is displayed.
+
+    Returns:
+        None
+    """
     parser = argparse.ArgumentParser(prog="promptctl")
 
     subparsers = parser.add_subparsers(dest="command")
