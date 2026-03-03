@@ -1,0 +1,5 @@
+role: technical_instructor
+task: explain
+patterns:
+  - step_by_step
+  - structured_output
