@@ -40,13 +40,13 @@ sudo ln -s "$(pwd)/promptctl.py" /usr/local/bin/promptctl
 
 ## 🧪 Usage Examples
 
-List roles:
+### List roles
 
 ```bash
 promptctl list roles
 ```
 
-Build from agent:
+### Build from agent
 
 ```bash
 promptctl build math_tutor --var input="Explain recursion"
@@ -58,7 +58,7 @@ Copy directly:
 promptctl build math_tutor --var input="Explain recursion" --copy
 ```
 
-Manual composition:
+### Manual composition
 
 ```bash
 promptctl compose \
@@ -66,6 +66,18 @@ promptctl compose \
   --task explain \
   --pattern step_by_step \
   --var input="Boolean algebra simplification"
+```
+
+Including multiple patterns and variables:
+
+```bash
+promptctl compose \
+  --role tutor \
+  --task explain \
+  --pattern socratic \
+  --pattern step_by_step \
+  --var input="Boolean algebra simplification" \
+  --var name="Steven Smith"
 ```
 
 ## How To Pass `--var` Values
