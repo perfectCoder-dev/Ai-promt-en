@@ -1,8 +1,10 @@
 # 🗂 Prompt Composable Elements Reference
 
-The `prompts/` directory contains the core components used to build prompts in promptctl.
+TODO: Intro. Describe what this doc is made for ...
 
 ## Directory Structure
+
+The `prompts/` directory contains the core components used to build prompts in promptctl.
 
 ```bash
 prompts
@@ -13,4 +15,16 @@ prompts
 └── tasks
 ```
 
-## TODO:
+## Agents
+
+
+## PAttern Groups
+
+## Patterns
+
+## Roles
+
+## Tasks
+
+
+
