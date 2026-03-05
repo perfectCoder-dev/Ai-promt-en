@@ -205,17 +205,17 @@ promptctl compose \
 
 Want a step-by-step guide to creating new roles, tasks, and patterns?
 
-🔗 [Roles, tasks, and patterns](docs/new_roles_tasks_and_patterns.md)
+🔗 [Roles, Tasks, And Patterns](docs/new_roles_tasks_and_patterns.md)
 
 Complete clean tutorial on how to create and use a pattern group
 
-🔗 [Pattern groups](docs/create_and_use_a_pattern_group.md)
+🔗 [Pattern Groups](docs/create_and_use_a_pattern_group.md)
 
 ## 🧠 Concepts
 
 Understanding modern prompting frameworks helps you use promptctl more effectively.
 
-🔗 [The Iceberg of Prompting](docs/the_iceberg_of_prompting.md)
+🔗 [The Iceberg Of Prompting](docs/the_iceberg_of_prompting.md)
 
 ## 🤝 Contributions
 

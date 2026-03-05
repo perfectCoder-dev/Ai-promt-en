@@ -1,4 +1,4 @@
-# The Iceberg of Prompting
+# The Iceberg Of Prompting
 
 At first glance, prompting seems simple: ask a question, receive an answer. But what appears effortless on the surface often rests on a much deeper structure beneath it. Like an iceberg, most of the power in effective prompting is hidden from view.
 
