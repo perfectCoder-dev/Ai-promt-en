@@ -211,6 +211,16 @@ Complete clean tutorial on how to create and use a pattern group
 
 🔗 [Pattern Groups](docs/create_and_use_a_pattern_group.md)
 
+## 🗂 Prompt Composable Elements
+
+The `prompts/` directory contains the core components used to build prompts in promptctl.
+
+Each subdirectory represents a specific type of composable element such as roles, tasks, patterns, or agent presets.
+
+See the **complete reference**:
+
+🔗 [Prompt Composable Elements Reference](docs/prompt_composable_elememts_reference.md)
+
 ## 🧠 Concepts
 
 Understanding modern prompting frameworks helps you use promptctl more effectively.
@@ -223,12 +233,12 @@ Contributions are highly encouraged — especially new modular prompt components
 
 You can contribute:
 
-- 🧠 New **roles** (teaching styles, expert personas, system behaviors)
-- 🎯 New **tasks** (analysis, critique, summarization, transformation, etc.)
-- 🧩 New **patterns** (reasoning frameworks, output formats, cognitive constraints)
-- 🗂 New **pattern groups** (reusable bundles that combine multiple patterns into higher-level behavioral modes)
-- 🤖 New **agent presets** that combine existing components
-- 📚 Documentation improvements and examples
+- New **roles** (teaching styles, expert personas, system behaviors)
+- New **tasks** (analysis, critique, summarization, transformation, etc.)
+- New **patterns** (reasoning frameworks, output formats, cognitive constraints)
+- New **pattern groups** (reusable bundles that combine multiple patterns into higher-level behavioral modes)
+- New **agent presets** that combine existing components
+- Documentation improvements and examples
 
 promptctl becomes more powerful as its library of composable parts grows.
 
