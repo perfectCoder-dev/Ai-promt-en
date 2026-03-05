@@ -1,5 +1,9 @@
 # The Iceberg Of Prompting
 
+<p align="center">
+  <img src="../images/iceberg.png" alt="Iceberg of Prompting" width="250">
+</p>
+
 At first glance, prompting seems simple: ask a question, receive an answer. But what appears effortless on the surface often rests on a much deeper structure beneath it. Like an iceberg, most of the power in effective prompting is hidden from view.
 
 The visible tip consists of straightforward requests—summaries, rewrites, quick ideas. These work well for basic tasks. Beneath the surface, however, lies structured prompting: defining roles, clarifying context, setting constraints, and shaping output formats. Deeper still is strategic prompting—reasoning guidance, iteration loops, model selection, and deliberate refinement.
