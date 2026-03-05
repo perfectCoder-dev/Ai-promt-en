@@ -1,7 +1,7 @@
 # promptctl
 
 <p align="center">
-  <img src="images/promptctl-banner.png" alt="promptctl banner" width="900">
+  <img src="images/promptctl-banner.jpg" alt="promptctl banner" width="900">
 </p>
 
 <p align="center">
