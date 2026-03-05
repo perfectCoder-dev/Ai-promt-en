@@ -60,11 +60,28 @@ sudo apt install python3-venv
 
 ## 🧪 Usage Examples
 
-### List Roles
+### List Prompt Composable Elements By Category
+
+#### List Roles
 
 ```bash
 promptctl list roles
 ```
+
+Or filter results that match multiple patterns (`te` or `utor`):
+
+```bash
+promptctl list roles | grep -E 'te|utor'
+```
+
+Example output:
+
+```output
+technical_instructor
+tutor
+```
+
+You can also list `agents`, `pattern_groups`, `patterns`, and `tasks`.
 
 ### Build From Agent
 
