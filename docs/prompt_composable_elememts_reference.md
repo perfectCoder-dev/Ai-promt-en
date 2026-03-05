@@ -1,6 +1,8 @@
 # 🗂 Prompt Composable Elements Reference
 
-TODO: Intro. Describe what this doc is made for ...
+This document serves as a reference guide for the composable prompt system used in promptctl. It explains the structure, organization, and available building blocks that can be combined to construct modular, reusable, and maintainable prompts.
+
+The goal of this system is to separate prompts into well-defined components—such as agents, roles, patterns, pattern groups, and tasks—so they can be composed, extended, and managed independently. This approach improves consistency, scalability, and clarity when designing prompts for different use cases.
 
 ## Prompt Category Structure
 
