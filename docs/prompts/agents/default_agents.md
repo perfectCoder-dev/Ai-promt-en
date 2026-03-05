@@ -11,6 +11,6 @@ TODO:
 TODO: Complete table matches.
 
 |Role|Task|Pattern|Full Match|Partial Match|
-|----|----|-------|-------  -|-------------|
+|----|----|-------|----------|-------------|
 |tutor|explain|step by step|-|-|
 |-|-|socratic|-|-|
