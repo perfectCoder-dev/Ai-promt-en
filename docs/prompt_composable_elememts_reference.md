@@ -28,7 +28,7 @@ promptctl list roles | grep -E 'te|utor'
 
 Below is a **complete list of elements** and their features available in promptctl for building prompts, composing them, and creating new ones. **Users can extend their own local version of this list** by adding new elements as they create them.
 
-Alternatively, users can open the corresponding **element file** to review or edit its contents. **Any changes will affect all elements associated with the modified element**.
+🚨 Alternatively, users can open the corresponding **element file** to review or edit its contents, but **any changes will affect all elements associated with the modified element**.
 
 ## Agents
 
