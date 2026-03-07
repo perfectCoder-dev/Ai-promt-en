@@ -113,11 +113,13 @@ promptctl compose \
   --task explain \
   --pattern socratic \
   --pattern step_by_step \
-  --var input="Boolean algebra simplification" \
-  --var name="John Smith"
+  --var input="Gravity: Force vs Curvature of Space" \
+  --var theorist="Albert Einstein"
 ```
 
-Note: The variable `name` does not exist in the default version of the task `explain`.
+Replacing "Albert Einstein" with "Isaac Newton" will result in different AI responses.
+
+Note: The variable `theorist` does not exist in the default version of the task `explain`.
 
 ## 🔧 Using `--var` Variables
 
@@ -158,7 +160,7 @@ promptctl compose \
   --role tutor \
   --task explain \
   --pattern socratic \
-  --var-file input=requirements.txt
+  --var-file input=./texts/puzzle.txt
 ```
 
 The entire file content becomes the variable value.
@@ -172,7 +174,7 @@ promptctl compose \
   --role tutor \
   --task explain \
   --pattern socratic \
-  --var-dir input=./docs \
+  --var-dir input=./texts \
   --copy
 ```
 
@@ -188,8 +190,8 @@ promptctl compose \
   --task explain \
   --pattern didactic \
   --var input="Random text" \
-  --var-file input2=README.md \
-  --var-dir input3=./docs \
+  --var-file input2=./texts/puzzle.txt \
+  --var-dir input3=./texts \
   --copy
 ```
 
@@ -201,7 +203,7 @@ Note: The variables `input2` and `input3` don't exist in the default version of 
 
 If the same variable name is used multiple times, the last one processed will overwrite the previous value.
 
-> Processing order: --var, --var-file, --var-dir
+* Processing order: --var, --var-file, --var-dir
 
 Example:
 
@@ -211,8 +213,8 @@ promptctl compose \
   --task explain \
   --pattern didactic \
   --var input="Random text" \
-  --var-file input=requirements.txt \
-  --var-dir input=./docs \
+  --var-file input=./texts/puzzle.txt \
+  --var-dir input=./texts \
   --copy
 ```
 
@@ -224,7 +226,7 @@ promptctl compose \
 
 ## 📘 Tutorials
 
-Want a step-by-step guide to creating new roles, tasks, and patterns?
+Want a step-by-step guide to **creating new roles, tasks, and patterns**?
 
 🔗 [Roles, Tasks, And Patterns](docs/new_roles_tasks_and_patterns.md)
 
