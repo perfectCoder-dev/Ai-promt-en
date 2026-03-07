@@ -8,9 +8,7 @@ TODO:
 
 ## math_tutor
 
-TODO: Complete table matches.
-
 |Role|Task|Pattern|Full Match|Partial Match|
 |----|----|-------|----------|-------------|
-|tutor|explain|step by step|-|-|
-|-|-|socratic|-|-|
+|tutor|explain|step by step|Reasoning instruction (Think deeply before answering,	Chain-of-Thought) |-|
+| | |socratic|Question-first (How first, then Do). Iteration loop (Feedback → Revision → Final)|-|
