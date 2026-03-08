@@ -13,6 +13,7 @@ TODO:
 |tutor|explain|step by step|Reasoning instruction (Think deeply before answering,	Chain-of-Thought) |-|
 | | |socratic|Question-first (How first, then Do). Iteration loop (Feedback → Revision → Final)|-|
 
+```mermaid
 flowchart TD
 
 A((math_tutor))
@@ -42,3 +43,5 @@ classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
 class B,C role
 class D,E task
 class F,G,H,I,J,K,L,M pattern
+
+```
