@@ -2,6 +2,10 @@
 
 The columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
+## action_agent
+
+TODO: ChatGTP
+
 ## cs_instructor
 
 | Role                 | Task    | Pattern           | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
@@ -17,11 +21,6 @@ The columns that follow **Pattern** represent matches with corresponding element
 |----------------------|---------|-------------------|-----------------------|---------------------------------|
 | technical_instructor | explain | structured_output |Set output format      |Bullets, tables                  |
 
-| Role                 | Task    | Pattern           | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
-|----------------------|---------|-------------------|-----------------------|---------------------------------|
-| technical_instructor | explain | structured_output |Choose the right model |Thinking vs Fast                 |
-| technical_instructor | explain | structured_output | —                     |Say “I don’t know” if unsure     |
-
 ```mermaid
 flowchart TD
 
@@ -33,39 +32,28 @@ B --> C[tutor]
 A --> D[Task]
 D --> E[explain]
 E --> F[Pattern]
-
 F --> G[step_by_step]
-G --> H[🧠 Cognitive Strategy]
-H --> I[Reasoning instruction]
+G --> H[Level 3]
+H --> I[🧠 Cognitive Strategy]
+I --> J[Reasoning instruction]
+J --> K[⚙️ Execution Mechanism]
+K --> L[“Think deeply before answering”]
 
-I --> J[⚙️ Execution Mechanism]
-J --> K[“Think deeply before answering”]
+H --> M[⚙️ Execution Mechanism]
+M --> N[Chain-of-Thought]
 
-G --> L[⚙️ Execution Mechanism]
-L --> M[Chain-of-Thought]
+F --> O[structured_output]
+O --> P[Level 1]
+P --> Q[🧩 Core Technique]
+Q --> R[Simple tasks]
+R --> S[🎯 Typical Usage]
+S --> T[“Summarize this”]
 
-F --> N[structured_output]
-
-N --> O[Level 1]
-O --> P[🧩 Core Technique]
-P --> Q[Simple tasks]
-Q --> R[🎯 Typical Usage]
-R --> S[“Summarize this”]
-
-N --> T[Level 2]
-T --> U[📐 Structural Design]
-U --> V[Set output format]
-V --> W[🚦 Operational Control]
-W --> X[Bullets, tables]
-
-N --> Y[Level 3]
-Y --> Z[🧠 Cognitive Strategy]
-Z --> AA[Choose the right model]
-AA --> AB[⚙️ Execution Mechanism]
-AB --> AC[Thinking vs Fast ]
-
-Y --> AD[⚙️ Execution Mechanism]
-AD --> AE[Say “I don’t know” if unsure]
+O --> U[Level 2]
+U --> V[📐 Structural Design]
+V --> W[Set output format]
+W --> X[🚦 Operational Control]
+X --> Y[Bullets, tables]
 
 %% Color definitions
 classDef role fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#111;
@@ -75,7 +63,7 @@ classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
 %% Apply colors
 class B,C role
 class D,E task
-class F,G,N pattern
+class F,G,O pattern
 
 ```
 
@@ -101,25 +89,28 @@ D --> E[explain]
 E --> F[Pattern]
 
 F --> G[step_by_step]
-G --> H[🧠 Cognitive Strategy]
-H --> I[Reasoning instruction]
+G --> H[Level 3]
+H --> I[🧠 Cognitive Strategy]
+I --> J[Reasoning instruction]
 
-I --> J[⚙️ Execution Mechanism]
-J --> K[“Think deeply before answering”]
+J --> K[⚙️ Execution Mechanism]
+K --> L[“Think deeply before answering”]
 
-G --> L[⚙️ Execution Mechanism]
-L --> M[Chain-of-Thought]
+H --> M[⚙️ Execution Mechanism]
+M --> N[Chain-of-Thought]
 
-F --> N[socratic]
-N --> O[🧠 Cognitive Strategy]
-O --> P[Question-first]
-P --> Q[⚙️ Execution Mechanism]
-Q --> R[How first, then Do]
+F --> O[socratic]
+O --> P[Level 3]
 
-N --> S[🧠 Cognitive Strategy]
-S --> T[Iteration loop]
-T --> U[⚙️ Execution Mechanism]
-U --> V[Feedback → Revision → Final]
+P --> Q[🧠 Cognitive Strategy]
+Q --> R[Question-first]
+R --> S[⚙️ Execution Mechanism]
+S --> T[How first, then Do]
+
+P --> U[🧠 Cognitive Strategy]
+U --> V[Iteration loop]
+V --> W[⚙️ Execution Mechanism]
+W --> X[Feedback → Revision → Final]
 
 %% Color definitions
 classDef role fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#111;
@@ -129,6 +120,6 @@ classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
 %% Apply colors
 class B,C role
 class D,E task
-class F,G,N pattern
+class F,G,O pattern
 
 ```
