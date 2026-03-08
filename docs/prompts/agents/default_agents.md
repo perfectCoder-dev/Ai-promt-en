@@ -1,6 +1,6 @@
 # Default Agents
 
-**Full Match** and **Partial Match** columns correspond to **items** from [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+**Matched** columns correspond to **items** from [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
 ## cs_instructor
 
@@ -8,10 +8,12 @@ TODO:
 
 ## math_tutor
 
-|Role|Task|Patterns|Full Matches|Partial Matches|
-|----|----|--------|------------|---------------|
-|tutor|explain|step by step|Reasoning instruction (Think deeply before answering,	Chain-of-Thought) |-|
-| | |socratic|Question-first (How first, then Do). Iteration loop (Feedback → Revision → Final)|-|
+| Role  | Task    | Pattern        | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism            |
+|-------|---------|----------------|-----------------------|-----------------------------------|
+| tutor | explain | step by step   | Reasoning instruction | “Think deeply before answering”   |
+| tutor | explain | step by step   | —                     | Chain-of-Thought                  |
+| tutor | explain | Socratic       | Question-first        | How first, then Do                |
+| tutor | explain | Socratic       | Iteration loop        | Feedback → Revision → Final       |
 
 ```mermaid
 flowchart TD
@@ -23,16 +25,28 @@ B --> C[tutor]
 
 A --> D[Task]
 D --> E[explain]
+E --> F[Pattern]
 
-E --> F[Pattern: step by step]
-F --> G[Reasoning instruction]
-G --> H[Think deeply before answering]
-G --> I[Chain-of-Thought]
+F --> G[step by step]
+G --> H[🧠 Cognitive Strategy]
+H --> I[Reasoning instruction]
 
-E --> J[Pattern: socratic]
-J --> K[Question-first: How first then Do]
-J --> L[Iteration loop]
-L --> M[Feedback → Revision → Final]
+I --> J[⚙️ Execution Mechanism]
+J --> K[“Think deeply before answering”]
+
+G --> L[⚙️ Execution Mechanism]
+L --> M[Chain-of-Thought]
+
+F --> N[Socratic]
+N --> O[🧠 Cognitive Strategy]
+O --> P[Question-first]
+P --> Q[⚙️ Execution Mechanism]
+Q --> R[How first, then Do]
+
+N --> S[🧠 Cognitive Strategy]
+S --> T[Iteration loop]
+T --> U[⚙️ Execution Mechanism]
+U --> V[Feedback → Revision → Final]
 
 %% Color definitions
 classDef role fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#111;
@@ -42,6 +56,6 @@ classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
 %% Apply colors
 class B,C role
 class D,E task
-class F,G,H,I,J,K,L,M pattern
+class F,G,N pattern
 
 ```
