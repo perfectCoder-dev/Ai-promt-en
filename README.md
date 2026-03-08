@@ -1,4 +1,4 @@
-# promptctl
+# promptctl 🚩
 
 <p align="center">
   <img src="images/promptctl-banner.jpg" alt="promptctl banner" width="900">
