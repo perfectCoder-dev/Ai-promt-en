@@ -1,6 +1,6 @@
 # Default Tasks
 
-**Full Match** and **Partial Match** columns correspond to **items** from [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+The columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
 ## action
 

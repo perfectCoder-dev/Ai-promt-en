@@ -34,6 +34,7 @@ Below is a **complete list of elements** and their features available in promptc
 
 ### Default Agents
 
+- [action_agent](./prompts/agents/default_agents.md)
 - [cs_instructor](./prompts/agents/default_agents.md)
 - [math_tutor](./prompts/agents/default_agents.md)
 
