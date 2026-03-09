@@ -1,0 +1,6 @@
+role: executor
+task: action
+patterns:
+  - verify_before_execute
+  - plan_execute
+  - structured_output

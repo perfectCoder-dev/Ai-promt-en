@@ -143,3 +143,41 @@ promptctl compose \
 ```
 
 Now it's copied to your clipboard.
+
+## Tips For Promptctl creators
+
+### 💡 Separate The Three Layers Clearly
+
+Use different **naming styles** for each layer.
+
+Try to keep:
+
+|Layer |Naming Style        |Example     |
+|------|--------------------|------------|
+|agent |concrete capability	|action_agent|
+|role	 |behavioral identity	|executor    |
+|task	 |verb                |action      |
+
+### 💡 Default Architectural Design
+
+The definition of **default agents** has evolved into `3` agent families:
+
+|# |Family              |Role                 |Task    |
+|--|--------------------|---------------------|--------|
+|1 |Teaching	          |tutor	              |explain |
+|2 |Technical teaching	|technical_instructor	|explain |
+|3 |Operations	        |executor	            |action  |
+
+This separation is very clean and scalable.
+
+### 💡 Editing Existing Elements 
+
+Alternatively, instead of creating new agents, roles, tasks, and/or patterns, you can open the corresponding **element file** to review or edit its contents. 🚨 However, **any changes to existing elements will affect all elements associated with the modified one**. To avoid unintentionally impacting other agents and related elements, the recommended approach is to **clone an existing agent and rename it as your new preset**, then modify the cloned version instead of the original.
+
+### 💡 Understand How To Proceed Clearly
+
+Read the related documentation:
+
+* [Composable Elements Reference](docs/prompt_composable_elements_reference.md)
+
+* [Pattern Groups](docs/create_and_use_a_pattern_group.md)
