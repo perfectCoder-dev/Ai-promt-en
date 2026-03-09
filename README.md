@@ -1,4 +1,4 @@
-# promptctl 🚩
+# Promptctl 🚩
 
 <p align="center">
   <img src="images/promptctl-banner.jpg" alt="promptctl banner" width="900">
@@ -10,9 +10,9 @@
 
 ## 📖 Overview
 
-promptctl is a modular CLI for composing, managing, and orchestrating reusable AI prompt components.
+Promptctl is a modular CLI for composing, managing, and orchestrating reusable AI prompt components.
 
-Instead of storing static snippets, promptctl treats prompts as structured building blocks — roles, tasks, and reasoning patterns — that can be assembled, parameterized, and reused across projects.
+Instead of storing static snippets, Promptctl treats prompts as structured building blocks — roles, tasks, and reasoning patterns — that can be assembled, parameterized, and reused across projects.
 
 Designed for users who think in systems, not snippets.
 
@@ -137,7 +137,7 @@ If you omit the `--var` parameter, the prompt will be generated without injected
 
 ## 🔀 Variable Sources
 
-promptctl supports three explicit variable types:
+Promptctl supports three explicit variable types:
 
 ### 1. Literal Variables (--var)
 
@@ -224,11 +224,45 @@ promptctl compose \
 ✔ Declare expected variables clearly inside your task templates  
 ✔ Only reuse names intentionally when overwriting is desired
 
+## ⚖️ Explain VS Action Tasks
+
+▶️ Action — Start / Run the task and produce a result.
+
+💬 Explain — Describe the reasoning without performing any tasks.
+
+By default, Promptclt provides two main types of tasks: `explain` and `action`, which together cover most AI–human interaction scenarios.
+
+We introduced the explain task in the previous examples. Now it's time to look at a couple of examples using the action task.
+
+To run an action with `build`, you must use the `action_agent` agent and pass a **single variable** named `action` in the command parameters. The **complete** action request must be included as the value of `action` after the `=` sign.
+
+Example:
+
+```bash
+promptctl build action_agent --var action="Make a shopping list"
+```
+
+To run an action with `compose`, you must use the `action_agent` agent and pass a **single task** named `compose_action` in the command parameters. The action request must be **composed** using the `action` variable. The `context` and `examples` variables are optional, but their use is strongly recommended in most cases.
+
+The following example includes `context` and `examples`, which help an AI language model interpret the request more accurately and produce more reliable output:
+
+```bash
+promptctl compose \
+  --role executor \
+  --task compose_action \
+  --pattern verify_before_execute \
+  --pattern plan_execute \
+  --pattern structured_output \
+  --var action="Make a shopping list" \
+  --var context="I am in at the computer store" \
+  --var examples="|Item |Brand |Price | |Mouse |Genius |$45.75 |"
+```
+
 ## 📘 Tutorials
 
-Want a step-by-step guide to **creating new roles, tasks, and patterns**?
+Want a step-by-step guide to **creating new agents, roles, tasks, and patterns**?
 
-🔗 [Roles, Tasks, And Patterns](docs/new_roles_tasks_and_patterns.md)
+🔗 [Agents, Roles, Tasks, And Patterns](docs/new_roles_tasks_and_patterns.md)
 
 Complete clean tutorial on how to create and use a pattern group
 
@@ -236,17 +270,17 @@ Complete clean tutorial on how to create and use a pattern group
 
 ## 🗂 Prompt Composable Elements
 
-The `prompts/` directory contains the core components used to build prompts in promptctl.
+The `prompts/` directory contains the core components used to build prompts in Promptctl.
 
 Each subdirectory represents a specific type of composable element such as roles, tasks, patterns, or agent presets.
 
 See the **complete reference**:
 
-🔗 [Prompt Composable Elements Reference](docs/prompt_composable_elememts_reference.md)
+🔗 [Prompt Composable Elements Reference](docs/prompt_composable_elements_reference.md)
 
 ## 🧠 Concepts
 
-Understanding modern prompting frameworks helps you use promptctl more effectively.
+Understanding modern prompting frameworks helps you use Promptctl more effectively.
 
 🔗 [The Iceberg Of Prompting](docs/the_iceberg_of_prompting.md)
 
@@ -263,7 +297,7 @@ You can contribute:
 - New **agent presets** that combine existing components
 - Documentation improvements and examples
 
-promptctl becomes more powerful as its library of composable parts grows.
+Promptctl becomes more powerful as its library of composable parts grows.
 
 If you’ve built something reusable, open a pull request and help expand the ecosystem.
 
