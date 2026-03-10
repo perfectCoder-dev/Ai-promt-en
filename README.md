@@ -121,7 +121,7 @@ Replacing "Albert Einstein" with "Isaac Newton" will result in different AI resp
 
 Note: The variable `theorist` does not exist in the default version of the task `explain`.
 
-## 🔧 Using `--var` Variables
+## 💉 Using `--var` Variables
 
 To inject dynamic values into your prompt, your template must reference them using Jinja syntax.
 
@@ -197,10 +197,11 @@ promptctl compose \
 
 This allows complex prompt construction from multiple sources.
 
-Note: The variables `input2` and `input3` don't exist in the default version of the task `explain`.
+> [!NOTE]Note: The variables `input2` and `input3` don't exist in the default version of the task `explain`.
 
 #### ⚠️ Variable Overwriting Behavior
 
+> [!WARNING]
 If the same variable name is used multiple times, the last one processed will overwrite the previous value.
 
 * Processing order: --var, --var-file, --var-dir
