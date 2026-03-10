@@ -288,7 +288,7 @@ promptctl compose \
 
 Want a step-by-step guide to **creating new agents, roles, tasks, and patterns**?
 
-🔗 [Agents, Roles, Tasks, And Patterns](docs/new_roles_tasks_and_patterns.md)
+🔗 [Agents, Roles, Tasks, And Patterns](docs/creating_new_prompt_components.md)
 
 Complete clean tutorial on how to create and use a pattern group
 
