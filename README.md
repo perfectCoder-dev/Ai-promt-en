@@ -1,11 +1,15 @@
-# Promptctl 🚩
+# Promptctl ✍️⚡
+
+![Python](https://img.shields.io/badge/python-3.9–3.13-blue)
+![License](https://img.shields.io/github/license/estebantechdev/promptctl)
 
 <p align="center">
   <img src="images/promptctl-banner.jpg" alt="promptctl banner" width="900">
 </p>
 
 <p align="center">
-  <strong>A control plane for composable AI prompting.</strong>
+  <strong>Compose better prompts, faster. 🚀</strong><br>
+  A control plane for composable AI prompting.
 </p>
 
 ## 📖 Overview
@@ -26,7 +30,7 @@ Designed for users who think in systems, not snippets.
 - ⚡ Terminal-native workflow
 - 🗂 Version-controlled prompts
 
-## ⚙️ Installation
+## 📥 Quick Install
 
 ```shell
 # Get the source code
@@ -40,7 +44,8 @@ python3 -m venv .venv
 source .venv/bin/activate  # Activate it
 
 # Install dependencies
-python -m pip install -r requirements.txt
+python -m pip install -r requirements.txt  # For normal users
+python -m pip install -r requirements-lock.txt  # For developers / CI
 
 # Make executable
 chmod +x promptctl.py
@@ -60,15 +65,17 @@ sudo apt install python3-venv
 
 ## 🧪 Usage Examples
 
-### List Prompt Composable Elements By Category
+### Listing Prompt Components
 
-#### List Roles
+#### Roles
+
+List available roles:
 
 ```bash
 promptctl list roles
 ```
 
-Or filter results that match multiple patterns (`te` or `utor`):
+Filter results using multiple patterns (`te` or `utor`):
 
 ```bash
 promptctl list roles | grep -E 'te|utor'
@@ -76,26 +83,40 @@ promptctl list roles | grep -E 'te|utor'
 
 Example output:
 
-```output
+```text
 technical_instructor
 tutor
 ```
 
-You can also list `agents`, `pattern_groups`, `patterns`, and `tasks`.
+> [!NOTE]
+> The `list` command also works with:
+> - `agents`
+> - `pattern_groups`
+> - `patterns`
+> - `tasks`
 
-### Build From Agent
+### Creating A Prompt With `build`
+
+> [!NOTE]
+> Promptctl supports two workflows:
+> - `build` generates a prompt using a predefined **agent preset**.
+> - `compose` generates a prompt by manually combining **role**, **task**, and **pattern** components.
+
+Create a prompt using a predefined agent:
 
 ```bash
 promptctl build math_tutor --var input="Explain recursion"
 ```
 
-Copy directly:
+Copy the generated prompt directly to the clipboard:
 
 ```bash
 promptctl build math_tutor --var input="Explain recursion" --copy
 ```
 
-### Manual Composition
+### `compose` A Prompt From Components
+
+Compose a prompt by combining a `role`, `task`, and `pattern`:
 
 ```bash
 promptctl compose \
@@ -117,31 +138,33 @@ promptctl compose \
   --var theorist="Albert Einstein"
 ```
 
+> [!NOTE]
 Replacing "Albert Einstein" with "Isaac Newton" will result in different AI responses.
+>
+> The variable `theorist` does not exist in the default version of the task `explain`.
 
-Note: The variable `theorist` does not exist in the default version of the task `explain`.
+## 💉 Using `--var` Variables
 
-## 🔧 Using `--var` Variables
-
-To inject dynamic values into your prompt, your template must reference them using Jinja syntax.
+To inject dynamic values into your prompt, the template must reference them using *Jinja* syntax.
 
 Your **task file** (inside `tasks/`) must include at least one variable placeholder. For example:
 
-```js
+```django
 {{ input }}
 ```
 
-The variable name inside the template must match the key used in the command line.
+The variable name in the template must match the key used in the command line.
 
-If you omit the `--var` parameter, the prompt will be generated without injected values. This allows you to preview, copy, or reuse the base prompt structure independently.
+> [!NOTE]
+> If you omit the `--var` parameter, the prompt will be generated without injected values. This allows you to preview, copy, or reuse the base prompt structure independently.
 
-## 🔀 Variable Sources
+## 📁 Variable Sources
 
-Promptctl supports three explicit variable types:
+Promptctl supports three types of variable sources:
 
 ### 1. Literal Variables (--var)
 
-Pass direct text values.
+Pass a value directly from the command line.
 
 ```bash
 promptctl compose \
@@ -153,7 +176,7 @@ promptctl compose \
 
 ### 2. Single File (--var-file)
 
-Load variable content from a file (e.g.: .txt or .md).
+Load the variable value from a file (for example: .txt or .md).
 
 ```bash
 promptctl compose \
@@ -167,7 +190,7 @@ The entire file content becomes the variable value.
 
 ### 3. Recursive Directory (--var-dir)
 
-Load all files inside a directory (recursively).
+Load variable content from all files inside a directory (recursively).
 
 ```bash
 promptctl compose \
@@ -178,11 +201,11 @@ promptctl compose \
   --copy
 ```
 
-All file contents are combined into a single variable.
+All file contents are combined into a single variable value.
 
 ### Combining All Variable Types
 
-You can mix them in the same command:
+You can combine multiple variable sources in the same command:
 
 ```bash
 promptctl compose \
@@ -197,13 +220,14 @@ promptctl compose \
 
 This allows complex prompt construction from multiple sources.
 
-Note: The variables `input2` and `input3` don't exist in the default version of the task `explain`.
+> [!NOTE]
+The variables `input2` and `input3` don't exist in the default version of the task `explain`.
 
 #### ⚠️ Variable Overwriting Behavior
 
-If the same variable name is used multiple times, the last one processed will overwrite the previous value.
-
-* Processing order: --var, --var-file, --var-dir
+> [!IMPORTANT]
+> If the same variable name is used multiple times, the **last processed value overrides previous ones**.
+> * Processing order: `--var` → `--var-file` → `--var-dir`
 
 Example:
 
@@ -218,23 +242,23 @@ promptctl compose \
   --copy
 ```
 
-#### 💡 Recommended Practice
+> [!TIP]
+> ✔ Use unique variable names whenever possible.  
+> ✔ Declare expected variables clearly in your task templates.  
+> ✔ Reuse variable names only when intentional overwriting is desired.
 
-✔ Use unique variable names  
-✔ Declare expected variables clearly inside your task templates  
-✔ Only reuse names intentionally when overwriting is desired
+## ⚙️ Types Of Tasks
 
-## ⚖️ Explain VS Action Tasks
+By default, Promptctl provides two main types of tasks: `explain` and `action`, which together cover most AI-human interaction scenarios.
 
-▶️ Action — Start / Run the task and produce a result.
-
+▶️ Action — Start / Run the task and produce a result.  
 💬 Explain — Describe the reasoning without performing any tasks.
-
-By default, Promptclt provides two main types of tasks: `explain` and `action`, which together cover most AI–human interaction scenarios.
 
 We introduced the explain task in the previous examples. Now it's time to look at a couple of examples using the action task.
 
-To run an action with `build`, you must use the `action_agent` agent and pass a **single variable** named `action` in the command parameters. The **complete** action request must be included as the value of `action` after the `=` sign.
+### Creating Action Prompts With `build`
+
+To create an action prompt with `build`, you must use the `action_agent` agent and pass a **single variable** named `action` as a command parameters. The **entire action request** must be included as the value of `action` after the `=` sign.
 
 Example:
 
@@ -242,7 +266,9 @@ Example:
 promptctl build action_agent --var action="Make a shopping list"
 ```
 
-To run an action with `compose`, you must use the `action_agent` agent and pass a **single task** named `compose_action` in the command parameters. The action request must be **composed** using the `action` variable. The `context` and `examples` variables are optional, but their use is strongly recommended in most cases.
+### Creating Action Prompts With `compose`
+
+To create an action prompt with `compose`, you must use the `action_agent` agent and pass a **single task** named `compose_action` in the command parameters. The action request must be **composed** using the `action` variable. The `context` and `examples` variables are optional, but their use is strongly recommended in most cases.
 
 The following example includes `context` and `examples`, which help an AI language model interpret the request more accurately and produce more reliable output:
 
@@ -254,7 +280,7 @@ promptctl compose \
   --pattern plan_execute \
   --pattern structured_output \
   --var action="Make a shopping list" \
-  --var context="I am in at the computer store" \
+  --var context="I am at the computer store" \
   --var examples="|Item |Brand |Price | |Mouse |Genius |$45.75 |"
 ```
 
@@ -268,15 +294,15 @@ Complete clean tutorial on how to create and use a pattern group
 
 🔗 [Pattern Groups](docs/create_and_use_a_pattern_group.md)
 
-## 🗂 Prompt Composable Elements
+## 🗂 Prompt Components
 
 The `prompts/` directory contains the core components used to build prompts in Promptctl.
 
-Each subdirectory represents a specific type of composable element such as roles, tasks, patterns, or agent presets.
+Each subdirectory represents a specific type of component such as roles, tasks, patterns, or agent presets.
 
 See the **complete reference**:
 
-🔗 [Prompt Composable Elements Reference](docs/prompt_composable_elements_reference.md)
+🔗 [Prompt Components Reference](docs/prompt_components_reference.md)
 
 ## 🧠 Concepts
 
@@ -286,7 +312,7 @@ Understanding modern prompting frameworks helps you use Promptctl more effective
 
 ## 🤝 Contributions
 
-Contributions are highly encouraged — especially new modular prompt components.
+Contributions are highly encouraged — especially new prompt components.
 
 You can contribute:
 
@@ -297,7 +323,7 @@ You can contribute:
 - New **agent presets** that combine existing components
 - Documentation improvements and examples
 
-Promptctl becomes more powerful as its library of composable parts grows.
+Promptctl becomes more powerful as its library of components grows.
 
 If you’ve built something reusable, open a pull request and help expand the ecosystem.
 
