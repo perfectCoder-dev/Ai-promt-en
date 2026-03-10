@@ -197,7 +197,8 @@ promptctl compose \
 
 This allows complex prompt construction from multiple sources.
 
-> [!NOTE]Note: The variables `input2` and `input3` don't exist in the default version of the task `explain`.
+> [!NOTE]
+Note: The variables `input2` and `input3` don't exist in the default version of the task `explain`.
 
 #### ⚠️ Variable Overwriting Behavior
 
