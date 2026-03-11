@@ -287,11 +287,11 @@ pp compose \
 
 Want a step-by-step guide to **creating new agents, roles, tasks, and patterns**?
 
-🔗 [Agents, Roles, Tasks, And Patterns](docs/creating_new_prompt_components.md)
+🔗 [Creating And Using New Prompt Components](docs/creating_new_prompt_components.md)
 
-Complete clean tutorial on how to create and use a pattern group
+Complete tutorial on how to create and use a pattern group.
 
-🔗 [Pattern Groups](docs/create_and_use_a_pattern_group.md)
+🔗 [Creating And Using Pattern Groups](docs/create_and_use_a_pattern_group.md)
 
 ## 🗂 Prompt Components
 

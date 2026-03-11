@@ -1,4 +1,4 @@
-# Creating New Pattern Groups
+# Creating And Using Pattern Groups
 
 Here is a complete, clean tutorial to **create and use a pattern group** for your `pp` application.
 

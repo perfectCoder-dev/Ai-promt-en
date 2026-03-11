@@ -6,7 +6,7 @@ PromptPro breaks prompts into well-defined components, allowing them to be compo
 
 ## Prompt Categories
 
-The `prompts/` directory contains the core components used to build prompts in PromptPro, organized by category.
+The `prompts` directory contains the core components used to build prompts in PromptPro, organized by category.
 
 ```bash
 prompts
