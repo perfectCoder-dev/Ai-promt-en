@@ -1,6 +1,6 @@
-# New promptctl Pattern Groups Tutorial
+# New PromptPro Pattern Groups Tutorial
 
-Here is a complete, clean tutorial to **create and use a pattern group** in your `promptctl` system.
+Here is a complete, clean tutorial to **create and use a pattern group** in your `pp` system.
 
 ## What Is A Pattern Group?
 

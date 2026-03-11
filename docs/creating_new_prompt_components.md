@@ -1,4 +1,4 @@
-# New promptctl Prompt Tutorial
+# New Prompt Tutorial
 
 Here’s a practical, hands-on tutorial to create a new prompt example — both by reusing existing .md files and by adding new ones.
 
@@ -40,10 +40,7 @@ Let’s say we want:
 You can list available items:
 
 ```bash
-promptctl list roles
-promptctl list tasks
-promptctl list patterns
-promptctl list pattern_groups
+pp list <agents|pattern_groups|patterns|roles|tasks>
 ```
 
 You should see:
@@ -55,12 +52,13 @@ socratic
 step_by_step
 didactic_structured
 didactic
+...
 ```
 
 ### Step 2: Creating A New Pattern
 
 ```bash
-touch prompts/patterns/structured_output.md
+pp prompts/patterns/structured_output.md
 ```
 
 Example content:
@@ -76,7 +74,7 @@ Example content:
 Verify it exists:
 
 ```bash
-promptctl list patterns
+pp list patterns
 ```
 
 You should now see:
@@ -125,7 +123,7 @@ patterns:
 Now you can use:
 
 ```bash
-promptctl build cs_instructor --var input="Hash Tables"
+pp build cs_instructor --var input="Hash Tables"
 ```
 
 That’s your reusable agent configuration.
@@ -133,7 +131,7 @@ That’s your reusable agent configuration.
 ### Step 4.2: Compose Your Prompt With `compose`
 
 ```bash
-promptctl compose \
+pp compose \
   --role technical_instructor \
   --task explain \
   --pattern step_by_step \
@@ -144,7 +142,7 @@ promptctl compose \
 
 Now it's copied to your clipboard.
 
-## Tips For Promptctl creators
+## Tips For PromptPro Prompt Creators
 
 ### 💡 Separate The Three Layers Clearly
 
