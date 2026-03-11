@@ -94,9 +94,10 @@ executor
 > ```
 
 > [!TIP]
-> Create a table to help you define the required components.
-> Insert components and `Task` specifications in the appropriate fields.
+> Create a table to help you define the required components.  
+> Insert components and `Task` specifications in the appropriate fields.  
 > Use 🔗 [The Iceberg Of Prompting](docs/the_iceberg_of_prompting.md) as your basic structural framework.
+> 
 > |Agent           |Role                   |Task + Task Conditions      |Patterns                            |
 > |----------------|-----------------------|----------------------------|------------------------------------|
 > |`cs_instructor` |`technical_instructor` |`explain` + "for beginners" |`step_by_step`, `structured_output` |
