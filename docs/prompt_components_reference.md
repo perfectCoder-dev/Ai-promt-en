@@ -1,14 +1,12 @@
-# 🗂 Prompt Composable Elements Reference
+# 🗂 Prompt Compose Reference
 
-This document serves as a reference guide for the composable prompt system used in PromptPro. It explains the structure, organization, and available building blocks that can be combined to construct modular, reusable, and maintainable prompts.
+This document explains the structure, organization, and available building blocks that can be combined to construct modular, reusable, and maintainable prompts.
 
-The goal of this system is to separate prompts into well-defined components—such as agents, roles, patterns, pattern groups, and tasks—so they can be composed, extended, and managed independently. This approach improves consistency, scalability, and clarity when designing prompts for different use cases.
+PromptPro breaks prompts into well-defined components, allowing them to be composed, extended, and managed independently. This ensures consistency, scalability, and clarity across use cases.
 
-## Prompt Category Structure
+## Prompt Categories
 
 The `prompts/` directory contains the core components used to build prompts in PromptPro, organized by category.
-
-### Categories
 
 ```bash
 prompts
@@ -19,37 +17,49 @@ prompts
 └── tasks
 ```
 
-You can list **prompt composable elements** by category in several ways, such as:
+## Prompt Components
+
+To list **components** by **prompt category**, use:
+
+**Syntax:**
+
+```bash
+pp list <agents|pattern_groups|patterns|roles|tasks>
+```
+
+**Examples**:
 
 ```bash
 pp list roles
-pp list roles | grep -E 'te|utor'
+pp list agents
 ```
 
-Below is a **complete list of elements** and their features available in PromptPro for building prompts, composing them, and creating new ones.
+> [!TIP]
+> You can filter lists using `grep` patterns:
+> ```bash
+> pp list roles | grep -E 'te|utor'
+> ```
 
-**You can extend your own local version of the list** by adding new elements as you create them.
+## Lists Of Components
 
-Here is a step-by-step guide to **creating new agents, roles, tasks, and pattern elements** for your Prompctl:
+Below is a complete list of components and their features for creating prompts.
 
-* [Agents, Roles, Tasks, And Patterns](docs/new_roles_tasks_and_patterns.md)
+> [!TIP]
+> **Extend your local version of the list** by adding new components as you create them.  
+> For a step-by-step guide on **creating new agents, roles, tasks, and pattern components**, see:
+> * [Agents, Roles, Tasks, and Patterns](creating_new_prompt_components.md)
 
-## Agents
-
-### Default Agents
+## Default Agents
 
 - [action_agent](./prompts/agents/default_agents.md)
 - [cs_instructor](./prompts/agents/default_agents.md)
 - [math_tutor](./prompts/agents/default_agents.md)
 
-## Pattern Groups
 
-### Default Pattern Groups
+## Default Pattern Groups
 
 - [didactic](./prompts/pattern_groups/default_pattern_groups.md)
 - [didactic_structured](./prompts/pattern_groups/default_pattern_groups.md)
-
-## Patterns
 
 ### Default Patterns
 
@@ -59,20 +69,14 @@ Here is a step-by-step guide to **creating new agents, roles, tasks, and pattern
 - [structured_output](./prompts/patterns/default_patterns.md)
 - [verify_before_execute](./prompts/patterns/default_patterns.md)
 
-## Roles
-
-### Default Roles
+## Default Roles
 
 - [executor](./prompts/roles/default_roles.md)
 - [technical_instructor](./prompts/roles/default_roles.md)
 - [tutor](./prompts/roles/default_roles.md)
 
-## Tasks
-
-### Default Tasks
+## Default Tasks
 
 - [action](./prompts/tasks/default_tasks.md)
-- [action_with_context](./prompts/tasks/default_tasks.md)
-- [action_with_context_and_examples](./prompts/tasks/default_tasks.md)
-- [action_with_examples](./prompts/tasks/default_tasks.md)
+- [compose_action](./prompts/tasks/default_tasks.md)
 - [explain](./prompts/tasks/default_tasks.md)
