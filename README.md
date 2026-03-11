@@ -47,7 +47,7 @@ python -m pip install -r requirements.txt  # For normal users
 python -m pip install -r requirements-lock.txt  # For developers / CI
 
 # Make executable
-chmod +x prompt_pro.py
+chmod +x main.py
 
 # Install system-wide
 sudo ln -s "$(pwd)/main.py" /usr/local/bin/pp
