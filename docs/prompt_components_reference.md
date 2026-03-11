@@ -40,7 +40,7 @@ pp list agents
 > pp list roles | grep -E 'te|utor'
 > ```
 
-## Lists Of Components
+## List Of Components
 
 Below is a complete list of components and their features for creating prompts.
 
@@ -49,19 +49,19 @@ Below is a complete list of components and their features for creating prompts.
 > For a step-by-step guide on **creating new agents, roles, tasks, and pattern components**, see:
 > * [Agents, Roles, Tasks, and Patterns](creating_new_prompt_components.md)
 
-## Default Agents
+### Default Agents
 
 - [action_agent](./prompts/agents/default_agents.md)
 - [cs_instructor](./prompts/agents/default_agents.md)
 - [math_tutor](./prompts/agents/default_agents.md)
 
 
-## Default Pattern Groups
+### Default Pattern Groups
 
 - [didactic](./prompts/pattern_groups/default_pattern_groups.md)
 - [didactic_structured](./prompts/pattern_groups/default_pattern_groups.md)
 
-## Default Patterns
+### Default Patterns
 
 - [plan_execute](./prompts/patterns/default_patterns.md)
 - [socratic](./prompts/patterns/default_patterns.md)
@@ -69,13 +69,13 @@ Below is a complete list of components and their features for creating prompts.
 - [structured_output](./prompts/patterns/default_patterns.md)
 - [verify_before_execute](./prompts/patterns/default_patterns.md)
 
-## Default Roles
+### Default Roles
 
 - [executor](./prompts/roles/default_roles.md)
 - [technical_instructor](./prompts/roles/default_roles.md)
 - [tutor](./prompts/roles/default_roles.md)
 
-## Default Tasks
+### Default Tasks
 
 - [action](./prompts/tasks/default_tasks.md)
 - [compose_action](./prompts/tasks/default_tasks.md)
