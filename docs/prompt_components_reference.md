@@ -1,12 +1,12 @@
 # 🗂 Prompt Composable Elements Reference
 
-This document serves as a reference guide for the composable prompt system used in Promptctl. It explains the structure, organization, and available building blocks that can be combined to construct modular, reusable, and maintainable prompts.
+This document serves as a reference guide for the composable prompt system used in PromptPro. It explains the structure, organization, and available building blocks that can be combined to construct modular, reusable, and maintainable prompts.
 
 The goal of this system is to separate prompts into well-defined components—such as agents, roles, patterns, pattern groups, and tasks—so they can be composed, extended, and managed independently. This approach improves consistency, scalability, and clarity when designing prompts for different use cases.
 
 ## Prompt Category Structure
 
-The `prompts/` directory contains the core components used to build prompts in Promptctl, organized by category.
+The `prompts/` directory contains the core components used to build prompts in PromptPro, organized by category.
 
 ### Categories
 
@@ -22,11 +22,11 @@ prompts
 You can list **prompt composable elements** by category in several ways, such as:
 
 ```bash
-promptctl list roles
-promptctl list roles | grep -E 'te|utor'
+pp list roles
+pp list roles | grep -E 'te|utor'
 ```
 
-Below is a **complete list of elements** and their features available in promptctl for building prompts, composing them, and creating new ones.
+Below is a **complete list of elements** and their features available in PromptPro for building prompts, composing them, and creating new ones.
 
 **You can extend your own local version of the list** by adding new elements as you create them.
 
