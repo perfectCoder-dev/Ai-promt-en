@@ -91,13 +91,19 @@ didactic
 ...
 ```
 
-You determine that you need a new `pattern` and a new `role`, and that you should reuse an existent `role`, and `task`.
+You determine that you need a new `agent`, `pattern`, and `role`, and that you should reuse an existing `task`.
 
 > [!TIP]
-> Make a table to help you define the required components.
-> |Agent         |Role                 |Task + Audience         | Patterns                       |
-> |--------------|---------------------|------------------------|--------------------------------|
-> |cs_instructor |technical_instructor |explain + for beginners |step_by_step, structured_output |
+> Create a table to help you define the required components.
+> |Agent         |Role                 |Task + Audience     | Patterns                       |
+> |--------------|---------------------|--------------------|--------------------------------|
+> |cs_instructor |technical_instructor |explain + beginners |step_by_step, structured_output |
+
+> [!TIP]
+> Use your preferred coding agent or filesystem commands to inspect the existing prompt components.
+
+> [!WARNING]
+> All the components mentioned in this example already exist. Do not modify them, as this may break the example or create inconsistencies in the system.
 
 ### Step 3: Create A New Pattern
 
@@ -115,14 +121,16 @@ Example content:
 
 ```
 
-Verify that the pattern has been created:
+> [!TIP]
+> Create a prompt-engineering agent to help generate new prompt patterns.
+
+Verify that the new pattern was created:
 
 ```bash
-pp list patterns
 pp list patterns | grep structure
 ```
 
-You should now see:
+Expected output:
 
 ```output
 structured_output
@@ -146,6 +154,18 @@ You are a precise and analytical technical instructor.
 
 ```
 
+Verify that the new role was created:
+
+```bash
+pp list roles | grep instructor
+```
+
+Expected output:
+
+```output
+technical_instructor
+```
+
 ### Step 5.1: Create And Build Your Agent With `build`
 
 ```bash
@@ -166,7 +186,7 @@ patterns:
 Now you can use:
 
 ```bash
-pp build cs_instructor --var input="Hash Tables"
+pp build cs_instructor --var input="Switch, explained for beginners"
 ```
 
 That’s your reusable agent configuration.
@@ -179,11 +199,13 @@ pp compose \
   --task explain \
   --pattern step_by_step \
   --pattern structured_output \
-  --var input="Hash Tables" \
+  --var input="Switch, explained for beginners" \
   --copy
 ```
 
 Now it's copied to your clipboard.
+
+Test your new prompt command using your favorite AI model.
 
 ## Tips For PromptPro Prompt Creators
 
@@ -207,13 +229,18 @@ The definition of **default agents** has evolved into `3` agent families:
 |--|--------------------|---------------------|--------|
 |1 |Teaching	          |tutor	              |explain |
 |2 |Technical teaching	|technical_instructor	|explain |
-|3 |Operations	        |executor	            |action  |
+|3 |Operations	        |executor	            |action / compose_action|
 
 This separation is very clean and scalable.
 
-### 💡 Editing Existing Elements 
+### 💡 Editing Existing Components
 
-Alternatively, instead of creating new agents, roles, tasks, and/or patterns, you can open the corresponding **element file** to review or edit its contents. 🚨 However, **any changes to existing elements will affect all elements associated with the modified one**. To avoid unintentionally impacting other agents and related elements, the recommended approach is to **clone an existing agent and rename it as your new preset**, then modify the cloned version instead of the original.
+Alternatively, instead of creating new prompt components, you can open the corresponding **component file** to review or edit its contents before reusing it.
+
+> [!WARNING]
+> Any changes to existing components will affect all components that depend on them.
+
+To avoid unintentionally impacting other components, the recommended approach is to **clone an existing component and rename it for your new preset**, then modify the cloned version instead of the original.
 
 ### 💡 Understand How To Proceed Clearly
 
