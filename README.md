@@ -1,15 +1,14 @@
-# Promptctl ✍️⚡
+# PromptPro 🎯
 
 ![Python](https://img.shields.io/badge/python-3.9–3.13-blue)
-![License](https://img.shields.io/github/license/estebantechdev/promptctl)
+![License](https://img.shields.io/github/license/estebantechdev/promptpro)
 
 <p align="center">
-  <img src="images/promptctl-banner.jpg" alt="promptctl banner" width="900">
+  <img src="images/pp-banner.jpg" alt="PromptPro banner" width="900">
 </p>
 
 <p align="center">
-  <strong>Compose better prompts, faster. 🚀</strong><br>
-  A control plane for composable AI prompting.
+  <strong>A control plane for composable AI prompting</strong>
 </p>
 
 ## 📖 Overview
