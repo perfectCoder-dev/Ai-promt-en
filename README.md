@@ -1,7 +1,7 @@
 # PromptPro 🎯
 
 ![Python](https://img.shields.io/badge/python-3.9–3.13-blue)
-![License](https://img.shields.io/github/license/estebantechdev/promptpro)
+![License](https://img.shields.io/github/license/estebantechdev/prompt-pro)
 
 <p align="center">
   <img src="images/pp-banner.jpg" alt="PromptPro banner" width="900">
@@ -13,13 +13,13 @@
 
 ## 📖 Overview
 
-Promptctl is a modular CLI for composing, managing, and orchestrating reusable AI prompt components.
+PromptPro is a modular CLI for composing, managing, and orchestrating reusable AI prompt components.
 
-Instead of storing static snippets, Promptctl treats prompts as structured building blocks — roles, tasks, and reasoning patterns — that can be assembled, parameterized, and reused across projects.
+Instead of storing static snippets, PromptPro treats prompts as structured building blocks — roles, tasks, and reasoning patterns — that can be assembled, parameterized, and reused across projects.
 
 Designed for users who think in systems, not snippets.
 
- 🧱 Why promptctl?
+ 🧱 Why Prompt Pro?
 
 - 🧱 Modular prompt components
 - 🧠 Role + task + pattern composition
@@ -33,10 +33,10 @@ Designed for users who think in systems, not snippets.
 
 ```shell
 # Get the source code
-git clone https://github.com/estebantechdev/promptctl.git
+git clone https://github.com/estebantechdev/prompt-pro.git
 
 # Enter the project directory
-cd promptctl
+cd prompt-pro
 
 # Create virtual environment (optional)
 python3 -m venv .venv
@@ -47,10 +47,10 @@ python -m pip install -r requirements.txt  # For normal users
 python -m pip install -r requirements-lock.txt  # For developers / CI
 
 # Make executable
-chmod +x promptctl.py
+chmod +x prompt_pro.py
 
 # Install system-wide
-sudo ln -s "$(pwd)/promptctl.py" /usr/local/bin/promptctl
+sudo ln -s "$(pwd)/main.py" /usr/local/bin/pp
 ```
 
 #### 🐧 Linux Prerequisite (Debian/Ubuntu)
@@ -71,13 +71,13 @@ sudo apt install python3-venv
 List available roles:
 
 ```bash
-promptctl list roles
+pp list roles
 ```
 
 Filter results using multiple patterns (`te` or `utor`):
 
 ```bash
-promptctl list roles | grep -E 'te|utor'
+pp list roles | grep -E 'te|utor'
 ```
 
 Example output:
@@ -97,20 +97,20 @@ tutor
 ### Creating A Prompt With `build`
 
 > [!NOTE]
-> Promptctl supports two workflows:
+> PromptPro supports two workflows:
 > - `build` generates a prompt using a predefined **agent preset**.
 > - `compose` generates a prompt by manually combining **role**, **task**, and **pattern** components.
 
 Create a prompt using a predefined agent:
 
 ```bash
-promptctl build math_tutor --var input="Explain recursion"
+pp build math_tutor --var input="Explain recursion"
 ```
 
 Copy the generated prompt directly to the clipboard:
 
 ```bash
-promptctl build math_tutor --var input="Explain recursion" --copy
+pp build math_tutor --var input="Explain recursion" --copy
 ```
 
 ### `compose` A Prompt From Components
@@ -118,7 +118,7 @@ promptctl build math_tutor --var input="Explain recursion" --copy
 Compose a prompt by combining a `role`, `task`, and `pattern`:
 
 ```bash
-promptctl compose \
+pp compose \
   --role tutor \
   --task explain \
   --pattern step_by_step \
@@ -128,7 +128,7 @@ promptctl compose \
 Including multiple patterns and variables:
 
 ```bash
-promptctl compose \
+pp compose \
   --role tutor \
   --task explain \
   --pattern socratic \
@@ -159,14 +159,14 @@ The variable name in the template must match the key used in the command line.
 
 ## 📁 Variable Sources
 
-Promptctl supports three types of variable sources:
+PromptPro supports three types of variable sources:
 
 ### 1. Literal Variables (--var)
 
 Pass a value directly from the command line.
 
 ```bash
-promptctl compose \
+pp compose \
   --role tutor \
   --task explain \
   --pattern socratic \
@@ -178,7 +178,7 @@ promptctl compose \
 Load the variable value from a file (for example: .txt or .md).
 
 ```bash
-promptctl compose \
+pp compose \
   --role tutor \
   --task explain \
   --pattern socratic \
@@ -192,7 +192,7 @@ The entire file content becomes the variable value.
 Load variable content from all files inside a directory (recursively).
 
 ```bash
-promptctl compose \
+pp compose \
   --role tutor \
   --task explain \
   --pattern socratic \
@@ -207,7 +207,7 @@ All file contents are combined into a single variable value.
 You can combine multiple variable sources in the same command:
 
 ```bash
-promptctl compose \
+pp compose \
   --role tutor \
   --task explain \
   --pattern didactic \
@@ -231,7 +231,7 @@ The variables `input2` and `input3` don't exist in the default version of the ta
 Example:
 
 ```bash
-promptctl compose \
+pp compose \
   --role tutor \
   --task explain \
   --pattern didactic \
@@ -248,7 +248,7 @@ promptctl compose \
 
 ## ⚙️ Types Of Tasks
 
-By default, Promptctl provides two main types of tasks: `explain` and `action`, which together cover most AI-human interaction scenarios.
+By default, PromptPro provides two main types of tasks: `explain` and `action`, which together cover most AI-human interaction scenarios.
 
 ▶️ Action — Start / Run the task and produce a result.  
 💬 Explain — Describe the reasoning without performing any tasks.
@@ -262,7 +262,7 @@ To create an action prompt with `build`, you must use the `action_agent` agent a
 Example:
 
 ```bash
-promptctl build action_agent --var action="Make a shopping list"
+pp build action_agent --var action="Make a shopping list"
 ```
 
 ### Creating Action Prompts With `compose`
@@ -272,7 +272,7 @@ To create an action prompt with `compose`, you must use the `action_agent` agent
 The following example includes `context` and `examples`, which help an AI language model interpret the request more accurately and produce more reliable output:
 
 ```bash
-promptctl compose \
+pp compose \
   --role executor \
   --task compose_action \
   --pattern verify_before_execute \
@@ -295,7 +295,7 @@ Complete clean tutorial on how to create and use a pattern group
 
 ## 🗂 Prompt Components
 
-The `prompts/` directory contains the core components used to build prompts in Promptctl.
+The `prompts/` directory contains the core components used to build prompts in PromptPro.
 
 Each subdirectory represents a specific type of component such as roles, tasks, patterns, or agent presets.
 
@@ -305,7 +305,7 @@ See the **complete reference**:
 
 ## 🧠 Concepts
 
-Understanding modern prompting frameworks helps you use Promptctl more effectively.
+Understanding modern prompting frameworks helps you use PromptPro more effectively.
 
 🔗 [The Iceberg Of Prompting](docs/the_iceberg_of_prompting.md)
 
@@ -322,7 +322,7 @@ You can contribute:
 - New **agent presets** that combine existing components
 - Documentation improvements and examples
 
-Promptctl becomes more powerful as its library of components grows.
+PromptPro becomes more powerful as its library of components grows.
 
 If you’ve built something reusable, open a pull request and help expand the ecosystem.
 
