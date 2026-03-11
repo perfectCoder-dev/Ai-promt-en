@@ -30,7 +30,7 @@ You need to know the meaning of **"switch"** (in computer networks).
 
 - You reduce the number of iterations in the prompting loop and reach a useful answer **faster**.
 
-### What fixes the error
+### What Fixes The Error
 
 The issue is resolved by **adding specificity and structure to the prompt**. Instead of asking a vague question, the user provides enough information to guide the AI toward the intended explanation.
 
@@ -51,29 +51,29 @@ This type of error can be prevented from the start by using tools or workflows t
 
 This example illustrates a common issue in AI interactions: **vague prompts lead to vague answers**. When a prompt lacks context, scope, or structure, the AI must guess the user’s intent, which often results in ambiguous or insufficient responses.
 
-PromptPro helps prevent this problem **from the very beginning**. Instead of forcing users into a trial-and-error prompting loop, it guides them in **constructing clear, structured prompts** by defining the role, domain, audience, and expected output format. This approach reduces ambiguity, shortens the iteration cycle, and helps users obtain **useful, well-structured answers faster**.
+PromptPro helps prevent this problem **from the very beginning**. Instead of forcing users into a trial-and-error prompting loop, it guides them in **constructing clear, structured prompts** by defining the role, domain, audience, expected output format, etc. This approach reduces ambiguity, shortens the iteration cycle, and helps users obtain **useful, well-structured answers faster**.
 
 In the next section, you will see how **PromptPro** helps transform a vague prompt into a clear and structured one. The following steps demonstrate a simple workflow for defining the role, domain, audience, and output structure so the AI can produce more accurate and useful responses from the start.
 
 ### Step 1: Define A Custom Prompt To Build
 
-
-
 Let’s say we want:
 
 - Role: Technical instructor
-
 - Task: Explaining
+- Patterns: Step by step, structured output
+- Topic: "Switch"
+- Audience: beginners
 
-- Patterns: Step by step
+### Step 2: Inspect Existing Prompt Components
 
-- Patterns: Structured output
+> [!NOTE]
+> At this stage, you will identify which patterns you:
+> - Need
+> - Can modify
+> - Can reuse
 
-- Topic: "Hash Tables"
-
-### Step 2: Inspect Existing Files
-
-List available items:
+List the available components:
 
 ```bash
 pp list <agents|pattern_groups|patterns|roles|tasks>
@@ -91,10 +91,24 @@ didactic
 ...
 ```
 
-### Step 3: Creating A New Pattern
+You determine that you need a new `agent`, `pattern`, and `role`, and that you should reuse an existing `task`.
+
+> [!TIP]
+> Create a table to help you define the required components.
+> |Agent         |Role                 |Task + Audience     | Patterns                       |
+> |--------------|---------------------|--------------------|--------------------------------|
+> |cs_instructor |technical_instructor |explain + beginners |step_by_step, structured_output |
+
+> [!TIP]
+> Use your preferred coding agent or filesystem commands to inspect the existing prompt components.
+
+> [!WARNING]
+> All the components mentioned in this example already exist. Do not modify them, as this may break the example or create inconsistencies in the system.
+
+### Step 3: Create A New Pattern
 
 ```bash
-pp prompts/patterns/structured_output.md
+touch prompts/patterns/structured_output.md
 ```
 
 Example content:
@@ -107,21 +121,22 @@ Example content:
 
 ```
 
-Verify it exists:
+> [!TIP]
+> Create a prompt-engineering agent to help generate new prompt patterns.
+
+Verify that the new pattern was created:
 
 ```bash
-pp list patterns
+pp list patterns | grep structure
 ```
 
-You should now see:
+Expected output:
 
 ```output
-socratic
-step_by_step
 structured_output
 ```
 
-### Step 4: Create New Role File
+### Step 4: Create A New Role
 
 ```bash
 touch prompts/roles/technical_instructor.md
@@ -137,6 +152,18 @@ You are a precise and analytical technical instructor.
 - Avoid metaphors
 - Provide definitions before explanations
 
+```
+
+Verify that the new role was created:
+
+```bash
+pp list roles | grep instructor
+```
+
+Expected output:
+
+```output
+technical_instructor
 ```
 
 ### Step 5.1: Create And Build Your Agent With `build`
@@ -159,7 +186,7 @@ patterns:
 Now you can use:
 
 ```bash
-pp build cs_instructor --var input="Hash Tables"
+pp build cs_instructor --var input="Switch, explained for beginners"
 ```
 
 That’s your reusable agent configuration.
@@ -172,11 +199,13 @@ pp compose \
   --task explain \
   --pattern step_by_step \
   --pattern structured_output \
-  --var input="Hash Tables" \
+  --var input="Switch, explained for beginners" \
   --copy
 ```
 
 Now it's copied to your clipboard.
+
+Test your new prompt command using your favorite AI model.
 
 ## Tips For PromptPro Prompt Creators
 
@@ -200,13 +229,18 @@ The definition of **default agents** has evolved into `3` agent families:
 |--|--------------------|---------------------|--------|
 |1 |Teaching	          |tutor	              |explain |
 |2 |Technical teaching	|technical_instructor	|explain |
-|3 |Operations	        |executor	            |action  |
+|3 |Operations	        |executor	            |action / compose_action|
 
 This separation is very clean and scalable.
 
-### 💡 Editing Existing Elements 
+### 💡 Editing Existing Components
 
-Alternatively, instead of creating new agents, roles, tasks, and/or patterns, you can open the corresponding **element file** to review or edit its contents. 🚨 However, **any changes to existing elements will affect all elements associated with the modified one**. To avoid unintentionally impacting other agents and related elements, the recommended approach is to **clone an existing agent and rename it as your new preset**, then modify the cloned version instead of the original.
+Alternatively, instead of creating new prompt components, you can open the corresponding **component file** to review or edit its contents before reusing it.
+
+> [!WARNING]
+> Any changes to existing components will affect all components that depend on them.
+
+To avoid unintentionally impacting other components, the recommended approach is to **clone an existing component and rename it for your new preset**, then modify the cloned version instead of the original.
 
 ### 💡 Understand How To Proceed Clearly
 
