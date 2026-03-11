@@ -1,43 +1,79 @@
-# New Prompt Tutorial
+# Creating And Using New Prompt Components
 
-Here’s a practical, hands-on tutorial to create a new prompt example — both by reusing existing .md files and by adding new ones.
+Here’s a practical, hands-on tutorial to create a new prompt — both by reusing existing .md files and by adding new ones.
 
-We’ll assume your project prompts directory looks like this:
+## Example
 
-```bash
-prompts
-├── agents
-│   └── math_tutor.yaml
-├── pattern_groups
-│   ├── didactic_structured.yaml
-│   └── didactic.yaml
-├── patterns
-│   ├── socratic.md
-│   └── step_by_step.md
-├── roles
-│   └── tutor.md
-└── tasks
-    └── explain.md
+### Prerequisite
 
-```
+You need to know the meaning of **"switch"** (in computer networks).
 
-## Full Custom Prompt Build
+### Typical Workflow
+
+- You type a low-quality prompt:
+
+  > What is a switch?
+
+- The result is **insufficient** or ambiguous.
+
+- You remain in the prompting loop, asking follow-up questions until you eventually get a convincing answer.
+
+- At this point, you realize that your prompt **lacked context and structure**, so the AI had too much freedom in how to answer.
+
+- You improve the prompt by specifying the **role**, **scope**, and **structure** of the explanation:
+
+  > Act as a computer networking engineer and instructor. If you are uncertain about any part of the concept, state that clearly and focus on explaining only well-established fundamentals. Your task is to explain the concept of a network switch in a clear and structured way suitable for beginners: begin with a brief definition, then describe in simple terms how a switch works in a network, outline its main components, summarize its typical operations and functions, and discuss its advantages and limitations. Conclude with a few simple real-world examples of how switches are used in computer networks, using clear language and avoiding unnecessary jargon.
+
+- You submit the improved prompt.
+
+- The response becomes **clearer, more structured, and closer to your expectations**.
+
+- You reduce the number of iterations in the prompting loop and reach a useful answer **faster**.
+
+### What fixes the error
+
+The issue is resolved by **adding specificity and structure to the prompt**. Instead of asking a vague question, the user provides enough information to guide the AI toward the intended explanation.
+
+The improved prompt introduces several key elements:
+
+- **Role** — “computer networking engineer and instructor”
+- **Domain** — “network switch” in computer networking
+- **Structure** — definition, operation, components, advantages, limitations, and examples
+- **Audience** — beginners
+
+These additions reduce ambiguity and guide the AI toward producing a **focused, structured, and relevant response**.
+
+The original AI user error was the **initial vague prompt** (“What is a switch?”), which lacked context and allowed multiple interpretations.
+
+This type of error can be prevented from the start by using tools or workflows that help users **formulate clearer and more structured prompts**.
+
+### Key Takeaway
+
+This example illustrates a common issue in AI interactions: **vague prompts lead to vague answers**. When a prompt lacks context, scope, or structure, the AI must guess the user’s intent, which often results in ambiguous or insufficient responses.
+
+PromptPro helps prevent this problem **from the very beginning**. Instead of forcing users into a trial-and-error prompting loop, it guides them in **constructing clear, structured prompts** by defining the role, domain, audience, and expected output format. This approach reduces ambiguity, shortens the iteration cycle, and helps users obtain **useful, well-structured answers faster**.
+
+In the next section, you will see how **PromptPro** helps transform a vague prompt into a clear and structured one. The following steps demonstrate a simple workflow for defining the role, domain, audience, and output structure so the AI can produce more accurate and useful responses from the start.
+
+### Step 1: Define A Custom Prompt To Build
+
+
 
 Let’s say we want:
 
-- Technical instructor
+- Role: Technical instructor
 
-- Explaining
+- Task: Explaining
 
-- Step by step
+- Patterns: Step by step
 
-- Structured output
+- Patterns: Structured output
 
-- Topic = "Hash Tables"
+- Topic: "Hash Tables"
 
-### Step 1: Inspect Existing Files
+### Step 2: Inspect Existing Files
 
-You can list available items:
+List available items:
 
 ```bash
 pp list <agents|pattern_groups|patterns|roles|tasks>
@@ -55,7 +91,7 @@ didactic
 ...
 ```
 
-### Step 2: Creating A New Pattern
+### Step 3: Creating A New Pattern
 
 ```bash
 pp prompts/patterns/structured_output.md
@@ -85,7 +121,7 @@ step_by_step
 structured_output
 ```
 
-### Step 3: Create New Role File
+### Step 4: Create New Role File
 
 ```bash
 touch prompts/roles/technical_instructor.md
@@ -103,7 +139,7 @@ You are a precise and analytical technical instructor.
 
 ```
 
-### Step 4.1: Create And Build Your Agent With `build`
+### Step 5.1: Create And Build Your Agent With `build`
 
 ```bash
 touch prompts/agents/cs_instructor.yaml
@@ -128,7 +164,7 @@ pp build cs_instructor --var input="Hash Tables"
 
 That’s your reusable agent configuration.
 
-### Step 4.2: Compose Your Prompt With `compose`
+### Step 5.2: Compose Your Prompt With `compose`
 
 ```bash
 pp compose \
@@ -176,6 +212,6 @@ Alternatively, instead of creating new agents, roles, tasks, and/or patterns, yo
 
 Read the related documentation:
 
-* [Composable Elements Reference](docs/prompt_composable_elements_reference.md)
+* [Prompt Components Reference](../docs/prompt_components_reference.md)
 
-* [Pattern Groups](docs/create_and_use_a_pattern_group.md)
+* [Creating And Using Pattern Groups](../docs/create_and_use_a_pattern_group.md)
