@@ -44,8 +44,8 @@ Save the file.
 Now run (using compose):
 
 ```bash
-promptctl compose --role tutor --task explain --pattern didactic --var input="Binary Search Trees"
-promptctl compose --role tutor --task explain --pattern didactic --var input="Binary Search Trees" --copy
+pp compose --role tutor --task explain --pattern didactic --var input="Binary Search Trees"
+pp compose --role tutor --task explain --pattern didactic --var input="Binary Search Trees" --copy
 ```
 
 ## Result
