@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 ################################################################################
-#                                  promptctl                                   #
+#                                  PromptPro                                   #
 #                                                                              #
 # Composes, manages, and orchestrates reusable AI prompt components            #
 #                                                                              #
@@ -30,7 +30,7 @@
 #  along with this program; if not, write to the Free Software                 #
 #  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA   #
 
-# promptctl.py
+# main.py
 # A modular CLI tool for composing, rendering, and managing structured prompts
 # from reusable building blocks.
 
@@ -361,7 +361,7 @@ def copy_to_clipboard(text):
 
 def main():
     """
-    Entry point for the promptctl CLI application.
+    Entry point for the PromptPro CLI application.
 
     This function:
     - Defines the command-line interface using argparse.
@@ -393,7 +393,7 @@ def main():
         FileNotFoundError: If a file specified in --var-file does not exist.
         NotADirectoryError: If a path specified in --var-dir is not a directory.
     """
-    parser = argparse.ArgumentParser(prog="promptctl")
+    parser = argparse.ArgumentParser(prog="pp")
 
     subparsers = parser.add_subparsers(dest="command")
 
