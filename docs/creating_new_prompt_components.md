@@ -30,7 +30,7 @@ You need to know the meaning of **"switch"** (in computer networks).
 
 - You reduce the number of iterations in the prompting loop and reach a useful answer **faster**.
 
-### What fixes the error
+### What Fixes The Error
 
 The issue is resolved by **adding specificity and structure to the prompt**. Instead of asking a vague question, the user provides enough information to guide the AI toward the intended explanation.
 
@@ -51,29 +51,29 @@ This type of error can be prevented from the start by using tools or workflows t
 
 This example illustrates a common issue in AI interactions: **vague prompts lead to vague answers**. When a prompt lacks context, scope, or structure, the AI must guess the user’s intent, which often results in ambiguous or insufficient responses.
 
-PromptPro helps prevent this problem **from the very beginning**. Instead of forcing users into a trial-and-error prompting loop, it guides them in **constructing clear, structured prompts** by defining the role, domain, audience, and expected output format. This approach reduces ambiguity, shortens the iteration cycle, and helps users obtain **useful, well-structured answers faster**.
+PromptPro helps prevent this problem **from the very beginning**. Instead of forcing users into a trial-and-error prompting loop, it guides them in **constructing clear, structured prompts** by defining the role, domain, audience, expected output format, etc. This approach reduces ambiguity, shortens the iteration cycle, and helps users obtain **useful, well-structured answers faster**.
 
 In the next section, you will see how **PromptPro** helps transform a vague prompt into a clear and structured one. The following steps demonstrate a simple workflow for defining the role, domain, audience, and output structure so the AI can produce more accurate and useful responses from the start.
 
 ### Step 1: Define A Custom Prompt To Build
 
-
-
 Let’s say we want:
 
 - Role: Technical instructor
-
 - Task: Explaining
+- Patterns: Step by step, structured output
+- Topic: "Switch"
+- Audience: beginners
 
-- Patterns: Step by step
+### Step 2: Inspect Existing Prompt Components
 
-- Patterns: Structured output
+> [!NOTE]
+> At this stage, you will identify which patterns you:
+> - Need
+> - Can modify
+> - Can reuse
 
-- Topic: "Hash Tables"
-
-### Step 2: Inspect Existing Files
-
-List available items:
+List the available components:
 
 ```bash
 pp list <agents|pattern_groups|patterns|roles|tasks>
@@ -91,10 +91,18 @@ didactic
 ...
 ```
 
-### Step 3: Creating A New Pattern
+You determine that you need a new `pattern` and a new `role`, and that you should reuse an existent `role`, and `task`.
+
+> [!TIP]
+> Make a table to help you define the required components.
+> |Agent         |Role                 |Task + Audience         | Patterns                       |
+> |--------------|---------------------|------------------------|--------------------------------|
+> |cs_instructor |technical_instructor |explain + for beginners |step_by_step, structured_output |
+
+### Step 3: Create A New Pattern
 
 ```bash
-pp prompts/patterns/structured_output.md
+touch prompts/patterns/structured_output.md
 ```
 
 Example content:
@@ -107,21 +115,20 @@ Example content:
 
 ```
 
-Verify it exists:
+Verify that the pattern has been created:
 
 ```bash
 pp list patterns
+pp list patterns | grep structure
 ```
 
 You should now see:
 
 ```output
-socratic
-step_by_step
 structured_output
 ```
 
-### Step 4: Create New Role File
+### Step 4: Create A New Role
 
 ```bash
 touch prompts/roles/technical_instructor.md
