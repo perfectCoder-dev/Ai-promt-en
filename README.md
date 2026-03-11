@@ -202,7 +202,7 @@ pp compose \
 
 All file contents are combined into a single variable value.
 
-### Combining All Variable Types
+### Combining All Variable Sources
 
 You can combine multiple variable sources in the same command:
 

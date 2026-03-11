@@ -57,7 +57,7 @@ In the next section, you will see how **PromptPro** helps transform a vague prom
 
 ### Step 1: Define A Custom Prompt To Build
 
-Let’s say we want:
+Let’s say you want:
 
 - Role: Technical instructor
 - Task: Explaining
@@ -79,31 +79,32 @@ List the available components:
 pp list <agents|pattern_groups|patterns|roles|tasks>
 ```
 
-You should see:
+Example output (varies depending on the component type):
 
 ```output
 tutor
-explain
-socratic
-step_by_step
-didactic_structured
-didactic
+executor
 ...
 ```
 
-You determine that you need a new `agent`, `pattern`, and `role`, and that you should reuse an existing `task`.
+> [!TIP]
+> Use your preferred coding agent, filesystem explorer, or commands to inspect the existing prompt components in the directory `prompts`. For example (using the vim editor):
+> ```bash
+> vim prompts/agents/math_tutor.yaml
+> ```
 
 > [!TIP]
 > Create a table to help you define the required components.
-> |Agent         |Role                 |Task + Audience     | Patterns                       |
-> |--------------|---------------------|--------------------|--------------------------------|
-> |cs_instructor |technical_instructor |explain + beginners |step_by_step, structured_output |
-
-> [!TIP]
-> Use your preferred coding agent or filesystem commands to inspect the existing prompt components.
+> Insert components and `Task` specifications in the appropriate fields.
+> Use 🔗 [The Iceberg Of Prompting](docs/the_iceberg_of_prompting.md) as your basic structural framework.
+> |Agent           |Role                   |Task + Task Conditions      |Patterns                            |
+> |----------------|-----------------------|----------------------------|------------------------------------|
+> |`cs_instructor` |`technical_instructor` |`explain` + "for beginners" |`step_by_step`, `structured_output` |
 
 > [!WARNING]
 > All the components mentioned in this example already exist. Do not modify them, as this may break the example or create inconsistencies in the system.
+
+Finally, you determine that you need a new `agent`, `pattern`, and `role`, and that you should reuse an existing `task`.
 
 ### Step 3: Create A New Pattern
 
