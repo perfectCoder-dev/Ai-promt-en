@@ -1,10 +1,10 @@
-# New PromptPro Pattern Groups Tutorial
+# Creating New Pattern Groups
 
-Here is a complete, clean tutorial to **create and use a pattern group** in your `pp` system.
+Here is a complete, clean tutorial to **create and use a pattern group** for your `pp` application.
 
 ## What Is A Pattern Group?
 
-A pattern group is a YAML file that expands into multiple patterns.
+A pattern group is a *YAML* file that expands into multiple patterns.
 
 Instead of writing:
 
