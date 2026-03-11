@@ -1,4 +1,4 @@
-# 🗂 Prompt Compose Reference
+# 🗂 Prompt Components Reference
 
 This document explains the structure, organization, and available building blocks that can be combined to construct modular, reusable, and maintainable prompts.
 
@@ -61,7 +61,7 @@ Below is a complete list of components and their features for creating prompts.
 - [didactic](./prompts/pattern_groups/default_pattern_groups.md)
 - [didactic_structured](./prompts/pattern_groups/default_pattern_groups.md)
 
-### Default Patterns
+## Default Patterns
 
 - [plan_execute](./prompts/patterns/default_patterns.md)
 - [socratic](./prompts/patterns/default_patterns.md)
