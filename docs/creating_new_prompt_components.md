@@ -108,7 +108,7 @@ Create a table to help you define the required components.
 > Use 🔗 [The Iceberg Of Prompting](../docs/the_iceberg_of_prompting.md) as your structural framework.
 
 > [!NOTE]
-> In this case, the **`task`** **conditions** correpond to the item "**Limits, boundaries**" from the "**🚦 Operational Control**" category in the **sublevel 6** of the framework's document. Other words within the same "**Limits, boundaries**" category include: **restrictions**, **rules**, **conventions**, **standars**, and similar contraints.
+> In this case, the **`task` conditions** correpond to the item "**Limits, boundaries**" from the "**🚦 Operational Control**" category in the **sublevel 6** of the framework's document. Other words within the same "**Limits, boundaries**" category include: **restrictions**, **rules**, **conventions**, **standars**, and similar contraints.
 
 ### Step 4: Decide What To Create Or Reuse
 
