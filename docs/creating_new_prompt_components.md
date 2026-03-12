@@ -55,7 +55,7 @@ PromptPro helps prevent this problem **from the very beginning**. Instead of for
 
 In the next section, you will see how **PromptPro** helps transform a vague prompt into a clear and structured one. The following steps demonstrate a simple workflow for defining the role, domain, audience, and output structure so the AI can produce more accurate and useful responses from the start.
 
-### Step 1: Define A Custom Prompt To Build
+### Step 1: Define The Prompt Goal
 
 Let’s say you want:
 
@@ -63,12 +63,12 @@ Let’s say you want:
 - Task: Explaining
 - Patterns: Step by step, structured output
 - Topic: "Switch"
-- Audience: beginners
+- Audience: Beginners
 
-### Step 2: Inspect Existing Prompt Components
+### Step 2: Inspect The Existing Components
 
 > [!NOTE]
-> At this stage, you will identify which patterns you:
+> Identify which patterns you:
 > - Need
 > - Can modify
 > - Can reuse
@@ -87,27 +87,34 @@ executor
 ...
 ```
 
-> [!TIP]
-> Use your preferred coding agent, filesystem explorer, or commands to inspect the existing prompt components in the directory `prompts`. For example (using the vim editor):
-> ```bash
-> vim prompts/agents/math_tutor.yaml
-> ```
+Use your preferred coding agent, filesystem explorer, or commands to inspect the existing components in the directory `prompts`. For example (using the vim editor):
+
+```bash
+vim prompts/agents/math_tutor.yaml
+```
+
+### Step 3: Create A Planning Table
+
+Create a table to help you define the required components.
+
+|Agent           |Role                   |Task + Task Conditions      |Patterns                            |
+|----------------|-----------------------|----------------------------|------------------------------------|
+|`cs_instructor` |`technical_instructor` |`explain` + "for beginners" |`step_by_step`, `structured_output` |
+
+> [!IMPORTANT]
+> Insert components and `task` specifications in the appropriate fields.  
 
 > [!TIP]
-> Create a table to help you define the required components.  
-> Insert components and `Task` specifications in the appropriate fields.  
-> Use 🔗 [The Iceberg Of Prompting](../docs/the_iceberg_of_prompting.md) as your basic structural framework.
-> 
-> |Agent           |Role                   |Task + Task Conditions      |Patterns                            |
-> |----------------|-----------------------|----------------------------|------------------------------------|
-> |`cs_instructor` |`technical_instructor` |`explain` + "for beginners" |`step_by_step`, `structured_output` |
+> Use 🔗 [The Iceberg Of Prompting](../docs/the_iceberg_of_prompting.md) as your structural framework. For the example, check the **sublevel 6** in the **level 2** of the document.
+
+### Step 4: Decide What To Create Or Reuse
+
+Based on the planning table, you determine that you need a new `agent`, `pattern`, and `role`, and that you should reuse an existing `task` to create the example prompt.
 
 > [!WARNING]
 > All the components mentioned in this example already exist. Do not modify them, as this may break the example or create inconsistencies in the system.
 
-Finally, you determine that you need a new `agent`, `pattern`, and `role`, and that you should reuse an existing `task`.
-
-### Step 3: Create A New Pattern
+### Step 5: Create A New Pattern
 
 ```bash
 touch prompts/patterns/structured_output.md
@@ -138,7 +145,7 @@ Expected output:
 structured_output
 ```
 
-### Step 4: Create A New Role
+### Step 6: Create A New Role
 
 ```bash
 touch prompts/roles/technical_instructor.md
@@ -168,7 +175,7 @@ Expected output:
 technical_instructor
 ```
 
-### Step 5.1: Create And Build Your Agent With `build`
+### Step 7.1: Create And Build Your Agent With `build`
 
 ```bash
 touch prompts/agents/cs_instructor.yaml
@@ -193,7 +200,20 @@ pp build cs_instructor --var input="Switch, explained for beginners"
 
 That’s your reusable agent configuration.
 
-### Step 5.2: Compose Your Prompt With `compose`
+### Step 7.2: Compose Your Prompt With `compose`
+
+```bash
+pp compose \
+  --role technical_instructor \
+  --task explain \
+  --pattern step_by_step \
+  --pattern structured_output \
+  --var input="Switch, explained for beginners" \
+```
+
+You will see the new prompt in the output.
+
+Alterantively, use the option `--copy` to directly copy the prompt to your clipboard.
 
 ```bash
 pp compose \
@@ -205,9 +225,9 @@ pp compose \
   --copy
 ```
 
-Now it's copied to your clipboard.
+### Test your new prompt
 
-Test your new prompt command using your favorite AI model.
+Paste your new prompt into your preferred AI model interface and verify the results.
 
 ## Tips For PromptPro Prompt Creators
 
