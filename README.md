@@ -203,7 +203,7 @@ pp compose \
 All file contents are combined into a single variable value.
 
 > [!CAUTION]
-> Using `--var-dir` on very large directories can produce a combined variable that exceeds your AI model's *context window*, which may cause truncation or errors. Consider limiting the number or size of files loaded.`.
+> Using `--var-dir` on very large directories can produce a combined variable that exceeds your AI model's *context window*, which may cause truncation or errors. Consider limiting the number or size of files loaded.
 
 ### Combining All Variable Sources
 
