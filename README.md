@@ -312,6 +312,46 @@ Understanding modern prompting frameworks helps you use PromptPro more effective
 
 🔗 [The Iceberg Of Prompting](docs/the_iceberg_of_prompting.md)
 
+## ⚡ Pipelines
+
+PromptPro outputs plain text, which means it integrates naturally with the **Unix philosophy of small tools connected by pipes**.
+
+This allows prompts to flow directly into other programs such as AI models, speech engines, desktop tools, APIs, and automation scripts.
+
+Example:
+
+```bash
+pp build math_tutor --var input="Explain recursion" \
+| ollama run llama3 \
+| espeak-ng
+```
+
+Pipeline flow:
+
+* PromptPro → LLM → speech synthesis
+
+For more examples and integrations with tools such as curl, pandoc, zenity, and netcat, see:
+🔗 [Prompt Pipelines](docs/prompt_pipelines.md).
+
+## 🐚 Bash Scripting
+
+PromptPro integrates easily with shell scripts and command-line automation.
+
+Because Bash expands variables before executing a command, you can dynamically construct prompts using variables or command outputs.
+
+Example:
+
+```bash
+topic="recursion"
+language="Python"
+
+pp build math_tutor --var input="Explain ${topic} in ${language}"
+```
+
+PromptPro can also consume values from other commands or scripts, making it ideal for automation pipelines.
+
+For more examples using Bash variables, command substitution, and scripting patterns, see: 🔗 [Using Bash Variables With PromptPro](docs/bash_variables.md).
+
 ## 🤝 Contributions
 
 Contributions are highly encouraged — especially new prompt components.
