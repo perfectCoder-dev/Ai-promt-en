@@ -1,27 +1,40 @@
 # Default Tasks
 
-Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+> [!NOTE]
+> Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
-## action
+## Task: `action`
 
-### Specification Table
+### Description
 
-### Flowchart
+### Usage 
 
-### Usage Example
-
-## compose_action
-
-### Specification Table
-
-### Flowchart
-
-### Usage Example
-
-## explain
+### Example
 
 ### Specification Table
 
 ### Flowchart
 
-### Usage Example
+## Task: `compose_action`
+
+### Description
+
+### Usage 
+
+### Example
+
+### Specification Table
+
+### Flowchart
+
+## Task: `explain`
+
+### Description
+
+### Usage 
+
+### Example
+
+### Specification Table
+
+### Flowchart

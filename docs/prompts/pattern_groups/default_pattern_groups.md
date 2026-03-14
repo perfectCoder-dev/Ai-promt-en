@@ -1,19 +1,28 @@
 # Default Pattern Groups
 
-Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+> [!NOTE]
+> Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
-## didactic_structured
+## Pattern Group: `didactic_structured`
+
+### Description
+
+### Usage 
+
+### Example
 
 ### Specification Table
 
 ### Flowchart
 
-### Usage Example
+## Pattern Group: `didactic`
 
-## didactic
+### Description
+
+### Usage 
+
+### Example
 
 ### Specification Table
 
 ### Flowchart
-
-### Usage Example

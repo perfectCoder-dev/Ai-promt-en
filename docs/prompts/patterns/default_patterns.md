@@ -1,43 +1,64 @@
 # Default Patterns
 
-Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+> [!NOTE]
+> Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
-## plan_execute
+## Pattern: `plan_execute`
 
-### Specification Table
+### Description
 
-### Flowchart
+### Usage 
 
-### Usage Example
-
-## socratic
-
-### Specification Table
-
-### Flowchart
-
-### Usage Example
-
-## step_by_step
+### Example
 
 ### Specification Table
 
 ### Flowchart
 
-### Usage Example
+## Pattern: `socratic`
 
-## structured_output
+### Description
 
-### Specification Table
+### Usage 
 
-### Flowchart
-
-### Usage Example
-
-## verify_before_execute
+### Example
 
 ### Specification Table
 
 ### Flowchart
 
-### Usage Example
+## Pattern: `step_by_step`
+
+### Description
+
+### Usage 
+
+### Example
+
+### Specification Table
+
+### Flowchart
+
+## Pattern: `structured_output`
+
+### Description
+
+### Usage 
+
+### Example
+
+### Specification Table
+
+### Flowchart
+
+## Pattern: `verify_before_execute`
+
+### Description
+
+### Usage 
+
+### Example
+
+### Specification Table
+
+### Flowchart

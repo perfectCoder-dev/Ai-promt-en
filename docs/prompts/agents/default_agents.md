@@ -1,8 +1,31 @@
 # Default Agents
 
-Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+Reference implementations of default agents designed around different
+functional focuses and reasoning patterns.
 
-## action_agent
+> [!IMPORTANT]
+> **Default Agents** are organized by their primary area of focus, which guides how they approach tasks and structure their reasoning. While each default agent is designed with a particular focus in mind, they remain capable of assisting with requests beyond that scope when needed.
+
+> [!NOTE]
+> Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+
+## Agent: `action_agent`
+
+### Description
+
+An execution-focused agent designed to perform tasks by verifying requirements or planning before acting, using reasoning strategies and structured outputs to ensure accurate and controlled results.
+
+### Usage
+
+```bash
+pp build action_agent --var action="<action>" --copy
+```
+
+### Example
+
+```bash
+pp build action_agent --var action="Make a shopping list"
+```
 
 ### Specification Table
 
@@ -104,13 +127,23 @@ class F,G,X,PP pattern
 
 ```
 
-### Usage Example
+## Agent: `cs_instructor`
+
+### Description
+
+A technical teaching agent specialized in explaining computer science concepts step by step, using reasoning strategies and structured outputs to make complex topics easier to understand.
+
+### Usage
 
 ```bash
-pp build action_agent --var action="<action>" --copy
+pp build cs_instructor --var input="<input>" --copy
 ```
 
-## cs_instructor
+### Example
+
+```bash
+pp build cs_instructor --var input="Switch, explained for beginners" --copy
+```
 
 ### Specification Table
 
@@ -175,13 +208,23 @@ class F,G,O pattern
 
 ```
 
-### Usage Example
+## Agent: `math_tutor`
+
+### Description
+
+An educational agent that teaches mathematical concepts through step-by-step explanations and Socratic questioning, encouraging reasoning and iterative understanding.
+
+### Usage
 
 ```bash
-pp build cs_instructor --var input="<input>" --copy
+pp build math_tutor --var input="<input>" --copy
 ```
 
-## math_tutor
+### Example
+
+```bash
+pp build math_tutor --var input="Explain recursion" --copy
+```
 
 ### Specification Table
 
@@ -240,10 +283,4 @@ class B,C role
 class D,E task
 class F,G,O pattern
 
-```
-
-### Usage Example
-
-```bash
-pp build math_tutor --var input="<input>" --copy
 ```

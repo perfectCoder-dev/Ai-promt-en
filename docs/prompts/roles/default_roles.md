@@ -1,27 +1,40 @@
 # Default Roles
 
-Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+> [!NOTE]
+> Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
-## executor
+## Role: `executor`
 
-### Specification Table
+### Description
 
-### Flowchart
+### Usage 
 
-### Usage Example
-
-## technical_instructor
-
-### Specification Table
-
-### Flowchart
-
-### Usage Example
-
-## tutor
+### Example
 
 ### Specification Table
 
 ### Flowchart
 
-### Usage Example
+## Role: `technical_instructor`
+
+### Description
+
+### Usage 
+
+### Example
+
+### Specification Table
+
+### Flowchart
+
+## Role: `tutor`
+
+### Description
+
+### Usage 
+
+### Example
+
+### Specification Table
+
+### Flowchart
