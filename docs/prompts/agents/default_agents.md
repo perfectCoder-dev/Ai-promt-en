@@ -28,7 +28,7 @@ Table columns that follow **Pattern** represent matches with corresponding eleme
 ### Flowchart
 
 ```mermaid
-flowchart LR
+flowchart TD
 
 A((action_agent))
 
@@ -80,16 +80,17 @@ Z --> MM[⚙️ Execution Mechanism]
 MM --> OO[Chain-of-Thought]
 
 F --> PP[structured_output]
-PP --> QQ[Level 3]
+PP --> QQ[Level 1]
 QQ --> RR[🧩 Core Technique]
 RR --> SS[Simple tasks]
 SS --> TT[🎯 Typical Usage]
 TT --> UU[Simple tasks]
 
-QQ --> VV[📐 Structural Design]
-VV --> WW[Set output format]
-WW --> XX[🚦 Operational Control]
-XX --> YY[Bullets, tables]
+PP --> VV[Level 2]
+VV --> WW[📐 Structural Design]
+WW --> XX[Set output format]
+XX --> YY[🚦 Operational Control]
+YY --> ZZ[Bullets, tables]
 
 %% Color definitions
 classDef role fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#111;
