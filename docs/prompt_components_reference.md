@@ -51,32 +51,31 @@ Below is a complete list of components and their features for creating prompts.
 
 ### Default Agents
 
-- [action_agent](./prompts/agents/default_agents.md)
-- [cs_instructor](./prompts/agents/default_agents.md)
-- [math_tutor](./prompts/agents/default_agents.md)
-
+- [action_agent](./prompts/agents/default_agents.md#action_agent)
+- [cs_instructor](./prompts/agents/default_agents.md#cs_instructor)
+- [math_tutor](./prompts/agents/default_agents.md#math_tutor)
 
 ### Default Pattern Groups
 
-- [didactic](./prompts/pattern_groups/default_pattern_groups.md)
-- [didactic_structured](./prompts/pattern_groups/default_pattern_groups.md)
+- [didactic](./prompts/pattern_groups/default_pattern_groups.md#didactic)
+- [didactic_structured](./prompts/pattern_groups/default_pattern_groups.md#didactic_structured)
 
 ### Default Patterns
 
-- [plan_execute](./prompts/patterns/default_patterns.md)
-- [socratic](./prompts/patterns/default_patterns.md)
-- [step_by_step](./prompts/patterns/default_patterns.md)
-- [structured_output](./prompts/patterns/default_patterns.md)
-- [verify_before_execute](./prompts/patterns/default_patterns.md)
+- [plan_execute](./prompts/patterns/default_patterns.md#plan_execute)
+- [socratic](./prompts/patterns/default_patterns.md#socratic)
+- [step_by_step](./prompts/patterns/default_patterns.md#step_by_step)
+- [structured_output](./prompts/patterns/default_patterns.md#structured_output)
+- [verify_before_execute](./prompts/patterns/default_patterns.md#verify_before_execute)
 
 ### Default Roles
 
-- [executor](./prompts/roles/default_roles.md)
-- [technical_instructor](./prompts/roles/default_roles.md)
-- [tutor](./prompts/roles/default_roles.md)
+- [executor](./prompts/roles/default_roles.md#executor)
+- [technical_instructor](./prompts/roles/default_roles.md#technical_instructor)
+- [tutor](./prompts/roles/default_roles.md#tutor)
 
 ### Default Tasks
 
-- [action](./prompts/tasks/default_tasks.md)
-- [compose_action](./prompts/tasks/default_tasks.md)
-- [explain](./prompts/tasks/default_tasks.md)
+- [action](./prompts/tasks/default_tasks.md#action)
+- [compose_action](./prompts/tasks/default_tasks.md#compose_action)
+- [explain](./prompts/tasks/default_tasks.md#explain)
