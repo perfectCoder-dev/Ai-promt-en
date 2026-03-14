@@ -1,12 +1,117 @@
 # Default Agents
 
-The columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
 ## action_agent
 
-TODO: ChatGTP
+### Specification Table
+
+| Role                 | Task     | Pattern               | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
+|----------------------|----------|-----------------------|-----------------------|---------------------------------|
+| executor             | action   | verify_before_execute | Question-first        | How first, then Do              |
+| executor             | action   | verify_before_execute | Iteration loop        | Feedback → Revision → Final     |
+| executor             | action   | verify_before_execute | Reasoning instruction | “Think deeply before answering” |
+| executor             | action   | verify_before_execute | —                     | Chain-of-Thought                |
+| executor             | action   | plan_execute          | Question-first        | How first, then Do              |
+| executor             | action   | plan_execute          | Iteration loop        | Feedback → Revision → Final     |
+| executor             | action   | plan_execute          | Reasoning instruction | “Think deeply before answering” |
+| executor             | action   | plan_execute          | —                     | Chain-of-Thought                |
+
+| Role                 | Task    | Pattern           | 🧩 Core Technique     | 🎯 Typical Usage                |
+|----------------------|---------|-------------------|-----------------------|---------------------------------|
+| executor             | action  | structured_output |Simple tasks           |“Summarize this”                 |
+
+| Role                 | Task    | Pattern           | 📐 Structural Design  | 🚦 Operational Control          |
+|----------------------|---------|-------------------|-----------------------|---------------------------------|
+| executor             | action  | structured_output |Set output format      |Bullets, tables                  |
+
+### Flowchart
+
+```mermaid
+flowchart LR
+
+A((action_agent))
+
+A --> B[Role]
+B --> C[executor]
+
+A --> D[Task]
+D --> E[action]
+E --> F[Pattern]
+F --> G[verify_before_execute]
+G --> H[Level 3]
+H --> I[🧠 Cognitive Strategy]
+I --> J[Question-first]
+J --> K[⚙️ Execution Mechanism]
+K --> L[How first, then Do]
+
+H --> M[🧠 Cognitive Strategy]
+M --> O[Iteration loop]
+O --> P[⚙️ Execution Mechanism]
+P --> Q[Feedback → Revision → Final]
+
+H --> R[🧠 Cognitive Strategy]
+R --> S[Reasoning instruction]
+S --> T[⚙️ Execution Mechanism]
+T --> U[“Think deeply before answering”]
+
+H --> V[⚙️ Execution Mechanism]
+V --> W[Chain-of-Thought]
+
+F --> X[plan_execute]
+X --> Z[Level 3]
+Z --> AA[🧠 Cognitive Strategy]
+AA --> BB[Question-first]
+BB --> CC[⚙️ Execution Mechanism]
+CC --> DD[How first, then Do]
+
+Z --> EE[🧠 Cognitive Strategy]
+EE --> FF[Iteration loop]
+
+FF --> GG[⚙️ Execution Mechanism]
+GG --> HH[Feedback → Revision → Final]
+
+Z --> II[🧠 Cognitive Strategy]
+II --> JJ[Reasoning instruction]
+JJ --> KK[⚙️ Execution Mechanism]
+KK --> LL[“Think deeply before answering”]
+
+Z --> MM[⚙️ Execution Mechanism]
+MM --> OO[Chain-of-Thought]
+
+F --> PP[structured_output]
+PP --> QQ[Level 3]
+QQ --> RR[🧩 Core Technique]
+RR --> SS[Simple tasks]
+SS --> TT[🎯 Typical Usage]
+TT --> UU[Simple tasks]
+
+QQ --> VV[📐 Structural Design]
+VV --> WW[Set output format]
+WW --> XX[🚦 Operational Control]
+XX --> YY[Bullets, tables]
+
+%% Color definitions
+classDef role fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#111;
+classDef task fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#111;
+classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
+
+%% Apply colors
+class B,C role
+class D,E task
+class F,G,X,PP pattern
+
+```
+
+### Usage Example
+
+```bash
+pp build action_agent --var action="<action>" --copy
+```
 
 ## cs_instructor
+
+### Specification Table
 
 | Role                 | Task    | Pattern           | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
 |----------------------|---------|-------------------|-----------------------|---------------------------------|
@@ -21,10 +126,12 @@ TODO: ChatGTP
 |----------------------|---------|-------------------|-----------------------|---------------------------------|
 | technical_instructor | explain | structured_output |Set output format      |Bullets, tables                  |
 
+### Flowchart
+
 ```mermaid
 flowchart TD
 
-A((math_tutor))
+A((cs_instructor))
 
 A --> B[Role]
 B --> C[tutor]
@@ -67,7 +174,15 @@ class F,G,O pattern
 
 ```
 
+### Usage Example
+
+```bash
+pp build cs_instructor --var input="<input>" --copy
+```
+
 ## math_tutor
+
+### Specification Table
 
 | Role  | Task    | Pattern        | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism            |
 |-------|---------|----------------|-----------------------|-----------------------------------|
@@ -75,6 +190,8 @@ class F,G,O pattern
 | tutor | explain | step_by_step   | —                     | Chain-of-Thought                  |
 | tutor | explain | socratic       | Question-first        | How first, then Do                |
 | tutor | explain | socratic       | Iteration loop        | Feedback → Revision → Final       |
+
+### Flowchart
 
 ```mermaid
 flowchart TD
@@ -122,4 +239,10 @@ class B,C role
 class D,E task
 class F,G,O pattern
 
+```
+
+### Usage Example
+
+```bash
+pp build math_tutor --var input="<input>" --copy
 ```
