@@ -24,7 +24,7 @@ pp build action_agent --var action="<action>" --copy
 ### Example
 
 ```bash
-pp build action_agent --var action="Make a shopping list"
+pp build action_agent --var action="Make a shopping list" --copy
 ```
 
 ### Specification Table
