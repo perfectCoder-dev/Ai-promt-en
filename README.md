@@ -88,7 +88,7 @@ tutor
 ```
 
 > [!NOTE]
-> The `list` command also works with:
+> The `list` command can also be used with other parameters:
 > - `agents`
 > - `pattern_groups`
 > - `patterns`
@@ -133,14 +133,21 @@ pp compose \
   --task explain \
   --pattern socratic \
   --pattern step_by_step \
-  --var input="Gravity: Force vs Curvature of Space" \
+  --var input="Gravity" \
   --var theorist="Albert Einstein"
 ```
 
 > [!NOTE]
-Replacing "Albert Einstein" with "Isaac Newton" will result in different AI responses.
+> The explanation response from the AI model used will vary depending on the selected theorist. With **Albert Einstein** will frame **gravity** as the curvature of spacetime; with **Isaac Newton** will describe gravity as a force acting between masses.
 >
 > The variable `theorist` does not exist in the default version of the task `explain`.
+
+> [!TIP]
+If you do not need to create additional `--var` variables such as `theorist`, you can embed the context directly in the input parameter:
+>
+> ```bash
+> pp compose --role tutor --task explain --pattern socratic --pattern step_by_step --var input="Gravity, by Isaac Newton" --copy
+> ```
 
 ## 💉 Using `--var` Variables
 
@@ -231,7 +238,7 @@ The variables `input2` and `input3` don't exist in the default version of the ta
 > If the same variable name is used multiple times, the **last processed value overrides previous ones**.
 > * Processing order: `--var` → `--var-file` → `--var-dir`
 
-Example:
+**Example**
 
 ```bash
 pp compose \
@@ -249,6 +256,33 @@ pp compose \
 > ✔ Declare expected variables clearly in your task templates.  
 > ✔ Reuse variable names only when intentional overwriting is desired.
 
+### Saving Prompts
+
+You can redirect the output of the command to an external file if you want to save or reuse the generated prompt.
+
+**Examples**
+
+```bash
+pp build math_tutor --var input="Explain recursion" > my_prompt.txt
+```
+
+```bash
+pp compose \
+  --role tutor \
+  --task explain \
+  --pattern didactic \
+  --var input="Random text" \
+  --var-file input=./texts/puzzle.txt \
+  --var-dir input=./texts \
+  --copy
+```
+
+View the saved prompt:
+
+```bash
+cat my_prompt.txt
+```
+
 ## ⚙️ Types Of Tasks
 
 By default, PromptPro provides two main types of tasks: `explain` and `action`, which together cover most AI-human interaction scenarios.
@@ -256,13 +290,13 @@ By default, PromptPro provides two main types of tasks: `explain` and `action`, 
 ▶️ Action — Start / Run the task and produce a result.  
 💬 Explain — Describe the reasoning without performing any tasks.
 
-We introduced the explain task in the previous examples. Now it's time to look at a couple of examples using the action task.
+We introduced the `explain` task in the previous examples. Now it's time to look at a couple of examples using the action task.
 
 ### Creating Action Prompts With `build`
 
 To create an action prompt with `build`, you must use the `action_agent` agent and pass a **single variable** named `action` as a command parameters. The **entire action request** must be included as the value of `action` after the `=` sign.
 
-Example:
+**Example**
 
 ```bash
 pp build action_agent --var action="Make a shopping list"
@@ -292,7 +326,7 @@ Want a step-by-step guide to **creating new agents, roles, tasks, and patterns**
 
 🔗 [Creating And Using New Prompt Components](docs/creating_new_prompt_components.md)
 
-Complete tutorial on how to create and use a pattern group.
+Complete tutorial on how to create and use a **pattern group**.
 
 🔗 [Creating And Using Pattern Groups](docs/create_and_use_a_pattern_group.md)
 
@@ -339,7 +373,7 @@ PromptPro integrates easily with shell scripts and command-line automation.
 
 Because Bash expands variables before executing a command, you can dynamically construct prompts using variables or command outputs.
 
-Example:
+**Example**
 
 ```bash
 topic="recursion"
