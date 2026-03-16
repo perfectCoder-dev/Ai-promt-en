@@ -18,7 +18,7 @@ An execution-focused agent designed to perform tasks by verifying requirements o
 ### Usage
 
 ```bash
-pp build action_agent --var action="<action>" --copy
+pp build action_agent --var action="<action>"
 ```
 
 ### Example
@@ -136,7 +136,7 @@ A technical teaching agent specialized in explaining computer science concepts s
 ### Usage
 
 ```bash
-pp build cs_instructor --var input="<input>" --copy
+pp build cs_instructor --var input="<input>"
 ```
 
 ### Example
@@ -217,7 +217,7 @@ An educational agent that teaches mathematical concepts through step-by-step exp
 ### Usage
 
 ```bash
-pp build math_tutor --var input="<input>" --copy
+pp build math_tutor --var input="<input>"
 ```
 
 ### Example
