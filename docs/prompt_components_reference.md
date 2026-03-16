@@ -62,11 +62,11 @@ Below is a complete list of components and their features for creating prompts.
 
 ### Default Patterns
 
-- [plan_execute](./prompts/patterns/default_patterns.md#plan_execute)
-- [socratic](./prompts/patterns/default_patterns.md#socratic)
-- [step_by_step](./prompts/patterns/default_patterns.md#step_by_step)
-- [structured_output](./prompts/patterns/default_patterns.md#structured_output)
-- [verify_before_execute](./prompts/patterns/default_patterns.md#verify_before_execute)
+- [plan_execute](./prompts/patterns/default_patterns.md#pattern-plan_execute)
+- [socratic](./prompts/patterns/default_patterns.md#pattern-socratic)
+- [step_by_step](./prompts/patterns/default_patterns.md#pattern-step_by_step)
+- [structured_output](./prompts/patterns/default_patterns.md#pattern-structured_output)
+- [verify_before_execute](./prompts/patterns/default_patterns.md#pattern-verify_before_execute)
 
 ### Default Roles
 

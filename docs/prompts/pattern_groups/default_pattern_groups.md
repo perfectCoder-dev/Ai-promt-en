@@ -11,6 +11,15 @@ Expands into the patterns `socratic` and `step_by_step`.
 
 ### Usage
 
+#### Agent Configuration
+
+```yaml
+patterns:
+  - didactic
+```
+
+#### With Compose
+
 ```bash
 pp compose --role <role> --task <task> --pattern didactic --var input="<input>"
 ```
@@ -76,6 +85,15 @@ class B,C,L, pattern
 Expands into the patterns `socratic`, `step_by_step`, and `structured_output`.
 
 ### Usage
+
+#### Agent Configuration
+
+```yaml
+patterns:
+  - didactic_structured
+```
+
+#### With Compose
 
 ```bash
 pp compose --role <role> --task <task> --pattern didactic_structured --var input="<input>"
