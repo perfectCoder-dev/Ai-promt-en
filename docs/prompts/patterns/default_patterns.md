@@ -40,7 +40,45 @@ pp compose \
 
 ### Specification Table
 
+| Pattern               | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
+|-----------------------|-----------------------|---------------------------------|
+| plan_execute          | Question-first        | How first, then Do              |
+| plan_execute          | Iteration loop        | Feedback → Revision → Final     |
+| plan_execute          | Reasoning instruction | “Think deeply before answering” |
+| plan_execute          | —                     | Chain-of-Thought                |
+
 ### Flowchart
+
+```mermaid
+flowchart TD
+
+A((plan_execute))
+
+A --> B[🧠 Cognitive Strategy]
+B --> C[Question-first]
+C --> D[⚙️ Execution Mechanism]
+D --> E[How first, then Do]
+
+A --> F[🧠 Cognitive Strategy]
+F --> G[Iteration loop]
+G --> H[⚙️ Execution Mechanism]
+H --> I[Feedback → Revision → Final]
+
+A --> J[🧠 Cognitive Strategy]
+J --> K[Reasoning instruction]
+K --> L[⚙️ Execution Mechanism]
+L --> M[“Think deeply before answering”]
+
+A --> O[⚙️ Execution Mechanism]
+O --> P[Chain-of-Thought]
+
+%% Color definitions
+classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
+
+%% Apply colors
+class A, pattern
+
+```
 
 ## Pattern: `socratic`
 
@@ -82,6 +120,29 @@ pp compose \
 
 ### Flowchart
 
+```mermaid
+flowchart TD
+
+A((socratic))
+
+A --> B[🧠 Cognitive Strategy]
+B --> C[Question-first]
+C --> D[⚙️ Execution Mechanism]
+D --> E[How first, then Do]
+
+A --> F[🧠 Cognitive Strategy]
+F --> G[Iteration loop]
+G --> H[⚙️ Execution Mechanism]
+H --> I[Feedback → Revision → Final]
+
+%% Color definitions
+classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
+
+%% Apply colors
+class A, pattern
+
+```
+
 ## Pattern: `step_by_step`
 
 ### Description
@@ -122,6 +183,27 @@ pp compose \
 
 ### Flowchart
 
+```mermaid
+flowchart TD
+
+A((step_by_step))
+
+A --> B[🧠 Cognitive Strategy]
+B --> C[Reasoning instruction]
+C --> D[⚙️ Execution Mechanism]
+D --> E[“Think deeply before answering”]
+
+A --> F[⚙️ Execution Mechanism]
+F --> G[Chain-of-Thought]
+
+%% Color definitions
+classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
+
+%% Apply colors
+class A, pattern
+
+```
+
 ## Pattern: `structured_output`
 
 ### Description
@@ -138,6 +220,10 @@ patterns:
 ```
 
 #### With Compose
+
+```bash
+pp compose --role <role> --task <task> --pattern structured_output --var input="<input>"
+```
 
 ### Example
 
@@ -165,6 +251,29 @@ pp compose \
 
 ### Flowchart
 
+```mermaid
+flowchart TD
+
+A((structured_output))
+
+A --> B[🧩 Core Technique]
+B --> C[Simple tasks]
+C --> D[🎯 Typical Usage]
+D --> E[“Summarize this”]
+
+A --> F[📐 Structural Design]
+F --> G[Set output format]
+G --> H[🚦 Operational Control]
+H --> I[Bullets, tables]
+
+%% Color definitions
+classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
+
+%% Apply colors
+class A, pattern
+
+```
+
 ## Pattern: `verify_before_execute`
 
 ### Description
@@ -182,6 +291,10 @@ patterns:
 
 #### With Compose
 
+```bash
+pp compose --role <role> --task <task> --pattern verify_before_execute --var input="<input>"
+```
+
 ### Example
 
 ```bash
@@ -198,4 +311,42 @@ pp compose \
 
 ### Specification Table
 
+| Pattern               | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
+|-----------------------|-----------------------|---------------------------------|
+| verify_before_execute | Question-first        | How first, then Do              |
+| verify_before_execute | Iteration loop        | Feedback → Revision → Final     |
+| verify_before_execute | Reasoning instruction | “Think deeply before answering” |
+| verify_before_execute | —                     | Chain-of-Thought                |
+
 ### Flowchart
+
+```mermaid
+flowchart TD
+
+A((verify_before_execute))
+
+A --> B[🧠 Cognitive Strategy]
+B --> C[Question-first]
+C --> D[⚙️ Execution Mechanism]
+D --> E[How first, then Do]
+
+A --> F[🧠 Cognitive Strategy]
+F --> G[Iteration loop]
+G --> H[⚙️ Execution Mechanism]
+H --> I[Feedback → Revision → Final]
+
+A --> J[🧠 Cognitive Strategy]
+J --> K[Reasoning instruction]
+K --> L[⚙️ Execution Mechanism]
+L --> M[“Think deeply before answering”]
+
+A --> O[⚙️ Execution Mechanism]
+O --> P[Chain-of-Thought]
+
+%% Color definitions
+classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
+
+%% Apply colors
+class A, pattern
+
+```
