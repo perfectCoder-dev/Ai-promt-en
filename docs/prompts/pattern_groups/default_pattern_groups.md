@@ -112,7 +112,7 @@ pp compose --role tutor --task explain --pattern didactic_structured --var input
 ```mermaid
 flowchart TD
 
-A((didactic))
+A((didactic_structured))
 
 A --> B[pattern]
 B --> C[socratic]
