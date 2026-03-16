@@ -11,7 +11,7 @@ Expands into the patterns `socratic` and `step_by_step`.
 
 ### Usage
 
-#### For Agents
+#### Agent Configuration
 
 ```yaml
 patterns:
@@ -86,7 +86,7 @@ Expands into the patterns `socratic`, `step_by_step`, and `structured_output`.
 
 ### Usage
 
-#### For Agents
+#### Agent Configuration
 
 ```yaml
 patterns:
