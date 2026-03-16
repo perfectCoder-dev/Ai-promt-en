@@ -57,8 +57,8 @@ Below is a complete list of components and their features for creating prompts.
 
 ### Default Pattern Groups
 
-- [didactic](./prompts/pattern_groups/default_pattern_groups.md#didactic)
-- [didactic_structured](./prompts/pattern_groups/default_pattern_groups.md#didactic_structured)
+- [didactic](./prompts/pattern_groups/default_pattern_groups.md#pattern-group-didactic)
+- [didactic_structured](./prompts/pattern_groups/default_pattern_groups.md#pattern-group-didactic_structured)
 
 ### Default Patterns
 
