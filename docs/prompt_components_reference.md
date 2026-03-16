@@ -70,9 +70,9 @@ Below is a complete list of components and their features for creating prompts.
 
 ### Default Roles
 
-- [executor](./prompts/roles/default_roles.md#executor)
-- [technical_instructor](./prompts/roles/default_roles.md#technical_instructor)
-- [tutor](./prompts/roles/default_roles.md#tutor)
+- [executor](./prompts/roles/default_roles.md#role-executor)
+- [technical_instructor](./prompts/roles/default_roles.md#role-technical_instructor)
+- [tutor](./prompts/roles/default_roles.md#role-tutor)
 
 ### Default Tasks
 
