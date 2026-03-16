@@ -51,9 +51,9 @@ Below is a complete list of components and their features for creating prompts.
 
 ### Default Agents
 
-- [action_agent](./prompts/agents/default_agents.md#action_agent)
-- [cs_instructor](./prompts/agents/default_agents.md#cs_instructor)
-- [math_tutor](./prompts/agents/default_agents.md#math_tutor)
+- [action_agent](./prompts/agents/default_agents.md#agent-action_agent)
+- [cs_instructor](./prompts/agents/default_agents.md#agent-cs_instructor)
+- [math_tutor](./prompts/agents/default_agents.md#agent-math_tutor)
 
 ### Default Pattern Groups
 
