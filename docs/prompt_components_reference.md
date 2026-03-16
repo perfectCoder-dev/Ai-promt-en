@@ -76,6 +76,6 @@ Below is a complete list of components and their features for creating prompts.
 
 ### Default Tasks
 
-- [action](./prompts/tasks/default_tasks.md#action)
-- [compose_action](./prompts/tasks/default_tasks.md#compose_action)
-- [explain](./prompts/tasks/default_tasks.md#explain)
+- [action](./prompts/tasks/default_tasks.md#task-action)
+- [compose_action](./prompts/tasks/default_tasks.md#task-compose_action)
+- [explain](./prompts/tasks/default_tasks.md#task-explain)
