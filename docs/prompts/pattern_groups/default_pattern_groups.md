@@ -9,27 +9,6 @@
 
 Expands into the patterns `socratic` and `step_by_step`.
 
-### Usage
-
-#### Agent Configuration
-
-```yaml
-patterns:
-  - didactic
-```
-
-#### With Compose
-
-```bash
-pp compose --role <role> --task <task> --pattern didactic --var input="<input>"
-```
-
-### Example
-
-```bash
-pp compose --role tutor --task explain --pattern didactic --var input="Binary Search Trees" --copy
-```
-
 ### Specification Table
 
 | Pattern | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism      |
@@ -78,32 +57,32 @@ class B,C,L, pattern
 
 ```
 
-## Pattern Group: `didactic_structured`
-
-### Description
-
-Expands into the patterns `socratic`, `step_by_step`, and `structured_output`.
-
 ### Usage
 
 #### Agent Configuration
 
 ```yaml
 patterns:
-  - didactic_structured
+  - didactic
 ```
 
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern didactic_structured --var input="<input>"
+pp compose --role <role> --task <task> --pattern didactic --var input="<input>"
 ```
 
 ### Example
 
 ```bash
-pp compose --role tutor --task explain --pattern didactic_structured --var input="Binary Search Trees" --copy
+pp compose --role tutor --task explain --pattern didactic --var input="Binary Search Trees" --copy
 ```
+
+## Pattern Group: `didactic_structured`
+
+### Description
+
+Expands into the patterns `socratic`, `step_by_step`, and `structured_output`.
 
 ### Specification Table
 
@@ -170,4 +149,25 @@ classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
 %% Apply colors
 class B,C,L,T pattern
 
+```
+
+### Usage
+
+#### Agent Configuration
+
+```yaml
+patterns:
+  - didactic_structured
+```
+
+#### With Compose
+
+```bash
+pp compose --role <role> --task <task> --pattern didactic_structured --var input="<input>"
+```
+
+### Example
+
+```bash
+pp compose --role tutor --task explain --pattern didactic_structured --var input="Binary Search Trees" --copy
 ```
