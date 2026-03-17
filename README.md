@@ -330,15 +330,21 @@ Complete tutorial on how to create and use a **pattern group**.
 
 🔗 [Creating And Using Pattern Groups](docs/create_and_use_a_pattern_group.md)
 
-## 🗂 Prompt Components
+## 🗂 References
+
+### Prompt Components
 
 The `prompts/` directory contains the core components used to build prompts in PromptPro.
 
 Each subdirectory represents a specific type of component such as roles, tasks, patterns, or agent presets.
 
-See the **complete reference**:
-
 🔗 [Prompt Components Reference](docs/prompt_components_reference.md)
+
+### Command Reference
+
+For a complete list of available commands and quick CLI examples:
+
+🔗 [Command Usage](docs/command_usage.md)
 
 ## 🧠 Concepts
 
