@@ -23,11 +23,9 @@ pp build action_agent --var action="Make a shopping list"
 
 ### Specification Table
 
-| Command     | Agent        | Role     | Task   |
-|-------------|--------------|----------|--------|
-| build       | action_agent | executor | action |
-
-### Flowchart
+| Command | Agent        | Role     | Task   |
+|---------|--------------|----------|--------|
+| build   | action_agent | executor | action |
 
 ## Task: `compose_action`
 
@@ -67,8 +65,6 @@ pp compose \
 |---------|----------|----------------|---------------------------|
 | compose | executor | compose_action | action, context, examples |
 
-### Flowchart
-
 ## Task: `explain`
 
 ### Description
@@ -94,8 +90,6 @@ pp compose \
 
 ### Specification Table
 
-| Command       | Task     |
-|---------------|----------|
-| build/compose | explain  |
-
-### Flowchart
+| Command       | Task    |
+|---------------|---------|
+| build/compose | explain |
