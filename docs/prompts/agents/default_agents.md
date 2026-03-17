@@ -15,18 +15,6 @@ functional focuses and reasoning patterns.
 
 An execution-focused agent designed to perform tasks by verifying requirements or planning before acting, using reasoning strategies and structured outputs to ensure accurate and controlled results.
 
-### Usage
-
-```bash
-pp build action_agent --var action="<action>"
-```
-
-### Example
-
-```bash
-pp build action_agent --var action="Make a shopping list" --copy
-```
-
 ### Specification Table
 
 | Role                 | Task     | Pattern               | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
@@ -127,23 +115,23 @@ class F,G,X,PP pattern
 
 ```
 
-## Agent: `cs_instructor`
-
-### Description
-
-A technical teaching agent specialized in explaining computer science concepts step by step, using reasoning strategies and structured outputs to make complex topics easier to understand.
-
 ### Usage
 
 ```bash
-pp build cs_instructor --var input="<input>"
+pp build action_agent --var action="<action>"
 ```
 
 ### Example
 
 ```bash
-pp build cs_instructor --var input="Switch, explained for beginners" --copy
+pp build action_agent --var action="Make a shopping list" --copy
 ```
+
+## Agent: `cs_instructor`
+
+### Description
+
+A technical teaching agent specialized in explaining computer science concepts step by step, using reasoning strategies and structured outputs to make complex topics easier to understand.
 
 ### Specification Table
 
@@ -208,23 +196,23 @@ class F,G,O pattern
 
 ```
 
-## Agent: `math_tutor`
-
-### Description
-
-An educational agent that teaches mathematical concepts through step-by-step explanations and Socratic questioning, encouraging reasoning and iterative understanding.
-
 ### Usage
 
 ```bash
-pp build math_tutor --var input="<input>"
+pp build cs_instructor --var input="<input>"
 ```
 
 ### Example
 
 ```bash
-pp build math_tutor --var input="Explain recursion" --copy
+pp build cs_instructor --var input="Switch, explained for beginners" --copy
 ```
+
+## Agent: `math_tutor`
+
+### Description
+
+An educational agent that teaches mathematical concepts through step-by-step explanations and Socratic questioning, encouraging reasoning and iterative understanding.
 
 ### Specification Table
 
@@ -283,4 +271,16 @@ class B,C role
 class D,E task
 class F,G,O pattern
 
+```
+
+### Usage
+
+```bash
+pp build math_tutor --var input="<input>"
+```
+
+### Example
+
+```bash
+pp build math_tutor --var input="Explain recursion" --copy
 ```
