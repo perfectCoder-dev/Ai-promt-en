@@ -1,4 +1,4 @@
-# 🗂 Prompt Components Reference
+# Prompt Components Reference
 
 This document explains the structure, organization, and available building blocks that can be combined to construct modular, reusable, and maintainable prompts.
 
