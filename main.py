@@ -34,11 +34,11 @@
 # A modular CLI tool for composing, rendering, and managing structured prompts
 # from reusable building blocks.
 
+import argparse
 import os
+import pyperclip
 import sys
 import yaml
-import argparse
-import pyperclip
 from jinja2 import Template
 
 # Builds an absolute path to a directory named prompts
@@ -126,6 +126,41 @@ def load_pattern_group(name):
     with open(path, "r") as f:
         return yaml.safe_load(f)
 
+
+def load_controls(control_type, control_list):
+    """
+    Load prompt control fragments from the controls directory.
+
+    This function retrieves and returns a list of text snippets corresponding
+    to the specified control type ("pre" or "post") and control names. Each
+    control is loaded as a Markdown file using the existing `load_text` loader.
+
+    Controls are expected to be organized under:
+        prompts/controls/<control_type>/<name>.md
+
+    Args:
+        control_type (str): The type of control to load. Typically "pre" or "post".
+        control_list (list[str] | None): A list of control names to load. If None
+            or empty, an empty list is returned.
+
+    Returns:
+        list[str]: A list of control contents, each as a string, in the same
+        order as provided in `control_list`.
+
+    Raises:
+        FileNotFoundError: If any specified control file does not exist.
+
+    Notes:
+        - Controls are loaded in order and should be applied sequentially.
+        - This function does not perform validation or conflict resolution
+        between controls.
+    """
+    parts = []
+
+    for item in control_list or []:
+        parts.append(load_text(f"controls/{control_type}", item))
+
+    return parts
 
 # ------------------------------------------------------------------------------
 # Pattern Resolution
@@ -370,7 +405,22 @@ def main():
         - `build <agent>`: Build a prompt from a predefined agent configuration.
         - `compose`: Manually compose a prompt using role, task, and patterns.
 
-    It also supports flexible variable injection through:
+    Prompt Control Layers:
+    - Supports optional pre- and post-prompt controls:
+        - `--pre <control>`: Apply pre-prompt execution controls.
+        - `--post <control>`: Apply post-prompt behavior controls.
+    - Controls are loaded from:
+        - `prompts/controls/pre/`
+        - `prompts/controls/post/`
+    - Multiple controls can be provided and are applied in order.
+
+    Prompt assembly order:
+        1. Pre-prompt controls (execution layer)
+        2. Core prompt (agent or manual composition)
+        3. Post-prompt controls (behavior layer)
+
+    Variable injection:
+    - Supports flexible variable injection through:
         - --var key=value
         - --var-file key=filepath
         - --var-dir key=directory_path (recursively reads all files)
@@ -380,12 +430,15 @@ def main():
         2. File-based variables (--var-file)
         3. Directory-based variables (--var-dir)
 
-    After parsing arguments:
-        - The appropriate prompt is generated.
-        - Variables are collected and merged.
-        - The final prompt is rendered.
-        - Output is either printed to stdout or copied to the clipboard
-          depending on the --copy flag.
+    Execution flow:
+    - Parse CLI arguments.
+    - Resolve the base prompt:
+        - `build`: loads agent configuration and composes prompt.
+        - `compose`: builds prompt from role, task, and patterns.
+    - Load pre/post control layers (if provided).
+    - Assemble the full prompt (pre + core + post).
+    - Render the prompt using provided variables.
+    - Output the result to stdout or clipboard.
 
     If no valid command is provided, help information is displayed.
 
@@ -404,6 +457,8 @@ def main():
     # build from agent
     build_parser = subparsers.add_parser("build")
     build_parser.add_argument("agent")
+    build_parser.add_argument("--pre", action="append", help="Pre-prompt controls")
+    build_parser.add_argument("--post", action="append", help="Post-prompt controls")
     build_parser.add_argument("--var", action="append", help="Literal variables (key=value)")
     build_parser.add_argument("--var-file", action="append", help="Variables from file (key=filepath)")
     build_parser.add_argument("--var-dir", action="append", help="Variables from directory (key=dirpath)")
@@ -411,9 +466,11 @@ def main():
 
     # compose manually
     compose_parser = subparsers.add_parser("compose")
+    compose_parser.add_argument("--pre", action="append", help="Pre-prompt controls")
     compose_parser.add_argument("--role")
     compose_parser.add_argument("--task")
     compose_parser.add_argument("--pattern", action="append")
+    compose_parser.add_argument("--post", action="append", help="Post-prompt controls")
     compose_parser.add_argument("--var", action="append", help="Literal variables (key=value)")
     compose_parser.add_argument("--var-file", action="append", help="Variables from file (key=filepath)")
     compose_parser.add_argument("--var-dir", action="append", help="Variables from directory (key=dirpath)")
@@ -448,17 +505,17 @@ def main():
         return
 
     # --------------------------------------------------------------------------
-    # Variable Processing (NEW DESIGN)
+    # Variable Processing
     # --------------------------------------------------------------------------
     variables = {}
 
-    # 1️⃣ Literal variables
+    # 1 Literal variables
     if args.var:
         for item in args.var:
             key, value = item.split("=", 1)
             variables[key] = value
 
-    # 2️⃣ Single file variables
+    # 2 Single file variables
     if args.var_file:
         for item in args.var_file:
             key, filepath = item.split("=", 1)
@@ -469,7 +526,7 @@ def main():
             with open(filepath, "r") as f:
                 variables[key] = f.read()
 
-    # 3️⃣ Recursive directory variables
+    # 3 Recursive directory variables
     if args.var_dir:
         for item in args.var_dir:
             key, dirpath = item.split("=", 1)
@@ -492,7 +549,14 @@ def main():
     # --------------------------------------------------------------------------
     # Render
     # --------------------------------------------------------------------------
-    rendered = render_prompt(prompt, variables)
+    pre_parts = load_controls("pre", getattr(args, "pre", None))
+    post_parts = load_controls("post", getattr(args, "post", None))
+
+    full_prompt = "\n\n".join(
+        pre_parts + [prompt] + post_parts
+    )
+
+    rendered = render_prompt(full_prompt, variables)
 
     # --------------------------------------------------------------------------
     # Output
