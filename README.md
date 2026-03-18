@@ -274,7 +274,7 @@ pp compose \
   --var input="Random text" \
   --var-file input=./texts/puzzle.txt \
   --var-dir input=./texts \
-  > my_prompts.txt
+  > my_prompt.txt
 ```
 
 View the saved prompt:
