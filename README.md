@@ -280,7 +280,7 @@ pp compose \
 View the saved prompt:
 
 ```bash
-cat my_prompt.txt
+cat /path/to/my_prompt.txt
 ```
 
 ## ⚙️ Types Of Tasks
