@@ -352,6 +352,12 @@ Understanding modern prompting frameworks helps you use PromptPro more effective
 
 🔗 [The Iceberg Of Prompting](docs/the_iceberg_of_prompting.md)
 
+## 🎛 Prompt Control Layers
+
+Understand how PromptPro separates execution control from output behavior:
+
+🔗 [Prompt Control Layers](docs/prompt_control_layers.md)
+
 ## ⚡ Pipelines
 
 PromptPro outputs plain text, which means it integrates naturally with the **Unix philosophy of small tools connected by pipes**.
