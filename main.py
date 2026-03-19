@@ -336,34 +336,48 @@ def render_prompt(prompt_text, variables):
 
 def list_category(category):
     """
-    List available items within a given content category.
+    List subcategories and items within a given category path.
 
-    The function prints the names (without file extensions) of all
-    `.md` and `.yaml` files found inside the specified category
-    directory under BASE_DIR. It also supports a top‑level “pattern_groups” 
-    category for listing top-level category "pattern_groups".
+    This function inspects the directory located under BASE_DIR using the
+    provided category path, which may refer to either a top-level category
+    or a nested subdirectory (e.g., "controls/pre"). It prints all immediate
+    entries in sorted order.
 
-    If the category directory does not exist, a message is printed
-    and the function exits without raising an exception.
+    - Subdirectories are treated as subcategories and displayed with a
+      trailing slash (e.g., "pre/").
+    - Files with `.md` or `.yaml` extensions are treated as items and are
+      displayed without their file extensions.
+
+    If the specified path does not exist, a message is printed and the
+    function exits without raising an exception.
 
     Args:
-        category (str): The name of the category directory to list
-            (e.g., "roles", "tasks", "patterns", or "pattern_groups").
+        category (str): The category or subcategory path relative to BASE_DIR.
 
     Returns:
         None: Results are printed directly to standard output.
+
+    Notes:
+        - Only the immediate contents of the directory are listed; this
+          function does not perform recursive traversal.
+        - Output is intended for CLI display and not structured for parsing.
     """
-    if category == "pattern_groups":
-        path = os.path.join(BASE_DIR, "pattern_groups")
-    else:
-        path = os.path.join(BASE_DIR, category)
+    path = os.path.join(BASE_DIR, category)
 
     if not os.path.exists(path):
         print("Category not found.")
         return
-    for file in os.listdir(path):
-        if file.endswith(".md") or file.endswith(".yaml"):
-            print(file.replace(".md", "").replace(".yaml", ""))
+
+    entries = sorted(os.listdir(path))
+
+    for entry in entries:
+        full_path = os.path.join(path, entry)
+
+        if os.path.isdir(full_path):
+            print(f"{entry}/")
+        elif entry.endswith(".md") or entry.endswith(".yaml"):
+            name = entry.replace(".md", "").replace(".yaml", "")
+            print(f"{name}")
 
 
 def copy_to_clipboard(text):
