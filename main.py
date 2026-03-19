@@ -40,6 +40,10 @@ import pyperclip
 import sys
 import yaml
 from jinja2 import Template
+from rich.console import Console
+from rich.syntax import Syntax
+
+console = Console()
 
 # Builds an absolute path to a directory named prompts
 BASE_DIR = os.path.join(
@@ -380,6 +384,89 @@ def list_category(category):
             print(f"{name}")
 
 
+def show_path(path):
+    """
+    Display the contents of a prompt item with syntax highlighting.
+
+    This function resolves a file path relative to BASE_DIR and prints its
+    contents to the terminal using rich syntax highlighting. The file is
+    located without requiring an explicit extension by checking supported
+    formats in order (`.md`, then `.yaml`).
+
+    Rendering behavior:
+        - If the file contains Jinja template markers (e.g., `{{ ... }}` or
+          `{% ... %}`), it is highlighted using a Jinja-compatible lexer.
+        - Otherwise, the content is rendered as Markdown.
+        - Output is displayed using the Rich library with a configurable theme.
+
+    If the resolved path corresponds to a directory, the user is informed
+    and advised to use the `list` command instead.
+
+    If no matching file is found but the parent directory exists, the function
+    prints a list of nearby subdirectories and items as suggestions to help
+    locate the intended resource.
+
+    Args:
+        path (str): Relative path to the target item (without file extension).
+            May include nested subdirectories (e.g., "tasks/explain").
+
+    Returns:
+        None: Output is printed directly to standard output.
+
+    Notes:
+        - File resolution order is `.md` first, then `.yaml`.
+        - Only the first matching file is displayed.
+        - Suggestions include both subdirectories (with trailing `/`)
+          and valid item names (without file extensions).
+        - Output is intended for interactive CLI usage and is not structured
+          for machine parsing.
+    """
+    base_path = os.path.join(BASE_DIR, path)
+
+    # Detect directory
+    if os.path.isdir(base_path):
+        print("This is a directory. Use 'pp list'.")
+        return
+
+    # Try .md first, then .yaml
+    for ext in [".md", ".yaml"]:
+        file_path = base_path + ext
+        if os.path.exists(file_path):
+            with open(file_path, "r") as f:
+                content = f.read()
+
+            lexer = "jinja" if "{{" in content or "{%" in content else "markdown"
+            syntax = Syntax(
+                content,
+                lexer,            # key part
+                theme="dracula",  # optional (try "monokai", "default", etc.)
+                line_numbers=False
+            )
+
+            # console.print(f"[bold cyan]{path}[/bold cyan]\n")
+            console.print(syntax)
+            return
+
+    # Suggest nearby items
+    parent = os.path.dirname(base_path)
+
+    if os.path.exists(parent):
+        print("Item not found.")
+        print("\nDid you mean:")
+
+        for entry in sorted(os.listdir(parent)):
+            entry_path = os.path.join(parent, entry)
+
+            if os.path.isdir(entry_path):
+                print(f"  {entry}/")
+            elif entry.endswith(".md") or entry.endswith(".yaml"):
+                name = entry.replace(".md", "").replace(".yaml", "")
+                print(f"  {name}")
+        return
+
+    print("Item not found.")
+
+
 def copy_to_clipboard(text):
     """
     Copy the given text to the system clipboard.
@@ -468,6 +555,10 @@ def main():
     list_parser = subparsers.add_parser("list")
     list_parser.add_argument("category")
 
+    # show
+    show_parser = subparsers.add_parser("show")
+    show_parser.add_argument("path")
+
     # build from agent
     build_parser = subparsers.add_parser("build")
     build_parser.add_argument("agent")
@@ -500,6 +591,13 @@ def main():
     # --------------------------------------------------------------------------
     if args.command == "list":
         list_category(args.category)
+        return
+
+    # --------------------------------------------------------------------------
+    # Show
+    # --------------------------------------------------------------------------
+    if args.command == "show":
+        show_path(args.path)
         return
 
     # --------------------------------------------------------------------------
