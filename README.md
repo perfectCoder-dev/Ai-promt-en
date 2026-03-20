@@ -24,12 +24,14 @@ Designed for users who think in systems, not snippets.
  🧱 Why Prompt Pro?
 
 - 🧱 Modular prompt components
-- 🧠 Role + task + pattern composition
 - 🔁 Agent presets
+- 🧠 Role + task + pattern composition
 - 🧩 Variable injection
+- 🎛 Fine-grained prompt controls
 - 📋 Clipboard export
-- ⚡ Terminal-native workflow
+- 💻 Terminal-native workflow
 - 🗂 Version-controlled prompts
+- ⚡ Composable prompt pipelines
 
 ## 📥 Quick Install
 
