@@ -34,7 +34,7 @@ Define how the response is shaped **after generation begins**.
 
 ## Control Strength
 
-This separation reflects how LLMs actually behave:
+This separation reflects how *LLMs* actually behave:
 
 * **Pre controls → stronger, structural influence**
 * **Post controls → softer, behavioral influence**

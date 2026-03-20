@@ -356,6 +356,10 @@ Understanding modern prompting frameworks helps you use PromptPro more effective
 
 🔗 [The Iceberg Of Prompting](docs/the_iceberg_of_prompting.md)
 
+A quick reference for key terminology used across PromptPro.
+
+🔗 [Glossary Of Terms](docs/glossary.md)
+
 ## 🎛 Prompt Control Layers
 
 Understand how PromptPro separates execution control from output behavior:
