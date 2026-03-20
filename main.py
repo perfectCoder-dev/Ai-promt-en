@@ -131,38 +131,65 @@ def load_pattern_group(name):
         return yaml.safe_load(f)
 
 
-def load_controls(control_type, control_list):
+def load_control(control_type, name):
     """
-    Load prompt control fragments from the controls directory.
+    Load the content of a control file by name and type.
 
-    This function retrieves and returns a list of text snippets corresponding
-    to the specified control type ("pre" or "post") and control names. Each
-    control is loaded as a Markdown file using the existing `load_text` loader.
-
-    Controls are expected to be organized under:
-        prompts/controls/<control_type>/<name>.md
+    The function searches for a Markdown file in the following order:
+    1. Flat structure: controls/<control_type>/<name>.md
+    2. Nested structure: controls/<control_type>/**/<name>.md (recursive)
 
     Args:
-        control_type (str): The type of control to load. Typically "pre" or "post".
-        control_list (list[str] | None): A list of control names to load. If None
-            or empty, an empty list is returned.
+        control_type (str): The control category (e.g., "pre", "post").
+        name (str): The name of the control file (without extension).
 
     Returns:
-        list[str]: A list of control contents, each as a string, in the same
-        order as provided in `control_list`.
+        str: The stripped contents of the matched control file.
 
     Raises:
-        FileNotFoundError: If any specified control file does not exist.
+        FileNotFoundError: If no matching control file is found.
+    """
+    base_path = os.path.join(BASE_DIR, "controls", control_type)
 
-    Notes:
-        - Controls are loaded in order and should be applied sequentially.
-        - This function does not perform validation or conflict resolution
-        between controls.
+    # 1. Try flat structure
+    flat_path = os.path.join(base_path, f"{name}.md")
+    if os.path.exists(flat_path):
+        with open(flat_path, "r") as f:
+            return f.read().strip()
+
+    # 2. Search recursively in subdirectories
+    for root, _, files in os.walk(base_path):
+        for file in files:
+            if file == f"{name}.md":
+                with open(os.path.join(root, file), "r") as f:
+                    return f.read().strip()
+
+    raise FileNotFoundError(f"controls/{control_type}/{name} not found.")
+
+
+def load_controls(control_type, control_list):
+    """
+    Load multiple control files and return their contents as a list.
+
+    Iterates over the provided control names and retrieves each control
+    using `load_control`. If the list is empty or None, an empty list is returned.
+
+    Args:
+        control_type (str): The control category (e.g., "pre", "post").
+        control_list (Iterable[str] | None): A collection of control names
+            (without file extensions), or None.
+
+    Returns:
+        list[str]: A list containing the contents of each loaded control file,
+        in the same order as provided.
+
+    Raises:
+        FileNotFoundError: If any control in the list cannot be found.
     """
     parts = []
 
     for item in control_list or []:
-        parts.append(load_text(f"controls/{control_type}", item))
+        parts.append(load_control(control_type, item))
 
     return parts
 
@@ -218,33 +245,62 @@ def resolve_patterns(pattern_list, seen=None):
 # Composition
 # ------------------------------------------------------------------------------
 
-def compose_from_agent(agent_name):
+def compose_from_agent(agent_name, cli_pre=None, cli_post=None):
     """
-    Build a composed prompt string from an agent configuration.
+    Compose a complete prompt from an agent definition and optional CLI controls.
 
-    The function loads the specified agent YAML definition, retrieves its
-    associated role and task Markdown files, resolves any declared pattern
-    groups into a flat list of patterns, and loads each corresponding
-    pattern file. All loaded sections are concatenated into a single
-    string separated by blank lines.
+    This function builds a prompt by:
+    1. Loading the agent configuration.
+    2. Resolving and merging control definitions from the agent YAML and CLI input.
+       - CLI controls are appended to agent-defined controls.
+    3. Loading control contents (`pre` and `post`).
+    4. Assembling the final prompt in the following order:
+       - Pre-controls
+       - Role
+       - Task
+       - Resolved patterns
+       - Post-controls
 
     Args:
-        agent_name (str): The agent configuration filename (without extension).
+        agent_name (str): Name of the agent to load.
+        cli_pre (Iterable[str] | None): अतिरिक्त pre controls provided via CLI.
+        cli_post (Iterable[str] | None): Additional post controls provided via CLI.
 
     Returns:
-        str: A fully composed prompt string including role, task,
-        and all resolved pattern contents.
+        str: The fully composed prompt as a single string, with sections separated
+        by double newlines.
 
     Raises:
-        FileNotFoundError: If the agent file or any referenced Markdown
-        file (role, task, or pattern) does not exist.
-        yaml.YAMLError: If the agent YAML configuration cannot be parsed.
-        KeyError: If required keys such as "role" or "task" are missing
-        from the agent configuration.
+        FileNotFoundError: If any referenced agent, control, or text component
+        cannot be found.
+        KeyError: If required agent fields (e.g., "role", "task") are missing.
     """
     agent = load_agent(agent_name)
 
     parts = []
+
+    # --------------------------------------------------------------------------
+    # Controls (from agent YAML)
+    # --------------------------------------------------------------------------
+    controls = agent.get("controls", {})
+
+    agent_pre = controls.get("pre", [])
+    agent_post = controls.get("post", [])
+
+    # --------------------------------------------------------------------------
+    # Merge with CLI controls (CLI overrides / extends)
+    # --------------------------------------------------------------------------
+    final_pre = (agent_pre or []) + (cli_pre or [])
+    final_post = (agent_post or []) + (cli_post or [])
+
+    # Load control content
+    pre_parts = load_controls("pre", final_pre)
+    post_parts = load_controls("post", final_post)
+
+    # --------------------------------------------------------------------------
+    # Core prompt
+    # --------------------------------------------------------------------------
+    parts.extend(pre_parts)
 
     parts.append(load_text("roles", agent["role"]))
     parts.append(load_text("tasks", agent["task"]))
@@ -253,6 +309,8 @@ def compose_from_agent(agent_name):
 
     for pattern in resolved:
         parts.append(load_text("patterns", pattern))
+
+    parts.extend(post_parts)
 
     return "\n\n".join(parts)
 
@@ -497,55 +555,53 @@ def copy_to_clipboard(text):
 
 def main():
     """
-    Entry point for the PromptPro CLI application.
+    Run the PromptPro command-line interface.
 
-    This function:
-    - Defines the command-line interface using argparse.
-    - Supports the following subcommands:
-        - `list <category>`: List available prompts in a category.
-        - `build <agent>`: Build a prompt from a predefined agent configuration.
-        - `compose`: Manually compose a prompt using role, task, and patterns.
+    This function parses CLI arguments, dispatches subcommands, assembles prompts,
+    applies control layers, injects variables, and outputs the final result.
 
-    Prompt Control Layers:
-    - Supports optional pre- and post-prompt controls:
-        - `--pre <control>`: Apply pre-prompt execution controls.
-        - `--post <control>`: Apply post-prompt behavior controls.
-    - Controls are loaded from:
-        - `prompts/controls/pre/`
-        - `prompts/controls/post/`
-    - Multiple controls can be provided and are applied in order.
+    Supported subcommands:
+        - list <category>: List available items in a category.
+        - show <path>: Display the contents of a file or resource.
+        - build <agent>: Compose a prompt from an agent configuration.
+        - compose: Manually compose a prompt from role, task, and patterns.
 
-    Prompt assembly order:
-        1. Pre-prompt controls (execution layer)
-        2. Core prompt (agent or manual composition)
-        3. Post-prompt controls (behavior layer)
+    Controls:
+        - Pre and post controls can be provided via CLI (`--pre`, `--post`)
+          and are merged with agent-defined controls (for `build`).
+        - Controls are loaded from:
+            prompts/controls/pre/
+            prompts/controls/post/
+        - Application order:
+            1. Pre-controls
+            2. Core prompt
+            3. Post-controls
 
-    Variable injection:
-    - Supports flexible variable injection through:
-        - --var key=value
-        - --var-file key=filepath
-        - --var-dir key=directory_path (recursively reads all files)
-
-    Variable resolution order:
-        1. Literal variables (--var)
-        2. File-based variables (--var-file)
-        3. Directory-based variables (--var-dir)
+    Variables:
+        - Supports variable injection from multiple sources:
+            --var key=value        (literal values)
+            --var-file key=path    (file contents)
+            --var-dir key=path     (recursive directory contents)
+        - Resolution order (later overrides earlier):
+            1. --var
+            2. --var-file
+            3. --var-dir
 
     Execution flow:
-    - Parse CLI arguments.
-    - Resolve the base prompt:
-        - `build`: loads agent configuration and composes prompt.
-        - `compose`: builds prompt from role, task, and patterns.
-    - Load pre/post control layers (if provided).
-    - Assemble the full prompt (pre + core + post).
-    - Render the prompt using provided variables.
-    - Output the result to stdout or clipboard.
-
-    If no valid command is provided, help information is displayed.
+        1. Parse CLI arguments.
+        2. Execute command:
+            - list/show: immediate output.
+            - build: compose from agent.
+            - compose: build from manual inputs.
+        3. Load and merge controls (if applicable).
+        4. Resolve variables.
+        5. Render the final prompt.
+        6. Output to stdout or copy to clipboard.
 
     Raises:
         FileNotFoundError: If a file specified in --var-file does not exist.
-        NotADirectoryError: If a path specified in --var-dir is not a directory.
+        NotADirectoryError: If a path specified in --var-dir is invalid.
+        ValueError: If variable arguments are not in key=value format.
     """
     parser = argparse.ArgumentParser(prog="pp")
 
@@ -604,7 +660,11 @@ def main():
     # Build
     # --------------------------------------------------------------------------
     if args.command == "build":
-        prompt = compose_from_agent(args.agent)
+        prompt = compose_from_agent(
+            args.agent,
+            cli_pre=getattr(args, "pre", None),
+            cli_post=getattr(args, "post", None),
+        )
 
     # --------------------------------------------------------------------------
     # Compose
@@ -661,12 +721,7 @@ def main():
     # --------------------------------------------------------------------------
     # Render
     # --------------------------------------------------------------------------
-    pre_parts = load_controls("pre", getattr(args, "pre", None))
-    post_parts = load_controls("post", getattr(args, "post", None))
-
-    full_prompt = "\n\n".join(
-        pre_parts + [prompt] + post_parts
-    )
+    full_prompt = prompt
 
     rendered = render_prompt(full_prompt, variables)
 

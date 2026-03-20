@@ -36,6 +36,7 @@
 | pp build math_tutor --var input="Explain recursion" --copy |
 | pp build action_agent --var action="Make a shopping list"  |
 | pp build math_tutor --pre model/model_fast --pre memory/forget --post translation/translate_sp --post truth/say_dont_know --var input="Linear Algebra" |
+| pp build action_agent_controlled --post truth/say_dont_know --var action="Make a list of the core skills everyone should have." |
 
 ## Generating Prompts (compose)
 
