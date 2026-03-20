@@ -1,0 +1,52 @@
+# PromptPro
+
+> A modular CLI for composing, managing, and orchestrating reusable AI prompt components.
+
+## Overview
+
+- Modular prompt building system with roles, tasks, patterns, and agents
+- Pre/post prompt control layers for fine-grained behavior control
+- Variable injection via `--var`, `--var-file`, `--var-dir`
+- Unix-friendly output for pipeline integration
+
+## Quick Start
+
+```bash
+pip install -r requirements.txt
+chmod +x main.py
+
+pp build math_tutor --var input="Explain recursion"
+pp compose --role tutor --task explain --pattern step_by_step --var input="Boolean algebra"
+```
+
+## Project Structure
+
+- `prompts/roles/` - Role/persona definitions (tutor, executor, technical_instructor)
+- `prompts/tasks/` - Task templates (explain, action, compose_action)
+- `prompts/patterns/` - Reasoning/output patterns (step_by_step, socratic, structured_output)
+- `prompts/agents/` - Agent presets combining components
+- `prompts/controls/pre/` - Pre-prompt execution controls (model, mode, tools, memory)
+- `prompts/controls/post/` - Post-prompt behavior controls (translation, tone, limits, truth)
+- `docs/` - Full documentation and tutorials
+- `main.py` - CLI entry point (symlinked as `pp`)
+
+## CLI Reference
+
+- `pp build <agent>` - Build prompt from agent preset with optional controls
+- `pp compose` - Compose prompt from role, task, and pattern components
+- `pp list <category>` - List available components (roles, tasks, patterns, agents, controls)
+- `pp show <path>` - Display component content
+
+## Control Layers
+
+- **Pre-controls** (`prompts/controls/pre/`) - Define execution environment and model behavior
+- **Post-controls** (`prompts/controls/post/`) - Shape output formatting, tone, and constraints
+
+## Documentation
+
+- README.md - Complete project documentation
+- docs/prompt_control_layers.md - Pre/post control system guide
+- docs/creating_new_prompt_components.md - Tutorial for creating components
+- docs/create_and_use_a_pattern_group.md - Pattern group tutorial
+- docs/the_iceberg_of_prompting.md - Prompting concepts framework
+- docs/command_usage.md - Full CLI command reference
