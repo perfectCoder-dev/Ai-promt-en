@@ -13,6 +13,8 @@
 
 ## 📖 Overview
 
+Create ready-to-use, high-quality prompts with a single command 🚀
+
 PromptPro is a modular CLI for composing, managing, and orchestrating reusable AI prompt components.
 
 Instead of storing static snippets, PromptPro treats prompts as structured building blocks — roles, tasks, and reasoning patterns — that can be assembled, parameterized, and reused across projects.
