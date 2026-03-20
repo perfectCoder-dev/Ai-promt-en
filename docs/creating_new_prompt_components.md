@@ -73,7 +73,7 @@ Let’s say you want:
 > - Can modify
 > - Can reuse
 
-List the available components:
+#### List The Available Components
 
 ```bash
 pp list <agents|pattern_groups|patterns|roles|tasks>
@@ -87,11 +87,32 @@ executor
 ...
 ```
 
-Use your preferred coding agent, filesystem explorer, or commands to inspect the existing components in the directory `prompts`. For example (using the vim editor):
+The command `list` works on directories (categories and subcategories.)
 
 ```bash
-vim prompts/agents/math_tutor.yaml
+pp list roles
+pp list controls/pre/mode
+pp list controls/post
 ```
+
+#### Show The Available Components
+
+The command `show` works on a file path (without extension.)
+
+```bash
+pp show agents/cs_instructor
+pp show patterns/step_by_step
+pp show tasks/compose_action
+pp show controls/pre/mode/agent
+pp show controls/post/truth/say_dont_know
+```
+
+> [!TIP]
+> As an alternative to the `show` command, you can use your preferred coding agent, file explorer, or shell tools to inspect the contents of the `prompts` directory. For example, using Vim:
+>
+> ```bash
+> vim prompts/agents/math_tutor.yaml
+> ```
 
 ### Step 3: Create A Planning Table
 

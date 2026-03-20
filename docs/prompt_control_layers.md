@@ -52,6 +52,8 @@ This separation is what makes PromptPro **powerful, composable, and predictable*
 
 ### Using `build`
 
+#### Without Controls Declared In The Agent YAML File
+
 ```bash
 pp build math_tutor \
   --pre model/model_fast \
@@ -60,6 +62,38 @@ pp build math_tutor \
   --post truth/say_dont_know \
   --var input="Linear Algebra"
 ```
+
+#### With Controls Declared In The Agent YAML File
+
+action_agent_controlled.yaml:
+
+```yaml
+role: executor
+task: action
+
+patterns:
+  - verify_before_execute
+  - plan_execute
+  - structured_output
+
+controls:
+  pre:
+    - forget
+  post: []
+
+```
+
+> [!NOTE]
+> This agent file is a controlled variant of `action_agent`. It includes a `pre` control named `forget`, located at `controls/pre/memory/forget.md`, and defines no `post` controls (`post: []`).
+
+The command:
+
+```bash
+pp build action_agent_controlled --post truth/say_dont_know --var action="Make a list of the core skills everyone should have."
+```
+
+> [!NOTE]
+> This example combines controls defined in the agent YAML with controls specified via the command line.
 
 ### Using `compose`
 
