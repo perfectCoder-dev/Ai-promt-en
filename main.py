@@ -442,7 +442,23 @@ def list_category(category):
             print(f"{name}")
 
 
-def show_path(path):
+def render_output(content, theme="dracula"):
+    """
+    Render content using Rich with consistent theme and lexer detection.
+    """
+    lexer = "jinja" if "{{" in content or "{%" in content else "markdown"
+
+    syntax = Syntax(
+        content,
+        lexer,
+        theme=theme,
+        line_numbers=False
+    )
+
+    console.print(syntax)
+
+
+def show_path(path, theme="dracula"):
     """
     Display the contents of a prompt item with syntax highlighting.
 
@@ -494,15 +510,8 @@ def show_path(path):
                 content = f.read()
 
             lexer = "jinja" if "{{" in content or "{%" in content else "markdown"
-            syntax = Syntax(
-                content,
-                lexer,            # key part
-                theme="dracula",  # optional (try "monokai", "default", etc.)
-                line_numbers=False
-            )
-
             # console.print(f"[bold cyan]{path}[/bold cyan]\n")
-            console.print(syntax)
+            render_output(content, theme)
             return
 
     # Suggest nearby items
@@ -605,6 +614,12 @@ def main():
     """
     parser = argparse.ArgumentParser(prog="pp")
 
+    # Make --theme a global option
+    parser.add_argument(
+    "--theme",
+    default="dracula",
+    help="Syntax highlighting theme (e.g., dracula, monokai, default)"
+)
     subparsers = parser.add_subparsers(dest="command")
 
     # list
@@ -653,7 +668,7 @@ def main():
     # Show
     # --------------------------------------------------------------------------
     if args.command == "show":
-        show_path(args.path)
+        show_path(args.path, theme=args.theme)
         return
 
     # --------------------------------------------------------------------------
@@ -731,7 +746,7 @@ def main():
     if args.copy:
         copy_to_clipboard(rendered)
     else:
-        print(rendered)
+        render_output(rendered, args.theme)
 
 if __name__ == "__main__":
     main()

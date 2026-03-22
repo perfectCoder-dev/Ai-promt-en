@@ -84,6 +84,39 @@ pp show controls/pre/mode/agent
 pp show controls/post/truth/say_dont_know
 ```
 
+## Theme Selection (Output Styling)
+
+```bash
+pp --theme <theme> <command> [options]
+```
+
+Apply syntax highlighting themes to the output of supported commands.
+
+**Supported commands:**
+
+* `show`
+* `build`
+* `compose`
+
+**Parameters:**
+
+* `--theme` → Syntax highlighting theme (e.g., `dracula`, `monokai`, `friendly`, `default`, `vim`)
+
+**Examples:**
+
+```bash
+pp --theme monokai show tasks/explain
+pp --theme friendly show ../content/dev/testing/boundary_edge_cases
+pp --theme dracula build math_tutor --var input="Explain recursion"
+pp --theme default compose --role tutor --task explain --pattern step_by_step --var input="Boolean algebra simplification"
+```
+
+**Notes:**
+
+* The `--theme` option must be placed **before the command**.
+* If not specified, the default theme is `dracula`.
+* Themes affect only terminal rendering and do not modify the generated content.
+
 ## Build (Agent-Based Prompt Generation)
 
 ```bash

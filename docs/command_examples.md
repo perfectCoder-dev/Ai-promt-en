@@ -1,5 +1,14 @@
 # PromptPro Command Examples
 
+## Change Themes
+
+| Command                                                             |
+|---------------------------------------------------------------------|
+| pp --theme monokai show tasks/explain                               |
+| pp --theme friendly show ../content/dev/testing/boundary_edge_cases |
+| pp --theme dracula build math_tutor --var input="Explain recursion" |
+| pp --theme default compose --role tutor --task explain --pattern step_by_step --var input="Boolean algebra simplification" |
+
 ## Listing Prompt Components
 
 | Command                             |
