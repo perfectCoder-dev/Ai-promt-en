@@ -2,7 +2,7 @@
 name = "promptpro"
 version = "0.1.0"
 description = "Composable CLI for building structured AI prompts"
-requires-python = ">=3.9,<3.14"
+requires-python = ">=3.9,<3.15"
 
 dependencies = [
   "Jinja2",
