@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-pp = "main:main"
+pp = "promptpro.main:main"
 
 [build-system]
 requires = ["hatchling"]
