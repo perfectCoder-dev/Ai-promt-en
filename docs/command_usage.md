@@ -58,6 +58,13 @@ pp show <component>/<name>
 pp show controls/<pre|post>/<category>/<name>
 ```
 
+## Showing Content
+
+```bash
+pp show ../content/<category>/<name>
+pp show <path-to-file>
+```
+
 **Components:**
 
 * `agents` → Agent presets
