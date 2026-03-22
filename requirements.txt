@@ -1,8 +1,0 @@
-Jinja2>=3.1,<4
-markdown-it-py>=4,<5
-MarkupSafe>=3,<4
-mdurl>=0.1,<1
-Pygments>=2,<3
-pyperclip>=1,<2
-PyYAML>=6,<7
-rich>=14,<15
