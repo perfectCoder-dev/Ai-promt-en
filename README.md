@@ -1,6 +1,6 @@
 # PromptPro 🎯
 
-![Python](https://img.shields.io/badge/python-3.9–3.13-blue)
+![Python](https://img.shields.io/badge/python-3.9–3.14-blue)
 ![License](https://img.shields.io/github/license/estebantechdev/prompt-pro)
 
 <p align="center">
