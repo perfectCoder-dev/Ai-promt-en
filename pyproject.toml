@@ -1,0 +1,27 @@
+[project]
+name = "promptpro"
+version = "0.1.0"
+description = "Composable CLI for building structured AI prompts"
+requires-python = ">=3.9,<3.14"
+
+dependencies = [
+  "Jinja2",
+  "markdown-it-py",
+  "MarkupSafe",
+  "mdurl",
+  "Pygments",
+  "pyperclip",
+  "PyYAML",
+  "rich"
+]
+
+[project.scripts]
+pp = "main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Prompt version is CLI, not a package
+[tool.hatch.build.targets.wheel]
+include = ["main.py"]

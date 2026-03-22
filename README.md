@@ -35,35 +35,49 @@ Designed for users who think in systems, not snippets.
 
 ## 📥 Quick Install
 
+### Install with uv (Auto Python Setup)
+
 ```shell
-# Get the source code
+
+# 1. Install uv (if not installed)
+curl -Ls https://astral.sh/uv/install.sh | sh
+
+# 2. Clone the repository
 git clone https://github.com/estebantechdev/prompt-pro.git
 
-# Enter the project directory
+# 3. Enter the project directory
 cd prompt-pro
 
-# Create virtual environment (optional)
-python3 -m venv .venv
-source .venv/bin/activate  # Activate it
+# 4. (Optional) Let uv install a compatible Python version automatically
+# This will install and use a supported version (e.g., 3.11 or 3.12)
+uv python install
 
-# Install dependencies
-python -m pip install -r requirements.txt  # For normal users
-python -m pip install -r requirements-lock.txt  # For developers / CI
+# 5. Sync dependencies (creates .venv and installs everything)
+uv sync
 
-# Make executable
-chmod +x main.py
+# 6. Exit and reopen the terminal
 
-# Install system-wide
-sudo ln -s "$(pwd)/main.py" /usr/local/bin/pp
+# 7. Run PromptPro
+uv run pp --help
+
+# Example usage
+uv run pp list roles
+
+# Optional: install as a global CLI tool
+uv tool install .
+
+# Then you can run:
+pp --help
+
 ```
 
-#### 🐧 Linux Prerequisite (Debian/Ubuntu)
+#### ⚠️ Python Version Errors
 
-If you are using Debian-based systems (such as Ubuntu) and encounter an error when creating a virtual environment, you may need to install the `venv` package:
+If you encounter `env: 'python3': No such file or directory`,
+make sure the first line of `main.py` is:
 
 ```bash
-sudo apt update
-sudo apt install python3-venv
+#!/usr/bin/env python
 ```
 
 ## 🧪 Usage Examples
