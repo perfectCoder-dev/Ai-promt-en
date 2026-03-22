@@ -40,7 +40,12 @@ Designed for users who think in systems, not snippets.
 ```shell
 
 # 1. Install uv (if not installed)
+
+# Linux / macOS
 curl -Ls https://astral.sh/uv/install.sh | sh
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 # 2. Clone the repository
 git clone https://github.com/estebantechdev/prompt-pro.git
@@ -55,9 +60,7 @@ uv python install
 # 5. Sync dependencies (creates .venv and installs everything)
 uv sync
 
-# 6. Exit and reopen the terminal
-
-# 7. Run PromptPro
+# 6. Run PromptPro
 uv run pp --help
 
 # Example usage
@@ -71,14 +74,18 @@ pp --help
 
 ```
 
-#### ⚠️ Python Version Errors
+> [!IMPORTANT]
+> If you encounter `env: 'python3': No such file or directory`,  
+> ensure the first line of `main.py` is:
+>
+> ```bash
+> #!/usr/bin/env python
+> ```
 
-If you encounter `env: 'python3': No such file or directory`,
-make sure the first line of `main.py` is:
-
-```bash
-#!/usr/bin/env python
-```
+> [!IMPORTANT]
+> Clipboard features on Linux require external tools.  
+> Install `xsel` or `xclip` using your system package manager.  
+> On Wayland-based systems, you may need `wl-clipboard`.
 
 ## 🧪 Usage Examples
 
