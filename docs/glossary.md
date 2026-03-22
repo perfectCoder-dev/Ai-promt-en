@@ -22,19 +22,13 @@ A predefined agent preset in PromptPro designed to perform tasks by verifying re
 
 A reusable prompt configuration stored as a YAML file that combines a role, a task, and one or more patterns into a single, callable preset. Agents provide a convenient way to reuse complex prompt compositions.
 
-**Source:** `docs/prompts/agents/default_agents.md`, `main.py:82-104`
+**Source:** `docs/prompts/agents/default_agents.md`
 
 ### API (Application Programming Interface)
 
 A set of protocols and tools that allows different software applications to communicate with each other. In PromptPro, APIs are used to send generated prompts to AI models and receive responses.
 
 **Source:** `docs/prompt_pipelines.md`
-
-### Argparse
-
-A Python standard library module used to build command-line interfaces. PromptPro uses argparse to define subcommands (`list`, `show`, `build`, `compose`) and their options.
-
-**Source:** `main.py:37, 550-582`
 
 ### Ask Mode
 
@@ -46,12 +40,6 @@ A pre-prompt control that configures the AI for direct question-answering intera
 
 ## B
 
-### BASE_DIR
-
-The base directory variable in `main.py` that points to the `prompts/` folder containing all prompt components (agents, patterns, roles, tasks, and controls).
-
-**Source:** `main.py:48-52`
-
 ### Behavior Layer
 
 The post-prompt control layer in PromptPro that defines how the response is shaped after generation begins. It includes output formatting, tone, style, and constraints.
@@ -62,7 +50,7 @@ The post-prompt control layer in PromptPro that defines how the response is shap
 
 A PromptPro CLI subcommand that generates a prompt from a predefined agent configuration. Usage: `pp build <agent> [--var key=value] [--pre control] [--post control] [--copy]`
 
-**Source:** `docs/command_usage.md`, `main.py:563-570`
+**Source:** `docs/command_usage.md`
 
 ---
 
@@ -84,7 +72,7 @@ A text-based interface for interacting with software through commands entered in
 
 The ability to copy generated prompts directly to the system clipboard using the `--copy` flag, enabling quick pasting into AI interfaces.
 
-**Source:** `README.md`, `main.py:470-491`
+**Source:** `README.md`
 
 ### Command Substitution
 
@@ -96,7 +84,7 @@ A shell feature that allows capturing the output of one command to use as input 
 
 A PromptPro CLI subcommand that builds a prompt by manually combining a role, task, and patterns. Usage: `pp compose --role <role> --task <task> --pattern <pattern>`
 
-**Source:** `docs/command_usage.md`, `main.py:573-582`
+**Source:** `docs/command_usage.md`
 
 ### Context
 
@@ -120,7 +108,7 @@ PromptPro's architecture that separates execution control (pre-prompt) from outp
 
 The `--copy` flag in PromptPro that copies the rendered prompt to the system clipboard instead of printing it to stdout.
 
-**Source:** `docs/command_usage.md`, `main.py:676-679`
+**Source:** `docs/command_usage.md`
 
 ### CS Instructor
 
@@ -248,7 +236,7 @@ A cognitive strategy involving feedback, revision, and final output. The AI refi
 
 A template engine for Python that PromptPro uses for variable injection. Variables are referenced using `{{ variable_name }}` syntax.
 
-**Source:** `README.md`, `main.py:42, 333-334`
+**Source:** `README.md`
 
 ---
 
@@ -276,37 +264,13 @@ Deep prompting with guided reasoning, iteration, and strategic refinement. Desig
 
 A PromptPro CLI subcommand that displays available components in a category. Usage: `pp list <roles|agents|patterns|tasks|controls>`
 
-**Source:** `docs/command_usage.md`, `main.py:341-384`
+**Source:** `docs/command_usage.md`
 
 ### LLM (Large Language Model)
 
 A type of AI model trained on vast amounts of text data to understand and generate human language. Examples include GPT, Claude, and Llama.
 
 **Source:** `docs/prompt_control_layers.md`
-
-### Load Agent
-
-A function in `main.py` that parses an agent's YAML configuration file and returns it as a Python dictionary.
-
-**Source:** `main.py:82-104`
-
-### Load Controls
-
-A function in `main.py` that retrieves pre-prompt or post-prompt control fragments from the controls directory.
-
-**Source:** `main.py:134-167`
-
-### Load Pattern Group
-
-A function in `main.py` that parses a pattern group's YAML configuration and returns the nested pattern definitions.
-
-**Source:** `main.py:107-131`
-
-### Load Text
-
-A function in `main.py` that reads and returns the contents of a Markdown prompt component file.
-
-**Source:** `main.py:58-79`
 
 ---
 
@@ -434,12 +398,6 @@ A modular CLI tool for composing, managing, and orchestrating reusable AI prompt
 
 **Source:** `README.md`
 
-### Pyperclip
-
-A Python library used by PromptPro to copy generated prompts to the system clipboard.
-
-**Source:** `main.py:39, 470-491`
-
 ---
 
 ## Q
@@ -459,30 +417,6 @@ A cognitive strategy that approaches problems by asking "how" questions before a
 A directive in prompts that instructs the AI to think deeply before answering, such as "Think step by step" or "Consider all angles."
 
 **Source:** `docs/the_iceberg_of_prompting.md`
-
-### Recursive Resolution
-
-The process by which PromptPro expands pattern groups into their constituent patterns, including nested groups within groups.
-
-**Source:** `main.py:173-214`
-
-### Render
-
-The process of applying variable substitution to a prompt template, replacing placeholders like `{{ input }}` with actual values.
-
-**Source:** `main.py:311-334`
-
-### Resolve Patterns
-
-A function in `main.py` that recursively expands pattern groups into a flat list of individual patterns.
-
-**Source:** `main.py:173-214`
-
-### Rich
-
-A Python library used by PromptPro for terminal output formatting, including syntax highlighting for YAML and Markdown files.
-
-**Source:** `main.py:43-44, 439-447`
 
 ### Role
 
@@ -504,7 +438,7 @@ Assigning a specific expertise persona to the AI to leverage specialized knowled
 
 A PromptPro CLI subcommand that displays the contents of a specific prompt component with syntax highlighting. Usage: `pp show <path>`
 
-**Source:** `docs/command_usage.md`, `main.py:387-468`
+**Source:** `docs/command_usage.md`
 
 ### Socratic
 
@@ -548,12 +482,6 @@ Level 1 of the Iceberg framework—simple, direct requests with minimal context.
 
 **Source:** `docs/the_iceberg_of_prompting.md`
 
-### Syntax Highlighting
-
-Color-coded display of code or text in the terminal. PromptPro uses Rich to highlight YAML and Markdown with appropriate colors.
-
-**Source:** `main.py:439-447`
-
 ### System Prompt
 
 Base instructions that define fundamental AI behavior, typically loaded before user input.
@@ -569,12 +497,6 @@ Base instructions that define fundamental AI behavior, typically loaded before u
 A component that defines the action or type of work the AI is expected to perform, such as "explain," "action," or "compose_action."
 
 **Source:** `docs/prompts/tasks/default_tasks.md`
-
-### Template
-
-A prompt skeleton containing variable placeholders (e.g., `{{ input }}`) that are replaced with actual values during rendering.
-
-**Source:** `main.py:333-334`
 
 ### Token
 
@@ -653,7 +575,7 @@ A repeatable sequence of steps for creating prompts, such as the `build` workflo
 
 A human-readable data serialization format used for configuration files in PromptPro, including agents and pattern groups.
 
-**Source:** `docs/create_and_use_a_pattern_group.md`, `main.py:41, 104`
+**Source:** `docs/create_and_use_a_pattern_group.md`
 
 ---
 
