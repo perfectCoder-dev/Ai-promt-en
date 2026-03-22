@@ -207,17 +207,21 @@ pp compose \
 
 ### 2. Single File (--var-file)
 
-Load the variable value from a file (for example: .txt or .md).
+Read the variable value from a `.md` file.
 
 ```bash
 pp compose \
   --role tutor \
   --task explain \
   --pattern socratic \
-  --var-file input=./texts/puzzle.txt
+  --var-file input=./content/puzzle.md
 ```
 
 The entire file content becomes the variable value.
+
+> [!NOTE]
+> Supported file formats include `.md`, `.txt`, and extensionless (plain text) files.
+> However, only `.md` files appear in the output of `pp list`.
 
 ### 3. Recursive Directory (--var-dir)
 
@@ -228,7 +232,7 @@ pp compose \
   --role tutor \
   --task explain \
   --pattern socratic \
-  --var-dir input=./texts \
+  --var-dir input=./content \
   --copy
 ```
 
@@ -247,8 +251,8 @@ pp compose \
   --task explain \
   --pattern didactic \
   --var input="Random text" \
-  --var-file input2=./texts/puzzle.txt \
-  --var-dir input3=./texts \
+  --var-file input2=./content/puzzle.md \
+  --var-dir input3=./content \
   --copy
 ```
 
@@ -271,8 +275,8 @@ pp compose \
   --task explain \
   --pattern didactic \
   --var input="Random text" \
-  --var-file input=./texts/puzzle.txt \
-  --var-dir input=./texts \
+  --var-file input=./content/puzzle.md \
+  --var-dir input=./content \
   --copy
 ```
 
@@ -297,8 +301,8 @@ pp compose \
   --task explain \
   --pattern didactic \
   --var input="Random text" \
-  --var-file input=./texts/puzzle.txt \
-  --var-dir input=./texts \
+  --var-file input=./content/puzzle.md \
+  --var-dir input=./content \
   > my_prompt.txt
 ```
 
