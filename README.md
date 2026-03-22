@@ -35,7 +35,7 @@ Designed for users who think in systems, not snippets.
 
 ## 📥 Quick Install
 
-### Install with uv (Auto Python Setup)
+### Install With uv (Auto Python Setup)
 
 ```shell
 
