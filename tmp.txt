@@ -1,0 +1,107 @@
+.
+├── LICENSE
+├── llms.txt
+├── promptpro
+│   ├── content
+│   │   ├── dev
+│   │   │   └── testing
+│   │   │       └── boundary_edge_cases.md
+│   │   └── puzzle.md
+│   ├── docs
+│   │   ├── bash_variables.md
+│   │   ├── command_examples.md
+│   │   ├── command_usage.md
+│   │   ├── create_and_use_a_pattern_group.md
+│   │   ├── creating_new_prompt_components.md
+│   │   ├── glossary.md
+│   │   ├── prompt_components_reference.md
+│   │   ├── prompt_control_layers.md
+│   │   ├── prompt_pipelines.md
+│   │   ├── prompts
+│   │   │   ├── agents
+│   │   │   │   └── default_agents.md
+│   │   │   ├── pattern_groups
+│   │   │   │   └── default_pattern_groups.md
+│   │   │   ├── patterns
+│   │   │   │   └── default_patterns.md
+│   │   │   ├── roles
+│   │   │   │   └── default_roles.md
+│   │   │   └── tasks
+│   │   │       └── default_tasks.md
+│   │   └── the_iceberg_of_prompting.md
+│   ├── images
+│   │   ├── iceberg.jpg
+│   │   └── pp-banner.jpg
+│   ├──  __init__.py
+│   ├── main.py
+│   ├── prompts
+│   │   ├── agents
+│   │   │   ├── action_agent_controlled.yaml
+│   │   │   ├── action_agent.yaml
+│   │   │   ├── cs_instructor.yaml
+│   │   │   └── math_tutor.yaml
+│   │   ├── controls
+│   │   │   ├── post
+│   │   │   │   ├── limits
+│   │   │   │   │   ├── explain_like_12.md
+│   │   │   │   │   └── for_beginners.md
+│   │   │   │   ├── tone
+│   │   │   │   │   └── tone_style.md
+│   │   │   │   ├── translation
+│   │   │   │   │   ├── translate_en.md
+│   │   │   │   │   ├── translate_output.md
+│   │   │   │   │   └── translate_sp.md
+│   │   │   │   └── truth
+│   │   │   │       └── say_dont_know.md
+│   │   │   └── pre
+│   │   │       ├── config
+│   │   │       │   └── configurations.md
+│   │   │       ├── language
+│   │   │       │   └── input_default.md
+│   │   │       ├── mcp
+│   │   │       │   ├── mcp_local.md
+│   │   │       │   └── mcp_remote.md
+│   │   │       ├── memory
+│   │   │       │   └── forget.md
+│   │   │       ├── mode
+│   │   │       │   ├── agent.md
+│   │   │       │   ├── ask.md
+│   │   │       │   └── plan.md
+│   │   │       ├── model
+│   │   │       │   ├── model_fast.md
+│   │   │       │   ├── model_temperature.md
+│   │   │       │   └── model_thinking.md
+│   │   │       ├── security
+│   │   │       │   └── no_env_access.md
+│   │   │       ├── system
+│   │   │       │   └── system_prompt.md
+│   │   │       └── tools
+│   │   │           ├── tools_call.md
+│   │   │           ├── tools_define.md
+│   │   │           ├── tools_off.md
+│   │   │           └── tools_on.md
+│   │   ├── pattern_groups
+│   │   │   ├── didactic_structured.yaml
+│   │   │   └── didactic.yaml
+│   │   ├── patterns
+│   │   │   ├── plan_execute.md
+│   │   │   ├── socratic.md
+│   │   │   ├── step_by_step.md
+│   │   │   ├── structured_output.md
+│   │   │   └── verify_before_execute.md
+│   │   ├── roles
+│   │   │   ├── executor.md
+│   │   │   ├── technical_instructor.md
+│   │   │   └── tutor.md
+│   │   └── tasks
+│   │       ├── action.md
+│   │       ├── compose_action.md
+│   │       └── explain.md
+│   ├── __pycache__
+│   │   └── main.cpython-314.pyc
+│   └── README.md
+├── pyproject.toml
+├── tmp.txt
+└── uv.lock
+
+36 directories, 69 files
