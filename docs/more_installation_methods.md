@@ -2,7 +2,7 @@
 
 ## More uv Options
 
-### Install Specific Python versions
+### Install Specific Python Versions
 
 In the previous installation step, you can specify a Python version after the `install` option:
 
