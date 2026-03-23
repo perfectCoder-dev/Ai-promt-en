@@ -13,7 +13,7 @@ uv python install 3.14
 ### PromptPro Uninstallation
 
 ```bash
-uv tool unistall promptpro
+uv tool uninstall promptpro
 ```
 
 ## PromptPro Installations With pip
