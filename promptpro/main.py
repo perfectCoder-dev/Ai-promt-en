@@ -98,11 +98,17 @@ def load_agent(name):
         FileNotFoundError: If the specified agent file does not exist.
         yaml.YAMLError: If the YAML file cannot be parsed.
     """
-    try:
-        with resources.files("promptpro.prompts.agents").joinpath(f"{name}.yaml").open("r") as f:
-            return yaml.safe_load(f)
-    except FileNotFoundError:
+    resource = resources.files("promptpro.prompts.agents").joinpath(f"{name}.yaml")
+
+    if not resource.is_file():
         raise FileNotFoundError(f"Agent '{name}' not found.")
+
+    data = yaml.safe_load(resource.read_text(encoding="utf-8"))
+
+    if data is None:
+        raise ValueError(f"Agent '{name}' is empty or invalid.")
+
+    return data
 
 def load_pattern_group(name):
     """
