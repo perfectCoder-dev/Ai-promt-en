@@ -4,7 +4,7 @@
 
 ### Install Specific Python versions
 
-In the installation step #4, you can specify a Python version after the `install` option:
+In the previous installation step, you can specify a Python version after the `install` option:
 
 ```bash
 uv python install 3.14
@@ -16,7 +16,7 @@ uv python install 3.14
 uv tool uninstall promptpro
 ```
 
-## PromptPro Installations With pip
+## Installing PromptPro With pip
 
 These methods require pip already installed on your machine or Python environment.
 
@@ -29,17 +29,17 @@ cd prompt-pro
 pip3 install .
 ```
 
-### Install From PyPi
+### Install From PyPI
 
 Using pip or pip3:
 
 ```bash
-pip3 install promptpro
+pip install promptpro  # or pip3 depending on your system
 ```
 
 ### Example
 
-After the installation you can import PromptPro in a script.
+After installation, you can import PromptPro in your Python scripts.
 
 ```py
 # test_promptpro.py
@@ -50,10 +50,20 @@ if __name__ == "__main__":
     main()
 ```
 
+The script will forward CLI arguments to PromptPro.
+
 To run the script:
 
 ```bash
 python /path/to/test_promptpro.py list agents
 ```
 
-The command will display a list of existing agents.
+This command displays a list of existing agents.
+
+## Use Your CLI Anywhere
+
+Once installed, you can call your CLI (pp) as if it were run from the terminal.
+
+### Examples
+
+[Python Integration](../README.md#-python-integration)

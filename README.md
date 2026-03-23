@@ -435,6 +435,41 @@ PromptPro can also consume values from other commands or scripts, making it idea
 
 For more examples using Bash variables, command substitution, and scripting patterns, see: 🔗 [Using Bash Variables With PromptPro](docs/bash_variables.md).
 
+## 🐍 Python Integration
+
+PromptPro can be used seamlessly inside Python scripts, enabling automation, testing, and integration with larger applications.
+
+**Example**
+
+```python
+import subprocess
+
+
+def test_pp_list_roles():
+    result = subprocess.run(
+        ["pp", "list", "roles"],
+        capture_output=True,
+        text=True
+    )
+
+    assert result.returncode == 0, "Command failed"
+    assert result.stdout.strip() != "", "No output returned"
+
+    print(result.stdout)
+
+
+if __name__ == "__main__":
+    test_pp_list_roles()
+```
+
+To run the script:
+
+```py
+python test.py
+```
+
+🔗 [More Examples With Python](docs/python_integration.md).
+
 ## 🤝 Contributions
 
 Contributions are highly encouraged — especially new prompt components.
