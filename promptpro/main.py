@@ -39,6 +39,7 @@ import os
 import pyperclip
 import sys
 import yaml
+from importlib import resources
 from jinja2 import Template
 from rich.console import Console
 from rich.syntax import Syntax
@@ -97,12 +98,11 @@ def load_agent(name):
         FileNotFoundError: If the specified agent file does not exist.
         yaml.YAMLError: If the YAML file cannot be parsed.
     """
-    path = os.path.join(BASE_DIR, "agents", f"{name}.yaml")
-    if not os.path.exists(path):
+    try:
+        with resources.files("promptpro.prompts.agents").joinpath(f"{name}.yaml").open("r") as f:
+            return yaml.safe_load(f)
+    except FileNotFoundError:
         raise FileNotFoundError(f"Agent '{name}' not found.")
-    with open(path, "r") as f:
-        return yaml.safe_load(f)
-
 
 def load_pattern_group(name):
     """

@@ -25,3 +25,10 @@ build-backend = "hatchling.build"
 # PromptPro version is CLI, not a package
 [tool.hatch.build.targets.wheel]
 include = ["main.py"]
+
+# Install package with prompts
+[tool.hatch.build]
+include = [
+  "promptpro/prompts/**/*.md",
+  "promptpro/prompts/**/*.yaml"
+]
