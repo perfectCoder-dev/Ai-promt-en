@@ -82,21 +82,22 @@ def load_text(category, name):
 
 def load_agent(name):
     """
-    Load and parse an agent configuration file from the agents directory.
+    Load and parse an agent configuration file bundled within the package.
 
-    The function builds the path using BASE_DIR, the "agents" subdirectory,
-    and the provided agent name with a `.yaml` extension. The YAML file
-    is safely parsed and returned as a Python object.
+    This function locates a YAML file inside the
+    "promptpro.prompts.agents" package directory using importlib.resources.
+    It reads and safely parses the file into a Python data structure.
 
     Args:
-        name (str): The agent configuration filename (without extension).
+        name (str): The agent configuration filename (without the .yaml extension).
 
     Returns:
-        dict | list | Any: The parsed YAML content as a Python data structure.
+        dict | list | Any: The parsed YAML content as a Python object.
 
     Raises:
-        FileNotFoundError: If the specified agent file does not exist.
-        yaml.YAMLError: If the YAML file cannot be parsed.
+        FileNotFoundError: If the specified agent file does not exist in the package.
+        ValueError: If the YAML file is empty or contains no valid data.
+        yaml.YAMLError: If the YAML content cannot be parsed.
     """
     resource = resources.files("promptpro.prompts.agents").joinpath(f"{name}.yaml")
 
@@ -109,6 +110,7 @@ def load_agent(name):
         raise ValueError(f"Agent '{name}' is empty or invalid.")
 
     return data
+
 
 def load_pattern_group(name):
     """
@@ -450,7 +452,23 @@ def list_category(category):
 
 def render_output(content, theme="dracula"):
     """
-    Render content using Rich with consistent theme and lexer detection.
+    Render formatted content to the console using Rich syntax highlighting.
+
+    The function automatically detects whether the content should be rendered
+    as Jinja or Markdown based on the presence of template delimiters
+    ("{{", "{%"). It then applies syntax highlighting using the specified
+    Rich theme.
+
+    Args:
+        content (str): The text content to render in the console.
+        theme (str, optional): The Rich syntax highlighting theme to use.
+            Defaults to "dracula".
+
+    Returns:
+        None
+
+    Raises:
+        Any exceptions raised by Rich during rendering.
     """
     lexer = "jinja" if "{{" in content or "{%" in content else "markdown"
 
@@ -466,40 +484,28 @@ def render_output(content, theme="dracula"):
 
 def show_path(path, theme="dracula"):
     """
-    Display the contents of a prompt item with syntax highlighting.
+    Display the contents of a file located under the base directory.
 
-    This function resolves a file path relative to BASE_DIR and prints its
-    contents to the terminal using rich syntax highlighting. The file is
-    located without requiring an explicit extension by checking supported
-    formats in order (`.md`, then `.yaml`).
+    This function resolves the given path relative to BASE_DIR and attempts
+    to locate a corresponding ".md" or ".yaml" file. If found, the file is
+    read and rendered to the console using syntax highlighting via
+    `render_output`.
 
-    Rendering behavior:
-        - If the file contains Jinja template markers (e.g., `{{ ... }}` or
-          `{% ... %}`), it is highlighted using a Jinja-compatible lexer.
-        - Otherwise, the content is rendered as Markdown.
-        - Output is displayed using the Rich library with a configurable theme.
-
-    If the resolved path corresponds to a directory, the user is informed
-    and advised to use the `list` command instead.
-
-    If no matching file is found but the parent directory exists, the function
-    prints a list of nearby subdirectories and items as suggestions to help
-    locate the intended resource.
+    If the path points to a directory, a message is shown suggesting the
+    use of a listing command instead. If no matching file is found, the
+    function suggests nearby items from the same parent directory.
 
     Args:
-        path (str): Relative path to the target item (without file extension).
-            May include nested subdirectories (e.g., "tasks/explain").
+        path (str): The relative path (without extension) to the target file.
+        theme (str, optional): The Rich syntax highlighting theme to use.
+            Defaults to "dracula".
 
     Returns:
-        None: Output is printed directly to standard output.
+        None
 
-    Notes:
-        - File resolution order is `.md` first, then `.yaml`.
-        - Only the first matching file is displayed.
-        - Suggestions include both subdirectories (with trailing `/`)
-          and valid item names (without file extensions).
-        - Output is intended for interactive CLI usage and is not structured
-          for machine parsing.
+    Raises:
+        FileNotFoundError: Not raised directly, but handled internally by
+            displaying suggestions when the file is not found.
     """
     base_path = os.path.join(BASE_DIR, path)
 
@@ -570,53 +576,34 @@ def copy_to_clipboard(text):
 
 def main():
     """
-    Run the PromptPro command-line interface.
+    Entry point for the PromptPro CLI application.
 
-    This function parses CLI arguments, dispatches subcommands, assembles prompts,
-    applies control layers, injects variables, and outputs the final result.
+    This function defines and parses command-line arguments, dispatches
+    subcommands, processes input variables, and renders or copies the
+    resulting prompt output.
 
-    Supported subcommands:
-        - list <category>: List available items in a category.
-        - show <path>: Display the contents of a file or resource.
-        - build <agent>: Compose a prompt from an agent configuration.
-        - compose: Manually compose a prompt from role, task, and patterns.
+    Supported commands:
+        - list: Display available items within a specified category.
+        - show: Render the contents of a file by path.
+        - build: Generate a prompt from a predefined agent configuration.
+        - compose: Manually construct a prompt from provided components.
 
-    Controls:
-        - Pre and post controls can be provided via CLI (`--pre`, `--post`)
-          and are merged with agent-defined controls (for `build`).
-        - Controls are loaded from:
-            prompts/controls/pre/
-            prompts/controls/post/
-        - Application order:
-            1. Pre-controls
-            2. Core prompt
-            3. Post-controls
+    Global options:
+        --theme: Specify the syntax highlighting theme for output rendering.
 
-    Variables:
-        - Supports variable injection from multiple sources:
-            --var key=value        (literal values)
-            --var-file key=path    (file contents)
-            --var-dir key=path     (recursive directory contents)
-        - Resolution order (later overrides earlier):
-            1. --var
-            2. --var-file
-            3. --var-dir
+    Variable handling:
+        - --var: Inline key=value pairs.
+        - --var-file: Load variable values from files.
+        - --var-dir: Recursively load and concatenate file contents from directories.
 
-    Execution flow:
-        1. Parse CLI arguments.
-        2. Execute command:
-            - list/show: immediate output.
-            - build: compose from agent.
-            - compose: build from manual inputs.
-        3. Load and merge controls (if applicable).
-        4. Resolve variables.
-        5. Render the final prompt.
-        6. Output to stdout or copy to clipboard.
+    Output behavior:
+        - Renders the final prompt using Rich with syntax highlighting.
+        - Optionally copies the result to the clipboard if --copy is set.
 
     Raises:
-        FileNotFoundError: If a file specified in --var-file does not exist.
-        NotADirectoryError: If a path specified in --var-dir is invalid.
-        ValueError: If variable arguments are not in key=value format.
+        FileNotFoundError: If a specified file for variable input does not exist.
+        NotADirectoryError: If a specified directory for variable input is invalid.
+        ValueError: If variable inputs are malformed (e.g., missing "=" separator).
     """
     parser = argparse.ArgumentParser(prog="pp")
 
@@ -753,6 +740,7 @@ def main():
         copy_to_clipboard(rendered)
     else:
         render_output(rendered, args.theme)
+
 
 if __name__ == "__main__":
     main()
