@@ -22,9 +22,8 @@ pp = "promptpro.main:main"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-# PromptPro version is CLI, not a package
+# When building the wheel, include the promptpro package.
 [tool.hatch.build.targets.wheel]
-# nclude = ["main.py"]
 packages = ["promptpro"]
 
 # Install package with prompts
