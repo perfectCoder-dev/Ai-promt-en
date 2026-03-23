@@ -87,6 +87,10 @@ pp --help
 > Install `xsel` or `xclip` using your system package manager.  
 > On Wayland-based systems, you may need `wl-clipboard`.
 
+### More Installation Methods
+
+🔗 [More Installation Methods](docs/more_installation_methods.md)
+
 ## 🧪 Usage Examples
 
 ### Listing Prompt Components
