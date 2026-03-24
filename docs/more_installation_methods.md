@@ -37,33 +37,10 @@ Using pip or pip3:
 pip install promptpro  # or pip3 depending on your system
 ```
 
-### Example
-
-After installation, you can import PromptPro in your Python scripts.
-
-```py
-# test_promptpro.py
-
-from promptpro.main import main
-
-if __name__ == "__main__":
-    main()
-```
-
-The script will forward CLI arguments to PromptPro.
-
-To run the script:
-
-```bash
-python /path/to/test_promptpro.py list agents
-```
-
-This command displays a list of existing agents.
-
 ## Use Your CLI Anywhere
 
-Once installed, you can call your CLI (pp) as if it were run from the terminal.
+Once installed, you can call your CLI (pp) as if it were run from the terminal or import PromptPro in your programming language scripts.
 
 ### Examples
 
-[Python Integration](../README.md#-python-integration)
+🔗 [Python Integration](../README.md#-python-integration)
