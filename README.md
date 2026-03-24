@@ -243,7 +243,7 @@ pp compose \
   --role tutor \
   --task explain \
   --pattern socratic \
-  --var-dir input=./content \
+  --var-dir input=content \
   --copy
 ```
 
