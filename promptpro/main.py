@@ -271,7 +271,7 @@ def compose_from_agent(agent_name, cli_pre=None, cli_post=None):
 
     Args:
         agent_name (str): Name of the agent to load.
-        cli_pre (Iterable[str] | None): अतिरिक्त pre controls provided via CLI.
+        cli_pre (Iterable[str] | None): Pre controls provided via CLI.
         cli_post (Iterable[str] | None): Additional post controls provided via CLI.
 
     Returns:
@@ -576,34 +576,38 @@ def copy_to_clipboard(text):
 
 def main():
     """
-    Entry point for the PromptPro CLI application.
+    Entry point for the PromptPro command-line interface.
 
-    This function defines and parses command-line arguments, dispatches
-    subcommands, processes input variables, and renders or copies the
-    resulting prompt output.
+    This function parses CLI arguments and dispatches commands to build,
+    compose, inspect, and render prompts.
 
     Supported commands:
-        - list: Display available items within a specified category.
-        - show: Render the contents of a file by path.
-        - build: Generate a prompt from a predefined agent configuration.
-        - compose: Manually construct a prompt from provided components.
+    - list: Display available prompt components by category.
+    - show: Render a specific component with syntax highlighting.
+    - build: Generate a prompt using a predefined agent preset.
+    - compose: Generate a prompt by combining role, task, and patterns.
 
-    Global options:
-        --theme: Specify the syntax highlighting theme for output rendering.
+    Variable injection:
+    - --var: Inline key=value pairs.
+    - --var-file: Load variable content from a file. Supports relative paths,
+    BASE_DIR resolution, and recursive lookup inside the 'content' directory.
+    Accepts .md, .txt, or extensionless filenames.
+    - --var-dir: Load and concatenate content from all files in a directory
+    (recursively). Supports direct paths and BASE_DIR resolution. Only
+    .md and .txt files are included; hidden files are ignored.
 
-    Variable handling:
-        - --var: Inline key=value pairs.
-        - --var-file: Load variable values from files.
-        - --var-dir: Recursively load and concatenate file contents from directories.
+    Path resolution:
+    - Attempts direct paths first.
+    - Falls back to BASE_DIR-relative paths.
+    - Performs recursive search within BASE_DIR/content when needed.
 
-    Output behavior:
-        - Renders the final prompt using Rich with syntax highlighting.
-        - Optionally copies the result to the clipboard if --copy is set.
+    Error handling:
+    - Provides user-friendly messages when files or directories are not found.
+    - Suggests nearby valid entries based on the closest existing path.
 
-    Raises:
-        FileNotFoundError: If a specified file for variable input does not exist.
-        NotADirectoryError: If a specified directory for variable input is invalid.
-        ValueError: If variable inputs are malformed (e.g., missing "=" separator).
+    Output:
+    - Renders the final prompt with optional syntax highlighting.
+    - Optionally copies the result to the clipboard using --copy.
     """
     parser = argparse.ArgumentParser(prog="pp")
 
@@ -702,9 +706,9 @@ def main():
 
             resolved_path = None
 
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             # 1. Try direct paths (as-is)
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             direct_candidates = [filepath]
 
             if not os.path.splitext(filepath)[1]:
@@ -718,9 +722,9 @@ def main():
                     resolved_path = path
                     break
 
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             # 2. Try BASE_DIR paths
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             if not resolved_path:
                 base_candidates = [
                     os.path.join(BASE_DIR, filepath)
@@ -737,9 +741,9 @@ def main():
                         resolved_path = path
                         break
 
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             # 3. Recursive search inside BASE_DIR/content
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             if not resolved_path:
                 content_root = os.path.join(BASE_DIR, "content")
 
@@ -760,9 +764,9 @@ def main():
                     if resolved_path:
                         break
 
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             # 4. Error handling (ONLY AFTER ALL ATTEMPTS)
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             if not resolved_path:
                 print(f"Error: file not found -> {filepath}")
 
@@ -783,9 +787,9 @@ def main():
 
                 sys.exit(1)
 
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             # Load file
-            # ----------------------------------------------------------
+            # ------------------------------------------------------------------
             with open(resolved_path, "r") as f:
                 variables[key] = f.read()
 
@@ -794,13 +798,63 @@ def main():
         for item in args.var_dir:
             key, dirpath = item.split("=", 1)
 
-            if not os.path.isdir(dirpath):
-                raise NotADirectoryError(f"Not a directory: {dirpath}")
+            resolved_dir = None
 
+            # ------------------------------------------------------------------
+            # 1. Try direct path (as-is)
+            # ------------------------------------------------------------------
+            if os.path.isdir(dirpath):
+                resolved_dir = dirpath
+
+            # ------------------------------------------------------------------
+            # 2. Try BASE_DIR path
+            # ------------------------------------------------------------------
+            if not resolved_dir:
+                base_path = os.path.join(BASE_DIR, dirpath)
+                if os.path.isdir(base_path):
+                    resolved_dir = base_path
+
+            # ------------------------------------------------------------------
+            # 3. Error handling (only after all attempts)
+            # ------------------------------------------------------------------
+            if not resolved_dir:
+                print(f"Error: directory not found -> {dirpath}")
+
+                # Try to suggest from closest valid directory
+                base_candidate = os.path.join(BASE_DIR, dirpath)
+                dir_candidate = base_candidate
+
+                # Walk up until we find an existing directory
+                while dir_candidate and not os.path.exists(dir_candidate):
+                    dir_candidate = os.path.dirname(dir_candidate)
+
+                if dir_candidate and os.path.isdir(dir_candidate):
+                    print("\nDid you mean:")
+
+                    for entry in sorted(os.listdir(dir_candidate)):
+                        entry_path = os.path.join(dir_candidate, entry)
+
+                        if os.path.isdir(entry_path):
+                            print(f"  {entry}/")
+
+                sys.exit(1)
+
+            # ------------------------------------------------------------------
+            # 4. Load directory recursively (filtered)
+            # ------------------------------------------------------------------
             collected = []
 
-            for root, _, files in os.walk(dirpath):
+            for root, _, files in os.walk(resolved_dir):
                 for file in sorted(files):
+
+                    # Skip hidden files
+                    if file.startswith("."):
+                        continue
+
+                    # Only allow .md and .txt
+                    if not file.endswith((".md", ".txt")):
+                        continue
+
                     file_path = os.path.join(root, file)
 
                     if os.path.isfile(file_path):
