@@ -17,11 +17,11 @@ Create ready-to-use, high-quality prompts with a single command 🚀
 
 PromptPro is a modular CLI for composing, managing, and orchestrating reusable AI prompt components.
 
-Instead of storing static snippets, PromptPro treats prompts as structured building blocks — roles, tasks, and reasoning patterns — that can be assembled, parameterized, and reused across projects.
+Instead of storing static snippets, PromptPro treats prompts as structured building blocks — roles, tasks, content, reasoning patterns, and controls — that can be assembled, parameterized, and reused across projects.
 
 Designed for users who think in systems, not snippets.
 
- 🧱 Why Prompt Pro?
+✨ Why Prompt Pro?
 
 - 🧱 Modular prompt components
 - 🔁 Agent presets
@@ -75,8 +75,7 @@ pp --help
 ```
 
 > [!IMPORTANT]
-> If you encounter `env: 'python3': No such file or directory`,  
-> ensure the first line of `main.py` is:
+> If you encounter: *"env: 'python3': No such file or directory"*, ensure the first line of `main.py` is:
 >
 > ```bash
 > #!/usr/bin/env python
