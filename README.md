@@ -118,24 +118,30 @@ tutor
 > [!NOTE]
 > The `list` command can also be used with other parameters:
 > - `agents`
+> - `content`
+> - `controls`
 > - `pattern_groups`
 > - `patterns`
 > - `tasks`
 
+### Workflows
+
+PromptPro supports two workflows:
+- `build` generates a prompt using a predefined **agent preset**.
+  
+- `compose` generates a prompt by manually combining **role**, **task**, and **pattern** components.
+
+**controls** and **content** are optional components and can be included as needed—they are not required.
+
 ### Creating A Prompt With `build`
 
-> [!NOTE]
-> PromptPro supports two workflows:
-> - `build` generates a prompt using a predefined **agent preset**.
-> - `compose` generates a prompt by manually combining **role**, **task**, and **pattern** components.
-
-Create a prompt using a predefined agent:
+Create a prompt using a predefined **agent**:
 
 ```bash
 pp build math_tutor --var input="Explain recursion"
 ```
 
-Copy the generated prompt directly to the clipboard:
+Copy the generated prompt directly to the **clipboard**:
 
 ```bash
 pp build math_tutor --var input="Explain recursion" --copy
