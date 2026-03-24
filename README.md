@@ -225,7 +225,7 @@ pp compose \
   --role tutor \
   --task explain \
   --pattern socratic \
-  --var-file input=./content/puzzle.md
+  --var-file input=content/puzzle.md
 ```
 
 The entire file content becomes the variable value.
