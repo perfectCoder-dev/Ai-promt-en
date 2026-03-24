@@ -172,9 +172,9 @@ pp compose \
 ```
 
 > [!NOTE]
-> The explanation response from the AI model used will vary depending on the selected theorist. With **Albert Einstein** will frame **gravity** as the curvature of spacetime; with **Isaac Newton** will describe gravity as a force acting between masses.
+> The explanation response from the AI model used will vary depending on the selected `theorist`. With **Albert Einstein** will frame **"gravity"** as the curvature of spacetime; with **Isaac Newton** will describe gravity as a force acting between masses.
 >
-> The variable `theorist` does not exist in the default version of the task `explain`.
+> The variable `theorist` does not exist in the default version of the task `explain`. It has been introduced intentionally for this example to demonstrate how custom variables can modify and enrich a prompt’s behavior.
 
 > [!TIP]
 If you do not need to create additional `--var` variables such as `theorist`, you can embed the context directly in the input parameter:
@@ -194,6 +194,8 @@ Your **task file** (inside `tasks/`) must include at least one variable placehol
 ```
 
 The variable name in the template must match the key used in the command line.
+
+For example, **{{ input }}** in the template corresponds to the `input` variable passed via the CLI.
 
 > [!NOTE]
 > If you omit the `--var` parameter, the prompt will be generated without injected values. This allows you to preview, copy, or reuse the base prompt structure independently.
