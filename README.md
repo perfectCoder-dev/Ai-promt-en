@@ -206,7 +206,7 @@ PromptPro supports three types of variable sources:
 
 ### 1. Literal Variables (--var)
 
-Pass a value directly from the command line.
+Use `--var` to pass simple key-value pairs directly from the command line.
 
 ```bash
 pp compose \
@@ -216,9 +216,18 @@ pp compose \
   --var input="Random text"
 ```
 
+> [!NOTE]
+> * Format must be key=value
+> * Values are treated as plain text
+> * Best suited for short inputs or dynamic values
+
 ### 2. Single File (--var-file)
 
-Read the variable value from a `.md` file.
+Use `--var-file` to load the value of a variable from a file instead of passing it inline.
+
+The entire file content is injected as the variable value, making this ideal for larger inputs such as articles, datasets, or structured prompts.
+
+**Example**
 
 ```bash
 pp compose \
@@ -228,15 +237,40 @@ pp compose \
   --var-file input=content/puzzle.md
 ```
 
-The entire file content becomes the variable value.
-
 > [!NOTE]
 > Supported file formats include `.md`, `.txt`, and extensionless (plain text) files.
-> However, only `.md` files appear in the output of `pp list`.
+> Only `.md` files are listed when using `pp list`.
+
+You can omit the extension:
+
+```bash
+--var-file input=content/cat/file
+```
+
+> [!TIP]
+> For best results, store your files under `content/`, since PromptPro begins its search from this directory.
+
+**Path resolution**
+
+* Direct path (as provided)
+
+* Path relative to the project
+
+* Recursive search inside content/
+
+**Error handling**
+
+* Displays a clear error message if the file is not found
+
+* Suggests nearby valid files to help you recover quickly
 
 ### 3. Recursive Directory (--var-dir)
 
-Load variable content from all files inside a directory (recursively).
+Use `--var-dir` to load and combine the contents of all files in a directory.
+
+All files are read recursively and concatenated into a single variable.
+
+**Example**
 
 ```bash
 pp compose \
@@ -247,10 +281,42 @@ pp compose \
   --copy
 ```
 
-All file contents are combined into a single variable value.
-
 > [!CAUTION]
 > Using `--var-dir` on very large directories can produce a combined variable that exceeds your AI model's *context window*, which may cause truncation or errors. Consider limiting the number or size of files loaded.
+> ```bash
+> --var-dir input=content/cat/sub-cat/
+> ```
+
+> [!TIP]
+> For best results, store your files under `content/`, since PromptPro begins its search from this directory.
+
+**File filtering**
+
+Includes only:
+
+* .md
+
+* .txt
+
+Ignores:
+
+* Hidden files (e.g., .DS_Store)
+
+* Unsupported file types
+
+**Path resolution**
+
+* Direct path (as provided)
+
+* Path relative to the project (BASE_DIR)
+
+**Error handling**
+
+If the directory is not found:
+
+* Displays a clear error message
+
+* Suggests valid nearby directories
 
 ### Combining All Variable Sources
 
