@@ -27,7 +27,7 @@ This command displays a list of existing agents.
 
 ## Full Test File With try/except
 
-The script tests the PromptPro CLI by executing the list roles command as a subprocess.
+The script tests the PromptPro CLI by executing the `list roles` command as a subprocess.
 
 ```py
 import subprocess
