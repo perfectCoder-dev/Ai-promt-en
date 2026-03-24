@@ -700,10 +700,91 @@ def main():
         for item in args.var_file:
             key, filepath = item.split("=", 1)
 
-            if not os.path.isfile(filepath):
+            resolved_path = None
+
+            # ----------------------------------------------------------
+            # 1. Try direct paths (as-is)
+            # ----------------------------------------------------------
+            direct_candidates = [filepath]
+
+            if not os.path.splitext(filepath)[1]:
+                direct_candidates.extend([
+                    filepath + ".md",
+                    filepath + ".txt"
+                ])
+
+            for path in direct_candidates:
+                if os.path.isfile(path):
+                    resolved_path = path
+                    break
+
+            # ----------------------------------------------------------
+            # 2. Try BASE_DIR paths
+            # ----------------------------------------------------------
+            if not resolved_path:
+                print(f"Error: file not found -> {filepath}")
+
+                # Determine target directory
+                base_candidate = os.path.join(BASE_DIR, filepath)
+                dir_path = os.path.dirname(base_candidate)
+
+                # If directory doesn't exist, fallback to closest existing parent
+                while dir_path and not os.path.exists(dir_path):
+                    dir_path = os.path.dirname(dir_path)
+
+                if dir_path and os.path.isdir(dir_path):
+                    print("\nDid you mean:")
+
+                    for entry in sorted(os.listdir(dir_path)):
+                        entry_path = os.path.join(dir_path, entry)
+
+                        if os.path.isfile(entry_path):
+                            print(f"  {entry}")
+
+                sys.exit(1)
+
+                if not os.path.splitext(filepath)[1]:
+                    base_candidates.extend([
+                        os.path.join(BASE_DIR, filepath + ".md"),
+                        os.path.join(BASE_DIR, filepath + ".txt")
+                    ])
+
+                for path in base_candidates:
+                    if os.path.isfile(path):
+                        resolved_path = path
+                        break
+
+            # ----------------------------------------------------------
+            # 3. Recursive search inside BASE_DIR/content
+            # ----------------------------------------------------------
+            if not resolved_path:
+                content_root = os.path.join(BASE_DIR, "content")
+
+                name = os.path.basename(filepath)
+                name_no_ext, ext = os.path.splitext(name)
+
+                for root, _, files in os.walk(content_root):
+                    for file in files:
+                        file_name, file_ext = os.path.splitext(file)
+
+                        # Match exact name or name without extension
+                        if (
+                            file == name or
+                            file_name == name_no_ext
+                        ) and file_ext in [".md", ".txt", ""]:
+                            resolved_path = os.path.join(root, file)
+                            break
+
+                    if resolved_path:
+                        break
+
+            # ----------------------------------------------------------
+            # Final check
+            # ----------------------------------------------------------
+            if not resolved_path:
                 raise FileNotFoundError(f"File not found: {filepath}")
 
-            with open(filepath, "r") as f:
+            with open(resolved_path, "r") as f:
                 variables[key] = f.read()
 
     # 3 Recursive directory variables
