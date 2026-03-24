@@ -722,26 +722,9 @@ def main():
             # 2. Try BASE_DIR paths
             # ----------------------------------------------------------
             if not resolved_path:
-                print(f"Error: file not found -> {filepath}")
-
-                # Determine target directory
-                base_candidate = os.path.join(BASE_DIR, filepath)
-                dir_path = os.path.dirname(base_candidate)
-
-                # If directory doesn't exist, fallback to closest existing parent
-                while dir_path and not os.path.exists(dir_path):
-                    dir_path = os.path.dirname(dir_path)
-
-                if dir_path and os.path.isdir(dir_path):
-                    print("\nDid you mean:")
-
-                    for entry in sorted(os.listdir(dir_path)):
-                        entry_path = os.path.join(dir_path, entry)
-
-                        if os.path.isfile(entry_path):
-                            print(f"  {entry}")
-
-                sys.exit(1)
+                base_candidates = [
+                    os.path.join(BASE_DIR, filepath)
+                ]
 
                 if not os.path.splitext(filepath)[1]:
                     base_candidates.extend([
@@ -761,13 +744,12 @@ def main():
                 content_root = os.path.join(BASE_DIR, "content")
 
                 name = os.path.basename(filepath)
-                name_no_ext, ext = os.path.splitext(name)
+                name_no_ext, _ = os.path.splitext(name)
 
                 for root, _, files in os.walk(content_root):
                     for file in files:
                         file_name, file_ext = os.path.splitext(file)
 
-                        # Match exact name or name without extension
                         if (
                             file == name or
                             file_name == name_no_ext
@@ -779,11 +761,31 @@ def main():
                         break
 
             # ----------------------------------------------------------
-            # Final check
+            # 4. Error handling (ONLY AFTER ALL ATTEMPTS)
             # ----------------------------------------------------------
             if not resolved_path:
-                raise FileNotFoundError(f"File not found: {filepath}")
+                print(f"Error: file not found -> {filepath}")
 
+                base_candidate = os.path.join(BASE_DIR, filepath)
+                dir_path = os.path.dirname(base_candidate)
+
+                while dir_path and not os.path.exists(dir_path):
+                    dir_path = os.path.dirname(dir_path)
+
+                if dir_path and os.path.isdir(dir_path):
+                    print("\nDid you mean:")
+
+                    for entry in sorted(os.listdir(dir_path)):
+                        entry_path = os.path.join(dir_path, entry)
+
+                        if os.path.isfile(entry_path):
+                            print(f"  {entry}")
+
+                sys.exit(1)
+
+            # ----------------------------------------------------------
+            # Load file
+            # ----------------------------------------------------------
             with open(resolved_path, "r") as f:
                 variables[key] = f.read()
 
