@@ -244,7 +244,7 @@ pp compose \
 You can omit the extension:
 
 ```bash
---var-file input=content/category/file
+--var-file input=content/<category>/<file>
 ```
 
 > [!TIP]
@@ -274,7 +274,7 @@ pp compose \
 > [!CAUTION]
 > Using `--var-dir` on very large directories can produce a combined variable that exceeds your AI model's *context window*, which may cause truncation or errors. Consider limiting the number or size of files loaded.
 > ```bash
-> --var-dir input=content/category/sub-category/
+> --var-dir input=content/<category>/<sub-category>/
 > ```
 
 > [!TIP]
@@ -370,7 +370,7 @@ We introduced the `explain` task in the previous examples. Now it's time to look
 
 ### Creating Action Prompts With `build`
 
-To create an action prompt with `build`, you must use the `action_agent` agent and pass a **single variable** named `action` as a command parameters. The **entire action request** must be included as the value of `action` after the `=` sign.
+To create a default action prompt with `build`, you must use the `action_agent` agent and pass a **single variable** named `action` as a command parameter. The entire **action content** must be **included** as the value of `action` after the `=` sign.
 
 **Example**
 
@@ -378,9 +378,25 @@ To create an action prompt with `build`, you must use the `action_agent` agent a
 pp build action_agent --var action="Make a shopping list"
 ```
 
+> [!TIP]
+> Quickly filter the list of available agents:
+> ```bash
+> pp list agents | grep action
+> ```
+
+> [!TIP]
+> View the full definition of a specific agent:
+> ```bash
+> pp show agents/action_agent
+> ```
+
+> [!TIP]
+> Start from the `action_agent` file when creating new `action` agents, such as `software_tester`.  
+> See later sections for advanced usage.
+
 ### Creating Action Prompts With `compose`
 
-To create an action prompt with `compose`, you must use the `action_agent` agent and pass a **single task** named `compose_action` in the command parameters. The action request must be **composed** using the `action` variable. The `context` and `examples` variables are optional, but their use is strongly recommended in most cases.
+To create a default action prompt with `compose`, you must use the `executor` role and pass a **single task** named `compose_action` in the command parameters. The **action content** must be **composed** using the `action` variable. The `context` and `examples` variables are optional, but their use is strongly recommended in most cases.
 
 The following example includes `context` and `examples`, which help an AI language model interpret the request more accurately and produce more reliable output:
 
@@ -395,6 +411,32 @@ pp compose \
   --var context="I am at the computer store" \
   --var examples="|Item |Brand |Price | |Mouse |Genius |$45.75 |"
 ```
+
+> [!TIP]
+> List available categories and components:
+> ```bash
+> # List main categories
+> pp show prompts
+>
+> # List a category
+> pp list <category>
+> pp list roles
+>
+> # List a subcategory
+> pp list <category>/<subcategory>
+> pp list content/dev
+> ```
+
+> [!TIP]
+> View the full definition of a specific component:
+> ```bash
+> pp show <category>/<component>
+> pp show roles/executor
+> ```
+
+> [!TIP]
+> Use the provided example as a starting point when creating new `action` prompts with `compose`.  
+> See later sections for advanced features, such as using `controls`.
 
 ## 📘 Tutorials
 
