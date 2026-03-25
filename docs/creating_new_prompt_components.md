@@ -22,7 +22,7 @@ You need to know the meaning of **"switch"** (in computer networks).
 
 - You improve the prompt by specifying the **role**, **scope**, and **structure** of the explanation:
 
-  > Act as a computer networking engineer and instructor. If you are uncertain about any part of the concept, state that clearly and focus on explaining only well-established fundamentals. Your task is to explain the concept of a network switch in a clear and structured way suitable for beginners: begin with a brief definition, then describe in simple terms how a switch works in a network, outline its main components, summarize its typical operations and functions, and discuss its advantages and limitations. Conclude with a few simple real-world examples of how switches are used in computer networks, using clear language and avoiding unnecessary jargon.
+  > **Act as a computer networking engineer and instructor. If you are uncertain about any part of the concept, state that clearly and focus on explaining only well-established fundamentals. Your task is to explain the concept of a network switch in a clear and structured way suitable for beginners: begin with a brief definition, then describe in simple terms how a switch works in a network, outline its main components, summarize its typical operations and functions, and discuss its advantages and limitations. Conclude with a few simple real-world examples of how switches are used in computer networks, using clear language and avoiding unnecessary jargon.**
 
 - You submit the improved prompt.
 
@@ -76,7 +76,7 @@ Let’s say you want:
 #### List The Available Components
 
 ```bash
-pp list <agents|pattern_groups|patterns|roles|tasks>
+pp list <agents|content|controls|pattern_groups|patterns|roles|tasks>
 ```
 
 Example output (varies depending on the component type):
@@ -100,6 +100,7 @@ pp list controls/post
 The command `show` works on a file path (without extension.)
 
 ```bash
+pp show prompts
 pp show agents/cs_instructor
 pp show patterns/step_by_step
 pp show tasks/compose_action
@@ -123,13 +124,13 @@ Create a table to help you define the required components.
 |`cs_instructor` |`technical_instructor` |`explain` + "for beginners" |`step_by_step`, `structured_output` |
 
 > [!IMPORTANT]
-> Insert components and `task` specifications in the appropriate fields.  
+> Insert components and `task` specifications in the appropriate table fields.  
 
 > [!TIP]
 > Use 🔗 [The Iceberg Of Prompting](../docs/the_iceberg_of_prompting.md) as your structural framework.
 
 > [!NOTE]
-> In this case, the **`task` conditions** correpond to the item "**Limits, boundaries**" from the "**🚦 Operational Control**" category in the **sublevel 6** of the framework's document. Other words within the same "**Limits, boundaries**" category include: **restrictions**, **rules**, **conventions**, **standars**, and similar contraints.
+> In this case, the **`task` conditions** corresponds to the item "**Limits, boundaries**" from the "**🚦 Operational Control**" category in the **sublevel 6** of the framework's document. Other words within the same "**Limits, boundaries**" category include: **restrictions**, **rules**, **conventions**, **standards**, and similar constraints.
 
 ### Step 4: Decide What To Create Or Reuse
 
@@ -137,11 +138,18 @@ Based on the planning table, you determine that you need a new `agent`, `pattern
 
 > [!WARNING]
 > All the components mentioned in this example already exist. Do not modify them, as this may break the example or create inconsistencies in the system.
+> 
+> You can clone any component to create a new one based on it without affecting the original.
+
+> [!NOTE]
+> In this example, we assume the agent does not require [🔗 Prompt Control Layers](../README.md#-prompt-control-layers).
+> 
+> This is common when working directly with language models rather than agentic applications.
 
 ### Step 5: Create A New Pattern
 
 ```bash
-touch prompts/patterns/structured_output.md
+touch /path/to/prompt-pro/promptpro/prompts/patterns/structured_output.md
 ```
 
 Example content:
@@ -151,28 +159,22 @@ Example content:
 - Use bullet points when possible
 - End with a short summary
 - Avoid unnecessary verbosity
-
 ```
 
 > [!TIP]
-> Create a prompt-engineering agent to help generate new prompt patterns.
+> After finishing this tutorial, consider creating a prompt-engineering agent definition to help generate new prompt patterns, etc.
 
 Verify that the new pattern was created:
 
 ```bash
 pp list patterns | grep structure
-```
-
-Expected output:
-
-```output
-structured_output
+pp show patterns/structured_output
 ```
 
 ### Step 6: Create A New Role
 
 ```bash
-touch prompts/roles/technical_instructor.md
+touch /path/to/prompt-pro/promptpro/prompts/roles/technical_instructor.md
 ```
 
 Example content:
@@ -191,18 +193,13 @@ Verify that the new role was created:
 
 ```bash
 pp list roles | grep instructor
-```
-
-Expected output:
-
-```output
-technical_instructor
+pp show roles/technical_instructor
 ```
 
 ### Step 7.1: Create And Build Your Agent With `build`
 
 ```bash
-touch prompts/agents/cs_instructor.yaml
+touch /path/to/prompt-pro/promptpro/prompts/agents/cs_instructor.yaml
 ```
 
 Example:
@@ -216,13 +213,22 @@ patterns:
 
 ```
 
+Verify that the new agent was created:
+
+```bash
+pp list agents | grep cs
+pp show agents/cs_instructor
+```
+
 Now you can use:
 
 ```bash
-pp build cs_instructor --var input="Switch, explained for beginners"
+pp build cs_instructor --var input="Switch, explained for beginners."
 ```
 
 That’s your reusable agent configuration.
+
+Alternatively, use the option `--copy` to directly copy the prompt to your clipboard.
 
 ### Step 7.2: Compose Your Prompt With `compose`
 
@@ -237,7 +243,7 @@ pp compose \
 
 You will see the new prompt in the output.
 
-Alterantively, use the option `--copy` to directly copy the prompt to your clipboard.
+Alternatively, use the option `--copy` to directly copy the prompt to your clipboard.
 
 ```bash
 pp compose \
@@ -251,7 +257,7 @@ pp compose \
 
 ### Step 8: Test Your New Prompt
 
-Paste your new prompt into your preferred AI model interface and verify the results.
+Paste your new prompt into your preferred AI model interface, submit it, and verify the results.
 
 ## Tips For PromptPro Prompt Creators
 
