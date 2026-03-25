@@ -332,7 +332,7 @@ pp compose \
 > ✔ Declare expected variables clearly in your task templates.  
 > ✔ Reuse variable names only when intentional overwriting is desired.
 
-## 💾 Saving Prompts
+## 💾 Save Prompts
 
 You can redirect the output of the command to an external file if you want to save or reuse the generated prompt.
 
