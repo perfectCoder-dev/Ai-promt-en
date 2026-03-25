@@ -587,19 +587,24 @@ def main():
     - build: Generate a prompt using a predefined agent preset.
     - compose: Generate a prompt by combining role, task, and patterns.
 
-    Variable injection:
+   Variable injection:
     - --var: Inline key=value pairs.
-    - --var-file: Load variable content from a file. Supports relative paths,
-    BASE_DIR resolution, and recursive lookup inside the 'content' directory.
-    Accepts .md, .txt, or extensionless filenames.
-    - --var-dir: Load and concatenate content from all files in a directory
-    (recursively). Supports direct paths and BASE_DIR resolution. Only
-    .md and .txt files are included; hidden files are ignored.
+    - --var-file: Load variable content from a file.
+    - --var-dir: Load and concatenate content from all files in a directory (recursively).
+    Only `.md` and `.txt` files are included; hidden files are ignored.
 
     Path resolution:
-    - Attempts direct paths first.
+    - --var-file:
+    - Attempts paths relative to the current working directory first,
+        with `.md`/`.txt` extension fallback when needed.
     - Falls back to BASE_DIR-relative paths.
-    - Performs recursive search within BASE_DIR/content when needed.
+    - If not found, performs a recursive filename-based search inside
+      BASE_DIR/content.
+
+    - --var-dir:
+    - Attempts paths relative to the current working directory first.
+    - Falls back to BASE_DIR-relative paths.
+    - Does not perform recursive lookup beyond the resolved directory.
 
     Error handling:
     - Provides user-friendly messages when files or directories are not found.
