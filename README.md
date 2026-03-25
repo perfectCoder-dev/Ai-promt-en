@@ -31,7 +31,7 @@ Designed for users who think in systems, not snippets.
 - 📋 Clipboard export
 - 💻 Terminal-native workflow
 - 🗂 Version-controlled prompts
-- ⚡ Composable prompt pipelines
+- 🔌 Integrations: pipelines, Bash, Python & more
 
 ## 📥 Quick Install
 
