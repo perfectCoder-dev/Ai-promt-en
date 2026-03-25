@@ -24,7 +24,7 @@ Designed for users who think in systems, not snippets.
 ✨ Why Prompt Pro?
 
 - 🧱 Modular prompt components
-- 🔁 Agent presets
+- 🤖 Agent presets
 - 🧠 Role + task + pattern composition
 - 🧩 Variable injection
 - 🎛 Fine-grained prompt controls
