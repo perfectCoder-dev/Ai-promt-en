@@ -432,6 +432,7 @@ pp compose \
 > ```bash
 > pp show <category>/<component>
 > pp show roles/executor
+> pp list content/dev/testing
 > ```
 
 > [!TIP]
@@ -440,7 +441,9 @@ pp compose \
 
 ## 📘 Tutorials
 
-Want a step-by-step guide to **creating new agents, roles, tasks, and patterns**?
+### 🧱 Creating Prompt Components
+
+Want a step-by-step guide to creating new **agents**, **roles**, **tasks**, and **patterns**?
 
 🔗 [Creating And Using New Prompt Components](docs/creating_new_prompt_components.md)
 
@@ -448,23 +451,27 @@ Complete tutorial on how to create and use a **pattern group**.
 
 🔗 [Creating And Using Pattern Groups](docs/create_and_use_a_pattern_group.md)
 
+### 🎛 Prompt Control Layers
+
+Understand how PromptPro separates **execution control** from **output behavior**:
+
+🔗 [Prompt Control Layers](docs/prompt_control_layers.md)
+
 ## 🗂 References
 
-### Prompt Components
+### 🧱 Prompt Components
 
-The `prompts/` directory contains the core components used to build prompts in PromptPro.
-
-Each subdirectory represents a specific type of component such as roles, tasks, patterns, or agent presets.
+The `prompts/` directory contains the core building blocks for creating prompts in PromptPro, organized into subdirectories that represent specific component types such as roles, tasks, patterns, and agent presets.
 
 🔗 [Prompt Components Reference](docs/prompt_components_reference.md)
 
-### Command Reference
+### 💻 Command Reference
 
 For a complete list of available commands and quick CLI examples:
 
 🔗 [Command Usage](docs/command_usage.md)
 
-## 🧠 Concepts
+### 🧠 Concepts
 
 Understanding modern prompting frameworks helps you use PromptPro more effectively.
 
@@ -474,19 +481,15 @@ A quick reference for key terminology used across PromptPro.
 
 🔗 [Glossary Of Terms](docs/glossary.md)
 
-## 🎛 Prompt Control Layers
+## 🔌 Integrations
 
-Understand how PromptPro separates execution control from output behavior:
+### ⚡ Pipelines
 
-🔗 [Prompt Control Layers](docs/prompt_control_layers.md)
-
-## ⚡ Pipelines
-
-PromptPro outputs plain text, which means it integrates naturally with the **Unix philosophy of small tools connected by pipes**.
+PromptPro outputs plain text, which means it integrates naturally with the Unix philosophy of **small tools connected by pipes**.
 
 This allows prompts to flow directly into other programs such as AI models, speech engines, desktop tools, APIs, and automation scripts.
 
-Example:
+**Example**
 
 ```bash
 pp build math_tutor --var input="Explain recursion" \
@@ -501,7 +504,7 @@ Pipeline flow:
 For more examples and integrations with tools such as curl, pandoc, zenity, and netcat, see:
 🔗 [Prompt Pipelines](docs/prompt_pipelines.md).
 
-## 🐚 Bash Scripting
+### 🐚 Bash Scripting
 
 PromptPro integrates easily with shell scripts and command-line automation.
 
@@ -520,7 +523,7 @@ PromptPro can also consume values from other commands or scripts, making it idea
 
 For more examples using Bash variables, command substitution, and scripting patterns, see: 🔗 [Using Bash Variables With PromptPro](docs/bash_variables.md).
 
-## 🐍 Python Integration
+### 🐍 Python Integration
 
 PromptPro can be used seamlessly inside Python scripts, enabling automation, testing, and integration with larger applications.
 
