@@ -244,25 +244,15 @@ pp compose \
 You can omit the extension:
 
 ```bash
---var-file input=content/cat/file
+--var-file input=content/category/file
 ```
 
 > [!TIP]
-> For best results, store your files under `content/`, since PromptPro begins its search from this directory.
+> Store your files under `content/` to reference them by name without specifying full paths and keep all your prompt components in one place.
 
 **Path resolution**
 
-* Direct path (as provided)
-
-* Path relative to the project
-
-* Recursive search inside content/
-
-**Error handling**
-
-* Displays a clear error message if the file is not found
-
-* Suggests nearby valid files to help you recover quickly
+`--var-file` resolves file paths by first checking the provided path as-is relative to the current working directory, automatically trying `.md` and `.txt` extensions if none are specified; if not found, it attempts to resolve the path relative to the project root (`BASE_DIR`) using the same extension fallback; finally, it performs a recursive search within the `content/` directory, matching files by exact name or by name without extension (limited to `.md`, `.txt`, or no extension).
 
 ### 3. Recursive Directory (--var-dir)
 
@@ -284,39 +274,19 @@ pp compose \
 > [!CAUTION]
 > Using `--var-dir` on very large directories can produce a combined variable that exceeds your AI model's *context window*, which may cause truncation or errors. Consider limiting the number or size of files loaded.
 > ```bash
-> --var-dir input=content/cat/sub-cat/
+> --var-dir input=content/category/sub-category/
 > ```
 
 > [!TIP]
-> For best results, store your files under `content/`, since PromptPro begins its search from this directory.
+> Store your files under `content/` to reference them by name without specifying full paths and keep all your prompt components in one place.
 
 **File filtering**
 
-Includes only:
-
-* .md
-
-* .txt
-
-Ignores:
-
-* Hidden files (e.g., .DS_Store)
-
-* Unsupported file types
+Only `.md` and `.txt` files are included when loading directory contents. Hidden files (such as `.DS_Store`) and any unsupported file types are ignored during the process.
 
 **Path resolution**
 
-* Direct path (as provided)
-
-* Path relative to the project (BASE_DIR)
-
-**Error handling**
-
-If the directory is not found:
-
-* Displays a clear error message
-
-* Suggests valid nearby directories
+`--var-dir` resolves directory paths by first checking the provided path as-is relative to the current working directory; if not found, it attempts to resolve the path relative to the project root (`BASE_DIR`). Once resolved, it recursively loads all `.md` and `.txt` files within the directory (ignoring hidden files) and concatenates their contents into a single value separated by blank lines. No additional recursive lookup is performed if the directory is not found.
 
 ### Combining All Variable Sources
 
