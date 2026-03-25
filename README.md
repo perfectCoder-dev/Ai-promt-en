@@ -432,6 +432,7 @@ pp compose \
 > ```bash
 > pp show <category>/<component>
 > pp show roles/executor
+> pp list content/dev/testing
 > ```
 
 > [!TIP]
