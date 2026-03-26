@@ -273,9 +273,9 @@ Try to keep:
 |role	 |behavioral identity	|executor    |
 |task	 |verb                |action      |
 
-### 💡 Default Architectural Design
+### 💡 Built-in Architectural Design
 
-The definition of **default agents** has evolved into `3` agent families:
+The definition of **built-in agents** has evolved into `3` agent families:
 
 |# |Family              |Role                 |Task    |
 |--|--------------------|---------------------|--------|
