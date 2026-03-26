@@ -80,58 +80,81 @@ Below is a complete list of built-in components and their features for creating 
 - [compose_action](./prompts/tasks/built-in_tasks.md#task-compose_action)
 - [explain](./prompts/tasks/built-in_tasks.md#task-explain)
 
-
 ### Built-in Controls
 
+#### Pre Controls
 
-### 🟦 Built-in Pre-Prompts (Execution Controls)
+Category: `config`
 
-These define how the system runs before any response is produced.
+- [configurations](./prompts/controls/built-in_controls.md#)
 
-```bash
-pre
-├── config
-│   └── configurations.md
-├── language
-│   └── input_default.md
-├── mcp
-│   ├── mcp_local.md
-│   └── mcp_remote.md
-├── memory
-│   └── forget.md
-├── mode
-│   ├── agent.md
-│   ├── ask.md
-│   └── plan.md
-├── model
-│   ├── model_fast.md
-│   └── model_thinking.md
-├── security
-│   └── no_env_access.md
-├── system
-│   └── system_prompt.md
-└── tools
-    ├── tools_call.md
-    ├── tools_define.md
-    ├── tools_off.md
-    └── tools_on.md
-```
 
-### 🟩 Built-in Post-Prompts (Behavior Controls)
+Category: `language`
 
-These shape how the answer is generated and presented.
+- [language](./prompts/controls/built-in_controls.md#)
 
-```bash
-post
-├── limits
-│   ├── explain_like_12.md
-│   └── for_beginners.md
-├── tone
-│   └── tone_style.md
-├── translation
-│   ├── translate_en.md
-│   ├── translate_output.md
-│   └── translate_sp.md
-└── truth
-    └── say_dont_know.md
-```
+Category: `mcp`
+
+- [mcp_local](./prompts/controls/built-in_controls.md#)
+
+- [mcp_remote](./prompts/controls/built-in_controls.md#)
+
+Category: `memory`
+
+- [forget](./prompts/controls/built-in_controls.md#)
+
+Category: `mode`
+
+- [agent](./prompts/controls/built-in_controls.md#)
+
+- [ask](./prompts/controls/built-in_controls.md#)
+
+- [plan](./prompts/controls/built-in_controls.md#)
+
+Category: `model`
+
+- [model_fast](./prompts/controls/built-in_controls.md#)
+
+- [model_thinking](./prompts/controls/built-in_controls.md#)
+
+Category: `security`
+
+- [no_env_access](./prompts/controls/built-in_controls.md#)
+
+Category: `system`
+
+- [system_prompt](./prompts/controls/built-in_controls.md#)
+
+Category: `tools`
+
+- [tools_call](./prompts/controls/built-in_controls.md#)
+
+- [tools_define](./prompts/controls/built-in_controls.md#)
+
+- [tools_off](./prompts/controls/built-in_controls.md#)
+
+- [tools_on](./prompts/controls/built-in_controls.md#)
+
+#### Post Controls
+
+Category: `limits`
+
+- [explain_like_12](./prompts/controls/built-in_controls.md#)
+
+- [for_beginners](./prompts/controls/built-in_controls.md#)
+
+Category: `tone`
+
+- [tone_style](./prompts/controls/built-in_controls.md#)
+
+Category: `translation`
+
+- [translate_en](./prompts/controls/built-in_controls.md#)
+
+- [translate_output](./prompts/controls/built-in_controls.md#)
+
+- [translate_sp](./prompts/controls/built-in_controls.md#)
+
+Category: `truth`
+
+- [say_dont_know](./prompts/controls/built-in_controls.md#)

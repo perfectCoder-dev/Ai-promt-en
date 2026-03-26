@@ -22,7 +22,7 @@ You need to know the meaning of **"switch"** (in computer networks).
 
 - You improve the prompt by specifying the **role**, **scope**, and **structure** of the explanation:
 
-  > **Act as a computer networking engineer and instructor. If you are uncertain about any part of the concept, state that clearly and focus on explaining only well-established fundamentals. Your task is to explain the concept of a network switch in a clear and structured way suitable for beginners: begin with a brief definition, then describe in simple terms how a switch works in a network, outline its main components, summarize its typical operations and functions, and discuss its advantages and limitations. Conclude with a few simple real-world examples of how switches are used in computer networks, using clear language and avoiding unnecessary jargon.**
+  > Act as a computer networking engineer and instructor. If you are uncertain about any part of the concept, state that clearly and focus on explaining only well-established fundamentals. Your task is to explain the concept of a network switch in a clear and structured way suitable for beginners: begin with a brief definition, then describe in simple terms how a switch works in a network, outline its main components, summarize its typical operations and functions, and discuss its advantages and limitations. Conclude with a few simple real-world examples of how switches are used in computer networks, using clear language and avoiding unnecessary jargon.
 
 - You submit the improved prompt.
 
