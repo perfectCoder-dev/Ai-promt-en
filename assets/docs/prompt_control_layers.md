@@ -1,54 +1,32 @@
-# Prompt Control Layers
+# Prompt Controls
 
-PromptPro introduces **control layers** to separate how a prompt is executed from how its output is shaped.
+PromptPro uses **control layers** to separate how a prompt runs from how its output is shaped. This makes prompts more **predictable, modular, and easier to manage**.
 
-This enables a more **engineered, predictable, and modular prompting system**.
+## 🟦 Pre-Prompt Controls (Execution Layer)
 
-## Core Idea
+Pre-prompt controls define how the system operates **before generating a response**. They configure the execution environment, model behavior, and memory or tool usage.
 
-PromptPro distinguishes between two types of control:
+These are implemented as **built-in execution controls**, giving you **strong, deterministic influence** over how the AI processes requests.
 
-### 🟦 Pre-Prompt Controls (Execution Layer)
+Use pre-prompt controls when you need consistency, reliability, and precise system behavior.
 
-Define how the system operates **before generating any response**.
+## 🟩 Post-Prompt Controls (Behavior Layer)
 
-* Execution environment setup
+Post-prompt controls define how the response is shaped **during generation**. They guide output formatting, tone, style, and enforce constraints or safeguards.
 
-* Model and system behavior
+These are implemented as **built-in behavior controls**, providing **flexible, probabilistic influence** over how the response is expressed.
 
-* Memory and tool configuration
+Use post-prompt controls when you want to refine presentation and communication style.
 
-**Pre-prompt = deterministic intent**: you configure the *system*.
+---
 
-### 🟩 Post-Prompt Controls (Behavior Layer)
+> [!TIP]
+>**`pre` controls shape how the AI thinks.**  
+>**`post` controls shape how the AI speaks.**
 
-Define how the response is shaped **after generation begins**.
+By combining both layers, PromptPro enables a **structured and composable approach to prompting**, making it easier to build clear, reusable, and reliable AI interactions.
 
-* Output formatting
-
-* Tone and style
-
-* Constraints and safeguards
-
-**Post-prompt = probabilistic influence**: you guide the *behavior/output*.
-
-## Control Strength
-
-This separation reflects how *LLMs* actually behave:
-
-* **Pre controls → stronger, structural influence**
-* **Post controls → softer, behavioral influence**
-
-## Final Insight
-
-You now have a system where:
-
-* **Pre controls → shape how the AI thinks**
-* **Post controls → shape how the AI speaks**
-
-This separation is what makes PromptPro **powerful, composable, and predictable**.
-
-## CLI Usage Example
+## Usage
 
 ### Using `build`
 
@@ -64,6 +42,14 @@ pp build math_tutor \
 ```
 
 #### With Controls Declared In The Agent YAML File
+
+```bash
+pp build action_agent_controlled --post truth/say_dont_know --var action="Make a list of the core skills everyone should have."
+```
+
+This example combines controls defined in the agent *YAML* with controls specified via the command line.
+
+The agent preset `action_agent_controlled` is a "controlled" variant of `action_agent`. It includes a `pre` control named `forget` and defines no `post` controls (`post: []`).
 
 action_agent_controlled.yaml:
 
@@ -83,17 +69,9 @@ controls:
 
 ```
 
-> [!NOTE]
-> This agent file is a controlled variant of `action_agent`. It includes a `pre` control named `forget`, located at `controls/pre/memory/forget.md`, and defines no `post` controls (`post: []`).
+The prompt control `forget` is located at  `path/to/promptpro/prompts/controls/pre/memory/forget.md`
 
-The command:
-
-```bash
-pp build action_agent_controlled --post truth/say_dont_know --var action="Make a list of the core skills everyone should have."
-```
-
-> [!NOTE]
-> This example combines controls defined in the agent YAML with controls specified via the command line.
+More information about YAML: 🔗 [YAML FIle Configuration](yaml_file_configuration.md).
 
 ### Using `compose`
 
@@ -126,74 +104,35 @@ pp compose \
 `list` works on directories (categories and subcategories.)
 
 ```bash
-pp list roles
+pp list controls/pre/memory
 pp list controls/pre/mode
+pp list roles
 ```
 
 ### The Command `show`
 
 `show` works on a file path (without extension.)
 
+To view `agents` content:
+
 ```bash
+pp show agents/action_agent_controlled
+```
+To view `controls` content:
+
+```bash
+pp show controls/pre/memory/forget
 pp show controls/pre/mode/agent
 pp show controls/post/truth/say_dont_know
 ```
 
-## Built-in Prompt Controls List
+## Built-in Prompt Controls
 
-All Prompt Controls are located in `prompts/controls`.
+All Built-in Prompt Controls are located in: `/path/to/promptpro/prompts/controls`.
 
-### 🟦 Built-in Pre-Prompts (Execution Controls)
+Many built-in prompt controls align with corresponding elements in [🔗 The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
-These define how the system runs before any response is produced.
-
-```bash
-pre
-├── config
-│   └── configurations.md
-├── language
-│   └── input_default.md
-├── mcp
-│   ├── mcp_local.md
-│   └── mcp_remote.md
-├── memory
-│   └── forget.md
-├── mode
-│   ├── agent.md
-│   ├── ask.md
-│   └── plan.md
-├── model
-│   ├── model_fast.md
-│   └── model_thinking.md
-├── security
-│   └── no_env_access.md
-├── system
-│   └── system_prompt.md
-└── tools
-    ├── tools_call.md
-    ├── tools_define.md
-    ├── tools_off.md
-    └── tools_on.md
-```
-
-### 🟩 Built-in Post-Prompts (Behavior Controls)
-
-These shape how the answer is generated and presented.
-
-```bash
-post
-├── limits
-│   ├── explain_like_12.md
-│   └── for_beginners.md
-├── tone
-│   └── tone_style.md
-├── translation
-│   ├── translate_en.md
-│   ├── translate_output.md
-│   └── translate_sp.md
-└── truth
-    └── say_dont_know.md
-```
+For a complete list of **built-in prompt controls**, check out the [🔗 Prompt Components Reference](prompt_components_reference.md).
 
 ## ⚠️ Caveats
 
