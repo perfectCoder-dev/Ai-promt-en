@@ -419,18 +419,18 @@ pp compose \
 > pp show prompts
 >
 > # List a category
-> pp list <category>
+> # pp list <category>
 > pp list roles
 >
 > # List a subcategory
-> pp list <category>/<subcategory>
+> # pp list <category>/<subcategory>
 > pp list content/dev
 > ```
 
 > [!TIP]
 > View the full definition of a specific component:
 > ```bash
-> pp show <category>/<component>
+> # pp show <category>/<component>
 > pp show roles/executor
 > pp list content/dev/testing
 > ```
