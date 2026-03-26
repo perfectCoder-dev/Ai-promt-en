@@ -1,4 +1,4 @@
-# Default Roles
+# Built-in Roles
 
 ## Role: `executor`
 

@@ -139,11 +139,11 @@ pp show controls/pre/mode/agent
 pp show controls/post/truth/say_dont_know
 ```
 
-## Default Prompt Controls List
+## Built-in Prompt Controls List
 
 All Prompt Controls are located in `prompts/controls`.
 
-### 🟦 Default Pre-Prompts (Execution Controls)
+### 🟦 Built-in Pre-Prompts (Execution Controls)
 
 These define how the system runs before any response is produced.
 
@@ -176,7 +176,7 @@ pre
     └── tools_on.md
 ```
 
-### 🟩 Default Post-Prompts (Behavior Controls)
+### 🟩 Built-in Post-Prompts (Behavior Controls)
 
 These shape how the answer is generated and presented.
 
@@ -233,7 +233,7 @@ pp show controls/pre/language/input_default
 pp list controls/post/translation
 ```
 
-Default options available (you can create yours):
+Built-in options available (you can create yours):
 
 ```output
 translate_en
