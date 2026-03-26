@@ -1,4 +1,4 @@
-# Default Pattern Groups
+# Built-in Pattern Groups
 
 > [!NOTE]
 > Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.

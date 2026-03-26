@@ -1,10 +1,10 @@
-# Default Agents
+# Built-in Agents
 
-Reference implementations of default agents designed around different
+Reference implementations of built-in agents designed around different
 functional focuses and reasoning patterns.
 
 > [!IMPORTANT]
-> **Default Agents** are organized by their primary area of focus, which guides how they approach tasks and structure their reasoning. While each default agent is designed with a particular focus in mind, they remain capable of assisting with requests beyond that scope when needed.
+> **Built-in Agents** are organized by their primary area of focus, which guides how they approach tasks and structure their reasoning. While each built-in agent is designed with a particular focus in mind, they remain capable of assisting with requests beyond that scope when needed.
 
 > [!NOTE]
 > Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.

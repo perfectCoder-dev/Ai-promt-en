@@ -42,40 +42,40 @@ pp list agents
 
 ## List Of Components
 
-Below is a complete list of components and their features for creating prompts.
+Below is a complete list of built-in components and their features for creating prompts.
 
 > [!TIP]
-> **Extend your local version of the list** by adding new components as you create them.  
+> **Extend the built-in version of the list** by adding new components as you create them.  
 > For a step-by-step guide on **creating new agents, roles, tasks, and pattern components**, see:
 > * [Agents, Roles, Tasks, and Patterns](creating_new_prompt_components.md)
 
-### Default Agents
+### Built-in Agents
 
-- [action_agent](./prompts/agents/default_agents.md#agent-action_agent)
-- [cs_instructor](./prompts/agents/default_agents.md#agent-cs_instructor)
-- [math_tutor](./prompts/agents/default_agents.md#agent-math_tutor)
+- [action_agent](./prompts/agents/built-in_agents.md#agent-action_agent)
+- [cs_instructor](./prompts/agents/built-in_agents.md#agent-cs_instructor)
+- [math_tutor](./prompts/agents/built-in_agents.md#agent-math_tutor)
 
-### Default Pattern Groups
+### Built-in Pattern Groups
 
-- [didactic](./prompts/pattern_groups/default_pattern_groups.md#pattern-group-didactic)
-- [didactic_structured](./prompts/pattern_groups/default_pattern_groups.md#pattern-group-didactic_structured)
+- [didactic](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic)
+- [didactic_structured](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic_structured)
 
-### Default Patterns
+### Built-in Patterns
 
-- [plan_execute](./prompts/patterns/default_patterns.md#pattern-plan_execute)
-- [socratic](./prompts/patterns/default_patterns.md#pattern-socratic)
-- [step_by_step](./prompts/patterns/default_patterns.md#pattern-step_by_step)
-- [structured_output](./prompts/patterns/default_patterns.md#pattern-structured_output)
-- [verify_before_execute](./prompts/patterns/default_patterns.md#pattern-verify_before_execute)
+- [plan_execute](./prompts/patterns/built-in_patterns.md#pattern-plan_execute)
+- [socratic](./prompts/patterns/built-in_patterns.md#pattern-socratic)
+- [step_by_step](./prompts/patterns/built-in_patterns.md#pattern-step_by_step)
+- [structured_output](./prompts/patterns/built-in_patterns.md#pattern-structured_output)
+- [verify_before_execute](./prompts/patterns/built-in_patterns.md#pattern-verify_before_execute)
 
-### Default Roles
+### Built-in Roles
 
-- [executor](./prompts/roles/default_roles.md#role-executor)
-- [technical_instructor](./prompts/roles/default_roles.md#role-technical_instructor)
-- [tutor](./prompts/roles/default_roles.md#role-tutor)
+- [executor](./prompts/roles/built-in_roles.md#role-executor)
+- [technical_instructor](./prompts/roles/built-in_roles.md#role-technical_instructor)
+- [tutor](./prompts/roles/built-in_roles.md#role-tutor)
 
-### Default Tasks
+### Built-in Tasks
 
-- [action](./prompts/tasks/default_tasks.md#task-action)
-- [compose_action](./prompts/tasks/default_tasks.md#task-compose_action)
-- [explain](./prompts/tasks/default_tasks.md#task-explain)
+- [action](./prompts/tasks/built-in_tasks.md#task-action)
+- [compose_action](./prompts/tasks/built-in_tasks.md#task-compose_action)
+- [explain](./prompts/tasks/built-in_tasks.md#task-explain)
