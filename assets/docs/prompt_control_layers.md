@@ -130,7 +130,7 @@ pp show controls/post/truth/say_dont_know
 
 All Built-in Prompt Controls are located in: `/path/to/promptpro/prompts/controls`.
 
-Many built-in prompt controls align with corresponding elements in [🔗 The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+Many built-in prompt controls align with corresponding elements in [🔗 The Iceberg Of Prompting](the_iceberg_of_prompting.md) framework.
 
 For a complete list of **built-in prompt controls**, check out the [🔗 Prompt Components Reference](prompt_components_reference.md).
 
