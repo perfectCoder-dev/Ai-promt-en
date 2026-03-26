@@ -55,10 +55,14 @@ Below is a complete list of built-in components and their features for creating 
 - [cs_instructor](./prompts/agents/built-in_agents.md#agent-cs_instructor)
 - [math_tutor](./prompts/agents/built-in_agents.md#agent-math_tutor)
 
+---
+
 ### Built-in Pattern Groups
 
 - [didactic](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic)
 - [didactic_structured](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic_structured)
+
+---
 
 ### Built-in Patterns
 
@@ -68,17 +72,23 @@ Below is a complete list of built-in components and their features for creating 
 - [structured_output](./prompts/patterns/built-in_patterns.md#pattern-structured_output)
 - [verify_before_execute](./prompts/patterns/built-in_patterns.md#pattern-verify_before_execute)
 
+---
+
 ### Built-in Roles
 
 - [executor](./prompts/roles/built-in_roles.md#role-executor)
 - [technical_instructor](./prompts/roles/built-in_roles.md#role-technical_instructor)
 - [tutor](./prompts/roles/built-in_roles.md#role-tutor)
 
+---
+
 ### Built-in Tasks
 
 - [action](./prompts/tasks/built-in_tasks.md#task-action)
 - [compose_action](./prompts/tasks/built-in_tasks.md#task-compose_action)
 - [explain](./prompts/tasks/built-in_tasks.md#task-explain)
+
+---
 
 ### Built-in Controls
 
