@@ -43,4 +43,4 @@ Once installed, you can call your CLI (pp) as if it were run from the terminal o
 
 ### Examples
 
-🔗 [Python Integration](../README.md#-python-integration)
+🔗 [Python Integration](../../README.md#-python-integration)
