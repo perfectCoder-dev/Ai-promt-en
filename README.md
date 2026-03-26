@@ -174,7 +174,7 @@ pp compose \
 > [!NOTE]
 > The explanation response from the AI model used will vary depending on the selected `theorist`. With **Albert Einstein** will frame **"gravity"** as the curvature of spacetime; with **Isaac Newton** will describe gravity as a force acting between masses.
 >
-> The variable `theorist` does not exist in the default version of the task `explain`. It has been introduced intentionally for this example to demonstrate how custom variables can modify and enrich a prompt’s behavior.
+> The variable `theorist` does not exist in the built-in version of the task `explain`. It has been introduced intentionally for this example to demonstrate how custom variables can modify and enrich a prompt’s behavior.
 
 > [!TIP]
 If you do not need to create additional `--var` variables such as `theorist`, you can embed the context directly in the input parameter:
@@ -306,7 +306,7 @@ pp compose \
 This allows complex prompt construction from multiple sources.
 
 > [!NOTE]
-The variables `input2` and `input3` don't exist in the default version of the task `explain`.
+The variables `input2` and `input3` don't exist in the built-in version of the task `explain`.
 
 #### ⚠️ Variable Overwriting Behavior
 
@@ -361,7 +361,7 @@ cat /path/to/my_prompt.txt
 
 ## ⚙️ Types Of Tasks
 
-By default, PromptPro provides two main types of tasks: `explain` and `action`, which together cover most AI-human interaction scenarios.
+PromptPro provides two built-in, generic task types: `explain` and `action`, which together cover most AI–human interaction scenarios.
 
 ▶️ Action — Start / Run the task and produce a result.  
 💬 Explain — Describe the reasoning without performing any tasks.
@@ -370,7 +370,7 @@ We introduced the `explain` task in the previous examples. Now it's time to look
 
 ### Creating Action Prompts With `build`
 
-To create a default action prompt with `build`, you must use the `action_agent` agent and pass a **single variable** named `action` as a command parameter. The entire **action content** must be **included** as the value of `action` after the `=` sign.
+To create an action prompt with `build`, you must use the built-in `action_agent` agent and pass a **single variable** named `action` as a command parameter. This variable maps directly to the built-in task `action`. The entire **action content** must be **provided** as the value of `action` after the `=` sign.
 
 **Example**
 
@@ -396,9 +396,9 @@ pp build action_agent --var action="Make a shopping list"
 
 ### Creating Action Prompts With `compose`
 
-To create a default action prompt with `compose`, you must use the `executor` role and pass a **single task** named `compose_action` in the command parameters. The **action content** must be **composed** using the `action` variable. The `context` and `examples` variables are optional, but their use is strongly recommended in most cases.
+To create an action prompt with `compose`, you must use the built-in `executor` role and pass a **single task** named `compose_action` in the command parameters. The **action content** must be **defined** through the `action` variable, while `context` and `examples` remain optional but are strongly recommended to improve output quality.
 
-The following example includes `context` and `examples`, which help an AI language model interpret the request more accurately and produce more reliable output:
+The following example demonstrates how `context` and `examples` can guide an AI language model to better understand the request and generate more accurate, reliable results:
 
 ```bash
 pp compose \
