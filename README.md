@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/github/license/estebantechdev/prompt-pro)
 
 <p align="center">
-  <img src="images/pp-banner.jpg" alt="PromptPro banner" width="900">
+  <img src="assets/images/pp-banner.jpg" alt="PromptPro banner" width="900">
 </p>
 
 <p align="center">
@@ -88,7 +88,7 @@ pp --help
 
 ### More Installation Methods
 
-🔗 [More Installation Methods](docs/more_installation_methods.md)
+🔗 [More Installation Methods](assets/docs/more_installation_methods.md)
 
 ## 🧪 Usage Examples
 
@@ -419,18 +419,18 @@ pp compose \
 > pp show prompts
 >
 > # List a category
-> pp list <category>
+> # pp list <category>
 > pp list roles
 >
 > # List a subcategory
-> pp list <category>/<subcategory>
+> # pp list <category>/<subcategory>
 > pp list content/dev
 > ```
 
 > [!TIP]
 > View the full definition of a specific component:
 > ```bash
-> pp show <category>/<component>
+> # pp show <category>/<component>
 > pp show roles/executor
 > pp list content/dev/testing
 > ```
@@ -445,17 +445,17 @@ pp compose \
 
 Want a step-by-step guide to creating new **agents**, **roles**, **tasks**, and **patterns**?
 
-🔗 [Creating And Using New Prompt Components](docs/creating_new_prompt_components.md)
+🔗 [Creating And Using New Prompt Components](assets/docs/creating_new_prompt_components.md)
 
 Complete tutorial on how to create and use a **pattern group**.
 
-🔗 [Creating And Using Pattern Groups](docs/create_and_use_a_pattern_group.md)
+🔗 [Creating And Using Pattern Groups](assets/docs/create_and_use_a_pattern_group.md)
 
 ### 🎛 Prompt Control Layers
 
 Understand how PromptPro separates **execution control** from **output behavior**:
 
-🔗 [Prompt Control Layers](docs/prompt_control_layers.md)
+🔗 [Prompt Control Layers](assets/docs/prompt_control_layers.md)
 
 ## 🗂 References
 
@@ -463,23 +463,23 @@ Understand how PromptPro separates **execution control** from **output behavior*
 
 The `prompts/` directory contains the core building blocks for creating prompts in PromptPro, organized into subdirectories that represent specific component types such as roles, tasks, patterns, and agent presets.
 
-🔗 [Prompt Components Reference](docs/prompt_components_reference.md)
+🔗 [Prompt Components Reference](assets/docs/prompt_components_reference.md)
 
 ### 💻 Command Reference
 
 For a complete list of available commands and quick CLI examples:
 
-🔗 [Command Usage](docs/command_usage.md)
+🔗 [Command Usage](assets/docs/command_usage.md)
 
 ### 🧠 Concepts
 
 Understanding modern prompting frameworks helps you use PromptPro more effectively.
 
-🔗 [The Iceberg Of Prompting](docs/the_iceberg_of_prompting.md)
+🔗 [The Iceberg Of Prompting](assets/docs/the_iceberg_of_prompting.md)
 
 A quick reference for key terminology used across PromptPro.
 
-🔗 [Glossary Of Terms](docs/glossary.md)
+🔗 [Glossary Of Terms](assets/docs/glossary.md)
 
 ## 🔌 Integrations
 
@@ -502,7 +502,7 @@ Pipeline flow:
 * PromptPro → LLM → speech synthesis
 
 For more examples and integrations with tools such as curl, pandoc, zenity, and netcat, see:
-🔗 [Prompt Pipelines](docs/prompt_pipelines.md).
+🔗 [Prompt Pipelines](assets/docs/prompt_pipelines.md).
 
 ### 🐚 Bash Scripting
 
@@ -521,7 +521,7 @@ pp build math_tutor --var input="Explain ${topic} in ${language}"
 
 PromptPro can also consume values from other commands or scripts, making it ideal for automation pipelines.
 
-For more examples using Bash variables, command substitution, and scripting patterns, see: 🔗 [Using Bash Variables With PromptPro](docs/bash_variables.md).
+For more examples using Bash variables, command substitution, and scripting patterns, see: 🔗 [Using Bash Variables With PromptPro](assets/docs/bash_variables.md).
 
 ### 🐍 Python Integration
 
@@ -556,7 +556,7 @@ To run the script:
 python test.py
 ```
 
-🔗 [More Examples With Python](docs/python_integration.md).
+🔗 [More Examples With Python](assets/docs/python_integration.md).
 
 ## 🤝 Contributions
 

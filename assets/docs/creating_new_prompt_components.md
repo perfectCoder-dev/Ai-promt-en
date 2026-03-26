@@ -127,7 +127,7 @@ Create a table to help you define the required components.
 > Insert components and `task` specifications in the appropriate table fields.  
 
 > [!TIP]
-> Use 🔗 [The Iceberg Of Prompting](../docs/the_iceberg_of_prompting.md) as your structural framework.
+> Use 🔗 [The Iceberg Of Prompting](the_iceberg_of_prompting.md) as your structural framework.
 
 > [!NOTE]
 > In this case, the **`task` conditions** corresponds to the item "**Limits, boundaries**" from the "**🚦 Operational Control**" category in the **sublevel 6** of the framework's document. Other words within the same "**Limits, boundaries**" category include: **restrictions**, **rules**, **conventions**, **standards**, and similar constraints.
@@ -298,6 +298,6 @@ To avoid unintentionally impacting other components, the recommended approach is
 
 Read the related documentation:
 
-* [Prompt Components Reference](../docs/prompt_components_reference.md)
+* [Prompt Components Reference](prompt_components_reference.md)
 
-* [Creating And Using Pattern Groups](../docs/create_and_use_a_pattern_group.md)
+* [Creating And Using Pattern Groups](create_and_use_a_pattern_group.md)
