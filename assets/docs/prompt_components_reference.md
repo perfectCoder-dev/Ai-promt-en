@@ -79,3 +79,59 @@ Below is a complete list of built-in components and their features for creating 
 - [action](./prompts/tasks/built-in_tasks.md#task-action)
 - [compose_action](./prompts/tasks/built-in_tasks.md#task-compose_action)
 - [explain](./prompts/tasks/built-in_tasks.md#task-explain)
+
+
+### Built-in Controls
+
+
+### 🟦 Built-in Pre-Prompts (Execution Controls)
+
+These define how the system runs before any response is produced.
+
+```bash
+pre
+├── config
+│   └── configurations.md
+├── language
+│   └── input_default.md
+├── mcp
+│   ├── mcp_local.md
+│   └── mcp_remote.md
+├── memory
+│   └── forget.md
+├── mode
+│   ├── agent.md
+│   ├── ask.md
+│   └── plan.md
+├── model
+│   ├── model_fast.md
+│   └── model_thinking.md
+├── security
+│   └── no_env_access.md
+├── system
+│   └── system_prompt.md
+└── tools
+    ├── tools_call.md
+    ├── tools_define.md
+    ├── tools_off.md
+    └── tools_on.md
+```
+
+### 🟩 Built-in Post-Prompts (Behavior Controls)
+
+These shape how the answer is generated and presented.
+
+```bash
+post
+├── limits
+│   ├── explain_like_12.md
+│   └── for_beginners.md
+├── tone
+│   └── tone_style.md
+├── translation
+│   ├── translate_en.md
+│   ├── translate_output.md
+│   └── translate_sp.md
+└── truth
+    └── say_dont_know.md
+```
