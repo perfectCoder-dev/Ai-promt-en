@@ -1,16 +1,22 @@
 # Prompt Components Reference
 
-This document explains the structure, organization, and available building blocks that can be combined to construct modular, reusable, and maintainable prompts.
-
-PromptPro breaks prompts into well-defined components, allowing them to be composed, extended, and managed independently. This ensures consistency, scalability, and clarity across use cases.
+PromptPro organizes prompts into well-defined components that can be composed, extended, and managed independently. This approach improves consistency, scalability, and maintainability across use cases.
 
 ## Prompt Categories
 
-The `prompts` directory contains the core components used to build prompts in PromptPro, organized by category.
+The `prompts` directory contains all prompt components, organized into categories (such as agents, roles, and tasks). Each category groups related components by purpose.
+
+```bash
+pp show prompts
+```
+
+**Output structure**
 
 ```bash
 prompts
 ├── agents
+├── content
+├── controls
 ├── pattern_groups
 ├── patterns
 ├── roles
@@ -19,153 +25,184 @@ prompts
 
 ## Prompt Components
 
-To list **components** by **prompt category**, use:
+Each prompt is built by combining components such as a role (who is speaking), a task (what to do), optional patterns (how to think), and controls (constraints or behavior modifiers).
 
-**Syntax:**
+### Listing Prompt Components
+
+To list components within a specific category, use:
+
+**Syntax**
 
 ```bash
-pp list <agents|pattern_groups|patterns|roles|tasks>
+pp list <agents|content|controls|pattern_groups|patterns|roles|tasks>
 ```
 
-**Examples**:
+**Examples**
 
 ```bash
 pp list roles
-pp list agents
+pp list agents | grep instructor
+pp list content/dev/testing | more
 ```
 
 > [!TIP]
-> You can filter lists using `grep` patterns:
+> You can filter lists using command-line tools such as `grep` to locate components whose names match a specific pattern.
+> 
 > ```bash
 > pp list roles | grep -E 'te|utor'
 > ```
 
-## List Of Components
+### Creating Prompt Components
 
-Below is a complete list of built-in components and their features for creating prompts.
+Refer to the following guides for creating new components:
+
+- Agents, roles, tasks, and patterns:
+
+  [🔗 Agents, Roles, Tasks, and Patterns](creating_new_prompt_components.md)
+ 
+- Pattern groups:
+
+  🔗 [Creating And Using Pattern Groups](assets/docs/create_and_use_a_pattern_group.md)
+ 
+- Control layers:
+
+  🔗 [Prompt Control Layers](assets/docs/prompt_control_layers.md)
+
+## Built-in Components
+
+Below is a **complete list** of built-in components and their features for creating prompts, divided by category.
 
 > [!TIP]
-> **Extend the built-in version of the list** by adding new components as you create them.  
-> For a step-by-step guide on **creating new agents, roles, tasks, and pattern components**, see:
-> * [Agents, Roles, Tasks, and Patterns](creating_new_prompt_components.md)
+> Extend this built-in list by adding your own components as you create them.
 
 ### Built-in Agents
 
-- [action_agent](./prompts/agents/built-in_agents.md#agent-action_agent)
-- [cs_instructor](./prompts/agents/built-in_agents.md#agent-cs_instructor)
-- [math_tutor](./prompts/agents/built-in_agents.md#agent-math_tutor)
+- [🔗 action_agent](./prompts/agents/built-in_agents.md#agent-action_agent)
+
+- [🔗 cs_instructor](./prompts/agents/built-in_agents.md#agent-cs_instructor)
+ 
+- [🔗 math_tutor](./prompts/agents/built-in_agents.md#agent-math_tutor)
 
 ---
 
 ### Built-in Pattern Groups
 
-- [didactic](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic)
-- [didactic_structured](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic_structured)
+- [🔗 didactic](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic)
+
+- [🔗 didactic_structured](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic_structured)
 
 ---
 
 ### Built-in Patterns
 
-- [plan_execute](./prompts/patterns/built-in_patterns.md#pattern-plan_execute)
-- [socratic](./prompts/patterns/built-in_patterns.md#pattern-socratic)
-- [step_by_step](./prompts/patterns/built-in_patterns.md#pattern-step_by_step)
-- [structured_output](./prompts/patterns/built-in_patterns.md#pattern-structured_output)
-- [verify_before_execute](./prompts/patterns/built-in_patterns.md#pattern-verify_before_execute)
+- [🔗 plan_execute](./prompts/patterns/built-in_patterns.md#pattern-plan_execute)
+
+- [🔗 socratic](./prompts/patterns/built-in_patterns.md#pattern-socratic)
+
+- [🔗 step_by_step](./prompts/patterns/built-in_patterns.md#pattern-step_by_step)
+
+- [🔗 structured_output](./prompts/patterns/built-in_patterns.md#pattern-structured_output)
+
+- [🔗 verify_before_execute](./prompts/patterns/built-in_patterns.md#pattern-verify_before_execute)
 
 ---
 
 ### Built-in Roles
 
-- [executor](./prompts/roles/built-in_roles.md#role-executor)
-- [technical_instructor](./prompts/roles/built-in_roles.md#role-technical_instructor)
-- [tutor](./prompts/roles/built-in_roles.md#role-tutor)
+- [🔗 executor](./prompts/roles/built-in_roles.md#role-executor)
+
+- [🔗 technical_instructor](./prompts/roles/built-in_roles.md#role-technical_instructor)
+
+- [🔗 tutor](./prompts/roles/built-in_roles.md#role-tutor)
 
 ---
 
 ### Built-in Tasks
 
-- [action](./prompts/tasks/built-in_tasks.md#task-action)
-- [compose_action](./prompts/tasks/built-in_tasks.md#task-compose_action)
-- [explain](./prompts/tasks/built-in_tasks.md#task-explain)
+- [🔗 action](./prompts/tasks/built-in_tasks.md#task-action)
+
+- [🔗 compose_action](./prompts/tasks/built-in_tasks.md#task-compose_action)
+
+- [🔗 explain](./prompts/tasks/built-in_tasks.md#task-explain)
 
 ---
 
 ### Built-in Controls
 
-#### Pre Controls
+#### **Pre Controls**
 
-Category: `config`
+**`config`**
 
-- [configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
+- [🔗 configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
 
-Category: `language`
+**`language`**
 
-- [input_default](./prompts/controls/built-in_controls.md#control-languageinput_default)
+- [🔗 input_default](./prompts/controls/built-in_controls.md#control-languageinput_default)
 
-Category: `mcp`
+**`mcp`**
 
-- [mcp_local](./prompts/controls/built-in_controls.md#control-mcpmcp_local)
+- [🔗 mcp_local](./prompts/controls/built-in_controls.md#control-mcpmcp_local)
 
-- [mcp_remote](./prompts/controls/built-in_controls.md#control-mcpmcp_remote)
+- [🔗 mcp_remote](./prompts/controls/built-in_controls.md#control-mcpmcp_remote)
 
-Category: `memory`
+**`memory`**
 
-- [forget](./prompts/controls/built-in_controls.md#control-memoryforget)
+- [🔗 forget](./prompts/controls/built-in_controls.md#control-memoryforget)
 
-Category: `mode`
+**`mode`**
 
-- [agent](./prompts/controls/built-in_controls.md#control-modeagent)
+- [🔗 agent](./prompts/controls/built-in_controls.md#control-modeagent)
 
-- [ask](./prompts/controls/built-in_controls.md#control-modeask)
+- [🔗 ask](./prompts/controls/built-in_controls.md#control-modeask)
 
-- [bypass_permissions](./prompts/controls/built-in_controls.md#control-modebypass_permissions)
+- [🔗 bypass_permissions](./prompts/controls/built-in_controls.md#control-modebypass_permissions)
 
-- [plan](./prompts/controls/built-in_controls.md#control-modeplan)
+- [🔗 plan](./prompts/controls/built-in_controls.md#control-modeplan)
 
-Category: `model`
+**`model`**
 
-- [model_fast](./prompts/controls/built-in_controls.md#control-modelmodel_fast)
+- [🔗 model_fast](./prompts/controls/built-in_controls.md#control-modelmodel_fast)
 
-- [model_thinking](./prompts/controls/built-in_controls.md#control-modelmodel_thinking)
+- [🔗 model_thinking](./prompts/controls/built-in_controls.md#control-modelmodel_thinking)
 
-Category: `security`
+**`security`**
 
-- [no_env_access](./prompts/controls/built-in_controls.md#control-securityno_env_access)
+- [🔗 no_env_access](./prompts/controls/built-in_controls.md#control-securityno_env_access)
 
-Category: `system`
+**`system`**
 
-- [system_prompt](./prompts/controls/built-in_controls.md#control-systemsystem_prompt)
+- [🔗 system_prompt](./prompts/controls/built-in_controls.md#control-systemsystem_prompt)
 
-Category: `tools`
+**`tools`**
 
-- [tools_call](./prompts/controls/built-in_controls.md#control-toolstools_call)
+- [🔗 tools_call](./prompts/controls/built-in_controls.md#control-toolstools_call)
 
-- [tools_define](./prompts/controls/built-in_controls.md#control-toolstools_define)
+- [🔗 tools_define](./prompts/controls/built-in_controls.md#control-toolstools_define)
 
-- [tools_off](./prompts/controls/built-in_controls.md#control-toolstools_off)
+- [🔗 tools_off](./prompts/controls/built-in_controls.md#control-toolstools_off)
 
-- [tools_on](./prompts/controls/built-in_controls.md#control-toolstools_on)
+- [🔗 tools_on](./prompts/controls/built-in_controls.md#control-toolstools_on)
 
-#### Post Controls
+#### **Post Controls**
 
-Category: `limits`
+**`limits`**
 
-- [explain_like_12](./prompts/controls/built-in_controls.md#control-limitsexplain_like_12)
+- [🔗 explain_like_12](./prompts/controls/built-in_controls.md#control-limitsexplain_like_12)
 
-- [for_beginners](./prompts/controls/built-in_controls.md#control-limitsfor_beginners)
+- [🔗 for_beginners](./prompts/controls/built-in_controls.md#control-limitsfor_beginners)
 
-Category: `tone`
+**`tone`**
 
-- [tone_style](./prompts/controls/built-in_controls.md#control-tonetone_style)
+- [🔗 tone_style](./prompts/controls/built-in_controls.md#control-tonetone_style)
 
-Category: `translation`
+**`translation`**
 
-- [translate_en](./prompts/controls/built-in_controls.md#control-translationtranslate_en)
+- [🔗 translate_en](./prompts/controls/built-in_controls.md#control-translationtranslate_en)
 
-- [translate_output](./prompts/controls/built-in_controls.md#control-translationtranslate_output)
+- [🔗 translate_output](./prompts/controls/built-in_controls.md#control-translationtranslate_output)
 
-- [translate_sp](./prompts/controls/built-in_controls.md#control-translationtranslate_sp)
+- [🔗 translate_sp](./prompts/controls/built-in_controls.md#control-translationtranslate_sp)
 
-Category: `truth`
+**`truth`**
 
-- [say_dont_know](./prompts/controls/built-in_controls.md#control-truthsay_dont_know)
+- [🔗 say_dont_know](./prompts/controls/built-in_controls.md#control-truthsay_dont_know)
