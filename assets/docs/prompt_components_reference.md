@@ -96,7 +96,7 @@ Below is a complete list of built-in components and their features for creating 
 
 Category: `config`
 
-- [configurations](./prompts/controls/built-in_controls.md#)
+- [configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
 
 
 Category: `language`
