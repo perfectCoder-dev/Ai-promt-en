@@ -101,7 +101,7 @@ Category: `config`
 
 Category: `language`
 
-- [language](./prompts/controls/built-in_controls.md#)
+- [input_default](./prompts/controls/built-in_controls.md#)
 
 Category: `mcp`
 
