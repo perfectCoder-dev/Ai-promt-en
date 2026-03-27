@@ -118,6 +118,8 @@ Category: `mode`
 
 - [ask](./prompts/controls/built-in_controls.md#)
 
+- [bypass_permissions](./prompts/controls/built-in_controls.md#)
+
 - [plan](./prompts/controls/built-in_controls.md#)
 
 Category: `model`

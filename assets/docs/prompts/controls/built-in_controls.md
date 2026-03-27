@@ -39,70 +39,378 @@ pp list controls/pre/language
 pp show controls/pre/language/input_default
 ```
 
+### Control: `mcp`/`mcp_local`
 
+#### Description
 
-Category: `mcp`
+(text)
 
-- [mcp_local](./prompts/controls/built-in_controls.md#)
+#### Sublevel In The Iceberg of Prompting Framework
 
-- [mcp_remote](./prompts/controls/built-in_controls.md#)
+Sublevel 12.
 
-Category: `memory`
+#### List And Show
 
-- [forget](./prompts/controls/built-in_controls.md#)
+```bash
+pp list controls/pre/mcp
+pp show controls/pre/mcp/mcp_local
+```
 
-Category: `mode`
+### Control: `mcp`/`mcp_remote`
 
-- [agent](./prompts/controls/built-in_controls.md#)
+#### Description
 
-- [ask](./prompts/controls/built-in_controls.md#)
+(text)
 
-- [plan](./prompts/controls/built-in_controls.md#)
+#### Sublevel In The Iceberg of Prompting Framework
 
-Category: `model`
+Sublevel 12.
 
-- [model_fast](./prompts/controls/built-in_controls.md#)
+#### List And Show
 
-- [model_thinking](./prompts/controls/built-in_controls.md#)
+```bash
+pp list controls/pre/mcp
+pp show controls/pre/mcp/mcp_remote
+```
 
-Category: `security`
+### Control: `memory`/`forget`
 
-- [no_env_access](./prompts/controls/built-in_controls.md#)
+#### Description
 
-Category: `system`
+(text)
 
-- [system_prompt](./prompts/controls/built-in_controls.md#)
+#### Sublevel In The Iceberg of Prompting Framework
 
-Category: `tools`
+Sublevel 12.
 
-- [tools_call](./prompts/controls/built-in_controls.md#)
+#### List And Show
 
-- [tools_define](./prompts/controls/built-in_controls.md#)
+```bash
+pp list controls/pre/memory
+pp show controls/pre/memory/forget
+```
 
-- [tools_off](./prompts/controls/built-in_controls.md#)
+### Control: `mode`/`agent`
 
-- [tools_on](./prompts/controls/built-in_controls.md#)
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/mode
+pp show controls/pre/mode/agent
+```
+
+### Control: `mode`/`ask`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/mode
+pp show controls/pre/mode/ask
+```
+
+### Control: `mode`/`bypass_permissions`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/mode
+pp show controls/pre/mode/bypass_permissions
+```
+
+### Control: `mode`/`plan`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/mode
+pp show controls/pre/mode/plan
+```
+
+### Control: `model`/`model_fast`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/model
+pp show controls/pre/model/model_fast
+```
+
+### Control: `model`/`model_thinking`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/model
+pp show controls/pre/model/model_thinking
+```
+
+### Control: `security`/`no_env_access`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/security
+pp show controls/pre/security/no_env_access
+```
+
+### Control: `system`/`system_prompt`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/system
+pp show controls/pre/system/system_prompt
+```
+
+### Control: `tools`/`tools_call`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/tools
+pp show controls/pre/tools/tools_call
+```
+
+### Control: `tools`/`tools_define`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/tools
+pp show controls/pre/tools/tools_define
+```
+
+### Control: `tools`/`tools_off`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/tools
+pp show controls/pre/tools/tools_off
+```
+
+### Control: `tools`/`tools_on`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/tools
+pp show controls/pre/tools/tools_on
+```
 
 ## Post Controls
 
-Category: `limits`
+### Control: `limits`/`explain_like_12`
 
-- [explain_like_12](./prompts/controls/built-in_controls.md#)
+#### Description
 
-- [for_beginners](./prompts/controls/built-in_controls.md#)
+(text)
 
-Category: `tone`
+#### Sublevel In The Iceberg of Prompting Framework
 
-- [tone_style](./prompts/controls/built-in_controls.md#)
+Sublevel 12.
 
-Category: `translation`
+#### List And Show
 
-- [translate_en](./prompts/controls/built-in_controls.md#)
+```bash
+pp list controls/post/limits
+pp show controls/post/limits/explain_like_12
+```
 
-- [translate_output](./prompts/controls/built-in_controls.md#)
+### Control: `limits`/`for_beginners`
 
-- [translate_sp](./prompts/controls/built-in_controls.md#)
+#### Description
 
-Category: `truth`
+(text)
 
-- [say_dont_know](./prompts/controls/built-in_controls.md#)
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/post/limits
+pp show controls/post/limits/for_beginners
+```
+
+### Control: `tone`/`tone_style`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/post/tone
+pp show controls/post/tone/tone_style
+```
+
+### Control: `translation`/`translate_en`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/post/translation
+pp show controls/post/translation/translate_en
+```
+
+### Control: `translation`/`translate_output`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/post/translation
+pp show controls/post/translation/translate_output
+```
+
+### Control: `translation`/`translate_sp`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/post/translation
+pp show controls/post/translation/translate_sp
+```
+
+### Control: `truth`/`say_dont_know`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/post/truth
+pp show controls/post/truth/say_dont_know
+```
