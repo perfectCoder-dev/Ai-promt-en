@@ -1,7 +1,7 @@
 # Built-in Controls
 
 > [!NOTE]
-> Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+> Throughout this document, selected **controls** are mapped to concepts and sublevels defined in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
 ## Pre Controls
 
@@ -22,12 +22,24 @@ pp list controls/pre/config
 pp show controls/pre/config/configurations
 ```
 
+### Control: `language`/`input_default`
+
+#### Description
+
+(text)
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+Sublevel 12.
+
+#### List And Show
+
+```bash
+pp list controls/pre/language
+pp show controls/pre/language/input_default
+```
 
 
-
-Category: `language`
-
-- [language](./prompts/controls/built-in_controls.md#)
 
 Category: `mcp`
 

@@ -98,7 +98,6 @@ Category: `config`
 
 - [configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
 
-
 Category: `language`
 
 - [input_default](./prompts/controls/built-in_controls.md#)
