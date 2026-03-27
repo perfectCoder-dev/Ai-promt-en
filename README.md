@@ -1,7 +1,15 @@
 # PromptPro 🎯
 
-![Python](https://img.shields.io/badge/python-3.9–3.14-blue)
-![License](https://img.shields.io/github/license/estebantechdev/prompt-pro)
+![PromptPro](https://img.shields.io/badge/PromptPro-AI%20Prompt%20Engine-6f42c1?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.9–3.14-blue?style=for-the-badge)
+![⚡ uv](https://img.shields.io/badge/⚡%20uv-fast-black?style=for-the-badge)
+![Markdown](https://img.shields.io/badge/Markdown-enabled-000000?style=for-the-badge&logo=markdown)
+![Jinja2](https://img.shields.io/badge/Jinja2-templating-b41717?style=for-the-badge)
+![tests](https://img.shields.io/badge/tests-pytest-green?style=for-the-badge)
+![lint](https://img.shields.io/badge/lint-flake8-blue?style=for-the-badge)
+![Wheel](https://img.shields.io/badge/Wheel-supported-success?style=for-the-badge)
+![Downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=brightgreen&label=downloads&query=total_downloads&url=https://pepy.tech/api/projects/promptpro)
+![License](https://img.shields.io/github/license/estebantechdev/prompt-pro?style=for-the-badge)
 
 <p align="center">
   <img src="assets/images/pp-banner.jpg" alt="PromptPro banner" width="900">
