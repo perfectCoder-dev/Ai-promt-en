@@ -15,11 +15,14 @@ Ensures that all defined configurations, parameters, and constraints are strictl
 
 |Sublevels|
 |---------|
+|5|
 |6|
 |7|
 |8|
 |9|
 |10|
+|11|
+|12|
 
 #### List And Show
 
@@ -106,6 +109,7 @@ Forces the system to operate without relying on prior conversations or previousl
 |Sublevels|
 |---------|
 |1|
+|2|
 |7|
 |8|
 |9|
@@ -129,9 +133,12 @@ Configures the system to operate in Agent mode, enabling proactive behavior, aut
 
 |Sublevels|
 |---------|
+|5|
 |6|
+|7|
 |8|
 |9|
+|12|
 |13|
 
 #### List And Show
@@ -154,6 +161,7 @@ Configures the system to operate in Ask mode, focusing strictly on responding to
 |Sublevels|
 |---------|
 |6|
+|7|
 |8|
 |9|
 |13|
@@ -239,7 +247,9 @@ Even “non-critical” permissions can become risky depending on context (e.g.,
 
 |Sublevels|
 |---------|
+|5|
 |6|
+|7|
 |8|
 |9|
 |13|
@@ -264,8 +274,10 @@ Configures the system to operate in Plan mode, focusing exclusively on designing
 |Sublevels|
 |---------|
 |6|
+|7|
 |8|
 |9|
+|11|
 |13|
 
 #### List And Show
@@ -336,6 +348,7 @@ Enforces strict restrictions on accessing, handling, or exposing sensitive data 
 |Sublevels|
 |---------|
 |6|
+|7|
 |8|
 |9|
 
@@ -358,7 +371,9 @@ Establishes a strict hierarchy for how instructions are interpreted and applied.
 
 |Sublevels|
 |---------|
-||
+|5|
+|6|
+|7|
 
 #### List And Show
 
@@ -379,7 +394,10 @@ Guides the system to use tools, APIs, or scripts when they provide clear value i
 
 |Sublevels|
 |---------|
-||
+|6|
+|7|
+|8|
+|9|
 
 #### List And Show
 
@@ -400,7 +418,10 @@ Encourages the use of available tools when they meaningfully improve the quality
 
 |Sublevels|
 |---------|
-||
+|6|
+|7|
+|8|
+|9|
 
 #### List And Show
 
@@ -421,7 +442,7 @@ Disables all tool usage, forcing the system to rely entirely on internal knowled
 
 |Sublevels|
 |---------|
-||
+|8|
 
 #### List And Show
 
@@ -442,7 +463,7 @@ Enables full access to available tools, APIs, and external systems, allowing the
 
 |Sublevels|
 |---------|
-||
+|8|
 
 #### List And Show
 
@@ -452,8 +473,6 @@ pp show controls/pre/tools/tools_on
 ```
 
 ## Post Controls
-
----
 
 ### Control: `limits`/`explain_like_12`
 
@@ -465,7 +484,9 @@ Adjusts the response to be easily understood by a 12-year-old reader. This contr
 
 |Sublevels|
 |---------|
-||
+|3|
+|6|
+|7|
 
 #### List And Show
 
@@ -486,7 +507,9 @@ Adapts the response to suit beginners by simplifying language and focusing on in
 
 |Sublevels|
 |---------|
-||
+|3|
+|6|
+|7|
 
 #### List And Show
 
@@ -507,7 +530,7 @@ Shapes the response to be clear, professional, and friendly. This control ensure
 
 |Sublevels|
 |---------|
-||
+|5|
 
 #### List And Show
 
@@ -528,7 +551,7 @@ Transforms the final response into English, regardless of the original input or 
 
 |Sublevels|
 |---------|
-||
+|7|
 
 #### List And Show
 
@@ -549,7 +572,8 @@ Translates the final response into the language requested by the user. This cont
 
 |Sublevels|
 |---------|
-||
+|6|
+|7|
 
 #### List And Show
 
@@ -570,7 +594,7 @@ Transforms the final response into Spanish, regardless of the original input or 
 
 |Sublevels|
 |---------|
-||
+|7|
 
 #### List And Show
 
@@ -591,7 +615,7 @@ Enforces honest responses by requiring the system to explicitly acknowledge unce
 
 |Sublevels|
 |---------|
-||
+|10|
 
 #### List And Show
 
