@@ -4,6 +4,7 @@
 ![Python](https://img.shields.io/badge/Python-3.9–3.14-blue?style=for-the-badge)
 ![⚡ uv](https://img.shields.io/badge/⚡%20uv-fast-black?style=for-the-badge)
 ![Jinja2](https://img.shields.io/badge/Jinja2-templating-b41717?style=for-the-badge)
+![YAML](https://img.shields.io/badge/YAML-config-000000?style=for-the-badge)
 ![Markdown](https://img.shields.io/badge/Markdown-enabled-000000?style=for-the-badge&logo=markdown)
 ![tests](https://img.shields.io/badge/tests-pytest-green?style=for-the-badge)
 ![lint](https://img.shields.io/badge/lint-flake8-blue?style=for-the-badge)
