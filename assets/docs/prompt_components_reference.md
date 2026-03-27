@@ -98,10 +98,9 @@ Category: `config`
 
 - [configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
 
-
 Category: `language`
 
-- [language](./prompts/controls/built-in_controls.md#)
+- [input_default](./prompts/controls/built-in_controls.md#)
 
 Category: `mcp`
 
@@ -118,6 +117,8 @@ Category: `mode`
 - [agent](./prompts/controls/built-in_controls.md#)
 
 - [ask](./prompts/controls/built-in_controls.md#)
+
+- [bypass_permissions](./prompts/controls/built-in_controls.md#)
 
 - [plan](./prompts/controls/built-in_controls.md#)
 
