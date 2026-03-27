@@ -62,11 +62,11 @@ Refer to the following guides for creating new components:
  
 - Pattern groups:
 
-  🔗 [Creating And Using Pattern Groups](assets/docs/create_and_use_a_pattern_group.md)
+  🔗 [Creating And Using Pattern Groups](create_and_use_a_pattern_group.md)
  
 - Control layers:
 
-  🔗 [Prompt Control Layers](assets/docs/prompt_control_layers.md)
+  🔗 [Prompt Control Layers](prompt_control_layers.md)
 
 ## Built-in Components
 

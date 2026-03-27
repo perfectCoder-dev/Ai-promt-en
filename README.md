@@ -470,7 +470,7 @@ Understand how PromptPro separates **execution control** from **output behavior*
 
 ### 🧱 Prompt Components
 
-The `prompts/` directory contains the core building blocks for creating prompts in PromptPro, organized into subdirectories that represent specific component types such as roles, tasks, patterns, and agent presets.
+The `prompts` directory contains the core building blocks for creating prompts in PromptPro, organized into subdirectories that represent specific component types such as roles, tasks, patterns, and agent presets.
 
 🔗 [Prompt Components Reference](assets/docs/prompt_components_reference.md)
 
