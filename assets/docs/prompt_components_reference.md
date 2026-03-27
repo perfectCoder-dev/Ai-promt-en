@@ -100,72 +100,72 @@ Category: `config`
 
 Category: `language`
 
-- [input_default](./prompts/controls/built-in_controls.md#)
+- [input_default](./prompts/controls/built-in_controls.md#control-languageinput_default)
 
 Category: `mcp`
 
-- [mcp_local](./prompts/controls/built-in_controls.md#)
+- [mcp_local](./prompts/controls/built-in_controls.md#control-mcpmcp_local)
 
-- [mcp_remote](./prompts/controls/built-in_controls.md#)
+- [mcp_remote](./prompts/controls/built-in_controls.md#control-mcpmcp_remote)
 
 Category: `memory`
 
-- [forget](./prompts/controls/built-in_controls.md#)
+- [forget](./prompts/controls/built-in_controls.md#control-memoryforget)
 
 Category: `mode`
 
-- [agent](./prompts/controls/built-in_controls.md#)
+- [agent](./prompts/controls/built-in_controls.md#control-modeagent)
 
-- [ask](./prompts/controls/built-in_controls.md#)
+- [ask](./prompts/controls/built-in_controls.md#control-modeask)
 
-- [bypass_permissions](./prompts/controls/built-in_controls.md#)
+- [bypass_permissions](./prompts/controls/built-in_controls.md#control-modebypass_permissions)
 
-- [plan](./prompts/controls/built-in_controls.md#)
+- [plan](./prompts/controls/built-in_controls.md#control-modeplan)
 
 Category: `model`
 
-- [model_fast](./prompts/controls/built-in_controls.md#)
+- [model_fast](./prompts/controls/built-in_controls.md#control-modelmodel_fast)
 
-- [model_thinking](./prompts/controls/built-in_controls.md#)
+- [model_thinking](./prompts/controls/built-in_controls.md#control-modelmodel_thinking)
 
 Category: `security`
 
-- [no_env_access](./prompts/controls/built-in_controls.md#)
+- [no_env_access](./prompts/controls/built-in_controls.md#control-securityno_env_access)
 
 Category: `system`
 
-- [system_prompt](./prompts/controls/built-in_controls.md#)
+- [system_prompt](./prompts/controls/built-in_controls.md#control-systemsystem_prompt)
 
 Category: `tools`
 
-- [tools_call](./prompts/controls/built-in_controls.md#)
+- [tools_call](./prompts/controls/built-in_controls.md#control-toolstools_call)
 
-- [tools_define](./prompts/controls/built-in_controls.md#)
+- [tools_define](./prompts/controls/built-in_controls.md#control-toolstools_define)
 
-- [tools_off](./prompts/controls/built-in_controls.md#)
+- [tools_off](./prompts/controls/built-in_controls.md#control-toolstools_off)
 
-- [tools_on](./prompts/controls/built-in_controls.md#)
+- [tools_on](./prompts/controls/built-in_controls.md#control-toolstools_on)
 
 #### Post Controls
 
 Category: `limits`
 
-- [explain_like_12](./prompts/controls/built-in_controls.md#)
+- [explain_like_12](./prompts/controls/built-in_controls.md#control-limitsexplain_like_12)
 
-- [for_beginners](./prompts/controls/built-in_controls.md#)
+- [for_beginners](./prompts/controls/built-in_controls.md#control-limitsfor_beginners)
 
 Category: `tone`
 
-- [tone_style](./prompts/controls/built-in_controls.md#)
+- [tone_style](./prompts/controls/built-in_controls.md#control-tonetone_style)
 
 Category: `translation`
 
-- [translate_en](./prompts/controls/built-in_controls.md#)
+- [translate_en](./prompts/controls/built-in_controls.md#control-translationtranslate_en)
 
-- [translate_output](./prompts/controls/built-in_controls.md#)
+- [translate_output](./prompts/controls/built-in_controls.md#control-translationtranslate_output)
 
-- [translate_sp](./prompts/controls/built-in_controls.md#)
+- [translate_sp](./prompts/controls/built-in_controls.md#control-translationtranslate_sp)
 
 Category: `truth`
 
-- [say_dont_know](./prompts/controls/built-in_controls.md#)
+- [say_dont_know](./prompts/controls/built-in_controls.md#control-truthsay_dont_know)
