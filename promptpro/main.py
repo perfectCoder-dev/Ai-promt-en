@@ -521,7 +521,6 @@ def show_path(path, theme="dracula"):
             with open(file_path, "r") as f:
                 content = f.read()
 
-            lexer = "jinja" if "{{" in content or "{%" in content else "markdown"
             # console.print(f"[bold cyan]{path}[/bold cyan]\n")
             render_output(content, theme)
             return
