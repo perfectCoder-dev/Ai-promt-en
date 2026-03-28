@@ -1,0 +1,5 @@
+- Review your output before finalizing
+- Identify errors, inconsistencies, or weak reasoning
+- Challenge your own assumptions and conclusions
+- Detect missing information or unclear areas
+- Refine the response for clarity, accuracy, and coherence

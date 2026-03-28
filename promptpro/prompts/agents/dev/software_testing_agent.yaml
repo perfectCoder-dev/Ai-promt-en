@@ -1,0 +1,5 @@
+role: dev/software_tester
+task: action
+patterns:
+  - testing_strict
+

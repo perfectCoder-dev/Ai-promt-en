@@ -21,10 +21,20 @@ pp list content/dev/testing | edge
 pp show content/dev/testing/boundary_edge_cases
 ```
 
-#### Example
+#### Example With `build`
 
 ```bash
-pp build software_tester --var-file=content/dev/testing/boundary_edge_cases
+pp build dev/software_testing_agent --var-file action=content/dev/testing/boundary_edge_cases
+```
+
+#### Example With `compose`
+
+```bash
+pp compose \
+  --role dev/software_tester \
+  --task action \
+  --pattern testing_strict \
+  --var-file action=./content/dev/testing/boundary_edge_cases
 ```
 
 ## Content: `puzzle`
