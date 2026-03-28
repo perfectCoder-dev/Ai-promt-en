@@ -474,6 +474,11 @@ The `prompts` directory contains the core building blocks for creating prompts i
 
 🔗 [Prompt Components Reference](assets/docs/prompt_components_reference.md)
 
+### 🧾 YAML Configuration
+Learn how to define agent presets and pattern groups using YAML files, including syntax, structure, and best practices.
+
+🔗 [YAML Files Configuration](assets/docs/yaml_file_configuration.md)
+
 ### 💻 Command Reference
 
 For a complete list of available commands and quick CLI examples:

@@ -90,7 +90,7 @@ patterns:
 
 ```
 
-- Use `--pattern` `didactic` in compose instead of repeating each pattern individually
+- Use `--pattern` `didactic` instead of repeating each pattern individually
 
 - Expands automatically into all included patterns
 
