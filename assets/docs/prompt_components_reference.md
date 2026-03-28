@@ -58,7 +58,7 @@ Refer to the following guides for creating new components:
 
 - Agents, roles, tasks, and patterns:
 
-  [🔗 Agents, Roles, Tasks, and Patterns](creating_new_prompt_components.md)
+  🔗 [ Agents, Roles, Tasks, and Patterns](creating_new_prompt_components.md)
  
 - Pattern groups:
 
@@ -77,53 +77,53 @@ Below is a **complete list** of built-in components and their features for creat
 
 ### Built-in Agents
 
-- [🔗 action_agent](./prompts/agents/built-in_agents.md#agent-action_agent)
+- 🔗 [action_agent](./prompts/agents/built-in_agents.md#agent-action_agent)
 
-- [🔗 cs_instructor](./prompts/agents/built-in_agents.md#agent-cs_instructor)
+- 🔗 [cs_instructor](./prompts/agents/built-in_agents.md#agent-cs_instructor)
  
-- [🔗 math_tutor](./prompts/agents/built-in_agents.md#agent-math_tutor)
+- 🔗 [math_tutor](./prompts/agents/built-in_agents.md#agent-math_tutor)
 
 ---
 
 ### Built-in Pattern Groups
 
-- [🔗 didactic](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic)
+- 🔗 [didactic](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic)
 
-- [🔗 didactic_structured](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic_structured)
+- 🔗 [didactic_structured](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic_structured)
 
 ---
 
 ### Built-in Patterns
 
-- [🔗 plan_execute](./prompts/patterns/built-in_patterns.md#pattern-plan_execute)
+- 🔗 [plan_execute](./prompts/patterns/built-in_patterns.md#pattern-plan_execute)
 
-- [🔗 socratic](./prompts/patterns/built-in_patterns.md#pattern-socratic)
+- 🔗 [socratic](./prompts/patterns/built-in_patterns.md#pattern-socratic)
 
-- [🔗 step_by_step](./prompts/patterns/built-in_patterns.md#pattern-step_by_step)
+- 🔗 [step_by_step](./prompts/patterns/built-in_patterns.md#pattern-step_by_step)
 
-- [🔗 structured_output](./prompts/patterns/built-in_patterns.md#pattern-structured_output)
+- 🔗 [structured_output](./prompts/patterns/built-in_patterns.md#pattern-structured_output)
 
-- [🔗 verify_before_execute](./prompts/patterns/built-in_patterns.md#pattern-verify_before_execute)
+- 🔗 [verify_before_execute](./prompts/patterns/built-in_patterns.md#pattern-verify_before_execute)
 
 ---
 
 ### Built-in Roles
 
-- [🔗 executor](./prompts/roles/built-in_roles.md#role-executor)
+- 🔗 [executor](./prompts/roles/built-in_roles.md#role-executor)
 
-- [🔗 technical_instructor](./prompts/roles/built-in_roles.md#role-technical_instructor)
+- 🔗 [technical_instructor](./prompts/roles/built-in_roles.md#role-technical_instructor)
 
-- [🔗 tutor](./prompts/roles/built-in_roles.md#role-tutor)
+- 🔗 [tutor](./prompts/roles/built-in_roles.md#role-tutor)
 
 ---
 
 ### Built-in Tasks
 
-- [🔗 action](./prompts/tasks/built-in_tasks.md#task-action)
+- 🔗 [action](./prompts/tasks/built-in_tasks.md#task-action)
 
-- [🔗 compose_action](./prompts/tasks/built-in_tasks.md#task-compose_action)
+- 🔗 [compose_action](./prompts/tasks/built-in_tasks.md#task-compose_action)
 
-- [🔗 explain](./prompts/tasks/built-in_tasks.md#task-explain)
+- 🔗 [explain](./prompts/tasks/built-in_tasks.md#task-explain)
 
 ---
 
@@ -131,77 +131,77 @@ Below is a **complete list** of built-in components and their features for creat
 
 #### `pre/config`
 
-- [🔗 configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
+- 🔗 [configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
 
 #### `pre/language`
 
-- [🔗 input_default](./prompts/controls/built-in_controls.md#control-languageinput_default)
+- 🔗 [input_default](./prompts/controls/built-in_controls.md#control-languageinput_default)
 
 #### `pre/mcp`
 
-- [🔗 mcp_local](./prompts/controls/built-in_controls.md#control-mcpmcp_local)
+- 🔗 [mcp_local](./prompts/controls/built-in_controls.md#control-mcpmcp_local)
 
-- [🔗 mcp_remote](./prompts/controls/built-in_controls.md#control-mcpmcp_remote)
+- 🔗 [mcp_remote](./prompts/controls/built-in_controls.md#control-mcpmcp_remote)
 
 #### `pre/memory`
 
-- [🔗 forget](./prompts/controls/built-in_controls.md#control-memoryforget)
+- 🔗 [forget](./prompts/controls/built-in_controls.md#control-memoryforget)
 
 #### `pre/mode`
 
-- [🔗 agent](./prompts/controls/built-in_controls.md#control-modeagent)
+- 🔗 [agent](./prompts/controls/built-in_controls.md#control-modeagent)
 
-- [🔗 ask](./prompts/controls/built-in_controls.md#control-modeask)
+- 🔗 [ask](./prompts/controls/built-in_controls.md#control-modeask)
 
-- [🔗 bypass_permissions](./prompts/controls/built-in_controls.md#control-modebypass_permissions)
+- 🔗 [bypass_permissions](./prompts/controls/built-in_controls.md#control-modebypass_permissions)
 
-- [🔗 plan](./prompts/controls/built-in_controls.md#control-modeplan)
+- 🔗 [plan](./prompts/controls/built-in_controls.md#control-modeplan)
 
 #### `pre/model`
 
-- [🔗 model_fast](./prompts/controls/built-in_controls.md#control-modelmodel_fast)
+- 🔗 [model_fast](./prompts/controls/built-in_controls.md#control-modelmodel_fast)
 
-- [🔗 model_thinking](./prompts/controls/built-in_controls.md#control-modelmodel_thinking)
+- 🔗 [model_thinking](./prompts/controls/built-in_controls.md#control-modelmodel_thinking)
 
 #### `pre/security`
 
-- [🔗 no_env_access](./prompts/controls/built-in_controls.md#control-securityno_env_access)
+- 🔗 [no_env_access](./prompts/controls/built-in_controls.md#control-securityno_env_access)
 
 #### `pre/system`
 
-- [🔗 system_prompt](./prompts/controls/built-in_controls.md#control-systemsystem_prompt)
+- 🔗 [system_prompt](./prompts/controls/built-in_controls.md#control-systemsystem_prompt)
 
 #### `pre/tools`
 
-- [🔗 tools_call](./prompts/controls/built-in_controls.md#control-toolstools_call)
+- 🔗 [tools_call](./prompts/controls/built-in_controls.md#control-toolstools_call)
 
-- [🔗 tools_define](./prompts/controls/built-in_controls.md#control-toolstools_define)
+- 🔗 [tools_define](./prompts/controls/built-in_controls.md#control-toolstools_define)
 
-- [🔗 tools_off](./prompts/controls/built-in_controls.md#control-toolstools_off)
+- 🔗 [tools_off](./prompts/controls/built-in_controls.md#control-toolstools_off)
 
-- [🔗 tools_on](./prompts/controls/built-in_controls.md#control-toolstools_on)
+- 🔗 [tools_on](./prompts/controls/built-in_controls.md#control-toolstools_on)
 
 #### `post/limits`
 
-- [🔗 explain_like_12](./prompts/controls/built-in_controls.md#control-limitsexplain_like_12)
+- 🔗 [explain_like_12](./prompts/controls/built-in_controls.md#control-limitsexplain_like_12)
 
-- [🔗 for_beginners](./prompts/controls/built-in_controls.md#control-limitsfor_beginners)
+- 🔗 [for_beginners](./prompts/controls/built-in_controls.md#control-limitsfor_beginners)
 
 #### `post/tone`
 
-- [🔗 tone_style](./prompts/controls/built-in_controls.md#control-tonetone_style)
+- 🔗 [tone_style](./prompts/controls/built-in_controls.md#control-tonetone_style)
 
 #### `pre/translation`
 
-- [🔗 translate_en](./prompts/controls/built-in_controls.md#control-translationtranslate_en)
+- 🔗 [translate_en](./prompts/controls/built-in_controls.md#control-translationtranslate_en)
 
-- [🔗 translate_output](./prompts/controls/built-in_controls.md#control-translationtranslate_output)
+- 🔗 [translate_output](./prompts/controls/built-in_controls.md#control-translationtranslate_output)
 
-- [🔗 translate_sp](./prompts/controls/built-in_controls.md#control-translationtranslate_sp)
+- 🔗 [translate_sp](./prompts/controls/built-in_controls.md#control-translationtranslate_sp)
 
 #### `pre/truth`
 
-- [🔗 say_dont_know](./prompts/controls/built-in_controls.md#control-truthsay_dont_know)
+- 🔗 [say_dont_know](./prompts/controls/built-in_controls.md#control-truthsay_dont_know)
 
 ---
 
@@ -209,8 +209,8 @@ Below is a **complete list** of built-in components and their features for creat
 
 #### `/dev/testing`
 
-- [🔗 boundary_edge_cases](./prompts/content/built-in_content.md#content-boundary_edge_cases)
+- 🔗 [boundary_edge_cases](./prompts/content/built-in_content.md#content-boundary_edge_cases)
 
 #### `/`
 
-- [🔗 puzzle](./prompts/content/built-in_content.md#content-puzzle)
+- 🔗 [puzzle](./prompts/content/built-in_content.md#content-puzzle)
