@@ -69,7 +69,7 @@ patterns:
 
 ```
 
-## Pattern Group YAML Files
+## 2. Pattern Group YAML Files
 
 A pattern group bundles multiple patterns into a single identifier. This simplifies the CLI and allows hierarchical composition.
 
