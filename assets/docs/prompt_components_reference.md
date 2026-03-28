@@ -129,27 +129,25 @@ Below is a **complete list** of built-in components and their features for creat
 
 ### Built-in Controls
 
-#### **Pre Controls**
-
-**`config`**
+#### `pre/config`
 
 - [🔗 configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
 
-**`language`**
+#### `pre/language`
 
 - [🔗 input_default](./prompts/controls/built-in_controls.md#control-languageinput_default)
 
-**`mcp`**
+#### `pre/mcp`
 
 - [🔗 mcp_local](./prompts/controls/built-in_controls.md#control-mcpmcp_local)
 
 - [🔗 mcp_remote](./prompts/controls/built-in_controls.md#control-mcpmcp_remote)
 
-**`memory`**
+#### `pre/memory`
 
 - [🔗 forget](./prompts/controls/built-in_controls.md#control-memoryforget)
 
-**`mode`**
+#### `pre/mode`
 
 - [🔗 agent](./prompts/controls/built-in_controls.md#control-modeagent)
 
@@ -159,21 +157,21 @@ Below is a **complete list** of built-in components and their features for creat
 
 - [🔗 plan](./prompts/controls/built-in_controls.md#control-modeplan)
 
-**`model`**
+#### `pre/model`
 
 - [🔗 model_fast](./prompts/controls/built-in_controls.md#control-modelmodel_fast)
 
 - [🔗 model_thinking](./prompts/controls/built-in_controls.md#control-modelmodel_thinking)
 
-**`security`**
+#### `pre/security`
 
 - [🔗 no_env_access](./prompts/controls/built-in_controls.md#control-securityno_env_access)
 
-**`system`**
+#### `pre/system`
 
 - [🔗 system_prompt](./prompts/controls/built-in_controls.md#control-systemsystem_prompt)
 
-**`tools`**
+#### `pre/tools`
 
 - [🔗 tools_call](./prompts/controls/built-in_controls.md#control-toolstools_call)
 
@@ -183,19 +181,17 @@ Below is a **complete list** of built-in components and their features for creat
 
 - [🔗 tools_on](./prompts/controls/built-in_controls.md#control-toolstools_on)
 
-#### **Post Controls**
-
-**`limits`**
+#### `post/limits`
 
 - [🔗 explain_like_12](./prompts/controls/built-in_controls.md#control-limitsexplain_like_12)
 
 - [🔗 for_beginners](./prompts/controls/built-in_controls.md#control-limitsfor_beginners)
 
-**`tone`**
+#### `post/tone`
 
 - [🔗 tone_style](./prompts/controls/built-in_controls.md#control-tonetone_style)
 
-**`translation`**
+#### `pre/translation`
 
 - [🔗 translate_en](./prompts/controls/built-in_controls.md#control-translationtranslate_en)
 
@@ -203,6 +199,18 @@ Below is a **complete list** of built-in components and their features for creat
 
 - [🔗 translate_sp](./prompts/controls/built-in_controls.md#control-translationtranslate_sp)
 
-**`truth`**
+#### `pre/truth`
 
 - [🔗 say_dont_know](./prompts/controls/built-in_controls.md#control-truthsay_dont_know)
+
+---
+
+### Built-in Content
+
+#### `/dev/testing`
+
+- [🔗 boundary_edge_cases](./prompts/content/built-in_content.md#)
+
+#### `/`
+
+- [🔗 puzzle](./prompts/content/built-in_content.md#)
