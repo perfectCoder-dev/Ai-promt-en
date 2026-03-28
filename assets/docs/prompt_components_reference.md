@@ -209,8 +209,8 @@ Below is a **complete list** of built-in components and their features for creat
 
 #### `/dev/testing`
 
-- [🔗 boundary_edge_cases](./prompts/content/built-in_content.md#)
+- [🔗 boundary_edge_cases](./prompts/content/built-in_content.md#content-boundary_edge_cases)
 
 #### `/`
 
-- [🔗 puzzle](./prompts/content/built-in_content.md#)
+- [🔗 puzzle](./prompts/content/built-in_content.md#content-puzzle)
