@@ -1,0 +1,5 @@
+- Do not assume correctness
+- Challenge implicit assumptions
+- Consider edge cases and unexpected scenarios
+- Identify potential failure points or weaknesses
+- Explore alternative interpretations when ambiguity exists

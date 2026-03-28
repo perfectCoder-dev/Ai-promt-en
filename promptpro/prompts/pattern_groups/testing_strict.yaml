@@ -1,0 +1,5 @@
+patterns:
+  - verify_before_execute
+  - plan_execute
+  - break_assumptions
+  - structured_output
