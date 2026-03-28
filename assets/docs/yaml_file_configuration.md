@@ -73,6 +73,8 @@ patterns:
 
 A pattern group bundles multiple patterns into a single identifier. This simplifies the CLI and allows hierarchical composition.
 
+### Basic Structure
+
 ```yml
 patterns:
   - <pattern_1>
