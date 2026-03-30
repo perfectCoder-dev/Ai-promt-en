@@ -14,12 +14,12 @@ Although the `--var-dir` option allows you to inject large amounts of content by
 
 Generates boundary and edge case test scenarios for a given **component**, including invalid inputs, null values, and memory constraints to ensure robustness and reliability under extreme conditions.
 
->[!NOTE]
-In this context, component refers to a software component (e.g., function, module, service, or feature). It does not refer to PromptPro prompt components.
+> [!NOTE]
+In this context, **component** refers to a software component (e.g., function, module, service, or feature). It does not refer to PromptPro prompt components.
 
 ### Placeholders
 
-#### **{{ component }}**
+#### `{{ component }}`
 
 Represents the target software component under test.
 
