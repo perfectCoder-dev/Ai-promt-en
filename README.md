@@ -582,6 +582,8 @@ You can contribute:
 - New **tasks** (analysis, critique, summarization, transformation, etc.)
 - New **patterns** (reasoning frameworks, output formats, cognitive constraints)
 - New **pattern groups** (reusable bundles that combine multiple patterns into higher-level behavioral modes)
+- New **controls** (pre/post execution or behavior modifiers that shape how prompts run and respond)
+- New **content** (reusable structured inputs, templates, datasets, or test scenarios)
 - New **agent presets** that combine existing components
 - Documentation improvements and examples
 
