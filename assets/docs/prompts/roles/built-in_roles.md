@@ -8,10 +8,10 @@ Validates behavior by systematically executing tests, identifying defects, and v
 
 ### Specification Table
 
-| Role          | Task           |
-|---------------|----------------|
-|software_tester|action          |
-|software_tester|composed_action |
+| Role          | Task          |
+|---------------|---------------|
+|software_tester|action         |
+|software_tester|compose_action |
 
 ### Flowchart
 
@@ -32,6 +32,13 @@ classDef task fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#111;
 class A role
 class B,C,D task
 
+```
+
+### List And Show
+
+```bash
+pp list roles/dev | grep test
+pp show roles/dev/software_tester
 ```
 
 ### Usage
@@ -91,6 +98,13 @@ classDef task fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#111;
 class A role
 class B,C,D task
 
+```
+
+### List And Show
+
+```bash
+pp list roles | grep exec
+pp show roles/executor
 ```
 
 ### Usage
@@ -153,6 +167,13 @@ class B,C task
 
 ```
 
+### List And Show
+
+```bash
+pp list roles | grep instruct
+pp show roles/technical_instructor
+```
+
 ### Usage
 
 #### Agent Configuration
@@ -208,6 +229,13 @@ classDef task fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#111;
 class A role
 class B,C task
 
+```
+
+### List And Show
+
+```bash
+pp list roles | grep tut
+pp show roles/tutor
 ```
 
 ### Usage
