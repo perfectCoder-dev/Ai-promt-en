@@ -1,5 +1,64 @@
 # Built-in Roles
 
+## Role: `software_tester`
+
+### Description
+
+Desc
+
+### Specification Table
+
+| Role          | Task           |
+|---------------|----------------|
+|software_tester|action          |
+|software_tester|composed_action |
+
+### Flowchart
+
+```mermaid
+flowchart TD
+
+A((software_tester))
+A --> B[Task]
+B --> C[action]
+
+B --> D[compose_action]
+
+%% Color definitions
+classDef role fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#111;
+classDef task fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#111;
+
+%% Apply colors
+class A role
+class B,C,D task
+
+```
+
+### Usage
+
+#### Agent Configuration
+
+```yaml
+# agent.yaml
+role: dev/software_tester
+```
+
+#### With Compose
+
+```bash
+pp compose --role dev/software_tester --task <task> --pattern <pattern> --var input="<input>"
+```
+
+### Example
+
+```bash
+pp compose \
+  --role dev/software_tester \
+  --task action \
+  --pattern testing_strict \
+  --var-file action=content/dev/testing/boundary_edge_cases
+```
+
 ## Role: `executor`
 
 ### Description
