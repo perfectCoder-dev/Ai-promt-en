@@ -17,9 +17,15 @@ Generates boundary and edge case test scenarios for a given **component**, inclu
 >[!NOTE]
 In this context, component refers to a software component (e.g., function, module, service, or feature). It does not refer to PromptPro prompt components.
 
-Here are good alternatives to **component** depending on context, so you can keep it flexible and reusable:
+### Placeholders
 
-#### General / Neutral Alternatives
+#### **{{ component }}**
+
+Represents the target software component under test.
+
+Here are common alternatives depending on context:
+
+**General / Neutral Alternatives**
 
 | Term             | When to Use                            |
 | ---------------- | -------------------------------------- |
@@ -30,7 +36,7 @@ Here are good alternatives to **component** depending on context, so you can kee
 | `logic`          | Abstract behavior or rules             |
 | `implementation` | Concrete code realization              |
 
-#### Backend / API Context
+**Backend / API Context**
 
 | Term        | When to Use              |
 | ----------- | ------------------------ |
@@ -39,7 +45,7 @@ Here are good alternatives to **component** depending on context, so you can kee
 | `service`   | Business logic layer     |
 | `operation` | Defined backend action   |
 
-#### Application / System Level
+**Application / System Level**
 
 | Term              | When to Use                    |
 | ----------------- | ------------------------------ |
@@ -48,7 +54,7 @@ Here are good alternatives to **component** depending on context, so you can kee
 | `process`         | System or background execution |
 | `system_behavior` | High-level system actions      |
 
-#### Algorithms / Data Processing
+**Algorithms / Data Processing**
 
 | Term        | When to Use               |
 | ----------- | ------------------------- |
@@ -56,7 +62,7 @@ Here are good alternatives to **component** depending on context, so you can kee
 | `routine`   | Reusable procedural logic |
 | `procedure` | Step-by-step operations   |
 
-#### Testing-Oriented (Recommended)
+**Testing-Oriented (Recommended)**
 
 | Term              | When to Use                    |
 | ----------------- | ------------------------------ |
