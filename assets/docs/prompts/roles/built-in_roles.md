@@ -4,7 +4,7 @@
 
 ### Description
 
-Desc
+Validates behavior by systematically executing tests, identifying defects, and verifying that outputs meet specified requirements, while carrying out requested actions with precision and a structured approach, ensuring results are clearly and accurately reported.
 
 ### Specification Table
 
