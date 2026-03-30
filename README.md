@@ -495,6 +495,62 @@ A quick reference for key terminology used across PromptPro.
 
 🔗 [Glossary Of Terms](assets/docs/glossary.md)
 
+## 📦 Prompt Component Packs
+
+Component Packs are curated collections of prompt components designed to work together as cohesive, reusable building blocks.
+
+### Packs Are Powerful
+
+Adding a single component helps—but Packs unlock much more:
+
+* **Designed To Work Together**  
+  Components are built to integrate seamlessly.
+
+* **Opinionated By Design**  
+  Built-in best practices, not guesswork.
+
+* **Faster Implementation**  
+  Activate full workflows instantly.
+
+* **Versioned & Evolvable**  
+  Easy to improve and maintain over time.
+
+* **Team Standardization**  
+  Consistent results across projects.
+
+* **Shareable Ecosystems**  
+  Package and reuse complete solutions.
+
+### Create and Share Your Own Packs
+
+One of the most powerful aspects of PromptPro is that **anyone can create their own Pack**.
+
+If you’ve developed a useful combination of components, you can:
+
+* Package it into a reusable system
+* Share it with your team or the community
+* Continuously improve it through versions
+* Contribute to a growing ecosystem of domain-specific Packs
+
+Users can explore guidelines and published Packs here:
+**🔗 [PromptPro Packs Repository](#)**.
+
+### Examples of Component Packs
+
+* 🔬 **Software Testing Pack**
+  Includes test generation tasks, edge-case patterns, QA roles, and validation controls
+
+* 📊 **Data Analysis Pack**
+  Provides analyst roles, structured output patterns, and transformation tasks
+
+* 🎓 **Education Pack**
+  Combines tutor roles, explanation tasks, and step-by-step reasoning patterns
+
+* 🛠 **DevOps Pack**
+  Includes automation roles, action tasks, and execution/verification patterns
+
+Once added, all components in a Pack become available through the CLI—giving you a complete, ready-to-use prompting system in seconds.
+
 ## 🔌 Integrations
 
 ### ⚡ Pipelines
@@ -571,62 +627,6 @@ python test.py
 ```
 
 🔗 [More Examples With Python](assets/docs/python_integration.md).
-
-## 📦 Prompt Component Packs
-
-Component Packs are curated collections of prompt components designed to work together as cohesive, reusable building blocks.
-
-### Packs Are Powerful
-
-Adding a single component helps—but Packs unlock much more:
-
-* **Designed To Work Together**  
-  Components are built to integrate seamlessly.
-
-* **Opinionated By Design**  
-  Built-in best practices, not guesswork.
-
-* **Faster Implementation**  
-  Activate full workflows instantly.
-
-* **Versioned & Evolvable**  
-  Easy to improve and maintain over time.
-
-* **Team Standardization**  
-  Consistent results across projects.
-
-* **Shareable Ecosystems**  
-  Package and reuse complete solutions.
-
-### Create and Share Your Own Packs
-
-One of the most powerful aspects of PromptPro is that **anyone can create their own Pack**.
-
-If you’ve developed a useful combination of components, you can:
-
-* Package it into a reusable system
-* Share it with your team or the community
-* Continuously improve it through versions
-* Contribute to a growing ecosystem of domain-specific Packs
-
-Users can explore guidelines and published Packs here:
-**🔗 [PromptPro Packs Repository](#)**.
-
-### Examples of Component Packs
-
-* 🔬 **Software Testing Pack**
-  Includes test generation tasks, edge-case patterns, QA roles, and validation controls
-
-* 📊 **Data Analysis Pack**
-  Provides analyst roles, structured output patterns, and transformation tasks
-
-* 🎓 **Education Pack**
-  Combines tutor roles, explanation tasks, and step-by-step reasoning patterns
-
-* 🛠 **DevOps Pack**
-  Includes automation roles, action tasks, and execution/verification patterns
-
-Once added, all components in a Pack become available through the CLI—giving you a complete, ready-to-use prompting system in seconds.
 
 ## 🤝 Contributions
 
