@@ -537,16 +537,16 @@ Users can explore guidelines and published Packs here:
 
 ### Examples of Component Packs
 
-* 🔬 **Software Testing Pack**
+* 🔬 **Software Testing Pack**  
   Includes test generation tasks, edge-case patterns, QA roles, and validation controls
 
-* 📊 **Data Analysis Pack**
+* 📊 **Data Analysis Pack**  
   Provides analyst roles, structured output patterns, and transformation tasks
 
-* 🎓 **Education Pack**
+* 🎓 **Education Pack**  
   Combines tutor roles, explanation tasks, and step-by-step reasoning patterns
 
-* 🛠 **DevOps Pack**
+* 🛠 **DevOps Pack**  
   Includes automation roles, action tasks, and execution/verification patterns
 
 Once added, all components in a Pack become available through the CLI—giving you a complete, ready-to-use prompting system in seconds.
@@ -640,16 +640,16 @@ If you’ve built something reusable, open a pull request and help grow the ecos
 
 You can contribute in several ways:
 
-* 📦 **Create New Component Packs**
+* 📦 **Create New Component Packs**  
   Design Packs for specific domains, workflows, or industries and share them with the community.
 
-* 🧱 **Add or Improve Components**
+* 🧱 **Add or Improve Components**  
   Enhance existing components or introduce reusable ones.
 
-* 🐞 **Report Bugs & Suggest Features**
+* 🐞 **Report Bugs & Suggest Features**  
   Help improve stability and propose new ideas.
 
-* 📚 **Improve Documentation**
+* 📚 **Improve Documentation**  
   Add examples, clarify concepts, and expand guides.
 
 ## 📜 License
