@@ -19,7 +19,7 @@ In this context, component refers to a software component (e.g., function, modul
 
 Here are good alternatives to **component** depending on context, so you can keep it flexible and reusable:
 
-### General / Neutral Alternatives
+#### General / Neutral Alternatives
 
 | Term             | When to Use                            |
 | ---------------- | -------------------------------------- |
@@ -30,7 +30,7 @@ Here are good alternatives to **component** depending on context, so you can kee
 | `logic`          | Abstract behavior or rules             |
 | `implementation` | Concrete code realization              |
 
-### Backend / API Context
+#### Backend / API Context
 
 | Term        | When to Use              |
 | ----------- | ------------------------ |
@@ -39,7 +39,7 @@ Here are good alternatives to **component** depending on context, so you can kee
 | `service`   | Business logic layer     |
 | `operation` | Defined backend action   |
 
-### Application / System Level
+#### Application / System Level
 
 | Term              | When to Use                    |
 | ----------------- | ------------------------------ |
@@ -48,7 +48,7 @@ Here are good alternatives to **component** depending on context, so you can kee
 | `process`         | System or background execution |
 | `system_behavior` | High-level system actions      |
 
-### Algorithms / Data Processing
+#### Algorithms / Data Processing
 
 | Term        | When to Use               |
 | ----------- | ------------------------- |
@@ -56,7 +56,7 @@ Here are good alternatives to **component** depending on context, so you can kee
 | `routine`   | Reusable procedural logic |
 | `procedure` | Step-by-step operations   |
 
-### Testing-Oriented (Recommended)
+#### Testing-Oriented (Recommended)
 
 | Term              | When to Use                    |
 | ----------------- | ------------------------------ |
@@ -64,20 +64,20 @@ Here are good alternatives to **component** depending on context, so you can kee
 | `target_logic`    | Focus on behavior being tested |
 | `test_subject`    | Generic testing reference      |
 
-#### List And Show
+### List And Show
 
 ```bash
 pp list content/dev/testing | edge
 pp show content/dev/testing/boundary_edge_cases
 ```
 
-#### Example With `build`
+### Example With `build`
 
 ```bash
 pp build dev/software_testing_agent --var-file action=content/dev/testing/boundary_edge_cases
 ```
 
-#### Example With `compose`
+### Example With `compose`
 
 ```bash
 pp compose \
@@ -93,14 +93,14 @@ pp compose \
 
 Provides a logical puzzle scenario designed to be analyzed and explained step by step, encouraging reasoning, deduction, and clear justification of conclusions.
 
-#### List And Show
+### List And Show
 
 ```bash
 pp list content | grep puzzle
 pp show content/puzzle
 ```
 
-#### Example
+### Example
 
 ```bash
 pp compose \
