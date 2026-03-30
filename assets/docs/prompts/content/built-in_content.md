@@ -19,7 +19,7 @@ In this context, **component** refers to a software component (e.g., function, m
 
 ### Placeholders
 
-#### `{{ component }}`
+#### Placeholder `{{ component }}`
 
 Represents the target software component under test.
 
