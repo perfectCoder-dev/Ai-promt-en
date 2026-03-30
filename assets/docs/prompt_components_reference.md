@@ -75,7 +75,9 @@ Below is a **complete list** of built-in components and their features for creat
 > [!TIP]
 > Extend this built-in list by adding your own components as you create them.
 
-### Built-in Agents
+### 🔗 [Built-in Agents](./prompts/agents/built-in_agents.md)
+
+Agents are ready-to-use compositions that combine roles, tasks, and patterns into practical, goal-oriented configurations. They serve as reference implementations for how different reasoning strategies and execution styles can be applied to real use cases.
 
 - 🔗 [action_agent](./prompts/agents/built-in_agents.md#agent-action_agent)
 
@@ -85,7 +87,9 @@ Below is a **complete list** of built-in components and their features for creat
 
 ---
 
-### Built-in Pattern Groups
+### 🔗 [Built-in Pattern Groups](./prompts/pattern_groups/built-in_pattern_groups.md)
+
+Pattern groups provide higher-level abstractions that bundle multiple patterns into reusable configurations. They simplify composition by allowing a single reference to expand into a coordinated set of reasoning strategies and execution mechanisms.
 
 - 🔗 [didactic](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic)
 
@@ -93,7 +97,11 @@ Below is a **complete list** of built-in components and their features for creat
 
 ---
 
-### Built-in Patterns
+### 🔗 [Built-in Patterns](./prompts/patterns/built-in_patterns.md)
+
+Patterns define reusable reasoning and execution behaviors that shape how a task is approached. They operate at a lower level than roles, providing specific strategies such as planning before acting, guiding reasoning through questions, or structuring outputs.
+
+Each pattern encapsulates a distinct cognitive approach and can be combined with others to create more sophisticated behaviors. By composing patterns, agents gain flexibility in how they reason, validate, and present results.
 
 - 🔗 [plan_execute](./prompts/patterns/built-in_patterns.md#pattern-plan_execute)
 
@@ -107,7 +115,11 @@ Below is a **complete list** of built-in components and their features for creat
 
 ---
 
-### Built-in Roles
+### 🔗 [Built-in Roles](./prompts/roles/built-in_roles.md)
+
+Roles define the core behavior of an agent. They determine how a task is approached, influencing execution style, level of guidance, and reasoning strategy.
+
+Each role represents a distinct way of operating—such as executing actions, explaining concepts, or guiding learning.
 
 - 🔗 [executor](./prompts/roles/built-in_roles.md#role-executor)
 
@@ -117,7 +129,11 @@ Below is a **complete list** of built-in components and their features for creat
 
 ---
 
-### Built-in Tasks
+### 🔗 [Built-in Tasks](./prompts/tasks/built-in_tasks.md)
+
+Tasks define what is expected to be done. They represent the objective or operation to be performed, such as executing an action, composing a response with context, or explaining a concept.
+
+While roles determine how an agent behaves and patterns define how it reasons, tasks specify the actual goal. By combining tasks with roles, patterns, and variables, agents can be precisely configured to handle a wide range of use cases.
 
 - 🔗 [action](./prompts/tasks/built-in_tasks.md#task-action)
 
@@ -127,7 +143,9 @@ Below is a **complete list** of built-in components and their features for creat
 
 ---
 
-### Built-in Controls
+### 🔗 [Built-in Controls](./prompts/controls/built-in_controls.md)
+
+Built-in controls define behavior across the full execution lifecycle—before, during, and after response generation. They function as modular switches that control reasoning patterns, permissions, language handling, tool usage, and output shaping, enabling deterministic and composable behavior.
 
 #### `pre/config`
 
@@ -205,7 +223,9 @@ Below is a **complete list** of built-in components and their features for creat
 
 ---
 
-### Built-in Content
+### 🔗 [Built-in Content](./prompts/content/built-in_content.md)
+
+Built-in content defines structured inputs that can be used when building or composing prompts, providing reusable data that can be composed independently of behavior and applied across agents, roles, tasks, and other configurations.
 
 #### `/dev/testing`
 

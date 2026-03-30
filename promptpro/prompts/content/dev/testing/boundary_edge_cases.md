@@ -1,2 +1,1 @@
-Add boundary case and edge case tests for function {{ function }}.  
-Include invalid inputs, null values, and memory limits.
+Generate boundary and edge case tests for {{ component }}, covering invalid inputs, null values, and resource constraints.
