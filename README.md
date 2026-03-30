@@ -636,7 +636,7 @@ Whether you're fixing a small issue or introducing a complete Component Pack, yo
 
 If you’ve built something reusable, open a pull request and help grow the ecosystem.
 
-### Ways to Contribute
+### Ways To Contribute
 
 You can contribute in several ways:
 
