@@ -39,6 +39,7 @@ class B,C,D task
 #### Agent Configuration
 
 ```yaml
+# agent.yaml
 role: executor
 ```
 
@@ -98,6 +99,7 @@ class B,C task
 #### Agent Configuration
 
 ```yaml
+# agent.yaml
 role: technical_instructor
 ```
 
@@ -154,6 +156,7 @@ class B,C task
 #### Agent Configuration
 
 ```yaml
+# agent.yaml
 role: tutor
 ```
 
