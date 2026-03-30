@@ -121,6 +121,8 @@ Roles define the core behavior of an agent. They determine how a task is approac
 
 Each role represents a distinct way of operating—such as executing actions, explaining concepts, or guiding learning.
 
+- 🔗 [software_tester](./prompts/roles/built-in_roles.md#role-software_tester)
+
 - 🔗 [executor](./prompts/roles/built-in_roles.md#role-executor)
 
 - 🔗 [technical_instructor](./prompts/roles/built-in_roles.md#role-technical_instructor)
