@@ -313,6 +313,34 @@ pp show controls/pre/model/model_fast
 
 ---
 
+### Control: `model`/`model_selection_anthropic_claude_sonnet_4.6`
+
+#### Description
+
+Select the Claude Sonnet 4.6 model for response generation. Optimized for balanced performance, it delivers strong reasoning, high-quality writing, and efficient execution across general-purpose tasks.
+
+Different models offer varying levels of capability, speed, cost, and reasoning depth, allowing the system to be tailored for tasks ranging from lightweight interactions to complex analysis.
+
+---
+
+### Control: `model`/`model_selection_openai_gpt_5.4`
+
+#### Description
+
+Select the GPT-5.4 model for response generation. Designed for high performance, it provides advanced reasoning, coding capability, and reliable results across a wide range of complex tasks.
+
+Different models offer varying levels of capability, speed, cost, and reasoning depth, allowing the system to be tailored for tasks ranging from lightweight interactions to complex analysis.
+
+---
+
+### Control: `model`/`model_temperature`
+
+#### Description
+
+Adjusts the level of randomness and entropy in responses. Lower values produce consistent and predictable outputs, while higher values increase variation, creativity, and exploratory behavior.
+
+---
+
 ### Control: `model`/`model_thinking`
 
 #### Description
