@@ -1,4 +1,4 @@
-Set temperature = 0.7.
+Set temperature = 1.0.
 
 Interpret and apply the temperature setting as follows:
 
