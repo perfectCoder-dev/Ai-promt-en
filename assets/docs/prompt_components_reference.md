@@ -79,6 +79,8 @@ Below is a **complete list** of built-in components and their features for creat
 
 Agents are ready-to-use compositions that combine roles, tasks, and patterns into practical, goal-oriented configurations. They serve as reference implementations for how different reasoning strategies and execution styles can be applied to real use cases.
 
+- 🔗 [software_testing_agent](./prompts/agents/built-in_agents.md#agent-software_testing_agent)
+
 - 🔗 [action_agent](./prompts/agents/built-in_agents.md#agent-action_agent)
 
 - 🔗 [cs_instructor](./prompts/agents/built-in_agents.md#agent-cs_instructor)
