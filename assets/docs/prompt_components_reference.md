@@ -83,6 +83,8 @@ Agents are ready-to-use compositions that combine roles, tasks, and patterns int
 
 - 🔗 [action_agent](./prompts/agents/built-in_agents.md#agent-action_agent)
 
+- 🔗 [action_agent_controlled](./prompts/agents/built-in_agents.md#agent-action_agent_controlled)
+
 - 🔗 [cs_instructor](./prompts/agents/built-in_agents.md#agent-cs_instructor)
  
 - 🔗 [math_tutor](./prompts/agents/built-in_agents.md#agent-math_tutor)

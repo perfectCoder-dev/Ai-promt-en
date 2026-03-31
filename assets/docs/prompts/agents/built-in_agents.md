@@ -167,7 +167,7 @@ pp build dev/software_testing_agent --var action="<action>"
 pp build dev/software_testing_agent --var-file action=content/dev/testing/boundary_edge_cases
 ```
 
-## Agents: `action_agent`
+## Agent: `action_agent`
 
 ### Description
 
