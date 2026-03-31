@@ -9,7 +9,165 @@ functional focuses and reasoning patterns.
 > [!NOTE]
 > Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
-## Agent: `action_agent`
+## Agent: `software_testing_agent`
+
+### Description
+
+(Desc)
+
+### Specification Table
+
+| Role            | Task   | Pattern               | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
+|-----------------|--------|-----------------------|-----------------------|---------------------------------|
+| software_tester | action | verify_before_execute | Question-first        | How first, then Do              |
+| software_tester | action | verify_before_execute | Iteration loop        | Feedback → Revision → Final     |
+| software_tester | action | verify_before_execute | Reasoning instruction | “Think deeply before answering” |
+| software_tester | action | verify_before_execute | —                     | Chain-of-Thought                |
+| software_tester | action | plan_execute          | Question-first        | How first, then Do              |
+| software_tester | action | plan_execute          | Iteration loop        | Feedback → Revision → Final     |
+| software_tester | action | plan_execute          | Reasoning instruction | “Think deeply before answering” |
+| software_tester | action | plan_execute          | —                     | Chain-of-Thought                |
+
+| Role            | Task   | Pattern           | 🧩 Core Technique | 🎯 Typical Usage |
+|-----------------|--------|-------------------|-------------------|------------------|
+| software_tester | action | structured_output |Simple tasks       |“Summarize this”  |
+
+| Role            | Task   | Pattern           | 📐 Structural Design | 🚦 Operational Control |
+|-----------------|--------|-------------------|----------------------|------------------------|
+| software_tester | action | structured_output |Set output format     |Bullets, tables         |
+
+| Role            | Task   | Pattern           | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism                |
+|-----------------|--------|-------------------|-----------------------|---------------------------------------|
+| software_tester | action | break_assumptions | Reasoning instruction | “Think deeply before answering”       |
+| software_tester | action | break_assumptions | Question-first        | How first, then Do                    |
+| software_tester | action | break_assumptions | Iteration loop        | Feedback → Revision → Final           |
+| software_tester | action | break_assumptions | Problem-solving       | 20% that gets 80% results             |
+| software_tester | action | break_assumptions | -                     | Role + Context + Examples + Iteration |
+
+### Flowchart
+
+```mermaid
+flowchart TD
+
+A((software_testing_agent))
+
+A --> B[Role]
+B --> C[executor]
+
+A --> D[Task]
+D --> E[action]
+E --> F[Pattern]
+F --> G[verify_before_execute]
+G --> H[Level 3]
+H --> I[🧠 Cognitive Strategy]
+I --> J[Question-first]
+J --> K[⚙️ Execution Mechanism]
+K --> L[How first, then Do]
+
+H --> M[🧠 Cognitive Strategy]
+M --> O[Iteration loop]
+O --> P[⚙️ Execution Mechanism]
+P --> Q[Feedback → Revision → Final]
+
+H --> R[🧠 Cognitive Strategy]
+R --> S[Reasoning instruction]
+S --> T[⚙️ Execution Mechanism]
+T --> U[“Think deeply before answering”]
+
+H --> V[⚙️ Execution Mechanism]
+V --> W[Chain-of-Thought]
+
+F --> X[plan_execute]
+X --> Z[Level 3]
+Z --> AA[🧠 Cognitive Strategy]
+AA --> AB[Question-first]
+AB --> AC[⚙️ Execution Mechanism]
+AC --> AD[How first, then Do]
+
+Z --> AE[🧠 Cognitive Strategy]
+AE --> AF[Iteration loop]
+
+AF --> AG[⚙️ Execution Mechanism]
+AG --> AH[Feedback → Revision → Final]
+
+Z --> AI[🧠 Cognitive Strategy]
+AI --> AJ[Reasoning instruction]
+AJ --> AK[⚙️ Execution Mechanism]
+AK --> AL[“Think deeply before answering”]
+
+Z --> AM[⚙️ Execution Mechanism]
+AM --> AO[Chain-of-Thought]
+
+F --> AP[structured_output]
+AP --> AQ[Level 1]
+AQ --> AR[🧩 Core Technique]
+AR --> AS[Simple tasks]
+AS --> AT[🎯 Typical Usage]
+AT --> AU[Simple tasks]
+
+AP --> AV[Level 2]
+AV --> AW[📐 Structural Design]
+AW --> AX[Set output format]
+AX --> AY[🚦 Operational Control]
+AY --> AZ[Bullets, tables]
+
+F --> BA[break_assumptions]
+BA --> BB[Level 3]
+BB --> BC[🧠 Cognitive Strategy]
+BC --> BD[Reasoning instruction]
+BD --> BE[⚙️ Execution Mechanism]
+BE --> BF[“Think deeply before answering”]
+
+BB --> BG[🧠 Cognitive Strategy]
+BG --> BH[Question-first]
+BH --> BI[⚙️ Execution Mechanism]
+BI --> BJ[How first, then Do]
+
+BB --> BK[🧠 Cognitive Strategy]
+BK --> BL[Iteration loop]
+BL --> BM[⚙️ Execution Mechanism]
+BM --> BN[Feedback → Revision → Final]
+
+BB --> BO[🧠 Cognitive Strategy]
+BO --> BP[Problem-solving]
+BP --> BQ[⚙️ Execution Mechanism]
+BQ --> BR[20% that gets 80% results]
+
+BB --> BS[⚙️ Execution Mechanism]
+BS --> BT[Role + Context + Examples + Iteration]
+
+%% Color definitions
+classDef role fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#111;
+classDef task fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#111;
+classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
+
+%% Apply colors
+class B,C role
+class D,E task
+class F,G,X,AP,BA pattern
+
+```
+
+### List And Show
+
+```bash
+pp list agents/dev | grep test
+pp show agents/dev/software_testing_agent
+```
+
+### Usage
+
+```bash
+pp build dev/software_testing_agent --var action="<action>"
+```
+
+### Example
+
+```bash
+pp build dev/software_testing_agent --var-file action=content/dev/testing/boundary_edge_cases
+```
+
+## Agents: `action_agent`
 
 ### Description
 
@@ -72,36 +230,36 @@ V --> W[Chain-of-Thought]
 F --> X[plan_execute]
 X --> Z[Level 3]
 Z --> AA[🧠 Cognitive Strategy]
-AA --> BB[Question-first]
-BB --> CC[⚙️ Execution Mechanism]
-CC --> DD[How first, then Do]
+AA --> AB[Question-first]
+AB --> AC[⚙️ Execution Mechanism]
+AC --> AD[How first, then Do]
 
-Z --> EE[🧠 Cognitive Strategy]
-EE --> FF[Iteration loop]
+Z --> AE[🧠 Cognitive Strategy]
+AE --> AF[Iteration loop]
 
-FF --> GG[⚙️ Execution Mechanism]
-GG --> HH[Feedback → Revision → Final]
+AF --> AG[⚙️ Execution Mechanism]
+AG --> AH[Feedback → Revision → Final]
 
-Z --> II[🧠 Cognitive Strategy]
-II --> JJ[Reasoning instruction]
-JJ --> KK[⚙️ Execution Mechanism]
-KK --> LL[“Think deeply before answering”]
+Z --> AI[🧠 Cognitive Strategy]
+AI --> AJ[Reasoning instruction]
+AJ --> AK[⚙️ Execution Mechanism]
+AK --> AL[“Think deeply before answering”]
 
-Z --> MM[⚙️ Execution Mechanism]
-MM --> OO[Chain-of-Thought]
+Z --> AM[⚙️ Execution Mechanism]
+AM --> AO[Chain-of-Thought]
 
-F --> PP[structured_output]
-PP --> QQ[Level 1]
-QQ --> RR[🧩 Core Technique]
-RR --> SS[Simple tasks]
-SS --> TT[🎯 Typical Usage]
-TT --> UU[Simple tasks]
+F --> AP[structured_output]
+AP --> AQ[Level 1]
+AQ --> AR[🧩 Core Technique]
+AR --> AS[Simple tasks]
+AS --> AT[🎯 Typical Usage]
+AT --> AU[Simple tasks]
 
-PP --> VV[Level 2]
-VV --> WW[📐 Structural Design]
-WW --> XX[Set output format]
-XX --> YY[🚦 Operational Control]
-YY --> ZZ[Bullets, tables]
+AP --> AV[Level 2]
+AV --> AW[📐 Structural Design]
+AW --> AX[Set output format]
+AX --> AY[🚦 Operational Control]
+AY --> AZ[Bullets, tables]
 
 %% Color definitions
 classDef role fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#111;
@@ -111,8 +269,15 @@ classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
 %% Apply colors
 class B,C role
 class D,E task
-class F,G,X,PP pattern
+class F,G,X,AP pattern
 
+```
+
+### List And Show
+
+```bash
+pp list agents | grep action
+pp show agents/action_agent
 ```
 
 ### Usage
@@ -125,6 +290,35 @@ pp build action_agent --var action="<action>"
 
 ```bash
 pp build action_agent --var action="Make a shopping list" --copy
+```
+
+## Agents: `action_agent_controlled`
+
+### Description
+
+An execution-focused agent designed to perform tasks by verifying requirements or planning before acting, using reasoning strategies and structured outputs to ensure accurate and controlled results.
+
+It has all the `action_agent` features plus an only `pre` prompt control `forget` used as example.
+
+For more information about the `forget` memory pre control, click 🔗 [here](../controls/built-in_controls.md#control-memoryforget).
+
+### List And Show
+
+```bash
+pp list agents | grep action
+pp show agents/action_agent_controlled
+```
+
+### Usage
+
+```bash
+pp build action_agent_controlled --var action="<action>"
+```
+
+### Example
+
+```bash
+pp build action_agent_controlled --post truth/say_dont_know --var action="Make a list of the core skills everyone should have."
 ```
 
 ## Agent: `cs_instructor`
@@ -194,6 +388,13 @@ class B,C role
 class D,E task
 class F,G,O pattern
 
+```
+
+### List And Show
+
+```bash
+pp list agents | grep instructor
+pp show agents/cs_instructor
 ```
 
 ### Usage
@@ -271,6 +472,13 @@ class B,C role
 class D,E task
 class F,G,O pattern
 
+```
+
+### List And Show
+
+```bash
+pp list agents | grep math
+pp show agents/math_tutor
 ```
 
 ### Usage
