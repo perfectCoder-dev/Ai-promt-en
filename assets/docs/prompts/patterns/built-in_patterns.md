@@ -3,7 +3,46 @@
 > [!NOTE]
 > Table columns that follow **Pattern** represent matches with corresponding elements in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
-## Pattern: `plan_execute`
+## Pattern: `break_assumptions`
+
+### Description
+
+Desc
+
+### Specification Table
+
+### Flowchart
+
+### List And Show
+
+```bash
+pp list patterns | grep assumptions
+pp show patterns/break_assumptions
+```
+
+### Usage
+
+#### Agent Configuration
+
+```yaml
+patterns:
+  - break_assumptions
+```
+
+#### With Compose
+
+```bash
+pp compose --role <role> --task <task> --pattern break_assumptions --var input="<input>"
+```
+
+### Example
+
+```bash
+pp compose --role dev/software_tester --task action --pattern testing_strict --var-file action=content/dev/testing/boundary_edge_cases
+```
+
+This command has the pattern group `testing_strict` which contains the pattern `break_assumptions`.
+## Pattern: `plan_execute`.
 
 ### Description
 
@@ -51,6 +90,13 @@ class A, pattern
 
 ```
 
+### List And Show
+
+```bash
+pp list patterns | grep exec
+pp show patterns/plan_execute
+```
+
 ### Usage
 
 #### Agent Configuration
@@ -78,6 +124,44 @@ pp compose \
   --var action="Make a shopping list" \
   --var context="I am at the computer store" \
   --var examples="|Item |Brand |Price | |Mouse |Genius |$45.75 |"
+```
+
+## Pattern: `self_critique`
+
+### Description
+
+Desc
+
+### Specification Table
+
+### Flowchart
+
+### List And Show
+
+```bash
+pp list patterns | grep critique
+pp show patterns/self_critique
+```
+
+### Usage
+
+#### Agent Configuration
+
+```yaml
+patterns:
+  - self_critique
+```
+
+#### With Compose
+
+```bash
+pp compose --role <role> --task <task> --pattern self_critique --var input="<input>"
+```
+
+### Example
+
+```bash
+pp compose --role tutor --task explain --pattern self_critique --var input="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country (El Salvador), and propose possible policy responses. Consider economic, social, and political factors." 
 ```
 
 ## Pattern: `socratic`
@@ -116,6 +200,13 @@ classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
 %% Apply colors
 class A, pattern
 
+```
+
+### List And Show
+
+```bash
+pp list patterns | grep soc
+pp show patterns/socratic
 ```
 
 ### Usage
@@ -179,6 +270,13 @@ class A, pattern
 
 ```
 
+### List And Show
+
+```bash
+pp list patterns | grep step
+pp show patterns/step_by_step
+```
+
 ### Usage
 
 #### Agent Configuration
@@ -208,7 +306,7 @@ pp compose \
 
 ### Description
 
-A formatting pattern that instructs the model to organize its response in a clear, readable structure. The output should be divided into labeled sections, use bullet points to present information concisely, and conclude with a brief summary. The goal is to improve clarity and scanability while avoiding unnecessary verbosity.
+A formatting pattern that instructs the model to organize its response in a clear, readable structure. The output should be divided into labeled sections, use bullet points to present information concisely, and conclude with a brief summary. The goal is to improve clarity and scannability while avoiding unnecessary verbosity.
 
 ### Specification Table
 
@@ -243,6 +341,13 @@ classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
 %% Apply colors
 class A, pattern
 
+```
+
+### List And Show
+
+```bash
+pp list patterns | grep out
+pp show patterns/structured_output
 ```
 
 ### Usage
@@ -320,6 +425,13 @@ classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
 %% Apply colors
 class A, pattern
 
+```
+
+### List And Show
+
+```bash
+pp list patterns | grep exec
+pp show patterns/verify_before_execute
 ```
 
 ### Usage
