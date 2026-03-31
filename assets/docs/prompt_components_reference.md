@@ -99,6 +99,8 @@ Pattern groups provide higher-level abstractions that bundle multiple patterns i
 
 - 🔗 [didactic_structured](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-didactic_structured)
 
+- 🔗 [testing_strict](./prompts/pattern_groups/built-in_pattern_groups.md#pattern-group-testing_strict)
+
 ---
 
 ### 🔗 [Built-in Patterns](./prompts/patterns/built-in_patterns.md)
