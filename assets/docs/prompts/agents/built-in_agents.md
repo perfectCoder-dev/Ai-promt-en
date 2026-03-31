@@ -292,7 +292,7 @@ pp build action_agent --var action="<action>"
 pp build action_agent --var action="Make a shopping list" --copy
 ```
 
-## Agents: `action_agent_controlled`
+## Agent: `action_agent_controlled`
 
 ### Description
 
