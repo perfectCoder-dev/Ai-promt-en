@@ -19,14 +19,14 @@ functional focuses and reasoning patterns.
 
 | Role            | Task   | Pattern               | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
 |-----------------|--------|-----------------------|-----------------------|---------------------------------|
-| software_tester | action | verify_before_execute | Question-first        | How first, then Do              |
-| software_tester | action | verify_before_execute | Iteration loop        | Feedback → Revision → Final     |
 | software_tester | action | verify_before_execute | Reasoning instruction | “Think deeply before answering” |
 | software_tester | action | verify_before_execute | —                     | Chain-of-Thought                |
-| software_tester | action | plan_execute          | Question-first        | How first, then Do              |
-| software_tester | action | plan_execute          | Iteration loop        | Feedback → Revision → Final     |
+| software_tester | action | verify_before_execute | Question-first        | How first, then Do              |
+| software_tester | action | verify_before_execute | Iteration loop        | Feedback → Revision → Final     |
 | software_tester | action | plan_execute          | Reasoning instruction | “Think deeply before answering” |
 | software_tester | action | plan_execute          | —                     | Chain-of-Thought                |
+| software_tester | action | plan_execute          | Question-first        | How first, then Do              |
+| software_tester | action | plan_execute          | Iteration loop        | Feedback → Revision → Final     |
 
 | Role            | Task   | Pattern           | 🧩 Core Technique | 🎯 Typical Usage |
 |-----------------|--------|-------------------|-------------------|------------------|
