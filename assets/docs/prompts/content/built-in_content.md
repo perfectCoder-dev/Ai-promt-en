@@ -93,6 +93,35 @@ pp compose \
   --var-file action=./content/dev/testing/boundary_edge_cases
 ```
 
+## Content: `boundary_edge_cases_function`
+
+### Description
+
+Generates boundary and edge case tests for a function, covering parameter limits, return behavior, invalid or missing inputs, and extreme conditions to ensure safe and correct execution. More specific than `boundary_edge_cases`, it focuses strictly on function-level validation.
+
+### Placeholders
+
+#### Placeholder `{{ function }}`
+
+Represents the target function under test.
+
+### List And Show
+
+```bash
+pp list content/dev/testing | edge
+pp show content/dev/testing/boundary_edge_cases_function
+```
+
+### Example With `compose`
+
+```bash
+pp compose \
+  --role dev/software_tester \
+  --task action \
+  --pattern testing_strict \
+  --var-file action=./content/dev/testing/boundary_edge_cases_function
+```
+
 ## Content: `puzzle`
 
 ### Description

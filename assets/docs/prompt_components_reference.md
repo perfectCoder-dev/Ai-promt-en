@@ -239,6 +239,8 @@ Built-in content defines structured inputs that can be used when building or com
 
 - 🔗 [boundary_edge_cases](./prompts/content/built-in_content.md#content-boundary_edge_cases)
 
+- 🔗 [boundary_edge_cases_function](./prompts/content/built-in_content.md#content-boundary_edge_cases_function)
+
 #### `/`
 
 - 🔗 [puzzle](./prompts/content/built-in_content.md#content-puzzle)
