@@ -317,9 +317,31 @@ pp show controls/pre/model/model_fast
 
 #### Description
 
-Defines the active model used for response generation. This control selects one model configuration and ensures it is applied exclusively, preventing conflicts between multiple model selections.
+When explicitly included in a PromptPro `agent preset` or `compose` command, it specifies the active model used for response generation. Only one model can be selected at a time, ensuring consistent behavior and preventing conflicts.
 
 Different models offer varying levels of capability, speed, cost, and reasoning depth, allowing the system to be tailored for tasks ranging from lightweight interactions to complex analysis.
+
+Default Value: `Google Gemini 3.1 Pro`
+
+- **Company**: Google
+
+- **Model Family**: Gemini
+
+- **Version**: 3.1 Pro
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+|Sublevels|
+|---------|
+|9|
+|10|
+
+#### List And Show
+
+```bash
+pp list controls/pre/model | grep select
+pp show controls/pre/model/model_selection_active
+```
 
 ---
 
@@ -329,13 +351,39 @@ Different models offer varying levels of capability, speed, cost, and reasoning 
 
 Select the Claude Sonnet 4.6 model for response generation. Optimized for balanced performance, it delivers strong reasoning, high-quality writing, and efficient execution across general-purpose tasks.
 
+#### Sublevel In The Iceberg of Prompting Framework
+
+|Sublevels|
+|---------|
+|9|
+|10|
+
+#### List And Show
+
+```bash
+pp list controls/pre/model | grep select
+pp show controls/pre/model/model_selection_anthropic_claude_sonnet_4.6
+```
+
 ---
 
-### Control: `model`/`model_selection_openai_gpt_5.4`
+### Control: `model`/`model_selection_openai_gpt_5.4_pro`
 
 #### Description
 
 Select the GPT-5.4 model for response generation. Designed for high performance, it provides advanced reasoning, coding capability, and reliable results across a wide range of complex tasks.
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+|Sublevels|
+|---------|
+|9|
+|10|
+
+```bash
+pp list controls/pre/model | grep select
+pp show controls/pre/model/model_selection_openai_gpt_5.4_pro
+```
 
 ---
 
@@ -344,6 +392,21 @@ Select the GPT-5.4 model for response generation. Designed for high performance,
 #### Description
 
 Adjusts the level of randomness and entropy in responses. Lower values produce consistent and predictable outputs, while higher values increase variation, creativity, and exploratory behavior.
+
+#### Sublevel In The Iceberg of Prompting Framework
+
+|Sublevels|
+|---------|
+|1|
+|2|
+|4|
+|8|
+|9|
+
+```bash
+pp list controls/pre/model | grep temp
+pp show controls/pre/model/model_temperature
+```
 
 ---
 

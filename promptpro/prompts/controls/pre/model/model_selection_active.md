@@ -1,1 +1,1 @@
-Select model = Openai GPT-5.4 Pro
+Select model = Google Gemini 3.1 Pro
