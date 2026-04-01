@@ -69,7 +69,7 @@ uv python install
 # 5. Sync dependencies (creates .venv and installs everything)
 uv sync
 
-# In case that your virtual environment does not activate
+# If your virtual environment is not activated, run:
 source .venv/bin/activate
 
 # 6. Run PromptPro
