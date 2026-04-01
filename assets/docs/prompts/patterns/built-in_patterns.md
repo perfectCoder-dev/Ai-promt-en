@@ -181,11 +181,56 @@ pp compose \
 
 ### Description
 
-Desc
+A structured reflection pattern that prompts the model to critically review its own response before finalizing it. It focuses on identifying errors, questioning assumptions, uncovering gaps or unclear areas, and refining the output to improve clarity, accuracy, and overall coherence.
+
+> [!NOTE]
+> The `self_critique` pattern already includes a step for identifying and challenging assumptions. However, there is also a dedicated `break_assumptions` pattern that focuses specifically on this aspect.
+>
+> You can use either pattern independently, or combine them when the prompt requires **deeper analysis** or more **rigorous assumption** testing.
+>
+> See the **Examples** section for usage illustrations.
 
 ### Specification Table
 
+| Pattern       | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
+|---------------|-----------------------|---------------------------------|
+| self_critique | Question-first        | How first, then Do              |
+| self_critique | Iteration loop        | Feedback → Revision → Final     |
+| self_critique | Reasoning instruction | “Think deeply before answering” |
+| self_critique | —                     | Chain-of-Thought                |
+
 ### Flowchart
+
+```mermaid
+flowchart TD
+
+A((self_critique))
+
+A --> B[🧠 Cognitive Strategy]
+B --> C[Question-first]
+C --> D[⚙️ Execution Mechanism]
+D --> E[How first, then Do]
+
+A --> F[🧠 Cognitive Strategy]
+F --> G[Iteration loop]
+G --> H[⚙️ Execution Mechanism]
+H --> I[Feedback → Revision → Final]
+
+A --> J[🧠 Cognitive Strategy]
+J --> K[Reasoning instruction]
+K --> L[⚙️ Execution Mechanism]
+L --> M[“Think deeply before answering”]
+
+A --> O[⚙️ Execution Mechanism]
+O --> P[Chain-of-Thought]
+
+%% Color definitions
+classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
+
+%% Apply colors
+class A, pattern
+
+```
 
 ### List And Show
 
@@ -209,7 +254,18 @@ patterns:
 pp compose --role <role> --task <task> --pattern self_critique --var input="<input>"
 ```
 
-### Example
+### Examples
+
+```bash
+pp compose \
+  --role tutor \
+  --task explain \
+  --pattern break_assumptions \
+  --var input="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
+```
+
+> [!NOTE]
+This example is also included in the `break_assumptions` pattern, as both patterns address similar reasoning steps.
 
 ```bash
 pp compose \
