@@ -20,6 +20,37 @@ This pattern emphasizes disciplined critical thinking by refusing to take ideas 
 
 ### Flowchart
 
+```mermaid
+flowchart TD
+
+A((break_assumptions))
+
+A --> B[🧠 Cognitive Strategy]
+B --> C[Question-first]
+C --> D[⚙️ Execution Mechanism]
+D --> E[How first, then Do]
+
+A --> F[🧠 Cognitive Strategy]
+F --> G[Iteration loop]
+G --> H[⚙️ Execution Mechanism]
+H --> I[Feedback → Revision → Final]
+
+A --> J[🧠 Cognitive Strategy]
+J --> K[Reasoning instruction]
+K --> L[⚙️ Execution Mechanism]
+L --> M[“Think deeply before answering”]
+
+A --> O[⚙️ Execution Mechanism]
+O --> P[Chain-of-Thought]
+
+%% Color definitions
+classDef pattern fill:#ffedd5,stroke:#ea580c,stroke-width:2px,color:#111;
+
+%% Apply colors
+class A, pattern
+
+```
+
 ### List And Show
 
 ```bash
@@ -45,11 +76,19 @@ pp compose --role <role> --task <task> --pattern break_assumptions --var input="
 ### Examples
 
 ```bash
-pp compose --role tutor --task explain --pattern break_assumptions --var input="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
+pp compose \
+  --role tutor \
+  --task explain \
+  --pattern break_assumptions \
+  --var input="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
 ```
 
 ```bash
-pp compose --role dev/software_tester --task action --pattern testing_strict --var-file action=content/dev/testing/boundary_edge_cases
+pp compose \
+  --role dev/software_tester
+  --task action
+  --pattern testing_strict
+  --var-file action=content/dev/testing/boundary_edge_cases
 ```
 
 This command has the pattern group `testing_strict` which contains the pattern `break_assumptions`.
@@ -173,7 +212,11 @@ pp compose --role <role> --task <task> --pattern self_critique --var input="<inp
 ### Example
 
 ```bash
-pp compose --role tutor --task explain --pattern self_critique --var input="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country (El Salvador), and propose possible policy responses. Consider economic, social, and political factors." 
+pp compose \
+  --role tutor \
+  --task explain \
+  --pattern self_critique \
+  --var input="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country (El Salvador), and propose possible policy responses. Consider economic, social, and political factors." 
 ```
 
 ## Pattern: `socratic`
