@@ -189,9 +189,9 @@ Built-in controls define behavior across the full execution lifecycle—before, 
 
 - 🔗 [model_selection_active](./prompts/controls/built-in_controls.md#control-modelmodel_selection_active)
 
-- 🔗 [model_selection_anthropic_claude_sonnet_4.6](./prompts/controls/built-in_controls.md#control-modelmodel_selection_anthropic_claude_sonnet_4.6)
+- 🔗 [model_selection_anthropic_claude_sonnet_4.6](./prompts/controls/built-in_controls.md#control-modelmodel_selection_anthropic_claude_sonnet_46)
 
-- 🔗 [model_selection_openai_gpt_5.4](./prompts/controls/built-in_controls.md#control-model`model_selection_openai_gpt_5.4)
+- 🔗 [model_selection_openai_gpt_5.4](./prompts/controls/built-in_controls.md#control-modelmodel_selection_openai_gpt_54)
 
 - 🔗 [model_temperature](./prompts/controls/built-in_controls.md#control-modelmodel_temperature)
 
