@@ -7,16 +7,23 @@
 
 ### Description
 
-Desc
+This pattern emphasizes disciplined critical thinking by refusing to take ideas at face value and instead actively questioning underlying assumptions, testing their validity against edge cases and unusual scenarios, and probing for weaknesses or points of failure that might not be immediately obvious; it encourages examining ambiguity from multiple angles, considering alternative interpretations, and stress-testing conclusions to ensure they remain robust under varied conditions rather than relying on surface-level plausibility.
 
 ### Specification Table
+
+| Pattern           | 🧠 Cognitive Strategy | ⚙️ Execution Mechanism          |
+|-------------------|-----------------------|---------------------------------|
+| break_assumptions | Question-first        | How first, then Do              |
+| break_assumptions | Iteration loop        | Feedback → Revision → Final     |
+| break_assumptions | Reasoning instruction | “Think deeply before answering” |
+| break_assumptions | —                     | Chain-of-Thought                |
 
 ### Flowchart
 
 ### List And Show
 
 ```bash
-pp list patterns | grep assumptions
+pp list patterns | grep break
 pp show patterns/break_assumptions
 ```
 
@@ -35,13 +42,18 @@ patterns:
 pp compose --role <role> --task <task> --pattern break_assumptions --var input="<input>"
 ```
 
-### Example
+### Examples
+
+```bash
+pp compose --role tutor --task explain --pattern break_assumptions --var input="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
+```
 
 ```bash
 pp compose --role dev/software_tester --task action --pattern testing_strict --var-file action=content/dev/testing/boundary_edge_cases
 ```
 
 This command has the pattern group `testing_strict` which contains the pattern `break_assumptions`.
+
 ## Pattern: `plan_execute`.
 
 ### Description

@@ -57,6 +57,7 @@
 | pp compose --role tutor --task explain --pattern socratic --pattern step_by_step --var input="Gravity" --var theorist="Albert Einstein" |
 | pp compose --role tutor --task explain --pattern socratic --pattern step_by_step --var input="Gravity, by Isaac Newton" --copy          |
 | pp compose --role tutor --task explain --pattern socratic --var input="Random text"                                                     |
+pp compose --role tutor --task explain --pattern break_assumptions --var input="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
 | pp compose --role tutor --task explain --pattern didactic --var input="Random text" --var-file input2=./content/puzzle.txt --var-dir input3=./content --copy |
 | pp compose --role executor --task compose_action --pattern verify_before_execute --pattern plan_execute --pattern structured_output --var action="Make a shopping list" --var context="I am at the computer store" --var examples="|Item |Brand |Price | |Mouse |Genius |$45.75 |" |
 | pp compose --pre model/model_fast --pre memory/forget --role technical_instructor --task explain --pattern step_by_step --post limits/for_beginners --var input="Switch" |
