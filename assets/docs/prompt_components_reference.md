@@ -109,7 +109,11 @@ Patterns define reusable reasoning and execution behaviors that shape how a task
 
 Each pattern encapsulates a distinct cognitive approach and can be combined with others to create more sophisticated behaviors. By composing patterns, agents gain flexibility in how they reason, validate, and present results.
 
+- 🔗 [break_assumptions](./prompts/patterns/built-in_patterns.md#pattern-break_assumptions)
+
 - 🔗 [plan_execute](./prompts/patterns/built-in_patterns.md#pattern-plan_execute)
+
+- 🔗 [self_critique](./prompts/patterns/built-in_patterns.md#pattern-self_critique)
 
 - 🔗 [socratic](./prompts/patterns/built-in_patterns.md#pattern-socratic)
 
