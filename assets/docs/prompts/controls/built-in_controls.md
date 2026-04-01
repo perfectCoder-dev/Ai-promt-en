@@ -321,6 +321,12 @@ When explicitly included in a PromptPro `agent preset` or `compose` command, it 
 
 Different models offer varying levels of capability, speed, cost, and reasoning depth, allowing the system to be tailored for tasks ranging from lightweight interactions to complex analysis.
 
+> [!NOTE]
+In configurations where multiple models are supported and selected, this control acts as the **orchestration model**. It is responsible for coordinating the overall response, while the specific role and behavior of each model must be defined within a `task` or `content` component.
+
+> [!WARNING]
+> If multiple models are enabled without clearly defined roles in a `task` or `content` component, the system may produce inconsistent or undefined results. Always specify the responsibility of each model to ensure predictable and coherent behavior.
+
 Default Value: `Google Gemini 3.1 Pro`
 
 - **Company**: Google
