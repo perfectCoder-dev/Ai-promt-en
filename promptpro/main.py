@@ -44,7 +44,7 @@ from jinja2 import Template
 from rich.console import Console
 from rich.syntax import Syntax
 
-# Output wrapping is managed in render_output
+# Output wrapping is being managed in render_output
 # console = Console(soft_wrap=True)
 console = Console()
 
