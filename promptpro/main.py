@@ -44,6 +44,8 @@ from jinja2 import Template
 from rich.console import Console
 from rich.syntax import Syntax
 
+# Output wrapping is being managed in render_output
+# console = Console(soft_wrap=True)
 console = Console()
 
 # Builds an absolute path to a directory named prompts
@@ -476,7 +478,8 @@ def render_output(content, theme="dracula"):
         content,
         lexer,
         theme=theme,
-        line_numbers=False
+        line_numbers=False,
+        word_wrap=True
     )
 
     console.print(syntax)
