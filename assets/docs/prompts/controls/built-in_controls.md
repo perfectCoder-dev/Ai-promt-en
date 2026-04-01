@@ -349,7 +349,7 @@ pp show controls/pre/model/model_selection_active
 
 #### Description
 
-Select the Claude Sonnet 4.6 model for response generation. Optimized for balanced performance, it delivers strong reasoning, high-quality writing, and efficient execution across general-purpose tasks.
+Select the `Anthropic Claude Sonnet 4.6` model for response generation. Optimized for balanced performance, it delivers strong reasoning, high-quality writing, and efficient execution across general-purpose tasks.
 
 #### Sublevel In The Iceberg of Prompting Framework
 
@@ -371,7 +371,7 @@ pp show controls/pre/model/model_selection_anthropic_claude_sonnet_4.6
 
 #### Description
 
-Select the GPT-5.4 model for response generation. Designed for high performance, it provides advanced reasoning, coding capability, and reliable results across a wide range of complex tasks.
+Select the `OpenAI GPT-5.4 Pro` model for response generation. Designed for high performance, it provides advanced reasoning, coding capability, and reliable results across a wide range of complex tasks.
 
 #### Sublevel In The Iceberg of Prompting Framework
 
