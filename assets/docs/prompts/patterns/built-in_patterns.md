@@ -85,6 +85,8 @@ pp compose \
   --var action="Analyze the following statement: Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
 ```
 
+Notice that this command pairs the `tutor` `role` (instead of `executor`) with the `action` `task`, resulting in a response framed from a math tutor’s perspective. This combination is appropriate when it aligns with the intended outcome of the prompt.
+
 **Expanding the pattern group `testing_strict`**
 
 ```bash
@@ -95,7 +97,7 @@ pp compose \
   --var-file action=content/dev/testing/boundary_edge_cases
 ```
 
-This command has the pattern group `testing_strict` which expands the pattern `break_assumptions`.
+This command uses the `testing_strict` `pattern_group`, which expands to include the `break_assumptions` `pattern`.
 
 ## Pattern: `plan_execute`.
 
@@ -269,6 +271,8 @@ pp compose \
   --pattern self_critique \
   --var action="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country, and propose possible policy responses. Consider economic, social, and political factors." 
 ```
+
+Notice that this command pairs the `tutor` `role` (instead of `executor`) with the `action` `task`, resulting in a response framed from a math tutor’s perspective. This combination is appropriate when it aligns with the intended outcome of the prompt.
 
 ## Pattern: `socratic`
 
