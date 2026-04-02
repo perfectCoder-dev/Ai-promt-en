@@ -70,7 +70,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern break_assumptions --var action="<action>"
+pp compose --role <role> --task <task> --pattern break_assumptions --var <variable>="<content>"
 ```
 
 ### Examples
@@ -166,7 +166,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern plan_execute --var input="<input>"
+pp compose --role <role> --task <task> --pattern plan_execute --var <variable>="<content>"
 ```
 
 ### Example
@@ -257,7 +257,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern self_critique --var action="<action>"
+pp compose --role <role> --task <task> --pattern self_critique --var <variable>="<content>"
 ```
 
 ### Examples
@@ -331,7 +331,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern socratic --var input="<input>"
+pp compose --role <role> --task <task> --pattern socratic --var <variable>="<content>"
 ```
 
 ### Example
@@ -399,7 +399,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern step_by_step --var input="<input>"
+pp compose --role <role> --task <task> --pattern step_by_step --var <variable>="<content>"
 ```
 
 ### Example
@@ -472,7 +472,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern structured_output --var input="<input>"
+pp compose --role <role> --task <task> --pattern structured_output --var <variable>="<content>"
 ```
 
 ### Example
@@ -556,7 +556,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern verify_before_execute --var input="<input>"
+pp compose --role <role> --task <task> --pattern verify_before_execute --var <variable>="<content>"
 ```
 
 ### Example
