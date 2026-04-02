@@ -75,6 +75,8 @@ pp compose --role <role> --task <task> --pattern break_assumptions --var input="
 
 ### Examples
 
+**Using the `explain` task**
+
 ```bash
 pp compose \
   --role tutor \
@@ -83,15 +85,31 @@ pp compose \
   --var input="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
 ```
 
+**Using the `compose_action` task + action verb - example**
+
 ```bash
 pp compose \
-  --role dev/software_tester
-  --task action
-  --pattern testing_strict
+  --role tutor \
+  --task compose_action \
+  --pattern break_assumptions \
+  --var action="Analyze the following statement." \
+  --var context="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution." \
+  --var examples="No examples available."
+```
+
+This command uses an **action verb** such as **“analyze”** or **“examine”** in the `action` variable and indicates that no examples are provided in the `examples` variable, aligning with the statement injected via templating into the `context` variable within the `compose_action` `task`, which is the same statement used in the previous example.
+
+**Expanding the pattern group `testing_strict`**
+
+```bash
+pp compose \
+  --role dev/software_tester \
+  --task action \
+  --pattern testing_strict \
   --var-file action=content/dev/testing/boundary_edge_cases
 ```
 
-This command has the pattern group `testing_strict` which contains the pattern `break_assumptions`.
+This command has the pattern group `testing_strict` which expands the pattern `break_assumptions`.
 
 ## Pattern: `plan_execute`.
 
@@ -256,24 +274,29 @@ pp compose --role <role> --task <task> --pattern self_critique --var input="<inp
 
 ### Examples
 
-```bash
-pp compose \
-  --role tutor \
-  --task explain \
-  --pattern break_assumptions \
-  --var input="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
-```
-
-> [!NOTE]
-This example is also included in the `break_assumptions` pattern, as both patterns address similar reasoning steps.
+**Using the `explain` task**
 
 ```bash
 pp compose \
   --role tutor \
   --task explain \
   --pattern self_critique \
-  --var input="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country (El Salvador), and propose possible policy responses. Consider economic, social, and political factors." 
+  --var input="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country, and propose possible policy responses. Consider economic, social, and political factors." 
 ```
+
+**Using the `compose_action` task + action verb - example**
+
+```bash
+pp compose \
+  --role tutor \
+  --task compose_action \
+  --pattern self_critique \
+  --var action="Examine this idea:" \
+  --var context="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country, and propose possible policy responses. Consider economic, social, and political factors." \
+  --var examples="The inflation in El Salvador."
+```
+
+This command uses an **action verb** such as **“analyze”** or **“examine”** in the `action` variable, aligning with the statement injected via templating into the `context` variable within the `compose_action` `task`, which is the same statement used in the previous example.
 
 ## Pattern: `socratic`
 
