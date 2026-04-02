@@ -9,6 +9,12 @@
 | pp --theme dracula build math_tutor --var input="Explain recursion" |
 | pp --theme default compose --role tutor --task explain --pattern step_by_step --var input="Boolean algebra simplification" |
 
+## Listing Prompt Component Categories With `show`
+
+| Command                             |
+|-------------------------------------|
+| pp show prompts                     |
+
 ## Listing Prompt Components
 
 | Command                             |
@@ -31,12 +37,22 @@
 | pp show patterns/step_by_step                      |
 | pp show patterns/plan_execute                      |
 | pp show tasks/compose_action                       |
-| pp show content/dev/testing/boundary_edge_cases |
+| pp show content/dev/testing/boundary_edge_cases    |
 | pp show controls/pre/mode/agent                    |
 | pp show controls/pre/language/input_default        |
 | pp show controls/post/truth/say_dont_know          |
 | pp show controls/post/limits/for_beginners         |
 | pp show controls/post/limits/explain_like_12       |
+
+## Showing Single Controls, Patterns, Roles And Tasks Prompt Components With `compose`
+
+| Command                                  |
+|------------------------------------------|
+| pp compose --pre language/input_default  |
+| pp compose --post truth/say_dont_know    |
+| pp compose --pattern didactic_structured |
+| pp compose --role executor               |
+| pp compose --task action                 |
 
 ## Generating Prompts With `build`
 
