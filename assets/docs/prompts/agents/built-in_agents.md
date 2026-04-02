@@ -158,7 +158,7 @@ pp show agents/dev/software_testing_agent
 ### Usage
 
 ```bash
-pp build dev/software_testing_agent --var action="<action>"
+pp build dev/software_testing_agent --var <key>=<value>"
 ```
 
 ### Example
@@ -283,7 +283,7 @@ pp show agents/action_agent
 ### Usage
 
 ```bash
-pp build action_agent --var action="<action>"
+pp build action_agent --var <key>=<value>"
 ```
 
 ### Example
@@ -312,7 +312,7 @@ pp show agents/action_agent_controlled
 ### Usage
 
 ```bash
-pp build action_agent_controlled --var action="<action>"
+pp build action_agent_controlled --var <key>=<value>"
 ```
 
 ### Example
@@ -400,7 +400,7 @@ pp show agents/cs_instructor
 ### Usage
 
 ```bash
-pp build cs_instructor --var input="<input>"
+pp build cs_instructor --var <key>=<value>"
 ```
 
 ### Example
@@ -484,7 +484,7 @@ pp show agents/math_tutor
 ### Usage
 
 ```bash
-pp build math_tutor --var input="<input>"
+pp build math_tutor --var <key>=<value>"
 ```
 
 ### Example
