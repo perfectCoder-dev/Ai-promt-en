@@ -70,7 +70,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern break_assumptions --var <variable>="<content>"
+pp compose --role <role> --task <task> --pattern break_assumptions --var <key>=<value>"
 ```
 
 ### Examples
@@ -166,7 +166,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern plan_execute --var <variable>="<content>"
+pp compose --role <role> --task <task> --pattern plan_execute --var <key>=<value>"
 ```
 
 ### Example
@@ -257,7 +257,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern self_critique --var <variable>="<content>"
+pp compose --role <role> --task <task> --pattern self_critique --var <key>=<value>"
 ```
 
 ### Examples
@@ -331,7 +331,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern socratic --var <variable>="<content>"
+pp compose --role <role> --task <task> --pattern socratic --var <key>=<value>"
 ```
 
 ### Example
@@ -399,7 +399,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern step_by_step --var <variable>="<content>"
+pp compose --role <role> --task <task> --pattern step_by_step --var <key>=<value>"
 ```
 
 ### Example
@@ -472,7 +472,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern structured_output --var <variable>="<content>"
+pp compose --role <role> --task <task> --pattern structured_output --var <key>=<value>"
 ```
 
 ### Example
@@ -556,7 +556,7 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern verify_before_execute --var <variable>="<content>"
+pp compose --role <role> --task <task> --pattern verify_before_execute --var <key>=<value>"
 ```
 
 ### Example
