@@ -1,7 +1,7 @@
 # Built-in Controls
 
 > [!NOTE]
-> Throughout this document, selected **controls** are mapped to concepts and sublevels defined in [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
+> Throughout this document, selected **controls** are mapped to concepts and sublevels defined in 🔗 [The Iceberg Of Prompting](../../the_iceberg_of_prompting.md) framework.
 
 ## Pre Controls
 
@@ -43,7 +43,7 @@ This is a clear example of a behavior-altering prompt (meta-prompt / jailbreak-s
 
 In this specific prompt, the last paragraph tends to take precedence—but not in a clean or absolute way.
 
-[Here](../../controls_precedence.md) is break down of what’s happening.
+🔗 [Here](../../controls_precedence.md) is break down of what’s happening.
 
 The following is an example of how your protective block `configuration_guard` would neutralize the behavior-altering prompt.
 
