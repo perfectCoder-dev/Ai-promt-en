@@ -70,34 +70,20 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern break_assumptions --var input="<input>"
+pp compose --role <role> --task <task> --pattern break_assumptions --var action="<action>"
 ```
 
 ### Examples
 
-**Using the `explain` task**
+**Using the `action` task + an action verb**
 
 ```bash
 pp compose \
   --role tutor \
-  --task explain \
+  --task action \
   --pattern break_assumptions \
-  --var input="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
+  --var action="Analyze the following statement: Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution."
 ```
-
-**Using the `compose_action` task + action verb - example**
-
-```bash
-pp compose \
-  --role tutor \
-  --task compose_action \
-  --pattern break_assumptions \
-  --var action="Analyze the following statement." \
-  --var context="Replacing all public buses in a city with self-driving electric shuttles will reduce traffic congestion and pollution." \
-  --var examples="No examples available."
-```
-
-This command uses an **action verb** such as **“analyze”** or **“examine”** in the `action` variable and indicates that no examples are provided in the `examples` variable, aligning with the statement injected via templating into the `context` variable within the `compose_action` `task`, which is the same statement used in the previous example.
 
 **Expanding the pattern group `testing_strict`**
 
@@ -269,34 +255,20 @@ patterns:
 #### With Compose
 
 ```bash
-pp compose --role <role> --task <task> --pattern self_critique --var input="<input>"
+pp compose --role <role> --task <task> --pattern self_critique --var action="<action>"
 ```
 
 ### Examples
 
-**Using the `explain` task**
+**Using the `action` task + an action verb**
 
 ```bash
 pp compose \
   --role tutor \
-  --task explain \
+  --task action \
   --pattern self_critique \
-  --var input="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country, and propose possible policy responses. Consider economic, social, and political factors." 
+  --var action="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country, and propose possible policy responses. Consider economic, social, and political factors." 
 ```
-
-**Using the `compose_action` task + action verb - example**
-
-```bash
-pp compose \
-  --role tutor \
-  --task compose_action \
-  --pattern self_critique \
-  --var action="Examine this idea:" \
-  --var context="Evaluate the potential causes and consequences of a sudden increase in inflation in a developing country, and propose possible policy responses. Consider economic, social, and political factors." \
-  --var examples="The inflation in El Salvador."
-```
-
-This command uses an **action verb** such as **“analyze”** or **“examine”** in the `action` variable, aligning with the statement injected via templating into the `context` variable within the `compose_action` `task`, which is the same statement used in the previous example.
 
 ## Pattern: `socratic`
 
