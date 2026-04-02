@@ -325,39 +325,69 @@ def compose_from_agent(agent_name, cli_pre=None, cli_post=None):
     return "\n\n".join(parts)
 
 
-def compose_manual(role, task, patterns):
+def compose_manual(role, task, patterns, cli_pre=None, cli_post=None):
     """
-    Manually compose a prompt string from the given role, task, and patterns.
+    Build a complete manual-style prompt by assembling modular text components.
 
-    Unlike `compose_from_agent`, this function does not rely on an agent
-    configuration file. Instead, it directly receives the role name,
-    task name, and a list of pattern or pattern-group names. Pattern
-    groups are recursively resolved before loading their corresponding
-    Markdown files.
+    This function composes a final prompt string by combining optional control
+    sections (pre/post), a role definition, a task description, and one or more
+    reusable prompt patterns. Each component is resolved and loaded from its
+    corresponding source, then concatenated in a structured order.
 
-    Any provided section (role or task) is included only if it is not None.
-    All loaded sections are concatenated into a single string separated
-    by blank lines.
+    Order of composition:
+        1. Pre-controls (from CLI or defaults)
+        2. Role definition (if provided)
+        3. Task description (if provided)
+        4. Resolved pattern blocks
+        5. Post-controls (from CLI or defaults)
 
     Args:
-        role (str | None): The role filename (without extension) located
-            under the "roles" directory.
-        task (str | None): The task filename (without extension) located
-            under the "tasks" directory.
-        patterns (list[str] | None): A list of pattern or pattern-group
-            names to resolve and include.
+        role (str | None):
+            Identifier for the role text to include. If provided, the corresponding
+            role content is loaded via `load_text("roles", role)`.
+
+        task (str | None):
+            Identifier for the task text to include. If provided, the corresponding
+            task content is loaded via `load_text("tasks", task)`.
+
+        patterns (list[str] | None):
+            A list of pattern identifiers. These are first resolved via
+            `resolve_patterns()` (to handle dependencies or expansions), then each
+            pattern is loaded via `load_text("patterns", pattern)`.
+
+        cli_pre (list[str] | None, optional):
+            Optional list of pre-control identifiers provided via CLI. These are
+            processed by `load_controls("pre", cli_pre)` and prepended to the output.
+
+        cli_post (list[str] | None, optional):
+            Optional list of post-control identifiers provided via CLI. These are
+            processed by `load_controls("post", cli_post)` and appended to the output.
 
     Returns:
-        str: A composed prompt string containing the selected role,
-        task, and resolved pattern contents.
+        str:
+            A single string containing all assembled components, separated by
+            double newlines.
 
-    Raises:
-        FileNotFoundError: If any referenced Markdown file does not exist.
-        yaml.YAMLError: If a referenced pattern group exists but cannot
-            be parsed.
+    Notes:
+        - Missing components (e.g., role or task) are safely skipped.
+        - The function assumes that `load_text`, `load_controls`, and
+          `resolve_patterns` handle validation and error cases.
+        - Designed for CLI-driven prompt construction without relying on
+          external agent configuration (e.g., YAML).
     """
     parts = []
 
+    # --------------------------------------------------------------------------
+    # Controls (CLI only, since there's no agent YAML here)
+    # --------------------------------------------------------------------------
+    pre_parts = load_controls("pre", cli_pre)
+    post_parts = load_controls("post", cli_post)
+
+    parts.extend(pre_parts)
+
+    # --------------------------------------------------------------------------
+    # Core prompt
+    # --------------------------------------------------------------------------
     if role:
         parts.append(load_text("roles", role))
 
@@ -368,6 +398,8 @@ def compose_manual(role, task, patterns):
 
     for pattern in resolved:
         parts.append(load_text("patterns", pattern))
+
+    parts.extend(post_parts)
 
     return "\n\n".join(parts)
 
@@ -578,43 +610,65 @@ def copy_to_clipboard(text):
 
 def main():
     """
-    Entry point for the PromptPro command-line interface.
+    Entry point for the PromptPro CLI (`pp`).
 
-    This function parses CLI arguments and dispatches commands to build,
-    compose, inspect, and render prompts.
+    This function defines and parses command-line arguments, dispatches
+    subcommands, composes prompts (either from predefined agents or
+    manually), processes variable inputs from multiple sources, renders
+    the final prompt, and outputs it to the terminal or clipboard.
 
     Supported commands:
-    - list: Display available prompt components by category.
-    - show: Render a specific component with syntax highlighting.
-    - build: Generate a prompt using a predefined agent preset.
-    - compose: Generate a prompt by combining role, task, and patterns.
+        list <category>
+            List available items in a given category.
 
-   Variable injection:
-    - --var: Inline key=value pairs.
-    - --var-file: Load variable content from a file.
-    - --var-dir: Load and concatenate content from all files in a directory (recursively).
-    Only `.md` and `.txt` files are included; hidden files are ignored.
+        show <path>
+            Display the contents of a resource with syntax highlighting.
 
-    Path resolution:
-    - --var-file:
-    - Attempts paths relative to the current working directory first,
-        with `.md`/`.txt` extension fallback when needed.
-    - Falls back to BASE_DIR-relative paths.
-    - If not found, performs a recursive filename-based search inside
-      BASE_DIR/content.
+        build <agent>
+            Build a prompt from an agent definition, optionally injecting
+            pre/post controls and variables.
 
-    - --var-dir:
-    - Attempts paths relative to the current working directory first.
-    - Falls back to BASE_DIR-relative paths.
-    - Does not perform recursive lookup beyond the resolved directory.
+        compose
+            Manually compose a prompt by specifying role, task, patterns,
+            and optional pre/post controls.
 
-    Error handling:
-    - Provides user-friendly messages when files or directories are not found.
-    - Suggests nearby valid entries based on the closest existing path.
+    Global options:
+        --theme str
+            Syntax highlighting theme for output (default: "dracula").
 
-    Output:
-    - Renders the final prompt with optional syntax highlighting.
-    - Optionally copies the result to the clipboard using --copy.
+    Variable injection:
+        --var key=value
+            Inject literal variables.
+
+        --var-file key=filepath
+            Load variable values from files. Supports:
+                - Direct paths
+                - Paths relative to BASE_DIR
+                - Recursive search within BASE_DIR/content
+                - Automatic extension resolution (.md, .txt)
+
+        --var-dir key=dirpath
+            Load and concatenate all `.md` and `.txt` files from a directory
+            (recursively). Hidden files are ignored.
+
+    Behavior:
+        - Commands `build` and `compose` generate a prompt string.
+        - Variables are collected and applied via `render_prompt`.
+        - Output is either printed with syntax highlighting or copied
+          to the clipboard if `--copy` is specified.
+        - File and directory resolution includes fallback strategies
+          and user-friendly suggestions on failure.
+
+    Exits:
+        Terminates the program with a non-zero exit code if file or directory
+        resolution fails during variable loading.
+
+    Notes:
+        - Relies on external helper functions such as:
+            `compose_from_agent`, `compose_manual`,
+            `render_prompt`, `render_output`,
+            `copy_to_clipboard`, `list_category`, `show_path`.
+        - Assumes `BASE_DIR` is defined and points to the project root.
     """
     parser = argparse.ArgumentParser(prog="pp")
 
@@ -689,7 +743,13 @@ def main():
     # Compose
     # --------------------------------------------------------------------------
     elif args.command == "compose":
-        prompt = compose_manual(args.role, args.task, args.pattern)
+        prompt = compose_manual(
+            args.role,
+            args.task,
+            args.pattern,
+            cli_pre=getattr(args, "pre", None),
+            cli_post=getattr(args, "post", None),
+        )
 
     else:
         parser.print_help()
