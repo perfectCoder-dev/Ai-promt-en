@@ -18,13 +18,35 @@ These are implemented as **built-in behavior controls**, providing **flexible, p
 
 Use post-prompt controls when you want to refine presentation and communication style.
 
----
+## 🟥 Control Precedence
+
+Understanding how control layers interact is essential when combining multiple controls.
+
+While prompt order can influence behavior, **precedence in PromptPro is determined by control layers—not position alone**.
+
+PromptPro follows a layered structure:
+
+```txt
+[PRE CONTROLS]        → Configuration (how the AI thinks)
+[ROLE / TASK / INPUT] → Intent (what the AI does)
+[POST CONTROLS]       → Output shaping (how the AI speaks)
+[ENFORCE CONTROLS]    → Final validation (what is allowed)
+```
+
+Each layer has a distinct role:
+
+* **Pre (`--pre`)** establishes configuration and constraints
+* **Input (role/task/user)** introduces intent and potential conflicts
+* **Post (`--post`)** refines how the response is expressed
+* **Enforce (`--enforce`)** applies final validation and override rules
 
 > [!TIP]
->**`pre` controls shape how the AI thinks.**  
->**`post` controls shape how the AI speaks.**
+> Effective prompting in PromptPro relies on a hybrid approach:
+> **use `pre` to define behavior and `enforce` to guarantee it.**
 
-By combining both layers, PromptPro enables a **structured and composable approach to prompting**, making it easier to build clear, reusable, and reliable AI interactions.
+---
+
+By combining these layers, PromptPro enables a **structured and composable approach to prompting**, making it easier to build clear, reusable, and reliable AI interactions.
 
 ## Usage
 
@@ -132,7 +154,9 @@ All Built-in Prompt Controls are located in: `/path/to/promptpro/prompts/control
 
 Many built-in prompt controls align with corresponding elements in [🔗 The Iceberg Of Prompting](the_iceberg_of_prompting.md) framework.
 
-For a complete list of **built-in prompt controls**, check out the [🔗 Prompt Components Reference](prompt_components_reference.md).
+🔗 [Here](./prompts/controls/built-in_controls.md#control-preconfigconfigurations) is an example illustrating **control precedence** using `--pre` and `--enforce` controls.
+
+You can find a complete list of **built-in prompt controls** in the [🔗 Prompt Components Reference](prompt_components_reference.md#-built-in-controls).
 
 ## ⚠️ Caveats
 
