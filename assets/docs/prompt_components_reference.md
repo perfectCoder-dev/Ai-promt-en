@@ -229,7 +229,7 @@ Built-in controls define behavior across the full execution lifecycle—before, 
 
 - 🔗 [tone_style](./prompts/controls/built-in_controls.md#control-tonetone_style)
 
-#### `pre/translation`
+#### `post/translation`
 
 - 🔗 [translate_en](./prompts/controls/built-in_controls.md#control-translationtranslate_en)
 
@@ -237,7 +237,7 @@ Built-in controls define behavior across the full execution lifecycle—before, 
 
 - 🔗 [translate_sp](./prompts/controls/built-in_controls.md#control-translationtranslate_sp)
 
-#### `pre/truth`
+#### `post/truth`
 
 - 🔗 [say_dont_know](./prompts/controls/built-in_controls.md#control-truthsay_dont_know)
 

@@ -254,8 +254,7 @@ def resolve_patterns(pattern_list, seen=None):
 # ------------------------------------------------------------------------------
 # Composition
 # ------------------------------------------------------------------------------
-
-def compose_from_agent(agent_name, cli_pre=None, cli_post=None):
+def compose_from_agent(agent_name, cli_pre=None, cli_post=None, cli_enforce=None):
     """
     Compose a complete prompt from an agent definition and optional CLI controls.
 
@@ -296,16 +295,19 @@ def compose_from_agent(agent_name, cli_pre=None, cli_post=None):
 
     agent_pre = controls.get("pre", [])
     agent_post = controls.get("post", [])
+    agent_enforce = controls.get("enforce", [])
 
     # --------------------------------------------------------------------------
     # Merge with CLI controls (CLI overrides / extends)
     # --------------------------------------------------------------------------
     final_pre = (agent_pre or []) + (cli_pre or [])
     final_post = (agent_post or []) + (cli_post or [])
+    final_enforce = (agent_enforce or []) + (cli_enforce or [])
 
     # Load control content
     pre_parts = load_controls("pre", final_pre)
     post_parts = load_controls("post", final_post)
+    enforce_parts = load_controls("enforce", final_enforce)
 
     # --------------------------------------------------------------------------
     # Core prompt
@@ -321,11 +323,12 @@ def compose_from_agent(agent_name, cli_pre=None, cli_post=None):
         parts.append(load_text("patterns", pattern))
 
     parts.extend(post_parts)
+    parts.extend(enforce_parts)
 
     return "\n\n".join(parts)
 
 
-def compose_manual(role, task, patterns, cli_pre=None, cli_post=None):
+def compose_manual(role, task, patterns, cli_pre=None, cli_post=None, cli_enforce=None):
     """
     Build a complete manual-style prompt by assembling modular text components.
 
@@ -382,6 +385,7 @@ def compose_manual(role, task, patterns, cli_pre=None, cli_post=None):
     # --------------------------------------------------------------------------
     pre_parts = load_controls("pre", cli_pre)
     post_parts = load_controls("post", cli_post)
+    enforce_parts = load_controls("enforce", cli_enforce)
 
     parts.extend(pre_parts)
 
@@ -400,6 +404,7 @@ def compose_manual(role, task, patterns, cli_pre=None, cli_post=None):
         parts.append(load_text("patterns", pattern))
 
     parts.extend(post_parts)
+    parts.extend(enforce_parts)
 
     return "\n\n".join(parts)
 
@@ -693,6 +698,7 @@ def main():
     build_parser.add_argument("agent")
     build_parser.add_argument("--pre", action="append", help="Pre-prompt controls")
     build_parser.add_argument("--post", action="append", help="Post-prompt controls")
+    build_parser.add_argument("--enforce", action="append", help="Enforcement controls")
     build_parser.add_argument("--var", action="append", help="Literal variables (key=value)")
     build_parser.add_argument("--var-file", action="append", help="Variables from file (key=filepath)")
     build_parser.add_argument("--var-dir", action="append", help="Variables from directory (key=dirpath)")
@@ -705,6 +711,7 @@ def main():
     compose_parser.add_argument("--task")
     compose_parser.add_argument("--pattern", action="append")
     compose_parser.add_argument("--post", action="append", help="Post-prompt controls")
+    compose_parser.add_argument("--enforce", action="append", help="Enforcement controls")
     compose_parser.add_argument("--var", action="append", help="Literal variables (key=value)")
     compose_parser.add_argument("--var-file", action="append", help="Variables from file (key=filepath)")
     compose_parser.add_argument("--var-dir", action="append", help="Variables from directory (key=dirpath)")
@@ -737,6 +744,7 @@ def main():
             args.agent,
             cli_pre=getattr(args, "pre", None),
             cli_post=getattr(args, "post", None),
+            cli_enforce=getattr(args, "enforce", None),
         )
 
     # --------------------------------------------------------------------------
@@ -749,6 +757,7 @@ def main():
             args.pattern,
             cli_pre=getattr(args, "pre", None),
             cli_post=getattr(args, "post", None),
+            cli_enforce=getattr(args, "enforce", None),
         )
 
     else:
