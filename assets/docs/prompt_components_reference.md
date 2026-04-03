@@ -161,93 +161,93 @@ Built-in controls define behavior across the full execution lifecycle—before, 
 
 #### `pre/config`
 
-- 🔗 [configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
+- 🔗 [configurations](./prompts/controls/built-in_controls.md#control-preconfigconfigurations)
 
 #### `enforce/config`
 
-- 🔗 [configurations_guard](./prompts/controls/built-in_controls.md#control-configconfigurations_guard)
+- 🔗 [configurations_guard](./prompts/controls/built-in_controls.md#control-enforceconfigconfigurations_guard)
 
 #### `enforce/config`
 
-- 🔗 [configurations_guard_hardened](./prompts/controls/built-in_controls.md#control-configconfigurations_guard_hardened)
+- 🔗 [configurations_guard_hardened](./prompts/controls/built-in_controls.md#control-enforceconfigconfigurations_guard_hardened)
 
 #### `pre/language`
 
-- 🔗 [input_default](./prompts/controls/built-in_controls.md#control-languageinput_default)
+- 🔗 [input_default](./prompts/controls/built-in_controls.md#control-prelanguageinput_default)
 
 #### `pre/mcp`
 
-- 🔗 [mcp_local](./prompts/controls/built-in_controls.md#control-mcpmcp_local)
+- 🔗 [mcp_local](./prompts/controls/built-in_controls.md#control-premcpmcp_local)
 
-- 🔗 [mcp_remote](./prompts/controls/built-in_controls.md#control-mcpmcp_remote)
+- 🔗 [mcp_remote](./prompts/controls/built-in_controls.md#control-premcpmcp_remote)
 
 #### `pre/memory`
 
-- 🔗 [forget](./prompts/controls/built-in_controls.md#control-memoryforget)
+- 🔗 [forget](./prompts/controls/built-in_controls.md#control-prememoryforget)
 
 #### `pre/mode`
 
-- 🔗 [agent](./prompts/controls/built-in_controls.md#control-modeagent)
+- 🔗 [agent](./prompts/controls/built-in_controls.md#control-premodeagent)
 
-- 🔗 [ask](./prompts/controls/built-in_controls.md#control-modeask)
+- 🔗 [ask](./prompts/controls/built-in_controls.md#control-premodeask)
 
-- 🔗 [bypass_permissions](./prompts/controls/built-in_controls.md#control-modebypass_permissions)
+- 🔗 [bypass_permissions](./prompts/controls/built-in_controls.md#control-premodebypass_permissions)
 
-- 🔗 [plan](./prompts/controls/built-in_controls.md#control-modeplan)
+- 🔗 [plan](./prompts/controls/built-in_controls.md#control-premodeplan)
 
 #### `pre/model`
 
-- 🔗 [model_fast](./prompts/controls/built-in_controls.md#control-modelmodel_fast)
+- 🔗 [model_fast](./prompts/controls/built-in_controls.md#control-premodelmodel_fast)
 
-- 🔗 [model_selection_active](./prompts/controls/built-in_controls.md#control-modelmodel_selection_active)
+- 🔗 [model_selection_active](./prompts/controls/built-in_controls.md#control-premodelmodel_selection_active)
 
-- 🔗 [model_selection_anthropic_claude_sonnet_4.6](./prompts/controls/built-in_controls.md#control-modelmodel_selection_anthropic_claude_sonnet_46)
+- 🔗 [model_selection_anthropic_claude_sonnet_4.6](./prompts/controls/built-in_controls.md#control-premodelmodel_selection_anthropic_claude_sonnet_46)
 
-- 🔗 [model_selection_openai_gpt_5.4_pro](./prompts/controls/built-in_controls.md#control-modelmodel_selection_openai_gpt_54_pro)
+- 🔗 [model_selection_openai_gpt_5.4_pro](./prompts/controls/built-in_controls.md#control-premodelmodel_selection_openai_gpt_54_pro)
 
-- 🔗 [model_temperature](./prompts/controls/built-in_controls.md#control-modelmodel_temperature)
+- 🔗 [model_temperature](./prompts/controls/built-in_controls.md#control-premodelmodel_temperature)
 
-- 🔗 [model_thinking](./prompts/controls/built-in_controls.md#control-modelmodel_thinking)
+- 🔗 [model_thinking](./prompts/controls/built-in_controls.md#control-premodelmodel_thinking)
 
 #### `pre/security`
 
-- 🔗 [no_env_access](./prompts/controls/built-in_controls.md#control-securityno_env_access)
+- 🔗 [no_env_access](./prompts/controls/built-in_controls.md#control-presecurityno_env_access)
 
 #### `pre/system`
 
-- 🔗 [system_prompt](./prompts/controls/built-in_controls.md#control-systemsystem_prompt)
+- 🔗 [system_prompt](./prompts/controls/built-in_controls.md#control-presystemsystem_prompt)
 
 #### `pre/tools`
 
-- 🔗 [tools_call](./prompts/controls/built-in_controls.md#control-toolstools_call)
+- 🔗 [tools_call](./prompts/controls/built-in_controls.md#control-pretoolstools_call)
 
-- 🔗 [tools_define](./prompts/controls/built-in_controls.md#control-toolstools_define)
+- 🔗 [tools_define](./prompts/controls/built-in_controls.md#control-pretoolstools_define)
 
-- 🔗 [tools_off](./prompts/controls/built-in_controls.md#control-toolstools_off)
+- 🔗 [tools_off](./prompts/controls/built-in_controls.md#control-pretoolstools_off)
 
-- 🔗 [tools_on](./prompts/controls/built-in_controls.md#control-toolstools_on)
+- 🔗 [tools_on](./prompts/controls/built-in_controls.md#control-pretoolstools_on)
 
 #### `post/limits`
 
-- 🔗 [explain_like_12](./prompts/controls/built-in_controls.md#control-limitsexplain_like_12)
+- 🔗 [explain_like_12](./prompts/controls/built-in_controls.md#control-postlimitsexplain_like_12)
 
-- 🔗 [for_beginners](./prompts/controls/built-in_controls.md#control-limitsfor_beginners)
+- 🔗 [for_beginners](./prompts/controls/built-in_controls.md#control-postlimitsfor_beginners)
 
 #### `post/tone`
 
-- 🔗 [tone_style](./prompts/controls/built-in_controls.md#control-tonetone_style)
+- 🔗 [tone_style](./prompts/controls/built-in_controls.md#control-posttonetone_style)
 
 #### `post/translation`
 
-- 🔗 [translate_en](./prompts/controls/built-in_controls.md#control-translationtranslate_en)
+- 🔗 [translate_en](./prompts/controls/built-in_controls.md#control-posttranslationtranslate_en)
 
-- 🔗 [translate_output](./prompts/controls/built-in_controls.md#control-translationtranslate_output)
+- 🔗 [translate_output](./prompts/controls/built-in_controls.md#control-posttranslationtranslate_output)
 
-- 🔗 [translate_sp](./prompts/controls/built-in_controls.md#control-translationtranslate_sp)
+- 🔗 [translate_sp](./prompts/controls/built-in_controls.md#control-posttranslationtranslate_sp)
 
 #### `post/truth`
 
-- 🔗 [say_dont_know](./prompts/controls/built-in_controls.md#control-truthsay_dont_know)
+- 🔗 [say_dont_know](./prompts/controls/built-in_controls.md#control-posttruthsay_dont_know)
 
 ---
 
