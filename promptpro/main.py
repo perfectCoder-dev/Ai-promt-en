@@ -256,33 +256,44 @@ def resolve_patterns(pattern_list, seen=None):
 # ------------------------------------------------------------------------------
 def compose_from_agent(agent_name, cli_pre=None, cli_post=None, cli_enforce=None):
     """
-    Compose a complete prompt from an agent definition and optional CLI controls.
+    Compose a complete prompt string from an agent definition and optional CLI controls.
 
-    This function builds a prompt by:
-    1. Loading the agent configuration.
-    2. Resolving and merging control definitions from the agent YAML and CLI input.
-       - CLI controls are appended to agent-defined controls.
-    3. Loading control contents (`pre` and `post`).
-    4. Assembling the final prompt in the following order:
-       - Pre-controls
-       - Role
-       - Task
-       - Resolved patterns
-       - Post-controls
+    This function loads an agent configuration (typically from a YAML file) and builds
+    a structured prompt by combining predefined control blocks (pre, post, enforce),
+    core role/task content, and optional pattern-based expansions. CLI-provided controls
+    are appended to the agent-defined controls, allowing runtime extension or override.
 
     Args:
-        agent_name (str): Name of the agent to load.
-        cli_pre (Iterable[str] | None): Pre controls provided via CLI.
-        cli_post (Iterable[str] | None): Additional post controls provided via CLI.
+        agent_name (str): Name or identifier of the agent to load.
+        cli_pre (list[str] | None): Optional list of "pre" control names provided via CLI.
+        cli_post (list[str] | None): Optional list of "post" control names provided via CLI.
+        cli_enforce (list[str] | None): Optional list of "enforce" control names provided via CLI.
 
     Returns:
-        str: The fully composed prompt as a single string, with sections separated
-        by double newlines.
+        str: The fully composed prompt as a single string, with sections separated by
+        double newlines.
+
+    Behavior:
+        - Loads agent configuration using `load_agent`.
+        - Extracts control groups (`pre`, `post`, `enforce`) from the agent.
+        - Merges agent controls with CLI controls (CLI values are appended).
+        - Resolves and loads control content using `load_controls`.
+        - Loads core sections:
+            - role (from "roles")
+            - task (from "tasks")
+        - Resolves optional patterns via `resolve_patterns` and loads their content.
+        - Assembles all parts in the following order:
+            pre → role → task → patterns → post → enforce.
+
+    Notes:
+        - Missing control lists default to empty lists.
+        - The order of concatenation is preserved and significant.
+        - External helper functions (`load_agent`, `load_controls`, `load_text`,
+          `resolve_patterns`) are expected to handle validation and I/O.
 
     Raises:
-        FileNotFoundError: If any referenced agent, control, or text component
-        cannot be found.
         KeyError: If required agent fields (e.g., "role", "task") are missing.
+        Exception: Propagates any errors raised by helper functions.
     """
     agent = load_agent(agent_name)
 
@@ -330,53 +341,43 @@ def compose_from_agent(agent_name, cli_pre=None, cli_post=None, cli_enforce=None
 
 def compose_manual(role, task, patterns, cli_pre=None, cli_post=None, cli_enforce=None):
     """
-    Build a complete manual-style prompt by assembling modular text components.
+    Compose a complete prompt string manually from role, task, patterns, and CLI controls.
 
-    This function composes a final prompt string by combining optional control
-    sections (pre/post), a role definition, a task description, and one or more
-    reusable prompt patterns. Each component is resolved and loaded from its
-    corresponding source, then concatenated in a structured order.
-
-    Order of composition:
-        1. Pre-controls (from CLI or defaults)
-        2. Role definition (if provided)
-        3. Task description (if provided)
-        4. Resolved pattern blocks
-        5. Post-controls (from CLI or defaults)
+    Unlike agent-based composition, this function does not rely on an external agent
+    configuration. Instead, all inputs are provided directly, and only CLI-specified
+    controls are applied.
 
     Args:
-        role (str | None):
-            Identifier for the role text to include. If provided, the corresponding
-            role content is loaded via `load_text("roles", role)`.
-
-        task (str | None):
-            Identifier for the task text to include. If provided, the corresponding
-            task content is loaded via `load_text("tasks", task)`.
-
-        patterns (list[str] | None):
-            A list of pattern identifiers. These are first resolved via
-            `resolve_patterns()` (to handle dependencies or expansions), then each
-            pattern is loaded via `load_text("patterns", pattern)`.
-
-        cli_pre (list[str] | None, optional):
-            Optional list of pre-control identifiers provided via CLI. These are
-            processed by `load_controls("pre", cli_pre)` and prepended to the output.
-
-        cli_post (list[str] | None, optional):
-            Optional list of post-control identifiers provided via CLI. These are
-            processed by `load_controls("post", cli_post)` and appended to the output.
+        role (str | None): Identifier for the role content to load. If provided,
+            the corresponding text is retrieved via `load_text("roles", role)`.
+        task (str | None): Identifier for the task content to load. If provided,
+            the corresponding text is retrieved via `load_text("tasks", task)`.
+        patterns (list[str] | None): List of pattern identifiers to resolve and
+            include in the prompt.
+        cli_pre (list[str] | None): Optional list of "pre" control names provided via CLI.
+        cli_post (list[str] | None): Optional list of "post" control names provided via CLI.
+        cli_enforce (list[str] | None): Optional list of "enforce" control names provided via CLI.
 
     Returns:
-        str:
-            A single string containing all assembled components, separated by
-            double newlines.
+        str: The fully composed prompt as a single string, with sections separated
+        by double newlines.
+
+    Behavior:
+        - Loads control content using `load_controls` for each control group.
+        - Adds "pre" controls at the beginning of the prompt.
+        - Conditionally includes role and task sections if provided.
+        - Resolves patterns using `resolve_patterns` and loads their content.
+        - Appends "post" and "enforce" controls at the end of the prompt.
+        - Preserves the order: pre → role → task → patterns → post → enforce.
 
     Notes:
-        - Missing components (e.g., role or task) are safely skipped.
-        - The function assumes that `load_text`, `load_controls`, and
-          `resolve_patterns` handle validation and error cases.
-        - Designed for CLI-driven prompt construction without relying on
-          external agent configuration (e.g., YAML).
+        - Any of the inputs may be omitted (None), and will be safely ignored.
+        - The order of sections is significant and affects the final prompt structure.
+        - External helper functions (`load_controls`, `load_text`, `resolve_patterns`)
+          are responsible for content retrieval and validation.
+
+    Raises:
+        Exception: Propagates any errors raised by helper functions.
     """
     parts = []
 
@@ -617,63 +618,71 @@ def main():
     """
     Entry point for the PromptPro CLI (`pp`).
 
-    This function defines and parses command-line arguments, dispatches
-    subcommands, composes prompts (either from predefined agents or
-    manually), processes variable inputs from multiple sources, renders
-    the final prompt, and outputs it to the terminal or clipboard.
+    This function defines and parses command-line arguments, dispatches commands,
+    composes prompts (either from an agent or manually), processes variable inputs,
+    renders the final prompt, and outputs or copies the result.
 
-    Supported commands:
-        list <category>
+    Commands:
+        list:
             List available items in a given category.
+            Usage: pp list <category>
 
-        show <path>
+        show:
             Display the contents of a resource with syntax highlighting.
+            Usage: pp show <path> [--theme THEME]
 
-        build <agent>
-            Build a prompt from an agent definition, optionally injecting
-            pre/post controls and variables.
+        build:
+            Compose a prompt from an agent definition.
+            Usage: pp build <agent> [--pre ...] [--post ...] [--enforce ...]
+                                 [--var key=value] [--var-file key=path]
+                                 [--var-dir key=dir] [--copy]
 
-        compose
-            Manually compose a prompt by specifying role, task, patterns,
-            and optional pre/post controls.
+        compose:
+            Manually compose a prompt from role, task, and patterns.
+            Usage: pp compose [--role ROLE] [--task TASK] [--pattern ...]
+                               [--pre ...] [--post ...] [--enforce ...]
+                               [--var key=value] [--var-file key=path]
+                               [--var-dir key=dir] [--copy]
 
-    Global options:
-        --theme str
+    Global Options:
+        --theme (str):
             Syntax highlighting theme for output (default: "dracula").
 
-    Variable injection:
-        --var key=value
-            Inject literal variables.
+    Variable Handling:
+        Variables are collected and injected into the prompt via `render_prompt`.
 
-        --var-file key=filepath
-            Load variable values from files. Supports:
-                - Direct paths
-                - Paths relative to BASE_DIR
-                - Recursive search within BASE_DIR/content
-                - Automatic extension resolution (.md, .txt)
+        1. Literal variables (`--var key=value`)
+            Direct key-value pairs.
 
-        --var-dir key=dirpath
-            Load and concatenate all `.md` and `.txt` files from a directory
-            (recursively). Hidden files are ignored.
+        2. File variables (`--var-file key=filepath`)
+            Loads content from a file. Resolution order:
+                - Direct path (with optional .md/.txt extension)
+                - Relative to BASE_DIR
+                - Recursive search inside BASE_DIR/content
+            Provides suggestions if the file is not found.
+
+        3. Directory variables (`--var-dir key=dirpath`)
+            Recursively loads `.md` and `.txt` files from a directory,
+            concatenating their contents. Hidden and non-text files are ignored.
 
     Behavior:
-        - Commands `build` and `compose` generate a prompt string.
-        - Variables are collected and applied via `render_prompt`.
-        - Output is either printed with syntax highlighting or copied
-          to the clipboard if `--copy` is specified.
-        - File and directory resolution includes fallback strategies
-          and user-friendly suggestions on failure.
-
-    Exits:
-        Terminates the program with a non-zero exit code if file or directory
-        resolution fails during variable loading.
+        - Parses CLI arguments using `argparse`.
+        - Dispatches to the appropriate command handler.
+        - Composes the prompt via `compose_from_agent` or `compose_manual`.
+        - Resolves and injects variables into the prompt.
+        - Outputs the rendered prompt using `render_output`, or copies it to
+          the clipboard if `--copy` is specified.
 
     Notes:
-        - Relies on external helper functions such as:
-            `compose_from_agent`, `compose_manual`,
-            `render_prompt`, `render_output`,
-            `copy_to_clipboard`, `list_category`, `show_path`.
-        - Assumes `BASE_DIR` is defined and points to the project root.
+        - Command execution stops early for `list` and `show`.
+        - File and directory resolution includes fallback strategies and
+          user-friendly suggestions.
+        - External helper functions are responsible for I/O, rendering,
+          and clipboard interaction.
+
+    Raises:
+        SystemExit: On argument parsing errors or unresolved file/directory inputs.
+        Exception: Propagates errors from helper functions.
     """
     parser = argparse.ArgumentParser(prog="pp")
 
