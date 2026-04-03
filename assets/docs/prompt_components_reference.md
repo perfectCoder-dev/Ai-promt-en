@@ -163,6 +163,14 @@ Built-in controls define behavior across the full execution lifecycle—before, 
 
 - 🔗 [configurations](./prompts/controls/built-in_controls.md#control-configconfigurations)
 
+#### `enforce/config`
+
+- 🔗 [configurations_guard](./prompts/controls/built-in_controls.md#control-configconfigurations_guard)
+
+#### `enforce/config`
+
+- 🔗 [configurations_guard_hardened](./prompts/controls/built-in_controls.md#control-configconfigurations_guard_hardened)
+
 #### `pre/language`
 
 - 🔗 [input_default](./prompts/controls/built-in_controls.md#control-languageinput_default)
