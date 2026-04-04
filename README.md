@@ -58,7 +58,6 @@ Designed for users who think in systems, not snippets.
 <summary>💡 Why It Matters</summary>
 
 PromptPro turns prompting into a structured, scalable system:
-
 - **Reduce costs & token usage**  
   Avoid inefficient prompts and unnecessary API calls
 - **Improve output quality**  
