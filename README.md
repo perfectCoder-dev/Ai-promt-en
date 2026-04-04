@@ -32,7 +32,7 @@ Designed for users who think in systems, not snippets.
 
 ✨ Why Prompt Pro?
 
-🧱 Modular prompt components  
+- 🧱 Modular prompt components  
 - 🤖 Agent presets  
 - 🧠 Role + task + pattern composition  
 - 🧩 Variable injection  
