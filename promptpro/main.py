@@ -625,24 +625,24 @@ def main():
     Commands:
         list:
             List available items in a given category.
-            Usage: pp list <category>
+            Usage: pp [--theme THEME] list <category>
 
         show:
             Display the contents of a resource with syntax highlighting.
-            Usage: pp show <path> [--theme THEME]
+            Usage: pp [--theme THEME] show <path>
 
         build:
             Compose a prompt from an agent definition.
-            Usage: pp build <agent> [--pre ...] [--post ...] [--enforce ...]
-                                 [--var key=value] [--var-file key=path]
-                                 [--var-dir key=dir] [--copy]
+            Usage: pp [--theme THEME] build <agent> [--pre ...] [--post ...] [--enforce ...]
+                                                    [--var key=value] [--var-file key=path]
+                                                    [--var-dir key=dir] [--copy]
 
         compose:
             Manually compose a prompt from role, task, and patterns.
-            Usage: pp compose [--role ROLE] [--task TASK] [--pattern ...]
-                               [--pre ...] [--post ...] [--enforce ...]
-                               [--var key=value] [--var-file key=path]
-                               [--var-dir key=dir] [--copy]
+            Usage: pp [--theme THEME] compose [--role ROLE] [--task TASK] [--pattern ...]
+                                            [--pre ...] [--post ...] [--enforce ...]
+                                            [--var key=value] [--var-file key=path]
+                                            [--var-dir key=dir] [--copy]
 
     Global Options:
         --theme (str):
