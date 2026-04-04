@@ -154,7 +154,7 @@ All Built-in Prompt Controls are located in: `/path/to/promptpro/prompts/control
 
 Many built-in prompt controls align with corresponding elements in [🔗 The Iceberg Of Prompting](the_iceberg_of_prompting.md) framework.
 
-🔗 [Here](./prompts/controls/built-in_controls.md#control-preconfigconfigurations) is an example illustrating **control precedence** using `--pre` and `--enforce` controls.
+🔗 🟥 [Here](./prompts/controls/built-in_controls.md#control-preconfigconfigurations) is an example illustrating **control precedence** using `--pre` and `--enforce` controls.
 
 You can find a complete list of **built-in prompt controls** in the [🔗 Prompt Components Reference](prompt_components_reference.md#-built-in-controls).
 
