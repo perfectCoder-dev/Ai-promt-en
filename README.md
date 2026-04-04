@@ -32,15 +32,26 @@ Designed for users who think in systems, not snippets.
 
 ✨ Why Prompt Pro?
 
-- 🧱 Modular prompt components
-- 🤖 Agent presets
-- 🧠 Role + task + pattern composition
-- 🧩 Variable injection
-- 🎛 Fine-grained prompt controls
-- 📋 Clipboard export
-- 💻 Terminal-native workflow
-- 🗂 Version-controlled prompts
-- 🔌 Integrations: pipelines, Bash, Python & more
+🧱 Modular prompt components  
+- 🤖 Agent presets  
+- 🧠 Role + task + pattern composition  
+- 🧩 Variable injection  
+- 🎛 Fine-grained prompt controls  
+- 📋 Clipboard export  
+- 💻 Terminal-native workflow  
+- 🗂 Version-controlled prompts  
+- 🔌 Integrations: pipelines, Bash, Python & more  
+
+## 🧑‍💻 Use Cases
+
+This tool is useful for:
+
+* **Developers and AI engineers** building system-driven prompting workflows instead of ad-hoc prompt strings  
+* **Prompt engineers** designing composable architectures using roles, tasks, patterns, and control layers  
+* **DevOps and automation engineers** embedding prompt generation into pipelines, scripts, and terminal-native processes  
+* **Technical teams** standardizing and versioning prompt logic as reusable, evolvable components  
+* **Power users** treating prompts as programmable interfaces rather than static text  
+* **Students and educators** learning how structured prompting enables more reliable and controllable AI behavior  
 
 ## 📥 Quick Install
 
