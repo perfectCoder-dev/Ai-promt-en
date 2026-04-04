@@ -261,7 +261,7 @@ pp compose \
 pp <command> > <file>
 ```
 
-**Example:**
+**Example**
 
 ```bash
 pp build math_tutor --var input="Explain recursion" > my_prompt.txt
