@@ -51,7 +51,11 @@ pp list <category>
 **Example**
 
 ```bash
+# Single category
 pp list roles
+
+# Subcategories
+pp list roles/dev
 ```
 
 **Filtering with single patterns**
