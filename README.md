@@ -30,7 +30,7 @@ Instead of storing static snippets, PromptPro treats prompts as structured build
 
 Designed for users who think in systems, not snippets.
 
-✨ Why Prompt Pro?
+**✨ Why Prompt Pro?**
 
 - 🧱 Modular prompt components  
 - 🤖 Agent presets  
