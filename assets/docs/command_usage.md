@@ -51,7 +51,11 @@ pp list <category>
 **Example**
 
 ```bash
+# Single category
 pp list roles
+
+# Subcategories
+pp list roles/dev
 ```
 
 **Filtering with single patterns**
@@ -257,7 +261,7 @@ pp compose \
 pp <command> > <file>
 ```
 
-**Example:**
+**Example**
 
 ```bash
 pp build math_tutor --var input="Explain recursion" > my_prompt.txt
