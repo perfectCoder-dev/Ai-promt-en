@@ -114,15 +114,30 @@ List available roles:
 pp list roles
 ```
 
+Filter results using a single pattern:
+
+```bash
+# Linux / macOS
+pp list roles | grep exe
+
+# Windows (PowerShell)
+pp list roles | findstr exe
+```
+
 Filter results using multiple patterns (`te` or `utor`):
 
 ```bash
+# Linux / macOS
 pp list roles | grep -E 'te|utor'
+
+# Windows (PowerShell)
+pp list roles | Select-String -Pattern "te|utor"
 ```
 
 Example output:
 
 ```text
+executor
 technical_instructor
 tutor
 ```
