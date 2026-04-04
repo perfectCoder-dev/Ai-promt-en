@@ -20,6 +20,7 @@
 | Command                             |
 |-------------------------------------|
 | pp list roles                       |
+| pp list roles/dev                   |
 | pp list agents                      |
 | pp list pattern_groups              |
 | pp list patterns                    |
