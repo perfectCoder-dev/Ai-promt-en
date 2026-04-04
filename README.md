@@ -54,25 +54,18 @@ PromptPro turns prompting into a structured, scalable system:
 
 - **Reduce costs & token usage**  
   Avoid inefficient prompts and unnecessary API calls
-
 - **Improve output quality**  
   Generate consistent, reliable AI responses
-
 - **Work faster**  
   Build prompts instantly instead of starting from scratch
-
 - **Eliminate repetition**  
   Reuse prompt logic across projects
-
 - **Scale without chaos**  
   Grow from a few prompts to many while keeping everything organized
-
 - **Standardize AI interactions**  
   Ensure consistent behavior across teams and environments
-
 - **Think in systems, not strings**  
   Move from ad-hoc prompts to structured, intentional design
-
 - **Treat prompts like code**  
   Versioned, reusable, and maintainable assets
 
