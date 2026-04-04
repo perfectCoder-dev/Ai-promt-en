@@ -30,7 +30,8 @@ Instead of storing static snippets, PromptPro treats prompts as structured build
 
 Designed for users who think in systems, not snippets.
 
-**✨ Why Prompt Pro?**
+<details open>
+<summary>✨ Why Prompt Pro?</summary>
 
 - 🧱 Modular prompt components  
 - 🤖 Agent presets  
@@ -39,7 +40,10 @@ Designed for users who think in systems, not snippets.
 - 💻 CLI workflow  
 - 🔌 Integrations: pipelines, Bash, Python & more  
 
-## 🧑‍💻 Built For
+</details>
+
+<details>
+<summary>🧑‍💻 Built For</summary>
 
 * **Developers and AI engineers** building system-driven prompting workflows instead of ad-hoc prompt strings  
 * **Prompt engineers** designing composable architectures using roles, tasks, patterns, and control layers  
@@ -48,7 +52,10 @@ Designed for users who think in systems, not snippets.
 * **Power users** treating prompts as programmable interfaces rather than static text  
 * **Students and educators** learning how structured prompting enables more reliable and controllable AI behavior  
 
-## 💡 Why It Matters
+</details>
+
+<details>
+<summary>💡 Why It Matters</summary>
 
 PromptPro turns prompting into a structured, scalable system:
 
@@ -68,6 +75,8 @@ PromptPro turns prompting into a structured, scalable system:
   Move from ad-hoc prompts to structured, intentional design
 - **Treat prompts like code**  
   Versioned, reusable, and maintainable assets
+
+</details>
 
 ## 📥 Quick Install
 
