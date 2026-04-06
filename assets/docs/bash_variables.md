@@ -1,10 +1,10 @@
-# Using Bash Variables With PromptPro
+# Using Bash Variables With PromptNG
 
-PromptPro integrates naturally with shell scripting.  
+PromptNG integrates naturally with shell scripting.  
 
 You can combine **literal values** and **Bash variables** when passing values to the `--var` option.
 
-Because Bash expands variables **before executing a command**, the final value is constructed by the shell and then passed to PromptPro.
+Because Bash expands variables **before executing a command**, the final value is constructed by the shell and then passed to PromptNG.
 
 ## Basic Example
 
@@ -16,7 +16,7 @@ lang="in Python"
 pp build math_tutor --var input="Explain recursion ${lang}"
 ```
 
-Resulting value passed to PromptPro:
+Resulting value passed to PromptNG:
 
 ```text
 Explain recursion in Python
@@ -86,7 +86,7 @@ Explain recursion in Python
 
 ## Important Notes
 
-* Bash variables are expanded **before** PromptPro receives the argument.
+* Bash variables are expanded **before** PromptNG receives the argument.
 
 * Always quote variables to avoid issues with spaces.
 
@@ -100,7 +100,7 @@ Unquoted variables may break arguments if they contain spaces or special charact
 
 ## Summary
 
-PromptPro works seamlessly with Bash variables, allowing you to:
+PromptNG works seamlessly with Bash variables, allowing you to:
 
 * Combine static text with dynamic values
 
@@ -110,4 +110,4 @@ PromptPro works seamlessly with Bash variables, allowing you to:
 
 * Build flexible automation pipelines
 
-This makes PromptPro easy to integrate into **shell scripts, CI pipelines, and CLI automation workflows**.
+This makes PromptNG easy to integrate into **shell scripts, CI pipelines, and CLI automation workflows**.

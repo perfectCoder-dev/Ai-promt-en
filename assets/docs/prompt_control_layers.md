@@ -1,6 +1,6 @@
 # Prompt Controls
 
-PromptPro uses **control layers** to separate how a prompt runs from how its output is shaped. This makes prompts more **predictable, modular, and easier to manage**.
+PromptNG uses **control layers** to separate how a prompt runs from how its output is shaped. This makes prompts more **predictable, modular, and easier to manage**.
 
 ## 🟦 Pre-Prompt Controls (Execution Layer)
 
@@ -22,9 +22,9 @@ Use post-prompt controls when you want to refine presentation and communication 
 
 Understanding how control layers interact is essential when combining multiple controls.
 
-While prompt order can influence behavior, **precedence in PromptPro is determined by control layers—not position alone**.
+While prompt order can influence behavior, **precedence in PromptNG is determined by control layers—not position alone**.
 
-PromptPro follows a layered structure:
+PromptNG follows a layered structure:
 
 ```txt
 [PRE CONTROLS]        → Configuration (how the AI thinks)
@@ -41,12 +41,12 @@ Each layer has a distinct role:
 * **Enforce (`--enforce`)** applies final validation and override rules
 
 > [!TIP]
-> Effective prompting in PromptPro relies on a hybrid approach:
+> Effective prompting in PromptNG relies on a hybrid approach:
 > **use `pre` to define behavior and `enforce` to guarantee it.**
 
 ---
 
-By combining these layers, PromptPro enables a **structured and composable approach to prompting**, making it easier to build clear, reusable, and reliable AI interactions.
+By combining these layers, PromptNG enables a **structured and composable approach to prompting**, making it easier to build clear, reusable, and reliable AI interactions.
 
 ## Usage
 
@@ -91,7 +91,7 @@ controls:
 
 ```
 
-The prompt control `forget` is located at  `path/to/promptpro/prompts/controls/pre/memory/forget.md`
+The prompt control `forget` is located at  `/path/to/promptng/prompts/controls/pre/memory/forget.md`
 
 More information about YAML: 🔗 [YAML FIle Configuration](yaml_file_configuration.md).
 
@@ -150,7 +150,7 @@ pp show controls/post/truth/say_dont_know
 
 ## Built-in Prompt Controls
 
-All Built-in Prompt Controls are located in: `/path/to/promptpro/prompts/controls`.
+All Built-in Prompt Controls are located in: `/path/to/promptng/prompts/controls`.
 
 Many built-in prompt controls align with corresponding elements in [🔗 The Iceberg Of Prompting](the_iceberg_of_prompting.md) framework.
 
@@ -204,7 +204,7 @@ translate_output
 translate_sp
 ```
 
-### Example 2: Using PromptPro Variables Instead Of Controls
+### Example 2: Using PromptNG Variables Instead Of Controls
 
 You can bypass control layers by embedding everything in a variable.
 
@@ -321,7 +321,7 @@ Avoid overly restrictive configurations unless necessary.
 
 ## Customization & Extensibility
 
-PromptPro is designed to be **fully customizable**.
+PromptNG is designed to be **fully customizable**.
 
 You are encouraged to:
 

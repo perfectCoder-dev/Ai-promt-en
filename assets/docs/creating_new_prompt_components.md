@@ -51,9 +51,9 @@ This type of error can be prevented from the start by using tools or workflows t
 
 This example illustrates a common issue in AI interactions: **vague prompts lead to vague answers**. When a prompt lacks context, scope, or structure, the AI must guess the user’s intent, which often results in ambiguous or insufficient responses.
 
-PromptPro helps prevent this problem **from the very beginning**. Instead of forcing users into a trial-and-error prompting loop, it guides them in **constructing clear, structured prompts** by defining the role, domain, audience, expected output format, etc. This approach reduces ambiguity, shortens the iteration cycle, and helps users obtain **useful, well-structured answers faster**.
+PromptNG helps prevent this problem **from the very beginning**. Instead of forcing users into a trial-and-error prompting loop, it guides them in **constructing clear, structured prompts** by defining the role, domain, audience, expected output format, etc. This approach reduces ambiguity, shortens the iteration cycle, and helps users obtain **useful, well-structured answers faster**.
 
-In the next section, you will see how **PromptPro** helps transform a vague prompt into a clear and structured one. The following steps demonstrate a simple workflow for defining the role, domain, audience, and output structure so the AI can produce more accurate and useful responses from the start.
+In the next section, you will see how **PromptNG** helps transform a vague prompt into a clear and structured one. The following steps demonstrate a simple workflow for defining the role, domain, audience, and output structure so the AI can produce more accurate and useful responses from the start.
 
 ### Step 1: Define The Prompt Goal
 
@@ -149,7 +149,7 @@ Based on the planning table, you determine that you need a new `agent`, `pattern
 ### Step 5: Create A New Pattern
 
 ```bash
-touch /path/to/prompt-pro/promptpro/prompts/patterns/structured_output.md
+touch /path/to/promptng/prompts/patterns/structured_output.md
 ```
 
 Example content:
@@ -174,7 +174,7 @@ pp show patterns/structured_output
 ### Step 6: Create A New Role
 
 ```bash
-touch /path/to/prompt-pro/promptpro/prompts/roles/technical_instructor.md
+touch /path/to/promptng/prompts/roles/technical_instructor.md
 ```
 
 Example content:
@@ -199,7 +199,7 @@ pp show roles/technical_instructor
 ### Step 7.1: Create And Build Your Agent With `build`
 
 ```bash
-touch /path/to/prompt-pro/promptpro/prompts/agents/cs_instructor.yaml
+touch /path/to/promptng/prompts/agents/cs_instructor.yaml
 ```
 
 Example:
@@ -259,7 +259,7 @@ pp compose \
 
 Paste your new prompt into your preferred AI model interface, submit it, and verify the results.
 
-## Tips For PromptPro Prompt Creators
+## Tips For PromptNG Prompt Creators
 
 ### 💡 Separate The Three Layers Clearly
 

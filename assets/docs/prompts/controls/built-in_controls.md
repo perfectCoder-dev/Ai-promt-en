@@ -396,7 +396,7 @@ pp show controls/pre/model/model_fast
 
 ### Description
 
-When explicitly included in a PromptPro `agent preset` or `compose` command, it specifies the active model used for response generation. Only one model can be selected at a time, ensuring consistent behavior and preventing conflicts.
+When explicitly included in a PromptNG `agent preset` or `compose` command, it specifies the active model used for response generation. Only one model can be selected at a time, ensuring consistent behavior and preventing conflicts.
 
 Different models offer varying levels of capability, speed, cost, and reasoning depth, allowing the system to be tailored for tasks ranging from lightweight interactions to complex analysis.
 

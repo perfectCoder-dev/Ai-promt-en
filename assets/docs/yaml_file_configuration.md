@@ -1,6 +1,6 @@
 # YAML Files Configuration
 
-This guide explains how to **define agent presets (`.yaml`)** and **pattern group files (`.yaml`)** for PromptPro. It includes syntax, best practices, and notes on indentation, spacing, and line breaks.
+This guide explains how to **define agent presets (`.yaml`)** and **pattern group files (`.yaml`)** for PromptNG. It includes syntax, best practices, and notes on indentation, spacing, and line breaks.
 
 ## 1. Agent Preset YAML Files
 
@@ -35,7 +35,7 @@ controls:
 - `controls` (optional): Pre- and post-prompt layers to influence execution and output
 
 > [!TIP]
-You can skip `controls` if not needed; PromptPro will use default behavior.
+You can skip `controls` if not needed; PromptNG will use default behavior.
 
 > [!WARNING]
 YAML indentation, spacing, and empty lines are strictly enforced. Always use consistent indentation (2 spaces) and avoid tabs.

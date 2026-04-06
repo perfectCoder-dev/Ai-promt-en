@@ -1,10 +1,10 @@
 # Prompt Pipelines
 
-Because PromptPro outputs plain text, it integrates naturally with the **Unix philosophy**: small tools connected through pipes.
+Because PromptNG outputs plain text, it integrates naturally with the **Unix philosophy**: small tools connected through pipes.
 
 This allows generated prompts to flow directly into other programs and services.
 
-Below are several examples of tools that can receive PromptPro output.
+Below are several examples of tools that can receive PromptNG output.
 
 ## 🔊 1. Text → Voice
 
@@ -158,7 +158,7 @@ pp build math_tutor --var input="Explain recursion" | gum pager
 
 ## 🧩 11. Pipe Into A Script Engine
 
-Use PromptPro output as input to scripts.
+Use PromptNG output as input to scripts.
 
 Example:
 
@@ -190,7 +190,7 @@ pp build math_tutor --var input="Explain recursion" \
 Pipeline flow:
 
 ```
-PromptPro → LLM → speech synthesis
+PromptNG → LLM → speech synthesis
 ```
 
 ### AI → Popup → Log
@@ -206,12 +206,12 @@ pp build math_tutor --var input="Explain recursion" \
 Pipeline flow:
 
 ```
-PromptPro → log file → desktop popup
+PromptNG → log file → desktop popup
 ```
 
-## 💡 PromptPro As A Prompt Bus
+## 💡 PromptNG As A Prompt Bus
 
-Because PromptPro prints prompts to **standard output**, it can act as a universal **prompt bus** that feeds multiple downstream systems.
+Because PromptNG prints prompts to **standard output**, it can act as a universal **prompt bus** that feeds multiple downstream systems.
 
 ```
 pp → AI → voice
@@ -221,6 +221,6 @@ pp → AI → database
 pp → AI → robot
 ```
 
-This makes PromptPro useful not only for prompt generation, but also as a **control layer for AI-driven pipelines**.
+This makes PromptNG useful not only for prompt generation, but also as a **control layer for AI-driven pipelines**.
 
-By combining PromptPro with existing CLI tools, you can build powerful automation workflows without modifying your prompt components.
+By combining PromptNG with existing CLI tools, you can build powerful automation workflows without modifying your prompt components.

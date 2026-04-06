@@ -1,4 +1,4 @@
-# PromptPro
+# PromptNG
 
 > A modular CLI for composing, managing, and orchestrating reusable AI prompt components.
 

@@ -1,6 +1,6 @@
 # Glossary
 
-A reference guide for key terms and concepts used in PromptPro and AI prompting.
+A reference guide for key terms and concepts used in PromptNG and AI prompting.
 
 ---
 
@@ -8,13 +8,13 @@ A reference guide for key terms and concepts used in PromptPro and AI prompting.
 
 ### Action
 
-A task type in PromptPro designed for executing operations and producing results. Unlike explanatory tasks, action tasks focus on completing a specific request rather than describing or reasoning about a concept.
+A task type in PromptNG designed for executing operations and producing results. Unlike explanatory tasks, action tasks focus on completing a specific request rather than describing or reasoning about a concept.
 
 **Source:** `docs/prompts/tasks/default_tasks.md`
 
 ### Action Agent
 
-A predefined agent preset in PromptPro designed to perform tasks by verifying requirements or planning before acting. It uses reasoning strategies and structured outputs to ensure accurate and controlled results.
+A predefined agent preset in PromptNG designed to perform tasks by verifying requirements or planning before acting. It uses reasoning strategies and structured outputs to ensure accurate and controlled results.
 
 **Source:** `docs/prompts/agents/default_agents.md`
 
@@ -26,7 +26,7 @@ A reusable prompt configuration stored as a YAML file that combines a role, a ta
 
 ### API (Application Programming Interface)
 
-A set of protocols and tools that allows different software applications to communicate with each other. In PromptPro, APIs are used to send generated prompts to AI models and receive responses.
+A set of protocols and tools that allows different software applications to communicate with each other. In PromptNG, APIs are used to send generated prompts to AI models and receive responses.
 
 **Source:** `docs/prompt_pipelines.md`
 
@@ -42,13 +42,13 @@ A pre-prompt control that configures the AI for direct question-answering intera
 
 ### Behavior Layer
 
-The post-prompt control layer in PromptPro that defines how the response is shaped after generation begins. It includes output formatting, tone, style, and constraints.
+The post-prompt control layer in PromptNG that defines how the response is shaped after generation begins. It includes output formatting, tone, style, and constraints.
 
 **Source:** `docs/prompt_control_layers.md`
 
 ### Build Command
 
-A PromptPro CLI subcommand that generates a prompt from a predefined agent configuration. Usage: `pp build <agent> [--var key=value] [--pre control] [--post control] [--copy]`
+A PromptNG CLI subcommand that generates a prompt from a predefined agent configuration. Usage: `pp build <agent> [--var key=value] [--pre control] [--post control] [--copy]`
 
 **Source:** `docs/command_usage.md`
 
@@ -64,7 +64,7 @@ A reasoning technique that encourages the AI to think step-by-step before provid
 
 ### CLI (Command Line Interface)
 
-A text-based interface for interacting with software through commands entered in a terminal. PromptPro is a CLI tool invoked with the `pp` command.
+A text-based interface for interacting with software through commands entered in a terminal. PromptNG is a CLI tool invoked with the `pp` command.
 
 **Source:** `README.md`
 
@@ -82,7 +82,7 @@ A shell feature that allows capturing the output of one command to use as input 
 
 ### Compose Command
 
-A PromptPro CLI subcommand that builds a prompt by manually combining a role, task, and patterns. Usage: `pp compose --role <role> --task <task> --pattern <pattern>`
+A PromptNG CLI subcommand that builds a prompt by manually combining a role, task, and patterns. Usage: `pp compose --role <role> --task <task> --pattern <pattern>`
 
 **Source:** `docs/command_usage.md`
 
@@ -100,13 +100,13 @@ The maximum number of tokens (words and fragments) that an AI model can process 
 
 ### Control Layers
 
-PromptPro's architecture that separates execution control (pre-prompt) from output behavior (post-prompt). This separation makes prompts more modular, predictable, and composable.
+PromptNG's architecture that separates execution control (pre-prompt) from output behavior (post-prompt). This separation makes prompts more modular, predictable, and composable.
 
 **Source:** `docs/prompt_control_layers.md`
 
 ### Copy Option
 
-The `--copy` flag in PromptPro that copies the rendered prompt to the system clipboard instead of printing it to stdout.
+The `--copy` flag in PromptNG that copies the rendered prompt to the system clipboard instead of printing it to stdout.
 
 **Source:** `docs/command_usage.md`
 
@@ -150,7 +150,7 @@ The subject area or field of expertise relevant to a prompt. In role definitions
 
 ### Executor
 
-A role in PromptPro that prioritizes carrying out requested actions efficiently and directly. The focus is on task completion rather than explanation or teaching.
+A role in PromptNG that prioritizes carrying out requested actions efficiently and directly. The focus is on task completion rather than explanation or teaching.
 
 **Source:** `docs/prompts/roles/default_roles.md`
 
@@ -168,7 +168,7 @@ The methods used to implement cognitive strategies in prompts, such as "Think de
 
 ### Explain
 
-A task type in PromptPro designed for presenting concepts through clear, step-by-step explanations that build understanding progressively.
+A task type in PromptNG designed for presenting concepts through clear, step-by-step explanations that build understanding progressively.
 
 **Source:** `docs/prompts/tasks/default_tasks.md`
 
@@ -194,7 +194,7 @@ A prompting technique that includes multiple examples in the prompt to guide the
 
 ### Glossary
 
-This document—a reference guide containing definitions of key terms and concepts used in PromptPro and AI prompting.
+This document—a reference guide containing definitions of key terms and concepts used in PromptNG and AI prompting.
 
 ---
 
@@ -234,7 +234,7 @@ A cognitive strategy involving feedback, revision, and final output. The AI refi
 
 ### Jinja / Jinja2
 
-A template engine for Python that PromptPro uses for variable injection. Variables are referenced using `{{ variable_name }}` syntax.
+A template engine for Python that PromptNG uses for variable injection. Variables are referenced using `{{ variable_name }}` syntax.
 
 **Source:** `README.md`
 
@@ -262,7 +262,7 @@ Deep prompting with guided reasoning, iteration, and strategic refinement. Desig
 
 ### List Command
 
-A PromptPro CLI subcommand that displays available components in a category. Usage: `pp list <roles|agents|patterns|tasks|controls>`
+A PromptNG CLI subcommand that displays available components in a category. Usage: `pp list <roles|agents|patterns|tasks|controls>`
 
 **Source:** `docs/command_usage.md`
 
@@ -284,7 +284,7 @@ An educational agent that teaches mathematical concepts through step-by-step exp
 
 ### MCP (Model Context Protocol)
 
-A protocol that enables integration between AI models and external tools or services. PromptPro supports MCP configurations.
+A protocol that enables integration between AI models and external tools or services. PromptNG supports MCP configurations.
 
 **Source:** `docs/prompt_control_layers.md`
 
@@ -346,7 +346,7 @@ A YAML file that bundles multiple patterns together under a single name. When re
 
 ### Pipeline
 
-In Unix philosophy, a chain of commands where the output of one command becomes the input of the next. PromptPro outputs plain text, enabling seamless pipeline integration.
+In Unix philosophy, a chain of commands where the output of one command becomes the input of the next. PromptNG outputs plain text, enabling seamless pipeline integration.
 
 **Source:** `docs/prompt_pipelines.md`
 
@@ -376,13 +376,13 @@ Execution layer controls that define how the system operates before generating a
 
 ### Prompt Bus
 
-A concept where PromptPro acts as a universal prompt distributor, feeding generated prompts to multiple downstream systems (AI models, APIs, databases, etc.).
+A concept where PromptNG acts as a universal prompt distributor, feeding generated prompts to multiple downstream systems (AI models, APIs, databases, etc.).
 
 **Source:** `docs/prompt_pipelines.md`
 
 ### Prompt Components
 
-The modular building blocks that make up prompts in PromptPro: agents, roles, tasks, patterns, pattern groups, and controls.
+The modular building blocks that make up prompts in PromptNG: agents, roles, tasks, patterns, pattern groups, and controls.
 
 **Source:** `docs/prompt_components_reference.md`
 
@@ -392,7 +392,7 @@ The discipline of crafting effective prompts to elicit desired responses from AI
 
 **Source:** `docs/the_iceberg_of_prompting.md`
 
-### PromptPro
+### PromptNG
 
 A modular CLI tool for composing, managing, and orchestrating reusable AI prompt components. It treats prompts as structured building blocks that can be assembled and reused.
 
@@ -436,7 +436,7 @@ Assigning a specific expertise persona to the AI to leverage specialized knowled
 
 ### Show Command
 
-A PromptPro CLI subcommand that displays the contents of a specific prompt component with syntax highlighting. Usage: `pp show <path>`
+A PromptNG CLI subcommand that displays the contents of a specific prompt component with syntax highlighting. Usage: `pp show <path>`
 
 **Source:** `docs/command_usage.md`
 
@@ -528,7 +528,7 @@ An inquiry-based teaching role that guides learners through problem-solving usin
 
 ### Unix Philosophy
 
-A design principle favoring simple, focused programs that do one thing well, connected through pipes. PromptPro outputs plain text, embracing this philosophy for pipeline integration.
+A design principle favoring simple, focused programs that do one thing well, connected through pipes. PromptNG outputs plain text, embracing this philosophy for pipeline integration.
 
 **Source:** `docs/prompt_pipelines.md`
 
@@ -544,7 +544,7 @@ The process of inserting dynamic values into prompt templates using the `--var`,
 
 ### Variable Sources
 
-The three methods PromptPro supports for providing variable values:
+The three methods PromptNG supports for providing variable values:
 - `--var`: Literal values from the command line
 - `--var-file`: Values loaded from a single file
 - `--var-dir`: Values loaded from all files in a directory
@@ -573,7 +573,7 @@ A repeatable sequence of steps for creating prompts, such as the `build` workflo
 
 ### YAML
 
-A human-readable data serialization format used for configuration files in PromptPro, including agents and pattern groups.
+A human-readable data serialization format used for configuration files in PromptNG, including agents and pattern groups.
 
 **Source:** `docs/create_and_use_a_pattern_group.md`
 

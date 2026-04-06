@@ -1,6 +1,6 @@
 # PromptNG ⚡
 
-![PromptPro](https://img.shields.io/badge/PromptPro-AI%20Prompt%20Engine-6f42c1?style=for-the-badge)
+![PromptNG](https://img.shields.io/badge/PromptNG-AI%20Prompt%20Engine-6f42c1?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.9–3.14-blue?style=for-the-badge)
 ![⚡ uv](https://img.shields.io/badge/⚡%20uv-fast-black?style=for-the-badge)
 ![Jinja2](https://img.shields.io/badge/Jinja2-templating-b41717?style=for-the-badge)
@@ -10,10 +10,10 @@
 ![lint](https://img.shields.io/badge/lint-flake8-blue?style=for-the-badge)
 ![Wheel](https://img.shields.io/badge/Wheel-supported-success?style=for-the-badge)
 ![PyPI Downloads](https://img.shields.io/pypi/dm/promptng?style=for-the-badge&logo=python)
-![License](https://img.shields.io/github/license/estebantechdev/prompt-pro?style=for-the-badge)
+![License](https://img.shields.io/github/license/estebantechdev/prompt-ng?style=for-the-badge)
 
 <p align="center">
-  <img src="assets/images/pp-banner.jpg" alt="PromptPro banner" width="900">
+  <img src="assets/images/promptng-banner.jpg" alt="PromptNG banner" width="900">
 </p>
 
 <p align="center">
@@ -24,14 +24,14 @@
 
 Create ready-to-use, high-quality prompts with a single command 🚀
 
-PromptPro is a modular CLI for composing, managing, and orchestrating reusable AI prompt components.
+PromptNG is a modular CLI for composing, managing, and orchestrating reusable AI prompt components.
 
-Instead of storing static snippets, PromptPro treats prompts as structured building blocks — roles, tasks, content, reasoning patterns, and controls — that can be assembled, parameterized, and reused across projects.
+Instead of storing static snippets, PromptNG treats prompts as structured building blocks — roles, tasks, content, reasoning patterns, and controls — that can be assembled, parameterized, and reused across projects.
 
 Designed for users who think in systems, not snippets.
 
 <details open>
-<summary>✨ Why Prompt Pro?</summary>
+<summary>✨ Why PromptNG?</summary>
 
 - 🧱 Modular prompt components  
 - 🤖 Agent presets  
@@ -57,7 +57,7 @@ Designed for users who think in systems, not snippets.
 <details>
 <summary>💡 Why It Matters</summary>
 
-PromptPro turns prompting into a structured, scalable system:
+PromptNG turns prompting into a structured, scalable system:
 - **Reduce costs & token usage**  
   Avoid inefficient prompts and unnecessary API calls
 - **Improve output quality**  
@@ -92,10 +92,10 @@ curl -Ls https://astral.sh/uv/install.sh | sh
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 # 2. Clone the repository
-git clone https://github.com/estebantechdev/prompt-pro.git
+git clone https://github.com/estebantechdev/prompt-ng.git
 
 # 3. Enter the project directory
-cd prompt-pro
+cd prompt-ng
 
 # 4. (Optional) Let uv install a compatible Python version automatically
 # This will install and use a supported version (e.g., 3.11 or 3.12)
@@ -107,7 +107,7 @@ uv sync
 # If your virtual environment is not activated, run:
 source .venv/bin/activate
 
-# 6. Run PromptPro
+# 6. Run PromptNG
 uv run pp --help
 
 # Example usage
@@ -129,7 +129,7 @@ pp --help
 > ```
 
 > [!IMPORTANT]
-> Clipboard features on Linux require external tools.  
+> 📋 Clipboard features on Linux require external tools.  
 > Install `xsel` or `xclip` using your system package manager.  
 > On Wayland-based systems, you may need `wl-clipboard`.
 
@@ -188,7 +188,7 @@ tutor
 
 ### Workflows
 
-PromptPro supports two workflows:
+PromptNG supports two workflows:
 - `build` generates a prompt using a predefined **agent preset**.
   
 - `compose` generates a prompt by manually combining **role**, **task**, and **pattern** components.
@@ -264,7 +264,7 @@ For example, **{{ input }}** in the template corresponds to the `input` variable
 
 ## 📁 Variable Sources
 
-PromptPro supports three types of variable sources:
+PromptNG supports three types of variable sources:
 
 ### 1. Literal Variables (--var)
 
@@ -423,7 +423,7 @@ cat /path/to/my_prompt.txt
 
 ## ⚙️ Types Of Tasks
 
-PromptPro provides two built-in, generic task types: `explain` and `action`, which together cover most AI–human interaction scenarios.
+PromptNG provides two built-in, generic task types: `explain` and `action`, which together cover most AI–human interaction scenarios.
 
 ▶️ Action — Start / Run the task and produce a result.  
 💬 Explain — Describe the reasoning without performing any tasks.
@@ -515,7 +515,7 @@ Complete tutorial on how to create and use a **pattern group**.
 
 ### 🎛 Prompt Control Layers
 
-Understand how PromptPro separates **execution control** from **output behavior**:
+Understand how PromptNG separates **execution control** from **output behavior**:
 
 🔗 [Prompt Control Layers](assets/docs/prompt_control_layers.md)
 
@@ -523,7 +523,7 @@ Understand how PromptPro separates **execution control** from **output behavior*
 
 ### 🧱 Prompt Components
 
-The `prompts` directory contains the core building blocks for creating prompts in PromptPro, organized into subdirectories that represent specific component types such as roles, tasks, patterns, and agent presets.
+The `prompts` directory contains the core building blocks for creating prompts in PromptNG, organized into subdirectories that represent specific component types such as roles, tasks, patterns, and agent presets.
 
 🔗 [Prompt Components Reference](assets/docs/prompt_components_reference.md)
 
@@ -540,11 +540,11 @@ For a complete list of available commands and quick CLI examples:
 
 ### 🧠 Concepts
 
-Understanding modern prompting frameworks helps you use PromptPro more effectively.
+Understanding modern prompting frameworks helps you use PromptNG more effectively.
 
 🔗 [The Iceberg Of Prompting](assets/docs/the_iceberg_of_prompting.md)
 
-A quick reference for key terminology used across PromptPro.
+A quick reference for key terminology used across PromptNG.
 
 🔗 [Glossary Of Terms](assets/docs/glossary.md)
 
@@ -576,7 +576,7 @@ Adding a single component helps—but Packs unlock much more:
 
 ### Create and Share Your Own Packs
 
-One of the most powerful aspects of PromptPro is that **anyone can create their own Pack**.
+One of the most powerful aspects of PromptNG is that **anyone can create their own Pack**.
 
 If you’ve developed a useful combination of components, you can:
 
@@ -586,7 +586,7 @@ If you’ve developed a useful combination of components, you can:
 * Contribute to a growing ecosystem of domain-specific Packs
 
 Users can explore guidelines and published Packs here:
-**🔗 [PromptPro Packs Repository](#)**.
+**🔗 [PromptNG Packs Repository](#)**.
 
 ### Examples of Component Packs
 
@@ -608,7 +608,7 @@ Once added, all components in a Pack become available through the CLI—giving y
 
 ### ⚡ Pipelines
 
-PromptPro outputs plain text, which means it integrates naturally with the Unix philosophy of **small tools connected by pipes**.
+PromptNG outputs plain text, which means it integrates naturally with the Unix philosophy of **small tools connected by pipes**.
 
 This allows prompts to flow directly into other programs such as AI models, speech engines, desktop tools, APIs, and automation scripts.
 
@@ -622,14 +622,14 @@ pp build math_tutor --var input="Explain recursion" \
 
 Pipeline flow:
 
-* PromptPro → LLM → speech synthesis
+* PromptNG → LLM → speech synthesis
 
 For more examples and integrations with tools such as curl, pandoc, zenity, and netcat, see:
 🔗 [Prompt Pipelines](assets/docs/prompt_pipelines.md).
 
 ### 🐚 Bash Scripting
 
-PromptPro integrates easily with shell scripts and command-line automation.
+PromptNG integrates easily with shell scripts and command-line automation.
 
 Because Bash expands variables before executing a command, you can dynamically construct prompts using variables or command outputs.
 
@@ -642,13 +642,13 @@ language="Python"
 pp build math_tutor --var input="Explain ${topic} in ${language}"
 ```
 
-PromptPro can also consume values from other commands or scripts, making it ideal for automation pipelines.
+PromptNG can also consume values from other commands or scripts, making it ideal for automation pipelines.
 
-For more examples using Bash variables, command substitution, and scripting patterns, see: 🔗 [Using Bash Variables With PromptPro](assets/docs/bash_variables.md).
+For more examples using Bash variables, command substitution, and scripting patterns, see: 🔗 [Using Bash Variables With PromptNG](assets/docs/bash_variables.md).
 
 ### 🐍 Python Integration
 
-PromptPro can be used seamlessly inside Python scripts, enabling automation, testing, and integration with larger applications.
+PromptNG can be used seamlessly inside Python scripts, enabling automation, testing, and integration with larger applications.
 
 **Example**
 
@@ -683,7 +683,7 @@ python test.py
 
 ## 🤝 Contributions
 
-Contributions are always welcome in the PromptPro ecosystem.
+Contributions are always welcome in the PromptNG ecosystem.
 
 Whether you're fixing a small issue or introducing a complete Component Pack, your work helps expand what others can build.
 

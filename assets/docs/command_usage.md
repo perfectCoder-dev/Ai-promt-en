@@ -1,4 +1,4 @@
-# PromptPro Command Syntax
+# PromptNG Command Syntax
 
 ## General Structure
 

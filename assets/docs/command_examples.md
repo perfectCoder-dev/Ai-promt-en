@@ -1,4 +1,4 @@
-# PromptPro Command Examples
+# PromptNG Command Examples
 
 ## Change Themes
 

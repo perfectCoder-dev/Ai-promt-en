@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 ################################################################################
-#                                  PromptPro                                   #
+#                                   PromptNG                                   #
 #                                                                              #
 # Composes, manages, and orchestrates reusable AI prompt components            #
 #                                                                              #
@@ -87,7 +87,7 @@ def load_agent(name):
     Load and parse an agent configuration file bundled within the package.
 
     This function locates a YAML file inside the
-    "promptpro.prompts.agents" package directory using importlib.resources.
+    "promptng.prompts.agents" package directory using importlib.resources.
     It reads and safely parses the file into a Python data structure.
 
     Args:
@@ -101,7 +101,7 @@ def load_agent(name):
         ValueError: If the YAML file is empty or contains no valid data.
         yaml.YAMLError: If the YAML content cannot be parsed.
     """
-    resource = resources.files("promptpro.prompts.agents").joinpath(f"{name}.yaml")
+    resource = resources.files("promptng.prompts.agents").joinpath(f"{name}.yaml")
 
     if not resource.is_file():
         raise FileNotFoundError(f"Agent '{name}' not found.")
@@ -616,7 +616,7 @@ def copy_to_clipboard(text):
 
 def main():
     """
-    Entry point for the PromptPro CLI (`pp`).
+    Entry point for the PromptNG CLI (`pp`).
 
     This function defines and parses command-line arguments, dispatches commands,
     composes prompts (either from an agent or manually), processes variable inputs,

@@ -10,36 +10,36 @@ In the previous installation step, you can specify a Python version after the `i
 uv python install 3.14
 ```
 
-### PromptPro Uninstallation
+### PromptNG Uninstallation
 
 ```bash
-uv tool uninstall promptpro
+uv tool uninstall promptng
 ```
 
-## Installing PromptPro With pip
+## Installing PromptNG With pip
 
 These methods require pip already installed on your machine or Python environment.
 
 ### Local Installation
 
-Using pip or pip3:
+Using pip:
 
 ```bash
-cd prompt-pro
-pip3 install .
+cd prompt-ng
+pip install .  # or pip3 or pip3.exe depending on your system
 ```
 
 ### Install From PyPI
 
-Using pip or pip3:
+Using pip:
 
 ```bash
-pip install promptpro  # or pip3 depending on your system
+pip install promptng  # or pip3 or pip3.exe depending on your system
 ```
 
 ## Use Your CLI Anywhere
 
-Once installed, you can call your CLI (pp) as if it were run from the terminal or import PromptPro in your programming language scripts.
+Once installed, you can call your CLI (pp) as if it were run from the terminal or import PromptNG in your programming language scripts.
 
 ### Examples
 

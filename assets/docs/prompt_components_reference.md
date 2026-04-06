@@ -1,6 +1,6 @@
 # Prompt Components Reference
 
-PromptPro organizes prompts into well-defined components that can be composed, extended, and managed independently. This approach improves consistency, scalability, and maintainability across use cases.
+PromptP organizes prompts into well-defined components that can be composed, extended, and managed independently. This approach improves consistency, scalability, and maintainability across use cases.
 
 ## Prompt Categories
 

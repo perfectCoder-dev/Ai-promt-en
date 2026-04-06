@@ -25,7 +25,7 @@ And it expands automatically.
 Create:
 
 ```bash
-touch /path/to/prompt-pro/promptpro/prompts/pattern_groups/didactic.yaml
+touch /path/to/promptng/prompts/pattern_groups/didactic.yaml
 ```
 
 Add this content:
