@@ -1,4 +1,4 @@
-# PromptPro 🎯
+# PromptNG ⚡
 
 ![PromptPro](https://img.shields.io/badge/PromptPro-AI%20Prompt%20Engine-6f42c1?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.9–3.14-blue?style=for-the-badge)
@@ -9,7 +9,7 @@
 ![tests](https://img.shields.io/badge/tests-pytest-green?style=for-the-badge)
 ![lint](https://img.shields.io/badge/lint-flake8-blue?style=for-the-badge)
 ![Wheel](https://img.shields.io/badge/Wheel-supported-success?style=for-the-badge)
-![Downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=brightgreen&label=downloads&query=total_downloads&url=https://pepy.tech/api/projects/promptpro)
+![Downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=brightgreen&label=downloads&query=total_downloads&url=https://pepy.tech/api/projects/promptng)
 ![License](https://img.shields.io/github/license/estebantechdev/prompt-pro?style=for-the-badge)
 
 <p align="center">
