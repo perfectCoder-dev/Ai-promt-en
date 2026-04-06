@@ -606,7 +606,7 @@ Once added, all components in a Pack become available through the CLI—giving y
 
 ## 🔌 Integrations
 
-### ⚡ Pipelines
+### 🛠️ Pipelines
 
 PromptNG outputs plain text, which means it integrates naturally with the Unix philosophy of **small tools connected by pipes**.
 
