@@ -9,7 +9,7 @@
 ![tests](https://img.shields.io/badge/tests-pytest-green?style=for-the-badge)
 ![lint](https://img.shields.io/badge/lint-flake8-blue?style=for-the-badge)
 ![Wheel](https://img.shields.io/badge/Wheel-supported-success?style=for-the-badge)
-![Downloads](https://img.shields.io/badge/dynamic/json?style=for-the-badge&color=brightgreen&label=downloads&query=total_downloads&url=https://pepy.tech/api/projects/promptng)
+![PyPI Downloads](https://img.shields.io/pypi/dm/promptng?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/github/license/estebantechdev/prompt-pro?style=for-the-badge)
 
 <p align="center">
