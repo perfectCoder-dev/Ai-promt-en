@@ -43,7 +43,7 @@ Designed for users who think in systems, not snippets.
 </details>
 
 <details>
-<summary>🧑‍💻 Built For</summary>
+<summary>🙋 Built For</summary>
 
 * **Developers and AI engineers** building system-driven prompting workflows instead of ad-hoc prompt strings  
 * **Prompt engineers** designing composable architectures using roles, tasks, patterns, and control layers  
