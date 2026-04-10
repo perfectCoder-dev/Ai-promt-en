@@ -603,7 +603,7 @@ Users can explore guidelines and published Packs here:
 * 🎓 **Education Pack**  
   Combines tutor roles, explanation tasks, and step-by-step reasoning patterns
 
-* 🛠 **DevOps Pack**  
+* ♾️ **DevOps Pack**  
   Includes automation roles, action tasks, and execution/verification patterns
 
 Once added, all components in a Pack become available through the CLI—giving you a complete, ready-to-use prompting system in seconds.
