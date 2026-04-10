@@ -519,6 +519,10 @@ Understand how PromptNG separates **execution control** from **output behavior**
 
 🔗 [Prompt Control Layers](assets/docs/prompt_control_layers.md)
 
+Understanding how to use prompt controls in agentic systems.
+
+🔗 [Prompt Controls In Agentic Systems](assets/docs/prompt_controls_in_agentic_systems.md)
+
 ## 🗂 References
 
 ### 🧱 Prompt Components
@@ -599,14 +603,14 @@ Users can explore guidelines and published Packs here:
 * 🎓 **Education Pack**  
   Combines tutor roles, explanation tasks, and step-by-step reasoning patterns
 
-* 🛠 **DevOps Pack**  
+* ♾️ **DevOps Pack**  
   Includes automation roles, action tasks, and execution/verification patterns
 
 Once added, all components in a Pack become available through the CLI—giving you a complete, ready-to-use prompting system in seconds.
 
 ## 🔌 Integrations
 
-### 🛠️ Pipelines
+### 🔧 Pipelines
 
 PromptNG outputs plain text, which means it integrates naturally with the Unix philosophy of **small tools connected by pipes**.
 
