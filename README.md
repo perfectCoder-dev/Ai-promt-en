@@ -519,6 +519,10 @@ Understand how PromptNG separates **execution control** from **output behavior**
 
 🔗 [Prompt Control Layers](assets/docs/prompt_control_layers.md)
 
+Understanding how to use prompt controls in agentic systems.
+
+🔗 [Prompt Controls In Agentic Systems](assets/docs/prompt_controls_in_agentic_systems.md)
+
 ## 🗂 References
 
 ### 🧱 Prompt Components
@@ -606,7 +610,7 @@ Once added, all components in a Pack become available through the CLI—giving y
 
 ## 🔌 Integrations
 
-### 🛠️ Pipelines
+### 🔧 Pipelines
 
 PromptNG outputs plain text, which means it integrates naturally with the Unix philosophy of **small tools connected by pipes**.
 
