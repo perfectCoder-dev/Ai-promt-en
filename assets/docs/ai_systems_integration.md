@@ -168,7 +168,7 @@ This allows:
 * Shared evolution of capabilities
 
 > [!CAUTION]
-> Skill resolution conflicts may occur between PromptNG-defined controls and agentic system behaviors.
+> Skill resolution conflicts may occur between PromptNG-defined `controls` and agentic system behaviors.
 When both define overlapping capabilities, one may override or bypass the other depending on resolution order and scope.
 >
 > This can lead to unexpected behavior if multiple layers define competing instructions for the same action (e.g., tool usage, retrieval, or execution logic).
@@ -181,7 +181,7 @@ When both define overlapping capabilities, one may override or bypass the other 
 > In case of conflict, project-level definitions typically take precedence over global skills unless explicitly configured otherwise.
 >
 > **Example**  
-> Control: `controls/pre/tools/web/lookup` VS Skill: `skills/web_research/SKILL.md`.
+> Control `controls/pre/tools/web/lookup` VS skill `skills/web_research/SKILL.md`.
 
 ## Integrating With Codebases
 
@@ -234,6 +234,8 @@ New-Item -ItemType SymbolicLink -Path "project\skills" -Target "C:\path\to\promp
 ```bash
 /path/to/promptng/prompts/skills/web_research/SKILL.md
 ```
+
+**PromptNG**
 
 ```bash
 pp list skills/web-research/
