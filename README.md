@@ -523,6 +523,14 @@ Understanding how to use prompt controls in agentic systems.
 
 🔗 [Prompt Controls In Agentic Systems](assets/docs/prompt_controls_in_agentic_systems.md)
 
+### 📡 AI Systems Integration
+
+Learn how to integrate PromptNG with external AI systems and codebases by centralizing **agents**, **skills**, **commands**, and other AI interaction logic in a shared `prompts/` directory.
+
+This guide covers how to structure global and project-level AI components, avoid duplication across repositories, and connect external projects using symbolic links for a clean, scalable architecture.
+
+🔗 [AI Systems Integration Guide](assets/docs/ai_systems_integration.md)
+
 ## 🗂 References
 
 ### 🧱 Prompt Components
