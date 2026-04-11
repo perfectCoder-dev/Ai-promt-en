@@ -1,6 +1,8 @@
 # Prompt Controls
 
-PromptNG uses **control layers** to separate how a prompt runs from how its output is shaped. This makes prompts more **predictable, modular, and easier to manage**.
+PromptNG uses **control layers** to separate how a prompt runs from how its output is shaped, making prompts more predictable, modular, and easier to manage.
+
+These layers help provide a structured and composable approach to prompting, enabling clear, reusable, and reliable AI interactions.
 
 ## 🟦 Pre-Prompt Controls (Execution Layer)
 
@@ -43,10 +45,6 @@ Each layer has a distinct role:
 > [!TIP]
 > Effective prompting in PromptNG relies on a hybrid approach:
 > **use `pre` to define behavior and `enforce` to guarantee it.**
-
----
-
-By combining these layers, PromptNG enables a **structured and composable approach to prompting**, making it easier to build clear, reusable, and reliable AI interactions.
 
 ## Usage
 
@@ -160,10 +158,48 @@ Within this directory, you can organize controls by creating additional **catego
 
 You can find a complete list of **built-in prompt controls** in the [🔗 Prompt Components Reference](prompt_components_reference.md#-built-in-controls).
 
-
 ### 🟥 Control Precedence
 
 🔗 [Here](./prompts/controls/built-in_controls.md#control-preconfigconfigurations) is an example illustrating **control precedence** using `--pre` and `--enforce` controls.
+
+## Limitations
+
+While PromptNG introduces a structured and layered approach to prompt engineering, it does not remove the fundamental constraints of large language models (LLMs). In fact, highly detailed and deeply layered prompts can introduce their own challenges. As prompts grow in size and complexity—especially when combining multiple control layers, patterns, and variables—the model may struggle to consistently interpret and prioritize all instructions.
+
+This can lead to reduced output quality, weaker adherence to controls, or unexpected behavior. Understanding the underlying limitations of model processing is essential when designing robust PromptNG configurations.
+
+### Context Window
+
+Large language models operate within a finite **context window**, which defines how much input text can be processed at once. This includes everything: pre-controls, role/task definitions, user input, post-controls, and any embedded variables.
+
+When prompts become extremely large:
+
+* **Important instructions may be truncated** if the total input exceeds the model’s capacity
+* **Earlier context (such as pre-controls)** may lose influence as newer tokens dominate the window
+* **Signal dilution occurs**, where critical instructions are buried within excessive detail
+
+In PromptNG, this is especially relevant because multiple layers are composed into a single prompt. Overloading the context window with too many controls, long descriptions, or verbose variables can reduce clarity and effectiveness.
+
+✔ **Guideline:** Keep prompts concise and prioritize high-impact controls. Avoid unnecessary verbosity in control definitions and inputs.
+
+### Attention Window
+
+Even within the available context window, models do not treat all tokens equally. They rely on attention mechanisms that prioritize certain parts of the input over others. This creates a practical **attention window**, where some instructions receive more focus than others.
+
+With extremely detailed prompts:
+
+* **Instruction competition** can occur between control layers (e.g., `pre` vs `post`)
+* **Later or more explicit instructions** may override earlier ones unintentionally
+* **Conflicting or redundant controls** can fragment attention and reduce coherence
+* **Over-specification** can make the model less flexible, leading to rigid or unnatural outputs
+
+In PromptNG, this is particularly important because layered controls are designed to interact. If too many constraints are applied, or if they overlap semantically, the model may fail to properly balance them.
+
+✔ **Guideline:** Design control layers with clear separation of responsibility. Minimize overlap, avoid redundancy, and ensure that the most critical instructions are prominent and unambiguous.
+
+---
+
+In practice, effective PromptNG usage is not about maximizing detail, but about **optimizing signal clarity within model constraints**.
 
 ## ⚠️ Caveats
 
