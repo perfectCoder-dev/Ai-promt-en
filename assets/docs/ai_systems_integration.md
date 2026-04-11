@@ -235,6 +235,8 @@ New-Item -ItemType SymbolicLink -Path "project\skills" -Target "C:\path\to\promp
 /path/to/promptng/prompts/skills/web_research/SKILL.md
 ```
 
+**PromptNG**
+
 ```bash
 pp list skills/web-research/
 pp show skills/web-research/SKILL
