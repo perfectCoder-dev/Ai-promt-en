@@ -85,9 +85,10 @@
 
 ## Copying Prompts to the Clipboard
 
-| Command                                      |
-|----------------------------------------------|
-| pp <build|compose> <options> --copy          |
+| Command                     |
+|-----------------------------|
+| pp build [options] --copy   |
+| pp compose [options] --copy |
 
 ## Saving / Redirecting Output
 
