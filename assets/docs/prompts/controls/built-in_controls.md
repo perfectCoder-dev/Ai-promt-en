@@ -660,6 +660,37 @@ pp show controls/pre/tools/tools_on
 
 ---
 
+## Control: `pre`/`tools`/`web`/`lookup`
+
+### Description
+
+Defines a web_lookup tool that enables a model to fetch up-to-date or external information from the internet when its internal knowledge is insufficient, emphasizing use for real-time data, fact-checking, and uncertain queries while avoiding unnecessary calls for stable or conceptual answers; it specifies a simple input (query string) and flexible output (summarized or raw results), and enforces rules like using precise queries, not fabricating information, acknowledging failures, and grounding responses strictly in retrieved data.
+
+### Sublevel In The Iceberg of Prompting Framework
+
+|Sublevels|
+|---------|
+|8|
+
+### List And Show
+
+```bash
+pp list controls/pre/tools/web
+pp show controls/pre/tools/web/lookup
+```
+
+### Example
+
+```bash
+--pre tools/web/lookup
+```
+
+### Detailed Specification
+
+See: 🔗 [pre/tools/web/lookup](pre_tools_web_lookup.md)
+
+---
+
 ## Control: `post`/`limits`/`explain_like_12`
 
 ### Description
