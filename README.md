@@ -38,7 +38,7 @@ Designed for users who think in systems, not snippets.
 - 🧩 Variable injection  
 - 🎛 Fine-grained controls  
 - 💻 CLI workflow  
-- 🔌 Integrations: pipelines, Bash, Python & more  
+- 🔌 Integrations: AI agentic systems, pipelines, Bash, Python & more
 
 </details>
 
