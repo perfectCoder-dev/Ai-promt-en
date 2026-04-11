@@ -38,8 +38,11 @@ PromptNG follows a layered structure:
 Each layer has a distinct role:
 
 * **Pre (`--pre`)** establishes configuration and constraints
+
 * **Input (role/task/user)** introduces intent and potential conflicts
+
 * **Post (`--post`)** refines how the response is expressed
+
 * **Enforce (`--enforce`)** applies final validation and override rules
 
 > [!TIP]
@@ -175,12 +178,15 @@ Large language models operate within a finite **context window**, which defines 
 When prompts become extremely large:
 
 * **Important instructions may be truncated** if the total input exceeds the model’s capacity
+
 * **Earlier context (such as pre-controls)** may lose influence as newer tokens dominate the window
+
 * **Signal dilution occurs**, where critical instructions are buried within excessive detail
 
 In PromptNG, this is especially relevant because multiple layers are composed into a single prompt. Overloading the context window with too many controls, long descriptions, or verbose variables can reduce clarity and effectiveness.
 
-✔ **Guideline:** Keep prompts concise and prioritize high-impact controls. Avoid unnecessary verbosity in control definitions and inputs.
+> [!TIP] 
+Keep prompts concise and prioritize high-impact controls. Avoid unnecessary verbosity in control definitions and inputs.
 
 ### Attention Window
 
@@ -189,13 +195,17 @@ Even within the available context window, models do not treat all tokens equally
 With extremely detailed prompts:
 
 * **Instruction competition** can occur between control layers (e.g., `pre` vs `post`)
+
 * **Later or more explicit instructions** may override earlier ones unintentionally
+
 * **Conflicting or redundant controls** can fragment attention and reduce coherence
+
 * **Over-specification** can make the model less flexible, leading to rigid or unnatural outputs
 
 In PromptNG, this is particularly important because layered controls are designed to interact. If too many constraints are applied, or if they overlap semantically, the model may fail to properly balance them.
 
-✔ **Guideline:** Design control layers with clear separation of responsibility. Minimize overlap, avoid redundancy, and ensure that the most critical instructions are prominent and unambiguous.
+> [!IMPORTANT]
+Design control layers with clear separation of responsibility. Minimize overlap, avoid redundancy, and ensure that the most critical instructions are prominent and unambiguous.
 
 ---
 
@@ -326,7 +336,9 @@ Some behaviors can appear across.
 **Example**
 
 * Patterns (`step_by_step`, `plan_execute`)
+
 * Tasks (`compose_action`)
+
 * Post controls (`explain_like_12`)
 
 You must decide which one(s) you are going to use.
@@ -357,7 +369,9 @@ If you **do not want those behaviors**, you must remove them from you `build` `c
 Too many controls can make an agent:
 
 * Rigid
+
 * Over-specialized
+
 * Unable to generalize
 
 Avoid overly restrictive configurations unless necessary.
