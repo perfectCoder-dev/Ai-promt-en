@@ -38,7 +38,7 @@ Designed for users who think in systems, not snippets.
 - 🧩 Variable injection  
 - 🎛 Fine-grained controls  
 - 💻 CLI workflow  
-- 🔌 Integrations: Agentic AI systems, pipelines, Bash, Python & more
+- 📡🔌 Integrations: Agentic AI systems, pipelines, Bash, Python & more
 
 </details>
 
@@ -616,7 +616,7 @@ Users can explore guidelines and published Packs here:
 
 Once added, all components in a Pack become available through the CLI—giving you a complete, ready-to-use prompting system in seconds.
 
-## 🔌 Integrations
+## 🔌 Execution Integrations
 
 ### 🔧 Pipelines
 
