@@ -227,6 +227,10 @@ Built-in controls define behavior across the full execution lifecycle—before, 
 
 - 🔗 [tools_on](./prompts/controls/built-in_controls.md#control-pretoolstools_on)
 
+#### `pre/tools/web/`
+
+- 🔗 [lookup](./prompts/controls/built-in_controls.md#control-pretoolsweblookup)
+
 #### `post/limits`
 
 - 🔗 [explain_like_12](./prompts/controls/built-in_controls.md#control-postlimitsexplain_like_12)
