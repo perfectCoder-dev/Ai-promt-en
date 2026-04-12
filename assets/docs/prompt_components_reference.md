@@ -155,6 +155,14 @@ While roles determine how an agent behaves and patterns define how it reasons, t
 
 ---
 
+### 🔗 [Built-in Skills](./prompts/skills/built-in_skills.md)
+
+Built-in skills represent a collection of modular, reusable AI capabilities. Each skill, defined in its own SKILL.md, encapsulates a specific behavior or function following a single-responsibility approach. By isolating functionality into clearly defined units with consistent input/output expectations, skills can be composed, reused, and extended without duplicating logic, enabling a more maintainable and scalable system.
+
+- 🔗 [web-search](./prompts/skills/built-in_skills.md#skill-web-research)
+
+---
+
 ### 🔗 [Built-in Controls](./prompts/controls/built-in_controls.md)
 
 Built-in controls define behavior across the full execution lifecycle—before, during, and after response generation. They function as modular switches that control reasoning patterns, permissions, language handling, tool usage, and output shaping, enabling deterministic and composable behavior.
