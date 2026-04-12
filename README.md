@@ -20,6 +20,22 @@
   <strong>A control plane for composable AI prompting</strong>
 </p>
 
+<p align="center">
+  <a href="#-overview">Overview</a> ·
+  <a href="#-quick-install">Quick Install</a> ·
+  <a href="#-usage-examples">Usage Examples</a> ·
+  <a href="#-using---var-variables">Variables</a> ·
+  <a href="#-variable-sources">Sources</a> ·
+  <a href="#-save-prompts">Save</a> ·
+  <a href="#-types-of-tasks">Tasks</a> ·
+  <a href="#-tutorials">Tutorials</a> ·
+  <a href="#-references">References</a> ·
+  <a href="#-prompt-component-packs">Packs</a> ·
+  <a href="#-execution-integrations">Integrations</a> ·
+  <a href="#-contributions">Contributing</a> ·
+  <a href="#-license">License</a>
+</p>
+
 ## 📖 Overview
 
 Create ready-to-use, high-quality prompts with a single command 🚀
