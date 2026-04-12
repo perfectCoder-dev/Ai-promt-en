@@ -182,6 +182,16 @@ When both define overlapping capabilities, one may override or bypass the other 
 >
 > **Example**  
 > Control `controls/pre/tools/web/lookup` VS skill `skills/web_research/SKILL.md`.
+>
+> The `web_lookup` control and the `web-research` skill are not in conflict—they are complementary with some overlap. `web_lookup` is a simple, low-level tool that retrieves information based on a query, while `web-research` is a higher-level capability that builds on that idea by searching, cross-checking sources, and synthesizing a more reliable summary.
+>
+> In practice, `web_lookup` is best for quick facts or straightforward queries, whereas `web-research` is better for complex or uncertain topics that need validation and structured analysis. So, one acts as a basic building block, and the other as a more intelligent workflow that could even use the first internally.
+
+> [!TIP]
+Compare two or more prompt components using your preferred AI to determine whether they conflict, overlap, or complement each other. Validate how they behave together before relying on them in the same workflow.
+
+> [!TIP]
+Create a separate, focused prompt to test how components interact. This makes conflicts and overlaps easier to detect and reason about.
 
 ## Integrating With Codebases
 
