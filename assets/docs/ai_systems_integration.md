@@ -245,12 +245,16 @@ New-Item -ItemType SymbolicLink -Path "project\skills" -Target "C:\path\to\promp
 /path/to/promptng/prompts/skills/web_research/SKILL.md
 ```
 
-**PromptNG**
+**PromptNG commands**
 
 ```bash
 pp list skills/web-research/
 pp show skills/web-research/SKILL
 ```
+
+### Complete Skill documentation
+
+- 🔗 [web-search](./prompts/skills/built-in_skills.md#skill-web-research)
 
 ## Why This Matters
 
