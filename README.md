@@ -27,7 +27,7 @@
   <a href="#-using---var-variables">Variables</a> ·
   <a href="#-variable-sources">Sources</a> ·
   <a href="#-save-prompts">Save</a> ·
-  <a href="#-types-of-tasks">Tasks</a> ·
+  <a href="#%EF%B8%8F-types-of-tasks">Tasks</a> ·
   <a href="#-tutorials">Tutorials</a> ·
   <a href="#-references">References</a> ·
   <a href="#-prompt-component-packs">Packs</a> ·
