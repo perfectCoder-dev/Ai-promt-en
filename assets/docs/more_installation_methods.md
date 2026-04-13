@@ -37,6 +37,12 @@ Using pip:
 pip install promptng  # or pip3 or pip3.exe depending on your system
 ```
 
+### Install updated version
+
+```bash
+pip install --upgrade promptng
+```
+
 ## Use Your CLI Anywhere
 
 Once installed, you can call your CLI (pp) as if it were run from the terminal or import PromptNG in your programming language scripts.
