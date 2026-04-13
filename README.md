@@ -194,15 +194,7 @@ tutor
 ```
 
 > [!NOTE]
-> The `list` command can also be used with other parameters:
-> - `agents`
-> - `content`
-> - `controls`
-> - `pattern_groups`
-> - `patterns`
-> - `projects`
-> - `skills`
-> - `tasks`
+> The `list` command can also be used with these parameters: `agents`, `content`, `controls`, `pattern_groups`, `patterns`, `projects`, `skills`, `tasks`.
 
 > [!NOTE]
 > The `search` command can be used to quickly find built-in and custom prompt components in the `prompts` library.
