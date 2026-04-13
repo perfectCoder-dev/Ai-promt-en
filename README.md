@@ -202,7 +202,7 @@ tutor
 > - `patterns`
 > - `tasks`
 
-> [!NOTE] PromptNG Search
+> [!NOTE] PromptNG Search  
 > The `search` command can be used to quickly find built-in and custom prompt components in the `prompts` library.
 > 
 > It supports flexible matching and ranking, and is useful for discovering `roles`, `tasks`, `patterns`, and other reusable building blocks.
