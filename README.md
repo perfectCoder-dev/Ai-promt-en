@@ -200,6 +200,8 @@ tutor
 > - `controls`
 > - `pattern_groups`
 > - `patterns`
+> - `projects`
+> - `skills`
 > - `tasks`
 
 > [!NOTE]
