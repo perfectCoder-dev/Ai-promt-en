@@ -202,6 +202,20 @@ tutor
 > - `patterns`
 > - `tasks`
 
+> [!NOTE] PromptNG Search
+> The `search` command can be used to quickly find built-in and custom prompt components in the `prompts` library.
+> 
+> It supports flexible matching and ranking, and is useful for discovering `roles`, `tasks`, `patterns`, and other reusable building blocks.
+>
+>**Examples**
+> ```bash
+> # List all matches for “role”
+> pp search role
+> ```
+> This will return ranked results containing any items related to **“role”**, including filenames and content matches.
+>
+> For a full list of available CLI commands, refer to the official 🔗 [PromptNG Commands](assets/docs/command_usage.md#searching-components) documentation. 
+
 ### Workflows
 
 PromptNG supports two workflows:
