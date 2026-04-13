@@ -9,6 +9,25 @@
 | pp --theme dracula build math_tutor --var input="Explain recursion" |
 | pp --theme default compose --role tutor --task explain --pattern step_by_step --var input="Boolean algebra simplification" |
 
+## Searching Prompt Components
+
+| Command                                |
+| -------------------------------------- |
+| pp search math_tutor                   |
+| pp search guard                        |
+| pp search cs*                          |
+| pp search *tor                         |
+| pp search *config*                     |
+| pp search cs_                          |
+| pp search _instructor                  |
+| pp search "🌐 Web"                     |
+| pp search "🌐 Web Research"            |
+| pp search socratic --category agents   |
+| pp search socratic --category patterns |
+| pp search mode --limit 1               |
+| pp search mode --limit 8               |
+| pp search language --json              |
+
 ## Listing Prompt Component Categories With `show`
 
 | Command                             |

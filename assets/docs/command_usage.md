@@ -10,6 +10,10 @@ pp <command> [options]
 
 ```plaintext
 Commands:
+    search:
+        Search across components using flexible matching (exact, prefix, substring, wildcard).
+        Usage: pp [--theme THEME] search <query> [--category <name>] [--limit N] [--json]
+
     list:
         List available items in a given category.
         Usage: pp [--theme THEME] list <category>
@@ -31,6 +35,107 @@ Commands:
                                           [--var key=value] [--var-file key=path]
                                           [--var-dir key=dir] [--copy]
 ```
+
+## Searching Components
+
+Search across prompts, agents, and other components using flexible matching.
+
+### Usage
+
+```bash
+pp search <query> [--category <name>] [--limit N] [--json]
+```
+
+### Examples
+
+#### Complete Words
+
+```bash
+pp search math_tutor
+pp search guard
+```
+
+#### Wildcards
+
+```bash
+pp search cs*
+pp search *tor
+pp search *config*
+```
+
+#### Prefix / Suffix
+
+```bash
+pp search cs_
+pp search _instructor
+```
+
+#### Strings With Spaces
+
+```bash
+pp search "🌐 Web"
+pp search "🌐 Web Research"
+```
+
+#### Filter By Category
+
+```bash
+pp search socratic --category agents
+pp search socratic --category patterns
+```
+
+#### Limit Results
+
+```bash
+pp search mode --limit 1
+pp search mode --limit 8
+```
+
+#### JSON Output (Agent Mode)
+
+```bash
+pp search language --json
+```
+
+### Output Format
+
+```text
+[category] name  (score: X)
+  → /category/path
+```
+
+### Matching Behavior
+
+Results are ranked using a relevance **score**, based on how closely they match the query across filename, category, and content:
+
+* **Exact match (filename)** → highest score, heavily boosted
+* **Prefix match (filename)** → very high score
+* **Substring match (filename)** → medium score
+* **Content matches** → lower weight, cumulative
+* **Category matches** → small boost
+* **Wildcard match (`*`)** → flexible matching with adjusted scoring
+
+Additional boosts are applied when the query closely matches the **filename** or **category**, ensuring that the most relevant files appear first even if content is similar.
+
+**Example output (ordered by score)**
+
+```text
+[patterns] config              (score: 18.5)
+[patterns] config_loader       (score: 12.0)
+[patterns] app_config_loader   (score: 9.5)
+[patterns] legacy_sys_config   (score: 6.0)
+```
+
+> [!NOTE]
+Scores are relative and only meaningful within the same search.
+
+> [!NOTE]
+File content evaluation is limited to the first 2000 characters for performance.
+
+> [!NOTE]
+> Only files with supported extensions (`.md`, `.yaml`, `.json`, `.txt`) are scanned by `search`. Files without an extension are ignored.
+>
+> To include them, rename files like `my_component` to `my_component.yaml` or `my_component.md`.
 
 ## Listing Components
 

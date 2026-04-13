@@ -60,20 +60,21 @@ BASE_DIR = os.path.join(
 
 def load_text(category, name):
     """
-    Load and return the contents of a Markdown file from the prompts directory.
+    Loads the contents of a Markdown file from the specified category.
 
-    The file is resolved using BASE_DIR, the given category subdirectory,
-    and the provided name (with a `.md` extension).
+    Constructs a file path under BASE_DIR using the given category and name,
+    expecting a `.md` file. If the file exists, reads its contents, strips
+    leading and trailing whitespace, and returns the result.
 
     Args:
-        category (str): Subdirectory inside the prompts directory.
-        name (str): Name of the Markdown file (without extension).
+        category (str): The subdirectory under BASE_DIR where the file is located.
+        name (str): The name of the Markdown file (without the `.md` extension).
 
     Returns:
-        str: The stripped contents of the file.
+        str: The stripped contents of the Markdown file.
 
     Raises:
-        FileNotFoundError: If the constructed file path does not exist.
+        FileNotFoundError: If the specified file does not exist.
     """
     path = os.path.join(BASE_DIR, category, f"{name}.md")
     if not os.path.exists(path):
@@ -84,20 +85,21 @@ def load_text(category, name):
 
 def load_agent(name):
     """
-    Load and parse an agent configuration file bundled within the package.
+    Loads and parses an agent configuration from a packaged YAML file.
 
-    This function locates a YAML file inside the
-    "promptng.prompts.agents" package directory using importlib.resources.
-    It reads and safely parses the file into a Python data structure.
+    Locates the specified `.yaml` file within the
+    `promptng.prompts.agents` package using importlib.resources. If the
+    file exists, reads and safely parses its contents into a Python
+    data structure.
 
     Args:
-        name (str): The agent configuration filename (without the .yaml extension).
+        name (str): The agent configuration filename (without the `.yaml` extension).
 
     Returns:
         dict | list | Any: The parsed YAML content as a Python object.
 
     Raises:
-        FileNotFoundError: If the specified agent file does not exist in the package.
+        FileNotFoundError: If the specified agent file does not exist.
         ValueError: If the YAML file is empty or contains no valid data.
         yaml.YAMLError: If the YAML content cannot be parsed.
     """
@@ -116,21 +118,21 @@ def load_agent(name):
 
 def load_pattern_group(name):
     """
-    Load and parse a pattern group configuration from the pattern_groups directory.
+    Loads and parses a pattern group configuration from a YAML file.
 
-    Pattern group files are expected to be stored under BASE_DIR/prompts/pattern_groups
-    with a `.yaml` extension. If the specified file does not exist, the function
-    returns None instead of raising an exception.
+    Constructs a file path under BASE_DIR/pattern_groups using the given
+    name. If the file exists, reads and safely parses its contents into
+    a Python data structure. If the file does not exist, returns None.
 
     Args:
-        name (str): The pattern group filename (without extension).
+        name (str): The pattern group filename (without the `.yaml` extension).
 
     Returns:
-        dict | list | Any | None: The parsed YAML content as a Python data
-        structure, or None if the file does not exist.
+        dict | list | Any | None: The parsed YAML content as a Python object,
+        or None if the file does not exist.
 
     Raises:
-        yaml.YAMLError: If the YAML file exists but cannot be parsed.
+        yaml.YAMLError: If the YAML content cannot be parsed.
     """
     path = os.path.join(
         BASE_DIR, "pattern_groups", f"{name}.yaml"
@@ -143,15 +145,16 @@ def load_pattern_group(name):
 
 def load_control(control_type, name):
     """
-    Load the content of a control file by name and type.
+    Loads the contents of a control file by type and name.
 
-    The function searches for a Markdown file in the following order:
-    1. Flat structure: controls/<control_type>/<name>.md
-    2. Nested structure: controls/<control_type>/**/<name>.md (recursive)
+    Searches for a `.md` file under BASE_DIR/controls/<control_type> using
+    two strategies: first checks a flat structure, then performs a recursive
+    search through subdirectories. If a matching file is found, reads its
+    contents, strips leading and trailing whitespace, and returns the result.
 
     Args:
         control_type (str): The control category (e.g., "pre", "post").
-        name (str): The name of the control file (without extension).
+        name (str): The name of the control file (without the `.md` extension).
 
     Returns:
         str: The stripped contents of the matched control file.
@@ -179,10 +182,10 @@ def load_control(control_type, name):
 
 def load_controls(control_type, control_list):
     """
-    Load multiple control files and return their contents as a list.
+    Loads multiple control files and returns their contents as a list.
 
-    Iterates over the provided control names and retrieves each control
-    using `load_control`. If the list is empty or None, an empty list is returned.
+    Iterates over the provided control names and loads each one using
+    `load_control`. If the input list is None or empty, returns an empty list.
 
     Args:
         control_type (str): The control category (e.g., "pre", "post").
@@ -194,7 +197,7 @@ def load_controls(control_type, control_list):
         in the same order as provided.
 
     Raises:
-        FileNotFoundError: If any control in the list cannot be found.
+        FileNotFoundError: If any control file cannot be found.
     """
     parts = []
 
@@ -209,25 +212,21 @@ def load_controls(control_type, control_list):
 
 def resolve_patterns(pattern_list, seen=None):
     """
-    Recursively resolve and expand pattern groups into a flat list of patterns.
+    Resolves and expands pattern groups into a flat list of patterns.
 
-    For each entry in `pattern_list`, the function checks whether it refers
-    to a pattern group (via `load_pattern_group`). If so, the group's
-    subpatterns are recursively expanded. If not, the pattern is treated
-    as a leaf and appended to the result.
-
-    A `seen` set is used to track already-visited group names in order
-    to prevent infinite recursion caused by circular references.
+    Iterates over the provided pattern list and checks whether each entry
+    corresponds to a pattern group. If a group is found, recursively expands
+    its subpatterns. Otherwise, treats the entry as a leaf pattern and includes
+    it in the result. Tracks visited groups to prevent infinite recursion
+    caused by circular references.
 
     Args:
-        pattern_list (list[str] | None): A list of pattern names or group names
-            to resolve. If None or empty, an empty list is returned.
-        seen (set[str] | None): Internal tracking set of visited group names
-            used to prevent cyclic expansion. Intended for recursive use.
+        pattern_list (list[str] | None): A list of pattern or group names to resolve.
+        seen (set[str] | None): A set of already visited group names used to
+            prevent cyclic expansion. Intended for internal recursive use.
 
     Returns:
-        list[str]: A flattened list of resolved pattern names with all
-        groups recursively expanded.
+        list[str]: A flattened list of resolved pattern names.
     """
     if seen is None:
         seen = set()
@@ -256,44 +255,29 @@ def resolve_patterns(pattern_list, seen=None):
 # ------------------------------------------------------------------------------
 def compose_from_agent(agent_name, cli_pre=None, cli_post=None, cli_enforce=None):
     """
-    Compose a complete prompt string from an agent definition and optional CLI controls.
+    Composes a complete prompt from an agent definition and optional CLI controls.
 
-    This function loads an agent configuration (typically from a YAML file) and builds
-    a structured prompt by combining predefined control blocks (pre, post, enforce),
-    core role/task content, and optional pattern-based expansions. CLI-provided controls
-    are appended to the agent-defined controls, allowing runtime extension or override.
+    Loads the specified agent configuration and builds a structured prompt by
+    combining control blocks, core role and task content, and optional pattern
+    expansions. Merges agent-defined controls with CLI-provided controls, with
+    CLI values appended to the agent configuration.
+
+    Assembles the final prompt in the following order:
+        pre → role → task → patterns → post → enforce
 
     Args:
-        agent_name (str): Name or identifier of the agent to load.
+        agent_name (str): The name of the agent configuration to load.
         cli_pre (list[str] | None): Optional list of "pre" control names provided via CLI.
         cli_post (list[str] | None): Optional list of "post" control names provided via CLI.
         cli_enforce (list[str] | None): Optional list of "enforce" control names provided via CLI.
 
     Returns:
-        str: The fully composed prompt as a single string, with sections separated by
-        double newlines.
-
-    Behavior:
-        - Loads agent configuration using `load_agent`.
-        - Extracts control groups (`pre`, `post`, `enforce`) from the agent.
-        - Merges agent controls with CLI controls (CLI values are appended).
-        - Resolves and loads control content using `load_controls`.
-        - Loads core sections:
-            - role (from "roles")
-            - task (from "tasks")
-        - Resolves optional patterns via `resolve_patterns` and loads their content.
-        - Assembles all parts in the following order:
-            pre → role → task → patterns → post → enforce.
-
-    Notes:
-        - Missing control lists default to empty lists.
-        - The order of concatenation is preserved and significant.
-        - External helper functions (`load_agent`, `load_controls`, `load_text`,
-          `resolve_patterns`) are expected to handle validation and I/O.
+        str: The fully composed prompt as a single string, with sections
+        separated by double newlines.
 
     Raises:
         KeyError: If required agent fields (e.g., "role", "task") are missing.
-        Exception: Propagates any errors raised by helper functions.
+        Exception: Propagates errors raised by helper functions.
     """
     agent = load_agent(agent_name)
 
@@ -341,43 +325,30 @@ def compose_from_agent(agent_name, cli_pre=None, cli_post=None, cli_enforce=None
 
 def compose_manual(role, task, patterns, cli_pre=None, cli_post=None, cli_enforce=None):
     """
-    Compose a complete prompt string manually from role, task, patterns, and CLI controls.
+    Composes a complete prompt from manually provided inputs and CLI controls.
 
-    Unlike agent-based composition, this function does not rely on an external agent
-    configuration. Instead, all inputs are provided directly, and only CLI-specified
-    controls are applied.
+    Builds a structured prompt using the given role, task, and patterns,
+    along with optional control blocks specified via CLI. Does not rely on
+    an agent configuration. Resolves patterns recursively and loads their
+    content before assembling the final prompt.
+
+    Assembles the final prompt in the following order:
+        pre → role → task → patterns → post → enforce
 
     Args:
-        role (str | None): Identifier for the role content to load. If provided,
-            the corresponding text is retrieved via `load_text("roles", role)`.
-        task (str | None): Identifier for the task content to load. If provided,
-            the corresponding text is retrieved via `load_text("tasks", task)`.
-        patterns (list[str] | None): List of pattern identifiers to resolve and
-            include in the prompt.
-        cli_pre (list[str] | None): Optional list of "pre" control names provided via CLI.
-        cli_post (list[str] | None): Optional list of "post" control names provided via CLI.
-        cli_enforce (list[str] | None): Optional list of "enforce" control names provided via CLI.
+        role (str | None): The role identifier to load, or None to omit.
+        task (str | None): The task identifier to load, or None to omit.
+        patterns (list[str] | None): A list of pattern or group names to resolve.
+        cli_pre (list[str] | None): Optional list of "pre" control names.
+        cli_post (list[str] | None): Optional list of "post" control names.
+        cli_enforce (list[str] | None): Optional list of "enforce" control names.
 
     Returns:
-        str: The fully composed prompt as a single string, with sections separated
-        by double newlines.
-
-    Behavior:
-        - Loads control content using `load_controls` for each control group.
-        - Adds "pre" controls at the beginning of the prompt.
-        - Conditionally includes role and task sections if provided.
-        - Resolves patterns using `resolve_patterns` and loads their content.
-        - Appends "post" and "enforce" controls at the end of the prompt.
-        - Preserves the order: pre → role → task → patterns → post → enforce.
-
-    Notes:
-        - Any of the inputs may be omitted (None), and will be safely ignored.
-        - The order of sections is significant and affects the final prompt structure.
-        - External helper functions (`load_controls`, `load_text`, `resolve_patterns`)
-          are responsible for content retrieval and validation.
+        str: The fully composed prompt as a single string, with sections
+        separated by double newlines.
 
     Raises:
-        Exception: Propagates any errors raised by helper functions.
+        Exception: Propagates errors raised by helper functions.
     """
     parts = []
 
@@ -416,25 +387,21 @@ def compose_manual(role, task, patterns, cli_pre=None, cli_post=None, cli_enforc
 
 def render_prompt(prompt_text, variables):
     """
-    Render a prompt template using the provided variables.
+    Renders a prompt template using the provided variables.
 
-    The function creates a Template instance from the given prompt text
-    and renders it by injecting the supplied variables as keyword
-    arguments.
+    Creates a Jinja2 Template from the given prompt text and renders it
+    by injecting the supplied variables as keyword arguments.
 
     Args:
-        prompt_text (str): The raw template string containing placeholders.
-        variables (dict): A dictionary of values to substitute into the
-            template. Keys must match the placeholder names defined in
-            the template.
+        prompt_text (str): The template string containing placeholders.
+        variables (dict): A mapping of values to substitute into the template.
 
     Returns:
-        str: The rendered prompt string with all placeholders replaced.
+        str: The rendered prompt with all placeholders replaced.
 
     Raises:
-        TypeError: If `variables` is not a mapping suitable for unpacking.
-        Exception: Any rendering-related error raised by the Template
-            engine (e.g., undefined variables or syntax issues).
+        TypeError: If variables is not a mapping suitable for unpacking.
+        Exception: Propagates any template rendering errors.
     """
     template = Template(prompt_text)
     return template.render(**variables)
@@ -446,31 +413,25 @@ def render_prompt(prompt_text, variables):
 
 def list_category(category):
     """
-    List subcategories and items within a given category path.
+    Lists subcategories and items within a given category path.
 
-    This function inspects the directory located under BASE_DIR using the
-    provided category path, which may refer to either a top-level category
-    or a nested subdirectory (e.g., "controls/pre"). It prints all immediate
-    entries in sorted order.
-
-    - Subdirectories are treated as subcategories and displayed with a
-      trailing slash (e.g., "pre/").
-    - Files with `.md` or `.yaml` extensions are treated as items and are
-      displayed without their file extensions.
-
-    If the specified path does not exist, a message is printed and the
-    function exits without raising an exception.
+    Inspects the directory under BASE_DIR corresponding to the provided
+    category and prints its immediate contents in sorted order.
+    Subdirectories are displayed with a trailing slash, while `.md` and
+    `.yaml` files are displayed without their file extensions.
 
     Args:
         category (str): The category or subcategory path relative to BASE_DIR.
 
     Returns:
-        None: Results are printed directly to standard output.
+        None
 
     Notes:
-        - Only the immediate contents of the directory are listed; this
-          function does not perform recursive traversal.
-        - Output is intended for CLI display and not structured for parsing.
+        Prints results directly to standard output.
+        Does not perform recursive traversal.
+
+    Behavior:
+        Prints "Category not found." if the specified path does not exist.
     """
     path = os.path.join(BASE_DIR, category)
 
@@ -492,23 +453,23 @@ def list_category(category):
 
 def render_output(content, theme="dracula"):
     """
-    Render formatted content to the console using Rich syntax highlighting.
+    Renders formatted content to the console with syntax highlighting.
 
-    The function automatically detects whether the content should be rendered
-    as Jinja or Markdown based on the presence of template delimiters
-    ("{{", "{%"). It then applies syntax highlighting using the specified
-    Rich theme.
+    Determines the appropriate lexer based on the presence of Jinja
+    template delimiters and applies syntax highlighting using the
+    specified Rich theme. Outputs the formatted content directly
+    to the console.
 
     Args:
-        content (str): The text content to render in the console.
-        theme (str, optional): The Rich syntax highlighting theme to use.
+        content (str): The text content to render.
+        theme (str, optional): The syntax highlighting theme to use.
             Defaults to "dracula".
 
     Returns:
         None
 
     Raises:
-        Any exceptions raised by Rich during rendering.
+        Exception: Propagates any errors raised during rendering.
     """
     lexer = "jinja" if "{{" in content or "{%" in content else "markdown"
 
@@ -525,28 +486,26 @@ def render_output(content, theme="dracula"):
 
 def show_path(path, theme="dracula"):
     """
-    Display the contents of a file located under the base directory.
+    Displays the contents of a file located under the base directory.
 
-    This function resolves the given path relative to BASE_DIR and attempts
-    to locate a corresponding ".md" or ".yaml" file. If found, the file is
-    read and rendered to the console using syntax highlighting via
-    `render_output`.
-
-    If the path points to a directory, a message is shown suggesting the
-    use of a listing command instead. If no matching file is found, the
-    function suggests nearby items from the same parent directory.
+    Resolves the given path relative to BASE_DIR and attempts to locate
+    a corresponding `.md` or `.yaml` file. If found, reads and renders
+    the file content using syntax highlighting. If the path refers to a
+    directory, prints a message suggesting the use of the list command.
+    If no file is found, suggests nearby items from the same parent directory.
 
     Args:
         path (str): The relative path (without extension) to the target file.
-        theme (str, optional): The Rich syntax highlighting theme to use.
+        theme (str, optional): The syntax highlighting theme to use.
             Defaults to "dracula".
 
     Returns:
         None
 
-    Raises:
-        FileNotFoundError: Not raised directly, but handled internally by
-            displaying suggestions when the file is not found.
+    Behavior:
+        Prints a message if the path is a directory.
+        Prints suggestions if the file is not found.
+        Outputs content directly to the console.
     """
     base_path = os.path.join(BASE_DIR, path)
 
@@ -588,23 +547,20 @@ def show_path(path, theme="dracula"):
 
 def copy_to_clipboard(text):
     """
-    Copy the given text to the system clipboard.
+    Copies the given text to the system clipboard.
 
-    This function uses the `pyperclip` library to place the provided
-    string into the clipboard, making it available for pasting in
-    other applications. A confirmation message is printed after
-    the operation completes.
+    Uses the pyperclip library to place the provided text into the
+    clipboard, making it available for pasting in other applications.
+    Prints a confirmation message after the operation completes.
 
     Args:
         text (str): The text content to copy to the clipboard.
 
     Returns:
-        None: The function performs a side effect (clipboard update)
-        and prints a confirmation message.
+        None
 
     Raises:
-        pyperclip.PyperclipException: If the clipboard operation fails
-        (e.g., missing system dependencies or unsupported platform).
+        pyperclip.PyperclipException: If the clipboard operation fails.
     """
     pyperclip.copy(text)
     print("Prompt copied to clipboard.")
@@ -616,13 +572,17 @@ def copy_to_clipboard(text):
 
 def main():
     """
-    Entry point for the PromptNG CLI (`pp`).
+    Serves as the entry point for the PromptNG CLI (`pp`).
 
-    This function defines and parses command-line arguments, dispatches commands,
-    composes prompts (either from an agent or manually), processes variable inputs,
-    renders the final prompt, and outputs or copies the result.
+    Defines and parses command-line arguments, dispatches commands, composes prompts (either
+    from an agent or manually), processes variable inputs, renders the final prompt, and outputs
+    or copies the result.
 
     Commands:
+        search:
+            Search across components using flexible matching (exact, prefix, substring, wildcard).
+            Usage: pp [--theme THEME] search <query> [--category <name>] [--limit N] [--json]
+
         list:
             List available items in a given category.
             Usage: pp [--theme THEME] list <category>
@@ -668,6 +628,7 @@ def main():
     Behavior:
         - Parses CLI arguments using `argparse`.
         - Dispatches to the appropriate command handler.
+        - Executes search queries with ranked matching when `search` is used.
         - Composes the prompt via `compose_from_agent` or `compose_manual`.
         - Resolves and injects variables into the prompt.
         - Outputs the rendered prompt using `render_output`, or copies it to
@@ -675,6 +636,7 @@ def main():
 
     Notes:
         - Command execution stops early for `list` and `show`.
+        - Search results can be formatted for humans or emitted as JSON.
         - File and directory resolution includes fallback strategies and
           user-friendly suggestions.
         - External helper functions are responsible for I/O, rendering,
@@ -693,6 +655,13 @@ def main():
     help="Syntax highlighting theme (e.g., dracula, monokai, default)"
 )
     subparsers = parser.add_subparsers(dest="command")
+
+    # Search
+    search_parser = subparsers.add_parser("search")
+    search_parser.add_argument("query")
+    search_parser.add_argument("--category")
+    search_parser.add_argument("--limit", type=int, default=10)
+    search_parser.add_argument("--json", action="store_true")
 
     # list
     list_parser = subparsers.add_parser("list")
@@ -730,6 +699,23 @@ def main():
     # Parse
     # --------------------------------------------------------------------------
     args = parser.parse_args()
+
+    # --------------------------------------------------------------------------
+    # Search
+    # --------------------------------------------------------------------------
+    if args.command == "search":
+        # lazy import inside the command handler, which is technically fine, but
+        # there are trade-offs.
+        from .search import search, print_human
+        results = search(args.query, args.category, args.limit)
+
+        if args.json:
+            import json
+            print(json.dumps(results, indent=2))
+        else:
+            print_human(results)
+
+        return
 
     # --------------------------------------------------------------------------
     # List
