@@ -1,4 +1,4 @@
-# PromptNG Command Syntax
+# PromptNG Command Usage
 
 ## General Structure
 
@@ -6,7 +6,7 @@
 pp <command> [options]
 ```
 
-## Commands Overview (Quick Reference)
+## Command Syntax (Quick Reference)
 
 ```plaintext
 Commands:
@@ -38,7 +38,9 @@ Commands:
 
 ## Searching Components
 
-Search across prompts, agents, and other components using flexible matching.
+Search across `agents`, `content`, `controls`, `pattern_groups`, `patterns`, `projects`, `skills`, and `tasks` components using flexible matching.
+
+It supports ranking, and is useful for discovering reusable building blocks.
 
 ### Usage
 
@@ -75,6 +77,12 @@ pp search _instructor
 ```bash
 pp search "🌐 Web"
 pp search "🌐 Web Research"
+```
+
+#### Multi-Keyword Search
+
+```bash
+pp search "config math web"
 ```
 
 #### Filter By Category

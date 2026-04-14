@@ -310,7 +310,7 @@ def print_human(results):
 
         print(
             f"[{r['category']}] {r['name']}  (score: {round(r['score'], 2)})\n"
-            f"  → /{clean_path}"
+            f"  → {clean_path}"
         )
 
 
