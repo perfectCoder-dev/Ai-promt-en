@@ -5,7 +5,7 @@
 | Command                                                             |
 |---------------------------------------------------------------------|
 | pp --theme monokai show tasks/explain                               |
-| pp --theme friendly show content/dev/testing/boundary_edge_cases |
+| pp --theme friendly show content/dev/testing/boundary_edge_cases    |
 | pp --theme dracula build math_tutor --var input="Explain recursion" |
 | pp --theme default compose --role tutor --task explain --pattern step_by_step --var input="Boolean algebra simplification" |
 
@@ -22,6 +22,7 @@
 | pp search _instructor                  |
 | pp search "🌐 Web"                     |
 | pp search "🌐 Web Research"            |
+| pp search "config math web"            |
 | pp search socratic --category agents   |
 | pp search socratic --category patterns |
 | pp search mode --limit 1               |
@@ -44,7 +45,7 @@
 | pp list pattern_groups              |
 | pp list patterns                    |
 | pp list tasks                       |
-| pp list roles | grep -E 'te|utor' |
+| pp list roles | grep -E 'te|utor'   |
 | pp list controls/pre/mode           |
 | pp list controls/post/translation   |
 | pp list controls/post/limits        |
@@ -117,8 +118,8 @@
 
 ## Pipelines
 
-| Command                                                                               |
-|---------------------------------------------------------------------------------------|
+| Command                                                                             |
+|-------------------------------------------------------------------------------------|
 | pp build math_tutor --var input="Explain recursion" | ollama run llama3 | espeak-ng |
 
 ## Bash Scripting
