@@ -78,7 +78,7 @@
 | pp compose --role executor               |
 | pp compose --task action                 |
 
-## ## Search → Show
+## ## `search` → `show` Component Content
 
 | Command                                                                        |
 |--------------------------------------------------------------------------------|
