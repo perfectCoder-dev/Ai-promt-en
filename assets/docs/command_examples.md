@@ -78,12 +78,21 @@
 | pp compose --role executor               |
 | pp compose --task action                 |
 
-## ## `search` → `show` Component Content
+## `search` → `show`: Filtering Patterns In Component Content
 
-| Command                                                                        |
-|--------------------------------------------------------------------------------|
-| pp show controls/enforce/config/configurations_guard_hardened | grep role      |
-| pp show controls/enforce/config/configurations_guard_hardened | findstr 'role' |
+After running:
+
+```bash
+# Search for "role"
+pp search role
+```
+
+Use one of the following commands to filter results:
+
+| Platform   | Command                                                                         |
+| ---------- | ------------------------------------------------------------------------------- |
+| Unix/Linux | pp show controls/enforce/config/configurations_guard_hardened \| grep role      |
+| Windows    | pp show controls/enforce/config/configurations_guard_hardened \| findstr "role" |
 
 ## Generating Prompts With `build`
 
