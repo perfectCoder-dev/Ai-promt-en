@@ -49,10 +49,18 @@ pp list content/dev/testing | more
 
 > [!TIP]
 > You can filter lists using command-line tools such as `grep` to locate components whose names match a specific pattern.
-> 
 > ```bash
 > pp list roles | grep -E 'te|utor'
 > ```
+
+> [!TIP]
+> Use `search` to find prompt components in `prompts`.
+> ```bash
+> pp search role
+> ```
+>
+> Returns ranked matches (names + content).  
+> See 🔗 [PromptNG Commands](command_usage.md#searching-components) for more.
 
 ### Creating Prompt Components
 
