@@ -1,6 +1,6 @@
 # More Installation Options
 
-## More uv Options
+## More `uv` Options
 
 ### Install Specific Python Versions
 
@@ -10,19 +10,25 @@ In the previous installation step, you can specify a Python version after the `i
 uv python install 3.14
 ```
 
-### PromptNG Uninstallation
+### Uninstallation
 
 ```bash
 uv tool uninstall promptng
 ```
 
-## Local Installation With `pip`
+## More `pip` Options
 
-Using pip:
+### Local Installation With `pip`
 
 ```bash
 cd prompt-ng
 pip install .  # or pip3 or pip3.exe depending on your system
+```
+
+### Uninstallation
+
+```bash
+pip uninstall promptng
 ```
 
 ## Use Your CLI Anywhere
