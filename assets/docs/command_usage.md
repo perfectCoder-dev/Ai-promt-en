@@ -242,6 +242,22 @@ pp show controls/pre/mode/agent
 pp show controls/post/truth/say_dont_know
 ```
 
+## Search → Show
+
+```bash
+# Search for "role"
+pp search role
+
+# If a result isn’t a direct file/dir name,
+# copy its path into `show` and add the filter at the end
+
+# Linux / macOS
+pp show controls/enforce/config/configurations_guard_hardened | grep role
+
+# Windows (PowerShell)
+pp show controls/enforce/config/configurations_guard_hardened | findstr 'role'
+```
+
 ## Theme Selection (Output Styling)
 
 ```bash

@@ -37,18 +37,21 @@
 
 ## Listing Prompt Components
 
-| Command                             |
-|-------------------------------------|
-| pp list roles                       |
-| pp list roles/dev                   |
-| pp list agents                      |
-| pp list pattern_groups              |
-| pp list patterns                    |
-| pp list tasks                       |
-| pp list roles | grep -E 'te|utor'   |
-| pp list controls/pre/mode           |
-| pp list controls/post/translation   |
-| pp list controls/post/limits        |
+| Command                                          |
+|--------------------------------------------------|
+| pp list roles                                    |
+| pp list roles/dev                                |
+| pp list agents                                   |
+| pp list pattern_groups                           |
+| pp list patterns                                 |
+| pp list tasks                                    |
+| pp list roles | grep ins                         |
+| pp list roles | findstr 'ins'                    |
+| pp list roles | grep -E 'te|utor'                |
+| pp list roles | Select-String -Pattern "te|utor" |
+| pp list controls/pre/mode                        |
+| pp list controls/post/translation                |
+| pp list controls/post/limits                     |
 
 ## Showing Prompt Components
 
@@ -74,6 +77,22 @@
 | pp compose --pattern didactic_structured |
 | pp compose --role executor               |
 | pp compose --task action                 |
+
+## `search` → `show`: Filtering Patterns In Component Content
+
+After running:
+
+```bash
+# Search for "role"
+pp search role
+```
+
+Use one of the following commands to filter results:
+
+| Platform   | Command                                                                         |
+| ---------- | ------------------------------------------------------------------------------- |
+| Unix/Linux | pp show controls/enforce/config/configurations_guard_hardened \| grep role      |
+| Windows    | pp show controls/enforce/config/configurations_guard_hardened \| findstr "role" |
 
 ## Generating Prompts With `build`
 
