@@ -1,5 +1,9 @@
 # PromptNG Command Usage
 
+## Command Examples
+
+🔗 [Command Examples](./command_examples.md)
+
 ## General Structure
 
 ```bash
@@ -435,7 +439,3 @@ pp build math_tutor --var input="Explain ${topic} in ${language}"
   --var → --var-file → --var-dir
   ```
 * Output is plain text, enabling seamless Unix-style composition.
-
-## Command Examples
-
-🔗 [Command Examples](./command_examples.md)
