@@ -58,7 +58,6 @@ pp list content/dev/testing | more
 > ```bash
 > pp search role
 > ```
->
 > Returns ranked matches (names + content).  
 > See 🔗 [PromptNG Commands](command_usage.md#searching-components) for more.
 
