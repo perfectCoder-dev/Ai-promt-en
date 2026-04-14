@@ -19,7 +19,9 @@ prompts
 ├── controls
 ├── pattern_groups
 ├── patterns
+├── projects
 ├── roles
+├── skills
 └── tasks
 ```
 
@@ -34,7 +36,7 @@ To list components within a specific category, use:
 **Syntax**
 
 ```bash
-pp list <agents|content|controls|pattern_groups|patterns|roles|tasks>
+pp list <agents|roles|content|controls|pattern_groups|patterns|tasks|skills|projects>
 ```
 
 **Examples**
@@ -54,19 +56,11 @@ pp list content/dev/testing | more
 
 ### Creating Prompt Components
 
-Refer to the following guides for creating new components:
+Refer to the following documentation when creating prompt components.
 
-- Agents, roles, tasks, and patterns:
+🔗 [Tutorials](../../README.md#-tutorials)
 
-  🔗 [ Agents, Roles, Tasks, and Patterns](creating_new_prompt_components.md)
- 
-- Pattern groups:
-
-  🔗 [Creating And Using Pattern Groups](create_and_use_a_pattern_group.md)
- 
-- Control layers:
-
-  🔗 [Prompt Control Layers](prompt_control_layers.md)
+🔗 [References](../../README.md#-references)
 
 ## Built-in Components
 

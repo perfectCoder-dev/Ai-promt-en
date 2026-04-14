@@ -76,7 +76,7 @@ Let’s say you want:
 #### List The Available Components
 
 ```bash
-pp list <agents|content|controls|pattern_groups|patterns|roles|tasks>
+pp list <agents|roles|content|controls|pattern_groups|patterns|tasks|skills|projects>
 ```
 
 Example output (varies depending on the component type):

@@ -140,10 +140,12 @@ Scores are relative and only meaningful within the same search.
 > [!NOTE]
 File content evaluation is limited to the first 2000 characters for performance.
 
-> [!NOTE]
-> Only files with supported extensions (`.md`, `.yaml`, `.json`, `.txt`) are scanned by `search`. Files without an extension are ignored.
->
-> To include them, rename files like `my_component` to `my_component.yaml` or `my_component.md`.
+> [!TIP]
+> Use only supported file extensions: `.md`, `.yaml`, `.txt`.  
+> While `.yml` and `.json` are scanned by `search`, they are not officially supported.
+> 
+> Files without an extension are ignored.  
+> Rename files like `my_component` → `my_component.yaml` or `my_component.md` to include them.
 
 ## Listing Components
 
@@ -160,6 +162,8 @@ pp list <category>
 - `pattern_groups` → Pattern groups
 - `patterns` → Reasoning/output patterns
 - `tasks` → Task definitions
+- `skills` → Reusable AI capabilities (SKILL.md)
+- `projects` → Project-level containers for agents.md and SKILL.md files
 
 **Example**
 
