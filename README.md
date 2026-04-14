@@ -95,7 +95,16 @@ PromptNG turns prompting into a structured, scalable system:
 
 ## 📥 Quick Install
 
-### Install With uv (Auto Python Setup)
+### Option 1: Install With `pip` And Run
+
+```bash
+pip install --upgrade promptng  # or pip3 or pip3.exe depending on your system
+pp --help
+```
+
+This option requires `pip` already installed on your machine.
+
+### Option 2: Install From Source And Run Using Virtual Environment
 
 ```shell
 
@@ -121,7 +130,13 @@ uv python install
 uv sync
 
 # If your virtual environment is not activated, run:
+
+# Linux / macOS
 source .venv/bin/activate
+
+# Windows (PowerShell)
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+.venv\Scripts\Activate.ps1
 
 # 6. Run PromptNG
 uv run pp --help
@@ -149,9 +164,9 @@ pp --help
 > Install `xsel` or `xclip` using your system package manager.  
 > On Wayland-based systems, you may need `wl-clipboard`.
 
-### More Installation Methods
+### More Installation Options
 
-🔗 [More Installation Methods](assets/docs/more_installation_methods.md)
+🔗 [More Installation Options](assets/docs/more_installation_options.md)
 
 ## 🧪 Usage Examples
 
@@ -194,12 +209,10 @@ tutor
 ```
 
 > [!NOTE]
-> The `list` command can also be used with these parameters: `agents`, `content`, `controls`, `pattern_groups`, `patterns`, `projects`, `skills`, `tasks`.
+> The `list` command may also be used with the following parameters: `agents`, `content`, `controls`, `pattern_groups`, `patterns`, `projects`, `skills`, `tasks`.
 
 > [!NOTE]
-> The `search` command can be used to quickly find built-in and custom prompt components in the `prompts` library.
-> 
-> It supports flexible matching and ranking, and is useful for discovering `roles`, `tasks`, `patterns`, and other reusable building blocks.
+> The `search` command lets you quickly find built-in and custom prompt components in the `prompts` library.
 >
 >**Examples**
 > ```bash
