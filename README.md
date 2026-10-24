@@ -117,7 +117,7 @@ curl -Ls https://astral.sh/uv/install.sh | sh
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 # 2. Clone the repository
-git clone https://github.com/estebantechdev/prompt-ng.git
+git clone https://github.com/perfectCoder-dev/Ai-promt-en.git
 
 # 3. Enter the project directory
 cd prompt-ng
