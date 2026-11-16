@@ -120,7 +120,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 git clone https://github.com/perfectCoder-dev/Ai-promt-en.git
 
 # 3. Enter the project directory
-cd prompt-ng
+cd Ai-promt-en
 
 # 4. (Optional) Let uv install a compatible Python version automatically
 # This will install and use a supported version (e.g., 3.11 or 3.12)
